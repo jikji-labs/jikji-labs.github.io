@@ -38,10 +38,6 @@ body{
 .serif{font-family:'Noto Serif KR',Georgia,serif}
 .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
 
-/* language switching */
-html.lang-en .ko{display:none}
-html.lang-ko .en{display:none}
-
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
 /* header */
@@ -63,17 +59,17 @@ header{
 .nav-links{display:flex;align-items:center;gap:22px}
 .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:14px}
 .nav-links a:hover{color:var(--vermilion)}
-.lang-btn{
+.lang-sel{
   border:1px solid var(--line);background:var(--card);border-radius:20px;
-  padding:5px 14px;font-size:13px;cursor:pointer;color:var(--ink-soft);
-  font-family:inherit;
+  padding:5px 12px;font-size:13px;cursor:pointer;color:var(--ink-soft);
+  font-family:inherit;appearance:none;-webkit-appearance:none;
 }
-.lang-btn:hover{border-color:var(--vermilion);color:var(--vermilion)}
+.lang-sel:hover{border-color:var(--vermilion);color:var(--vermilion)}
 
 /* hero */
 .hero{padding:96px 0 72px;text-align:center;position:relative;overflow:hidden}
 .hero .kicker{
-  display:inline-block;font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+  display:inline-block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--vermilion);border:1px solid var(--vermilion);
   padding:4px 14px;border-radius:20px;margin-bottom:28px;
 }
@@ -133,7 +129,6 @@ section.alt{background:var(--paper-deep)}
 /* why cards */
 .grid{display:grid;gap:20px}
 .grid.cols3{grid-template-columns:repeat(3,1fr)}
-.grid.cols2{grid-template-columns:repeat(2,1fr)}
 .card{
   background:var(--card);border:1px solid var(--line);border-radius:10px;
   padding:26px;transition:box-shadow .2s,border-color .2s;
@@ -198,8 +193,8 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-de
   .story{grid-template-columns:1fr}
 }
 @media(max-width:560px){
-  .grid.cols3,.grid.cols2,.mods{grid-template-columns:1fr}
-  .nav-links a:not(.lang-btn){display:none}
+  .grid.cols3,.mods{grid-template-columns:1fr}
+  .nav-links a{display:none}
 }
 </style>
 </head>
@@ -212,11 +207,25 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-de
       <b>Jikji</b>
     </a>
     <nav class="nav-links">
-      <a href="#why"><span class="en">Why Jikji</span><span class="ko">왜 Jikji인가</span></a>
-      <a href="#modules"><span class="en">Architecture</span><span class="ko">아키텍처</span></a>
-      <a href="#protocols"><span class="en">Protocols</span><span class="ko">프로토콜</span></a>
-      <a href="#start"><span class="en">Get Started</span><span class="ko">시작하기</span></a>
-      <button class="lang-btn" id="langToggle" onclick="toggleLang()">한국어</button>
+      <a href="#why" data-i18n="nav.why">Why Jikji</a>
+      <a href="#modules" data-i18n="nav.arch">Architecture</a>
+      <a href="#protocols" data-i18n="nav.protocols">Protocols</a>
+      <a href="#start" data-i18n="nav.start">Get Started</a>
+      <select class="lang-sel" id="langSel" onchange="setLang(this.value)" aria-label="Language">
+        <option value="en">English</option>
+        <option value="ko">한국어</option>
+        <option value="ja">日本語</option>
+        <option value="zh">简体中文</option>
+        <option value="zh-tw">繁體中文</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+        <option value="pt">Português</option>
+        <option value="it">Italiano</option>
+        <option value="ru">Русский</option>
+        <option value="vi">Tiếng Việt</option>
+        <option value="id">Bahasa Indonesia</option>
+      </select>
     </nav>
   </div>
 </header>
@@ -224,18 +233,12 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-de
 <!-- HERO -->
 <div class="hero">
   <div class="wrap">
-    <span class="kicker"><span class="en">Open Agent Platform · Single Go Binary</span><span class="ko">오픈 에이전트 플랫폼 · 단일 Go 바이너리</span></span>
-    <h1>
-      <span class="en">The agent platform,<br><span class="accent">set in metal type.</span></span>
-      <span class="ko">금속활자처럼 단단한<br><span class="accent">에이전트 플랫폼.</span></span>
-    </h1>
-    <p class="sub">
-      <span class="en">Jikji is a modular agent framework that runs as one static Go binary — deterministic agent loops, durable orchestration state, and built-in governance, from a laptop to enterprise clusters.</span>
-      <span class="ko">Jikji는 단일 정적 Go 바이너리로 실행되는 모듈형 에이전트 프레임워크입니다. 결정적(deterministic) 에이전트 루프, 영속적인 오케스트레이션 상태, 그리고 처음부터 내장된 거버넌스를 노트북에서 엔터프라이즈 클러스터까지 동일하게 제공합니다.</span>
-    </p>
+    <span class="kicker" data-i18n="hero.kicker">Agent Platform · Single Go Binary · Open Source Coming Soon</span>
+    <h1 data-i18n="hero.title">The agent platform,<br><span class="accent">set in metal type.</span></h1>
+    <p class="sub" data-i18n="hero.sub">Jikji is a modular agent framework that runs as one static Go binary — deterministic agent loops, durable orchestration state, and built-in governance, from a laptop to enterprise clusters.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="#start"><span class="en">Get Started</span><span class="ko">시작하기</span></a>
-      <a class="btn btn-ghost" href="https://github.com/jikji-labs"><span class="en">GitHub</span><span class="ko">GitHub</span></a>
+      <a class="btn btn-primary" href="#start" data-i18n="cta.start">Get Started</a>
+      <span class="btn btn-ghost" style="cursor:default;opacity:.65" data-i18n="cta.github">GitHub — Coming Soon</span>
     </div>
     <div class="typebar">
       <span>foundry</span><span>press</span><span>type</span><span>sorts</span><span>dispatch</span><span>compositor</span><span>forme</span><span>galley</span><span>plate</span><span>lexicon</span><span>imprimatur</span><span>almanac</span>
@@ -248,28 +251,16 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-de
   <div class="wrap story">
     <div>
       <div class="sec-head" style="margin-bottom:24px">
-        <span class="tag"><span class="en">The Name</span><span class="ko">이름의 유래</span></span>
-        <h2>
-          <span class="en">Named after the world's first movable metal type book</span>
-          <span class="ko">세계 최초의 금속활자본에서 따온 이름</span>
-        </h2>
+        <span class="tag" data-i18n="story.tag">The Name</span>
+        <h2 data-i18n="story.h2">Named after the world's first movable metal type book</h2>
       </div>
-      <p>
-        <span class="en"><b>Jikji</b> (직지심체요절) was printed in Korea in 1377 — the oldest surviving book printed with movable metal type, decades before Gutenberg. Movable type changed publishing the same way Jikji aims to change agents: <b>composable pieces, set precisely, producing reliable output at scale.</b></span>
-        <span class="ko"><b>직지심체요절</b>은 1377년 고려에서 간행된, 현존하는 세계에서 가장 오래된 금속활자본입니다. 구텐베르크보다 수십 년 앞섰죠. 금속활자가 출판을 바꾼 방식 그대로, Jikji는 에이전트를 바꾸려 합니다. <b>조합 가능한 부품을 정밀하게 조판해, 대규모에서도 신뢰할 수 있는 결과를 만들어내는 것.</b></span>
-      </p>
-      <p>
-        <span class="en">Every module carries a letterpress name — the <b>foundry</b> casts the runtime, <b>type</b> faces the models, <b>sorts</b> are the tools, the <b>compositor</b> sets sessions, the <b>forme</b> locks the agent loop, and the <b>press</b> serves it to the world. Even the default port is <span class="mono">1377</span>.</span>
-        <span class="ko">모든 모듈이 활판인쇄 용어로 이름 지어져 있습니다. <b>foundry</b>(주조소)는 런타임을 부트스트랩하고, <b>type</b>(활자)은 모델을, <b>sorts</b>(낱자)는 도구를, <b>compositor</b>(식자공)는 세션을, <b>forme</b>(판)은 에이전트 루프를, <b>press</b>(인쇄기)는 API를 담당합니다. 기본 포트마저 <span class="mono">1377</span>입니다.</span>
-      </p>
+      <p data-i18n="story.p1"><b>Jikji</b> (직지심체요절) was printed in Korea in 1377 — the oldest surviving book printed with movable metal type, decades before Gutenberg. Movable type changed publishing the same way Jikji aims to change agents: <b>composable pieces, set precisely, producing reliable output at scale.</b></p>
+      <p data-i18n="story.p2">Every module carries a letterpress name — the <b>foundry</b> casts the runtime, <b>type</b> faces the models, <b>sorts</b> are the tools, the <b>compositor</b> sets sessions, the <b>forme</b> locks the agent loop, and the <b>press</b> serves it to the world. Even the default port is <span class="mono">1377</span>.</p>
     </div>
     <div class="story-plate">
       <div class="big">直指</div>
       <div class="year">EST. 1377</div>
-      <div class="cap">
-        <span class="en">Jikjisimcheyojeol — the oldest extant book printed with movable metal type. UNESCO Memory of the World.</span>
-        <span class="ko">직지심체요절 — 현존 최고(最古)의 금속활자본. 유네스코 세계기록유산.</span>
-      </div>
+      <div class="cap" data-i18n="story.cap">Jikjisimcheyojeol — the oldest extant book printed with movable metal type. UNESCO Memory of the World.</div>
     </div>
   </div>
 </section>
@@ -278,64 +269,40 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-de
 <section id="why">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag"><span class="en">Why Jikji</span><span class="ko">왜 Jikji인가</span></span>
-      <h2>
-        <span class="en">What makes it different from other agent frameworks</span>
-        <span class="ko">다른 에이전트 프레임워크와 무엇이 다른가</span>
-      </h2>
-      <p>
-        <span class="en">Most agent frameworks are Python libraries glued to a vector DB, with opaque loops and governance bolted on later. Jikji is built like infrastructure from day one.</span>
-        <span class="ko">대부분의 에이전트 프레임워크는 벡터 DB에 붙인 파이썬 라이브러리이고, 루프는 불투명하며 거버넌스는 나중에 덧붙입니다. Jikji는 처음부터 인프라처럼 설계되었습니다.</span>
-      </p>
+      <span class="tag" data-i18n="nav.why">Why Jikji</span>
+      <h2 data-i18n="why.h2">What makes it different from other agent frameworks</h2>
+      <p data-i18n="why.p">Most agent frameworks are Python libraries glued to a vector DB, with opaque loops and governance bolted on later. Jikji is built like infrastructure from day one.</p>
     </div>
     <div class="grid cols3">
       <div class="card">
         <span class="num">01</span>
-        <h3><span class="en">One static binary, zero dependency hell</span><span class="ko">단일 정적 바이너리, 의존성 지옥 없음</span></h3>
-        <p>
-          <span class="en">Written in Go and shipped as a single static binary. No Python environments, no dependency conflicts. The same binary runs on your laptop, as split services, or in Kubernetes with the included Helm chart.</span>
-          <span class="ko">Go로 작성되어 단일 정적 바이너리로 배포됩니다. 파이썬 환경 구성도, 의존성 충돌도 없습니다. 같은 바이너리가 노트북에서도, 분리된 서비스로도, 포함된 Helm 차트로 Kubernetes에서도 그대로 동작합니다.</span>
-        </p>
+        <h3 data-i18n="c1.h">One static binary, zero dependency hell</h3>
+        <p data-i18n="c1.p">Written in Go and shipped as a single static binary. No Python environments, no dependency conflicts. The same binary runs on your laptop, as split services, or in Kubernetes with the included Helm chart.</p>
       </div>
       <div class="card">
         <span class="num">02</span>
-        <h3><span class="en">A deterministic, recoverable agent loop</span><span class="ko">결정적이고 복구 가능한 에이전트 루프</span></h3>
-        <p>
-          <span class="en">The <code>forme</code> loop models every step as explicit actions and observations — with checkpointing and recovery built into the engine. Agent runs are replayable and auditable, not opaque chains that vanish on crash.</span>
-          <span class="ko"><code>forme</code> 루프는 모든 단계를 명시적인 액션과 관찰(observation)로 모델링하며, 체크포인트와 복구가 엔진에 내장되어 있습니다. 에이전트 실행은 크래시와 함께 사라지는 블랙박스가 아니라, 재생(replay)과 감사가 가능한 기록입니다.</span>
-        </p>
+        <h3 data-i18n="c2.h">A deterministic, recoverable agent loop</h3>
+        <p data-i18n="c2.p">The <code>forme</code> loop models every step as explicit actions and observations — with checkpointing and recovery built into the engine. Agent runs are replayable and auditable, not opaque chains that vanish on crash.</p>
       </div>
       <div class="card">
         <span class="num">03</span>
-        <h3><span class="en">Governance built in, not bolted on</span><span class="ko">덧붙인 게 아닌, 내장된 거버넌스</span></h3>
-        <p>
-          <span class="en">Multi-tenancy, scoped API keys, RBAC, structured audit trails with retention, policy gates on tool use, and human-in-the-loop approvals — all in the core, plus PII/secret redaction with Korean locale patterns.</span>
-          <span class="ko">멀티테넌시, 스코프 기반 API 키, RBAC, 보존 정책이 있는 구조화된 감사 로그, 도구 사용에 대한 정책 게이트, 휴먼 인 더 루프(HITL) 승인까지 모두 코어에 들어 있습니다. 한국어 로케일 패턴을 지원하는 개인정보·시크릿 마스킹도 기본입니다.</span>
-        </p>
+        <h3 data-i18n="c3.h">Governance built in, not bolted on</h3>
+        <p data-i18n="c3.p">Multi-tenancy, scoped API keys, RBAC, structured audit trails with retention, policy gates on tool use, and human-in-the-loop approvals — all in the core, plus PII/secret redaction with locale-aware patterns.</p>
       </div>
       <div class="card">
         <span class="num">04</span>
-        <h3><span class="en">Scale-free: laptop → services → grid</span><span class="ko">스케일 프리: 노트북 → 서비스 → 그리드</span></h3>
-        <p>
-          <span class="en">Local-first durable state on SQLite. Start in one process, split into services, then push tool execution to remote nodes over TLS relay tunnels — without changing your agents.</span>
-          <span class="ko">SQLite 기반의 로컬 우선 영속 상태. 한 프로세스로 시작해 서비스로 분리하고, TLS 릴레이 터널을 통해 원격 노드로 도구 실행을 확장할 수 있습니다. 에이전트 코드는 그대로입니다.</span>
-        </p>
+        <h3 data-i18n="c4.h">Scale-free: laptop → services → grid</h3>
+        <p data-i18n="c4.p">Local-first durable state on SQLite. Start in one process, split into services, then push tool execution to remote nodes over TLS relay tunnels — without changing your agents.</p>
       </div>
       <div class="card">
         <span class="num">05</span>
-        <h3><span class="en">Memory that actually learns</span><span class="ko">실제로 학습하는 메모리</span></h3>
-        <p>
-          <span class="en">The <code>plate</code> cognitive memory plane extracts facts from conversations, consolidates them in background "dreaming" passes, and serves hybrid recall with context compaction. <code>lexicon</code> builds a knowledge graph from documents with contradiction detection.</span>
-          <span class="ko"><code>plate</code> 인지 메모리 플레인은 대화에서 사실을 추출하고, 백그라운드 "드리밍" 과정으로 통합하며, 컨텍스트 압축과 하이브리드 리콜을 제공합니다. <code>lexicon</code>은 문서에서 지식 그래프를 구축하고 모순 탐지까지 수행합니다.</span>
-        </p>
+        <h3 data-i18n="c5.h">Memory that actually learns</h3>
+        <p data-i18n="c5.p">The <code>plate</code> cognitive memory plane extracts facts from conversations, consolidates them in background "dreaming" passes, and serves hybrid recall with context compaction. <code>lexicon</code> builds a knowledge graph from documents with contradiction detection.</p>
       </div>
       <div class="card">
         <span class="num">06</span>
-        <h3><span class="en">Open protocols, no lock-in</span><span class="ko">오픈 프로토콜, 락인 없음</span></h3>
-        <p>
-          <span class="en">Serves an OpenAI-compatible API and speaks MCP (server and client), ACP, and A2A for agent-to-agent collaboration. Works with OpenAI-compatible, Anthropic-compatible, Ollama, and GLM/Z.AI backends.</span>
-          <span class="ko">OpenAI 호환 API를 제공하고, MCP(서버·클라이언트), ACP, 에이전트 간 협업을 위한 A2A 프로토콜을 지원합니다. OpenAI 호환, Anthropic 호환, Ollama, GLM/Z.AI 백엔드와 함께 동작합니다.</span>
-        </p>
+        <h3 data-i18n="c6.h">Open protocols, no lock-in</h3>
+        <p data-i18n="c6.p">Serves an OpenAI-compatible API and speaks MCP (server and client), ACP, and A2A for agent-to-agent collaboration. Works with OpenAI-compatible, Anthropic-compatible, Ollama, and GLM/Z.AI backends.</p>
       </div>
     </div>
   </div>
@@ -345,29 +312,23 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-de
 <section class="alt" id="modules">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag"><span class="en">Architecture</span><span class="ko">아키텍처</span></span>
-      <h2>
-        <span class="en">A print shop of composable modules</span>
-        <span class="ko">조판실처럼 구성된 모듈들</span>
-      </h2>
-      <p>
-        <span class="en">Each module owns one concern behind a strict boundary. Together they compose into a full agent platform.</span>
-        <span class="ko">각 모듈은 엄격한 경계 뒤에서 하나의 책임만 가집니다. 이들이 모여 완전한 에이전트 플랫폼을 이룹니다.</span>
-      </p>
+      <span class="tag" data-i18n="nav.arch">Architecture</span>
+      <h2 data-i18n="mods.h2">A print shop of composable modules</h2>
+      <p data-i18n="mods.p">Each module owns one concern behind a strict boundary. Together they compose into a full agent platform.</p>
     </div>
     <div class="mods">
-      <div class="mod"><div class="name">forme <span class="gloss">판</span></div><p><span class="en">Deterministic agent loop — delegation, HITL, Lua hooks, checkpoints, step events.</span><span class="ko">결정적 에이전트 루프 — 위임, HITL, Lua 훅, 체크포인트, 스텝 이벤트.</span></p></div>
-      <div class="mod"><div class="name">galley <span class="gloss">게라</span></div><p><span class="en">Shared durable SQLite records and links for multi-agent collaboration.</span><span class="ko">멀티 에이전트 협업을 위한 공유 영속 SQLite 레코드와 링크.</span></p></div>
-      <div class="mod"><div class="name">dispatch <span class="gloss">배차</span></div><p><span class="en">Tenant/provider/model scheduling, bounded queues, retry with backoff.</span><span class="ko">테넌트·프로바이더·모델 단위 스케줄링, 큐 제한, 백오프 재시도.</span></p></div>
-      <div class="mod"><div class="name">press <span class="gloss">인쇄기</span></div><p><span class="en">HTTP ingress — OpenAI-compatible API, SSE streaming, idempotency.</span><span class="ko">HTTP 인그레스 — OpenAI 호환 API, SSE 스트리밍, 멱등성 처리.</span></p></div>
-      <div class="mod"><div class="name">type <span class="gloss">활자</span></div><p><span class="en">Inference provider abstractions across OpenAI/Anthropic/Ollama-compatible backends.</span><span class="ko">OpenAI·Anthropic·Ollama 호환 백엔드를 아우르는 추론 프로바이더 추상화.</span></p></div>
-      <div class="mod"><div class="name">sorts <span class="gloss">낱자</span></div><p><span class="en">Tool execution, MCP integration, and runner abstractions.</span><span class="ko">도구 실행, MCP 통합, 러너 추상화.</span></p></div>
-      <div class="mod"><div class="name">compositor <span class="gloss">식자공</span></div><p><span class="en">Session orchestration, queues, and flow composition.</span><span class="ko">세션 오케스트레이션, 큐, 플로우 조합.</span></p></div>
-      <div class="mod"><div class="name">plate <span class="gloss">연판</span></div><p><span class="en">Cognitive memory — fact extraction, dreaming, hybrid recall, compaction.</span><span class="ko">인지 메모리 — 사실 추출, 드리밍, 하이브리드 리콜, 압축.</span></p></div>
-      <div class="mod"><div class="name">lexicon <span class="gloss">사전</span></div><p><span class="en">Knowledge graph extraction from documents with conflict resolution.</span><span class="ko">문서로부터 지식 그래프 추출, 충돌·모순 해소.</span></p></div>
-      <div class="mod"><div class="name">imprimatur <span class="gloss">출판인가</span></div><p><span class="en">Tenancy, API-key auth, scopes, RBAC, and audit primitives.</span><span class="ko">테넌시, API 키 인증, 스코프, RBAC, 감사 프리미티브.</span></p></div>
-      <div class="mod"><div class="name">almanac <span class="gloss">책력</span></div><p><span class="en">Deterministic scheduling — cron, interval, batch, maintenance work.</span><span class="ko">결정적 스케줄링 — 크론, 인터벌, 배치, 유지보수 작업.</span></p></div>
-      <div class="mod"><div class="name">foundry <span class="gloss">주조소</span></div><p><span class="en">Bootstrap, configuration, doctor checks, orchestration control.</span><span class="ko">부트스트랩, 설정, 닥터 체크, 오케스트레이션 제어.</span></p></div>
+      <div class="mod"><div class="name">forme <span class="gloss">판</span></div><p data-i18n="m.forme">Deterministic agent loop — delegation, HITL, Lua hooks, checkpoints, step events.</p></div>
+      <div class="mod"><div class="name">galley <span class="gloss">게라</span></div><p data-i18n="m.galley">Shared durable SQLite records and links for multi-agent collaboration.</p></div>
+      <div class="mod"><div class="name">dispatch <span class="gloss">배차</span></div><p data-i18n="m.dispatch">Tenant/provider/model scheduling, bounded queues, retry with backoff.</p></div>
+      <div class="mod"><div class="name">press <span class="gloss">인쇄기</span></div><p data-i18n="m.press">HTTP ingress — OpenAI-compatible API, SSE streaming, idempotency.</p></div>
+      <div class="mod"><div class="name">type <span class="gloss">활자</span></div><p data-i18n="m.type">Inference provider abstractions across OpenAI/Anthropic/Ollama-compatible backends.</p></div>
+      <div class="mod"><div class="name">sorts <span class="gloss">낱자</span></div><p data-i18n="m.sorts">Tool execution, MCP integration, and runner abstractions.</p></div>
+      <div class="mod"><div class="name">compositor <span class="gloss">식자공</span></div><p data-i18n="m.compositor">Session orchestration, queues, and flow composition.</p></div>
+      <div class="mod"><div class="name">plate <span class="gloss">연판</span></div><p data-i18n="m.plate">Cognitive memory — fact extraction, dreaming, hybrid recall, compaction.</p></div>
+      <div class="mod"><div class="name">lexicon <span class="gloss">사전</span></div><p data-i18n="m.lexicon">Knowledge graph extraction from documents with conflict resolution.</p></div>
+      <div class="mod"><div class="name">imprimatur <span class="gloss">출판인가</span></div><p data-i18n="m.imprimatur">Tenancy, API-key auth, scopes, RBAC, and audit primitives.</p></div>
+      <div class="mod"><div class="name">almanac <span class="gloss">책력</span></div><p data-i18n="m.almanac">Deterministic scheduling — cron, interval, batch, maintenance work.</p></div>
+      <div class="mod"><div class="name">foundry <span class="gloss">주조소</span></div><p data-i18n="m.foundry">Bootstrap, configuration, doctor checks, orchestration control.</p></div>
     </div>
   </div>
 </section>
@@ -376,31 +337,28 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-de
 <section id="protocols">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag"><span class="en">Interoperability</span><span class="ko">상호운용성</span></span>
-      <h2>
-        <span class="en">Speaks every protocol that matters</span>
-        <span class="ko">필요한 프로토콜은 전부 지원</span>
-      </h2>
+      <span class="tag" data-i18n="proto.tag">Interoperability</span>
+      <h2 data-i18n="proto.h2">Speaks every protocol that matters</h2>
     </div>
     <div class="protos">
-      <div class="proto"><div class="p-name">OpenAI-compatible API</div><p><span class="en">Drop-in <span class="mono">/v1/chat/completions</span>, models, runs, and sessions — point existing clients at Jikji.</span><span class="ko"><span class="mono">/v1/chat/completions</span>, models, runs, sessions를 그대로 제공 — 기존 클라이언트를 그대로 연결할 수 있습니다.</span></p></div>
-      <div class="proto"><div class="p-name">MCP</div><p><span class="en">Model Context Protocol server and client over stdio — consume MCP tools or expose Jikji as one.</span><span class="ko">stdio 기반 MCP 서버와 클라이언트 — MCP 도구를 사용할 수도, Jikji를 MCP 도구로 노출할 수도 있습니다.</span></p></div>
-      <div class="proto"><div class="p-name">ACP</div><p><span class="en">Agent Communication Protocol over stdio for local process-based agent peers.</span><span class="ko">로컬 프로세스 기반 에이전트 피어를 위한 stdio ACP 지원.</span></p></div>
-      <div class="proto"><div class="p-name">A2A</div><p><span class="en">Agent-to-agent collaboration — handoff, delegation, and result harvesting between agents.</span><span class="ko">에이전트 간 협업 — 핸드오프, 위임, 결과 수확(harvest)을 지원합니다.</span></p></div>
+      <div class="proto"><div class="p-name">OpenAI-compatible API</div><p data-i18n="proto.openai">Drop-in <span class="mono">/v1/chat/completions</span>, models, runs, and sessions — point existing clients at Jikji.</p></div>
+      <div class="proto"><div class="p-name">MCP</div><p data-i18n="proto.mcp">Model Context Protocol server and client over stdio — consume MCP tools or expose Jikji as one.</p></div>
+      <div class="proto"><div class="p-name">ACP</div><p data-i18n="proto.acp">Agent Communication Protocol over stdio for local process-based agent peers.</p></div>
+      <div class="proto"><div class="p-name">A2A</div><p data-i18n="proto.a2a">Agent-to-agent collaboration — handoff, delegation, and result harvesting between agents.</p></div>
     </div>
 
     <div class="grid cols3" style="margin-top:44px">
       <div class="card">
-        <h3><span class="en">Operator tooling</span><span class="ko">운영자 도구</span></h3>
-        <p><span class="en"><span class="mono">jikjictl</span> covers credentials and vault, RBAC, policy, audit queries, tracing, usage, and a marketplace — plus a separate web dashboard that never stores keys server-side.</span><span class="ko"><span class="mono">jikjictl</span>은 자격증명·볼트, RBAC, 정책, 감사 조회, 트레이싱, 사용량, 마켓플레이스까지 다룹니다. 서버에 키를 저장하지 않는 별도 웹 대시보드도 제공됩니다.</span></p>
+        <h3 data-i18n="ops.h">Operator tooling</h3>
+        <p data-i18n="ops.p"><span class="mono">jikjictl</span> covers credentials and vault, RBAC, policy, audit queries, tracing, usage, and a marketplace — plus a separate web dashboard that never stores keys server-side.</p>
       </div>
       <div class="card">
-        <h3><span class="en">Terminal-native</span><span class="ko">터미널 네이티브</span></h3>
-        <p><span class="en">Interactive TUI chat, single-prompt mode, JSONL event streams for automation, and an MCP-shaped JSON-RPC mode — agents you can pipe.</span><span class="ko">인터랙티브 TUI 채팅, 단일 프롬프트 모드, 자동화를 위한 JSONL 이벤트 스트림, MCP 형태의 JSON-RPC 모드 — 파이프로 연결할 수 있는 에이전트입니다.</span></p>
+        <h3 data-i18n="term.h">Terminal-native</h3>
+        <p data-i18n="term.p">Interactive TUI chat, single-prompt mode, JSONL event streams for automation, and an MCP-shaped JSON-RPC mode — agents you can pipe.</p>
       </div>
       <div class="card">
-        <h3><span class="en">Tested like infrastructure</span><span class="ko">인프라 수준의 테스트</span></h3>
-        <p><span class="en">A deterministic <span class="mono">make verify</span> gate plus guarded live smoke tests against real providers. Benchmark, fuzz, property, and concurrency tests throughout the codebase.</span><span class="ko">결정적 <span class="mono">make verify</span> 게이트와 실제 프로바이더 대상 라이브 스모크 테스트. 코드베이스 전반에 벤치마크, 퍼즈, 프로퍼티, 동시성 테스트가 깔려 있습니다.</span></p>
+        <h3 data-i18n="test.h">Tested like infrastructure</h3>
+        <p data-i18n="test.p">A deterministic <span class="mono">make verify</span> gate plus guarded live smoke tests against real providers. Benchmark, fuzz, property, and concurrency tests throughout the codebase.</p>
       </div>
     </div>
   </div>
@@ -410,32 +368,26 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-de
 <section class="alt" id="start">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag"><span class="en">Get Started</span><span class="ko">시작하기</span></span>
-      <h2>
-        <span class="en">Running in under a minute</span>
-        <span class="ko">1분 안에 실행하기</span>
-      </h2>
+      <span class="tag" data-i18n="nav.start">Get Started</span>
+      <h2 data-i18n="start.h2">Running in under a minute</h2>
     </div>
     <div class="code-block">
-<div><span class="c"># <span class="en">start the server (default port 1377 — yes, that 1377)</span><span class="ko">서버 시작 (기본 포트 1377 — 네, 그 1377입니다)</span></span></div>
+<div class="c"># <span data-i18n="cm1">start the server (default port 1377 — yes, that 1377)</span></div>
 <div class="cmd">go run ./cmd/jikji serve --config config.example.yaml</div>
 <br>
-<div><span class="c"># <span class="en">check your local environment</span><span class="ko">로컬 환경 점검</span></span></div>
+<div class="c"># <span data-i18n="cm2">check your local environment</span></div>
 <div class="cmd">go run ./cmd/jikji doctor</div>
 <br>
-<div><span class="c"># <span class="en">open the interactive chat TUI</span><span class="ko">인터랙티브 채팅 TUI 열기</span></span></div>
+<div class="c"># <span data-i18n="cm3">open the interactive chat TUI</span></div>
 <div class="cmd">go run ./cmd/jikji chat --mode tui</div>
 <br>
-<div><span class="c"># <span class="en">or call the OpenAI-compatible API</span><span class="ko">또는 OpenAI 호환 API 호출</span></span></div>
+<div class="c"># <span data-i18n="cm4">or call the OpenAI-compatible API</span></div>
 <div class="cmd">curl -X POST http://127.0.0.1:1377/v1/chat/completions \</div>
 <div style="padding-left:2ch">-H 'Content-Type: application/json' \</div>
 <div style="padding-left:2ch">-d '{"model":"jikji-echo","messages":[{"role":"user","content":"hello"}]}'</div>
     </div>
 
-    <div class="dev-note">
-      <span class="en">⚠ Jikji is under active development. APIs and module boundaries may change before the first stable release. This page describes what exists in the codebase today.</span>
-      <span class="ko">⚠ Jikji는 활발히 개발 중입니다. 첫 안정 릴리스 전까지 API와 모듈 경계는 변경될 수 있습니다. 이 페이지는 현재 코드베이스에 실제로 존재하는 내용을 기준으로 작성되었습니다.</span>
-    </div>
+    <div class="dev-note" data-i18n="devnote">⚠ Jikji is under active development and the source code is not yet public — it will be open-sourced soon. APIs and module boundaries may change before the first stable release. This page describes what exists in the codebase today.</div>
   </div>
 </section>
 
@@ -443,34 +395,828 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-de
   <div class="wrap foot">
     <div>
       <div class="brand" style="margin-bottom:6px"><span class="seal">直</span><b>Jikji Labs</b></div>
-      <div class="small">
-        <span class="en">Movable type for the age of agents.</span>
-        <span class="ko">에이전트 시대의 금속활자.</span>
-      </div>
+      <div class="small" data-i18n="foot.tagline">Movable type for the age of agents.</div>
     </div>
     <div>
-      <a href="https://github.com/jikji-labs">GitHub</a>
-      <a href="#why"><span class="en">Why Jikji</span><span class="ko">왜 Jikji인가</span></a>
-      <a href="#modules"><span class="en">Architecture</span><span class="ko">아키텍처</span></a>
+      <a href="#start" style="opacity:.65" data-i18n="foot.github">GitHub (coming soon)</a>
+      <a href="#why" data-i18n="nav.why">Why Jikji</a>
+      <a href="#modules" data-i18n="nav.arch">Architecture</a>
     </div>
   </div>
 </footer>
 
 <script>
+const I18N = {
+en:{
+ "nav.why":"Why Jikji","nav.arch":"Architecture","nav.protocols":"Protocols","nav.start":"Get Started",
+ "hero.kicker":"Agent Platform · Single Go Binary · Open Source Coming Soon",
+ "hero.title":"The agent platform,<br><span class=\"accent\">set in metal type.</span>",
+ "hero.sub":"Jikji is a modular agent framework that runs as one static Go binary — deterministic agent loops, durable orchestration state, and built-in governance, from a laptop to enterprise clusters.",
+ "cta.start":"Get Started","cta.github":"GitHub — Coming Soon",
+ "story.tag":"The Name",
+ "story.h2":"Named after the world's first movable metal type book",
+ "story.p1":"<b>Jikji</b> (직지심체요절) was printed in Korea in 1377 — the oldest surviving book printed with movable metal type, decades before Gutenberg. Movable type changed publishing the same way Jikji aims to change agents: <b>composable pieces, set precisely, producing reliable output at scale.</b>",
+ "story.p2":"Every module carries a letterpress name — the <b>foundry</b> casts the runtime, <b>type</b> faces the models, <b>sorts</b> are the tools, the <b>compositor</b> sets sessions, the <b>forme</b> locks the agent loop, and the <b>press</b> serves it to the world. Even the default port is <span class=\"mono\">1377</span>.",
+ "story.cap":"Jikjisimcheyojeol — the oldest extant book printed with movable metal type. UNESCO Memory of the World.",
+ "why.h2":"What makes it different from other agent frameworks",
+ "why.p":"Most agent frameworks are Python libraries glued to a vector DB, with opaque loops and governance bolted on later. Jikji is built like infrastructure from day one.",
+ "c1.h":"One static binary, zero dependency hell",
+ "c1.p":"Written in Go and shipped as a single static binary. No Python environments, no dependency conflicts. The same binary runs on your laptop, as split services, or in Kubernetes with the included Helm chart.",
+ "c2.h":"A deterministic, recoverable agent loop",
+ "c2.p":"The <code>forme</code> loop models every step as explicit actions and observations — with checkpointing and recovery built into the engine. Agent runs are replayable and auditable, not opaque chains that vanish on crash.",
+ "c3.h":"Governance built in, not bolted on",
+ "c3.p":"Multi-tenancy, scoped API keys, RBAC, structured audit trails with retention, policy gates on tool use, and human-in-the-loop approvals — all in the core, plus PII/secret redaction with locale-aware patterns.",
+ "c4.h":"Scale-free: laptop → services → grid",
+ "c4.p":"Local-first durable state on SQLite. Start in one process, split into services, then push tool execution to remote nodes over TLS relay tunnels — without changing your agents.",
+ "c5.h":"Memory that actually learns",
+ "c5.p":"The <code>plate</code> cognitive memory plane extracts facts from conversations, consolidates them in background \"dreaming\" passes, and serves hybrid recall with context compaction. <code>lexicon</code> builds a knowledge graph from documents with contradiction detection.",
+ "c6.h":"Open protocols, no lock-in",
+ "c6.p":"Serves an OpenAI-compatible API and speaks MCP (server and client), ACP, and A2A for agent-to-agent collaboration. Works with OpenAI-compatible, Anthropic-compatible, Ollama, and GLM/Z.AI backends.",
+ "mods.h2":"A print shop of composable modules",
+ "mods.p":"Each module owns one concern behind a strict boundary. Together they compose into a full agent platform.",
+ "m.forme":"Deterministic agent loop — delegation, HITL, Lua hooks, checkpoints, step events.",
+ "m.galley":"Shared durable SQLite records and links for multi-agent collaboration.",
+ "m.dispatch":"Tenant/provider/model scheduling, bounded queues, retry with backoff.",
+ "m.press":"HTTP ingress — OpenAI-compatible API, SSE streaming, idempotency.",
+ "m.type":"Inference provider abstractions across OpenAI/Anthropic/Ollama-compatible backends.",
+ "m.sorts":"Tool execution, MCP integration, and runner abstractions.",
+ "m.compositor":"Session orchestration, queues, and flow composition.",
+ "m.plate":"Cognitive memory — fact extraction, dreaming, hybrid recall, compaction.",
+ "m.lexicon":"Knowledge graph extraction from documents with conflict resolution.",
+ "m.imprimatur":"Tenancy, API-key auth, scopes, RBAC, and audit primitives.",
+ "m.almanac":"Deterministic scheduling — cron, interval, batch, maintenance work.",
+ "m.foundry":"Bootstrap, configuration, doctor checks, orchestration control.",
+ "proto.tag":"Interoperability",
+ "proto.h2":"Speaks every protocol that matters",
+ "proto.openai":"Drop-in <span class=\"mono\">/v1/chat/completions</span>, models, runs, and sessions — point existing clients at Jikji.",
+ "proto.mcp":"Model Context Protocol server and client over stdio — consume MCP tools or expose Jikji as one.",
+ "proto.acp":"Agent Communication Protocol over stdio for local process-based agent peers.",
+ "proto.a2a":"Agent-to-agent collaboration — handoff, delegation, and result harvesting between agents.",
+ "ops.h":"Operator tooling",
+ "ops.p":"<span class=\"mono\">jikjictl</span> covers credentials and vault, RBAC, policy, audit queries, tracing, usage, and a marketplace — plus a separate web dashboard that never stores keys server-side.",
+ "term.h":"Terminal-native",
+ "term.p":"Interactive TUI chat, single-prompt mode, JSONL event streams for automation, and an MCP-shaped JSON-RPC mode — agents you can pipe.",
+ "test.h":"Tested like infrastructure",
+ "test.p":"A deterministic <span class=\"mono\">make verify</span> gate plus guarded live smoke tests against real providers. Benchmark, fuzz, property, and concurrency tests throughout the codebase.",
+ "start.h2":"Running in under a minute",
+ "cm1":"start the server (default port 1377 — yes, that 1377)",
+ "cm2":"check your local environment",
+ "cm3":"open the interactive chat TUI",
+ "cm4":"or call the OpenAI-compatible API",
+ "devnote":"⚠ Jikji is under active development and the source code is not yet public — it will be open-sourced soon. APIs and module boundaries may change before the first stable release. This page describes what exists in the codebase today.",
+ "foot.tagline":"Movable type for the age of agents.",
+ "foot.github":"GitHub (coming soon)"
+},
+ko:{
+ "nav.why":"왜 Jikji인가","nav.arch":"아키텍처","nav.protocols":"프로토콜","nav.start":"시작하기",
+ "hero.kicker":"에이전트 플랫폼 · 단일 Go 바이너리 · 오픈소스 공개 예정",
+ "hero.title":"금속활자처럼 단단한<br><span class=\"accent\">에이전트 플랫폼.</span>",
+ "hero.sub":"Jikji는 단일 정적 Go 바이너리로 실행되는 모듈형 에이전트 프레임워크입니다. 결정적(deterministic) 에이전트 루프, 영속적인 오케스트레이션 상태, 그리고 처음부터 내장된 거버넌스를 노트북에서 엔터프라이즈 클러스터까지 동일하게 제공합니다.",
+ "cta.start":"시작하기","cta.github":"GitHub — 공개 예정",
+ "story.tag":"이름의 유래",
+ "story.h2":"세계 최초의 금속활자본에서 따온 이름",
+ "story.p1":"<b>직지심체요절</b>은 1377년 고려에서 간행된, 현존하는 세계에서 가장 오래된 금속활자본입니다. 구텐베르크보다 수십 년 앞섰죠. 금속활자가 출판을 바꾼 방식 그대로, Jikji는 에이전트를 바꾸려 합니다. <b>조합 가능한 부품을 정밀하게 조판해, 대규모에서도 신뢰할 수 있는 결과를 만들어내는 것.</b>",
+ "story.p2":"모든 모듈이 활판인쇄 용어로 이름 지어져 있습니다. <b>foundry</b>(주조소)는 런타임을 부트스트랩하고, <b>type</b>(활자)은 모델을, <b>sorts</b>(낱자)는 도구를, <b>compositor</b>(식자공)는 세션을, <b>forme</b>(판)은 에이전트 루프를, <b>press</b>(인쇄기)는 API를 담당합니다. 기본 포트마저 <span class=\"mono\">1377</span>입니다.",
+ "story.cap":"직지심체요절 — 현존 최고(最古)의 금속활자본. 유네스코 세계기록유산.",
+ "why.h2":"다른 에이전트 프레임워크와 무엇이 다른가",
+ "why.p":"대부분의 에이전트 프레임워크는 벡터 DB에 붙인 파이썬 라이브러리이고, 루프는 불투명하며 거버넌스는 나중에 덧붙입니다. Jikji는 처음부터 인프라처럼 설계되었습니다.",
+ "c1.h":"단일 정적 바이너리, 의존성 지옥 없음",
+ "c1.p":"Go로 작성되어 단일 정적 바이너리로 배포됩니다. 파이썬 환경 구성도, 의존성 충돌도 없습니다. 같은 바이너리가 노트북에서도, 분리된 서비스로도, 포함된 Helm 차트로 Kubernetes에서도 그대로 동작합니다.",
+ "c2.h":"결정적이고 복구 가능한 에이전트 루프",
+ "c2.p":"<code>forme</code> 루프는 모든 단계를 명시적인 액션과 관찰(observation)로 모델링하며, 체크포인트와 복구가 엔진에 내장되어 있습니다. 에이전트 실행은 크래시와 함께 사라지는 블랙박스가 아니라, 재생(replay)과 감사가 가능한 기록입니다.",
+ "c3.h":"덧붙인 게 아닌, 내장된 거버넌스",
+ "c3.p":"멀티테넌시, 스코프 기반 API 키, RBAC, 보존 정책이 있는 구조화된 감사 로그, 도구 사용에 대한 정책 게이트, 휴먼 인 더 루프(HITL) 승인까지 모두 코어에 들어 있습니다. 한국어 로케일 패턴을 지원하는 개인정보·시크릿 마스킹도 기본입니다.",
+ "c4.h":"스케일 프리: 노트북 → 서비스 → 그리드",
+ "c4.p":"SQLite 기반의 로컬 우선 영속 상태. 한 프로세스로 시작해 서비스로 분리하고, TLS 릴레이 터널을 통해 원격 노드로 도구 실행을 확장할 수 있습니다. 에이전트 코드는 그대로입니다.",
+ "c5.h":"실제로 학습하는 메모리",
+ "c5.p":"<code>plate</code> 인지 메모리 플레인은 대화에서 사실을 추출하고, 백그라운드 \"드리밍\" 과정으로 통합하며, 컨텍스트 압축과 하이브리드 리콜을 제공합니다. <code>lexicon</code>은 문서에서 지식 그래프를 구축하고 모순 탐지까지 수행합니다.",
+ "c6.h":"오픈 프로토콜, 락인 없음",
+ "c6.p":"OpenAI 호환 API를 제공하고, MCP(서버·클라이언트), ACP, 에이전트 간 협업을 위한 A2A 프로토콜을 지원합니다. OpenAI 호환, Anthropic 호환, Ollama, GLM/Z.AI 백엔드와 함께 동작합니다.",
+ "mods.h2":"조판실처럼 구성된 모듈들",
+ "mods.p":"각 모듈은 엄격한 경계 뒤에서 하나의 책임만 가집니다. 이들이 모여 완전한 에이전트 플랫폼을 이룹니다.",
+ "m.forme":"결정적 에이전트 루프 — 위임, HITL, Lua 훅, 체크포인트, 스텝 이벤트.",
+ "m.galley":"멀티 에이전트 협업을 위한 공유 영속 SQLite 레코드와 링크.",
+ "m.dispatch":"테넌트·프로바이더·모델 단위 스케줄링, 큐 제한, 백오프 재시도.",
+ "m.press":"HTTP 인그레스 — OpenAI 호환 API, SSE 스트리밍, 멱등성 처리.",
+ "m.type":"OpenAI·Anthropic·Ollama 호환 백엔드를 아우르는 추론 프로바이더 추상화.",
+ "m.sorts":"도구 실행, MCP 통합, 러너 추상화.",
+ "m.compositor":"세션 오케스트레이션, 큐, 플로우 조합.",
+ "m.plate":"인지 메모리 — 사실 추출, 드리밍, 하이브리드 리콜, 압축.",
+ "m.lexicon":"문서로부터 지식 그래프 추출, 충돌·모순 해소.",
+ "m.imprimatur":"테넌시, API 키 인증, 스코프, RBAC, 감사 프리미티브.",
+ "m.almanac":"결정적 스케줄링 — 크론, 인터벌, 배치, 유지보수 작업.",
+ "m.foundry":"부트스트랩, 설정, 닥터 체크, 오케스트레이션 제어.",
+ "proto.tag":"상호운용성",
+ "proto.h2":"필요한 프로토콜은 전부 지원",
+ "proto.openai":"<span class=\"mono\">/v1/chat/completions</span>, models, runs, sessions를 그대로 제공 — 기존 클라이언트를 그대로 연결할 수 있습니다.",
+ "proto.mcp":"stdio 기반 MCP 서버와 클라이언트 — MCP 도구를 사용할 수도, Jikji를 MCP 도구로 노출할 수도 있습니다.",
+ "proto.acp":"로컬 프로세스 기반 에이전트 피어를 위한 stdio ACP 지원.",
+ "proto.a2a":"에이전트 간 협업 — 핸드오프, 위임, 결과 수확(harvest)을 지원합니다.",
+ "ops.h":"운영자 도구",
+ "ops.p":"<span class=\"mono\">jikjictl</span>은 자격증명·볼트, RBAC, 정책, 감사 조회, 트레이싱, 사용량, 마켓플레이스까지 다룹니다. 서버에 키를 저장하지 않는 별도 웹 대시보드도 제공됩니다.",
+ "term.h":"터미널 네이티브",
+ "term.p":"인터랙티브 TUI 채팅, 단일 프롬프트 모드, 자동화를 위한 JSONL 이벤트 스트림, MCP 형태의 JSON-RPC 모드 — 파이프로 연결할 수 있는 에이전트입니다.",
+ "test.h":"인프라 수준의 테스트",
+ "test.p":"결정적 <span class=\"mono\">make verify</span> 게이트와 실제 프로바이더 대상 라이브 스모크 테스트. 코드베이스 전반에 벤치마크, 퍼즈, 프로퍼티, 동시성 테스트가 깔려 있습니다.",
+ "start.h2":"1분 안에 실행하기",
+ "cm1":"서버 시작 (기본 포트 1377 — 네, 그 1377입니다)",
+ "cm2":"로컬 환경 점검",
+ "cm3":"인터랙티브 채팅 TUI 열기",
+ "cm4":"또는 OpenAI 호환 API 호출",
+ "devnote":"⚠ Jikji는 활발히 개발 중이며 소스 코드는 아직 공개되지 않았습니다. 조만간 오픈소스로 공개될 예정입니다. 첫 안정 릴리스 전까지 API와 모듈 경계는 변경될 수 있으며, 이 페이지는 현재 코드베이스에 실제로 존재하는 내용을 기준으로 작성되었습니다.",
+ "foot.tagline":"에이전트 시대의 금속활자.",
+ "foot.github":"GitHub (공개 예정)"
+},
+ja:{
+ "nav.why":"Jikjiの強み","nav.arch":"アーキテクチャ","nav.protocols":"プロトコル","nav.start":"はじめる",
+ "hero.kicker":"エージェントプラットフォーム · 単一Goバイナリ · 近日オープンソース公開",
+ "hero.title":"金属活字のように堅牢な<br><span class=\"accent\">エージェントプラットフォーム。</span>",
+ "hero.sub":"Jikjiは単一の静的Goバイナリで動作するモジュール型エージェントフレームワークです。決定的なエージェントループ、永続的なオーケストレーション状態、組み込みのガバナンスを、ノートPCからエンタープライズクラスタまで同じように提供します。",
+ "cta.start":"はじめる","cta.github":"GitHub — 近日公開",
+ "story.tag":"名前の由来",
+ "story.h2":"世界最古の金属活字本にちなんだ名前",
+ "story.p1":"<b>直指</b>（直指心体要節）は1377年に高麗で印刷された、現存する世界最古の金属活字本です。グーテンベルクより数十年も前のこと。活版印刷が出版を変えたように、Jikjiはエージェントを変えようとしています。<b>組み合わせ可能な部品を精密に組み、大規模でも信頼できる結果を生み出すこと。</b>",
+ "story.p2":"すべてのモジュールが活版印刷の用語で名付けられています。<b>foundry</b>（鋳造所）はランタイムを、<b>type</b>（活字）はモデルを、<b>sorts</b>（活字の駒）はツールを、<b>compositor</b>（植字工）はセッションを、<b>forme</b>（組版）はエージェントループを、<b>press</b>（印刷機）はAPIを担います。デフォルトポートも<span class=\"mono\">1377</span>です。",
+ "story.cap":"直指心体要節 — 現存最古の金属活字本。ユネスコ「世界の記憶」。",
+ "why.h2":"他のエージェントフレームワークと何が違うのか",
+ "why.p":"多くのエージェントフレームワークは、ベクトルDBに接着されたPythonライブラリで、ループは不透明、ガバナンスは後付けです。Jikjiは初日からインフラとして設計されています。",
+ "c1.h":"単一の静的バイナリ、依存関係地獄なし",
+ "c1.p":"Goで書かれ、単一の静的バイナリとして配布されます。Python環境も依存関係の競合もありません。同じバイナリがノートPCでも、分割サービスでも、付属のHelmチャートによるKubernetes上でも動作します。",
+ "c2.h":"決定的で復旧可能なエージェントループ",
+ "c2.p":"<code>forme</code>ループはすべてのステップを明示的なアクションと観測としてモデル化し、チェックポイントとリカバリをエンジンに内蔵しています。エージェントの実行は、クラッシュで消える不透明なチェーンではなく、リプレイと監査が可能な記録です。",
+ "c3.h":"後付けではない、組み込みのガバナンス",
+ "c3.p":"マルチテナンシー、スコープ付きAPIキー、RBAC、保持ポリシー付きの構造化監査ログ、ツール使用へのポリシーゲート、HITL承認——すべてコアに内蔵。ロケール対応パターンによるPII・シークレットのマスキングも標準装備です。",
+ "c4.h":"スケールフリー：ノートPC → サービス → グリッド",
+ "c4.p":"SQLiteによるローカルファーストの永続状態。1プロセスで始め、サービスに分割し、TLSリレートンネル経由でリモートノードへツール実行を広げられます。エージェントのコードはそのままです。",
+ "c5.h":"実際に学習するメモリ",
+ "c5.p":"<code>plate</code>認知メモリプレーンは会話から事実を抽出し、バックグラウンドの「ドリーミング」処理で統合し、コンテキスト圧縮付きのハイブリッドリコールを提供します。<code>lexicon</code>は文書からナレッジグラフを構築し、矛盾検出まで行います。",
+ "c6.h":"オープンプロトコル、ロックインなし",
+ "c6.p":"OpenAI互換APIを提供し、MCP（サーバー・クライアント）、ACP、エージェント間連携のためのA2Aに対応。OpenAI互換、Anthropic互換、Ollama、GLM/Z.AIの各バックエンドと動作します。",
+ "mods.h2":"印刷所のように構成されたモジュール群",
+ "mods.p":"各モジュールは厳格な境界の内側で1つの責務だけを持ちます。それらが組み合わさり、完全なエージェントプラットフォームになります。",
+ "m.forme":"決定的エージェントループ — 委任、HITL、Luaフック、チェックポイント、ステップイベント。",
+ "m.galley":"マルチエージェント連携のための共有・永続SQLiteレコードとリンク。",
+ "m.dispatch":"テナント・プロバイダー・モデル単位のスケジューリング、有界キュー、バックオフ付き再試行。",
+ "m.press":"HTTPイングレス — OpenAI互換API、SSEストリーミング、冪等性。",
+ "m.type":"OpenAI/Anthropic/Ollama互換バックエンドにまたがる推論プロバイダー抽象化。",
+ "m.sorts":"ツール実行、MCP統合、ランナー抽象化。",
+ "m.compositor":"セッションオーケストレーション、キュー、フロー構成。",
+ "m.plate":"認知メモリ — 事実抽出、ドリーミング、ハイブリッドリコール、圧縮。",
+ "m.lexicon":"文書からのナレッジグラフ抽出と矛盾解消。",
+ "m.imprimatur":"テナンシー、APIキー認証、スコープ、RBAC、監査プリミティブ。",
+ "m.almanac":"決定的スケジューリング — cron、インターバル、バッチ、メンテナンス。",
+ "m.foundry":"ブートストラップ、設定、ドクターチェック、オーケストレーション制御。",
+ "proto.tag":"相互運用性",
+ "proto.h2":"重要なプロトコルをすべてサポート",
+ "proto.openai":"<span class=\"mono\">/v1/chat/completions</span>、models、runs、sessionsをそのまま提供——既存クライアントをそのままJikjiに向けられます。",
+ "proto.mcp":"stdio上のMCPサーバーとクライアント——MCPツールを利用することも、JikjiをMCPツールとして公開することもできます。",
+ "proto.acp":"ローカルプロセスベースのエージェントピアのための、stdio上のAgent Communication Protocol。",
+ "proto.a2a":"エージェント間連携——ハンドオフ、委任、結果のハーベスト。",
+ "ops.h":"運用ツール",
+ "ops.p":"<span class=\"mono\">jikjictl</span>は認証情報とボールト、RBAC、ポリシー、監査クエリ、トレーシング、使用量、マーケットプレイスをカバー。さらにサーバー側にキーを保存しない独立したWebダッシュボードも付属します。",
+ "term.h":"ターミナルネイティブ",
+ "term.p":"対話型TUIチャット、シングルプロンプトモード、自動化のためのJSONLイベントストリーム、MCP形式のJSON-RPCモード——パイプでつなげるエージェントです。",
+ "test.h":"インフラ並みのテスト",
+ "test.p":"決定的な<span class=\"mono\">make verify</span>ゲートに加え、実プロバイダーに対するガード付きライブスモークテスト。コードベース全体にベンチマーク、ファズ、プロパティ、並行性テストが張り巡らされています。",
+ "start.h2":"1分以内に起動",
+ "cm1":"サーバーを起動（デフォルトポート1377 — そう、あの1377です）",
+ "cm2":"ローカル環境をチェック",
+ "cm3":"対話型チャットTUIを開く",
+ "cm4":"またはOpenAI互換APIを呼び出す",
+ "devnote":"⚠ Jikjiは活発に開発中で、ソースコードはまだ公開されていません。近日中にオープンソースとして公開予定です。最初の安定版リリースまでAPIとモジュール境界は変わる可能性があります。このページは現在のコードベースに実在する内容に基づいています。",
+ "foot.tagline":"エージェント時代の金属活字。",
+ "foot.github":"GitHub（近日公開）"
+},
+zh:{
+ "nav.why":"为何选择 Jikji","nav.arch":"架构","nav.protocols":"协议","nav.start":"快速开始",
+ "hero.kicker":"智能体平台 · 单一 Go 二进制 · 即将开源",
+ "hero.title":"如金属活字般可靠的<br><span class=\"accent\">智能体平台。</span>",
+ "hero.sub":"Jikji 是一个以单一静态 Go 二进制运行的模块化智能体框架——确定性的智能体循环、持久的编排状态、内置的治理能力，从笔记本电脑到企业集群都能一致运行。",
+ "cta.start":"快速开始","cta.github":"GitHub — 即将开放",
+ "story.tag":"名字的由来",
+ "story.h2":"得名于世界最早的金属活字印本",
+ "story.p1":"<b>直指</b>（直指心体要节）于1377年在高丽印行，是现存最古老的金属活字印本，比古腾堡早数十年。正如活字改变了出版业，Jikji 也要以同样的方式改变智能体：<b>可组合的部件，精密排布，规模化地产出可靠的结果。</b>",
+ "story.p2":"每个模块都以活版印刷术语命名——<b>foundry</b>（铸字坊）铸造运行时，<b>type</b>（活字）对接模型，<b>sorts</b>（字钉）是工具，<b>compositor</b>（排字工）编排会话，<b>forme</b>（印版）锁定智能体循环，<b>press</b>（印刷机）对外提供服务。连默认端口都是 <span class=\"mono\">1377</span>。",
+ "story.cap":"直指心体要节——现存最古老的金属活字印本。联合国教科文组织世界记忆遗产。",
+ "why.h2":"与其他智能体框架有何不同",
+ "why.p":"大多数智能体框架只是粘在向量数据库上的 Python 库：循环不透明，治理是事后补丁。Jikji 从第一天起就按基础设施来构建。",
+ "c1.h":"单一静态二进制，没有依赖地狱",
+ "c1.p":"用 Go 编写，以单一静态二进制发布。无需 Python 环境，没有依赖冲突。同一个二进制可以在笔记本上运行，也可以拆分为多个服务，或通过自带的 Helm Chart 部署到 Kubernetes。",
+ "c2.h":"确定性、可恢复的智能体循环",
+ "c2.p":"<code>forme</code> 循环把每一步建模为显式的动作和观测，检查点与恢复内置在引擎中。智能体运行是可重放、可审计的记录，而不是一崩溃就消失的黑盒链条。",
+ "c3.h":"治理是内置的，不是事后补丁",
+ "c3.p":"多租户、带作用域的 API 密钥、RBAC、带保留策略的结构化审计日志、工具使用的策略门控、人工审批（HITL）——全部内置于核心，还有支持区域模式的 PII/密钥脱敏。",
+ "c4.h":"无级扩展：笔记本 → 服务 → 网格",
+ "c4.p":"基于 SQLite 的本地优先持久状态。从单进程起步，拆分为服务，再通过 TLS 中继隧道把工具执行推到远程节点——智能体代码无需改动。",
+ "c5.h":"真正会学习的记忆",
+ "c5.p":"<code>plate</code> 认知记忆层从对话中提取事实，通过后台\"做梦\"（dreaming）过程加以整合，并提供带上下文压缩的混合召回。<code>lexicon</code> 从文档构建知识图谱，还能检测矛盾。",
+ "c6.h":"开放协议，没有锁定",
+ "c6.p":"提供 OpenAI 兼容 API，支持 MCP（服务端与客户端）、ACP，以及用于智能体间协作的 A2A。可对接 OpenAI 兼容、Anthropic 兼容、Ollama 和 GLM/Z.AI 后端。",
+ "mods.h2":"像印刷工坊一样组合的模块",
+ "mods.p":"每个模块在严格的边界内只负责一件事，组合起来构成完整的智能体平台。",
+ "m.forme":"确定性智能体循环——委派、HITL、Lua 钩子、检查点、步骤事件。",
+ "m.galley":"用于多智能体协作的共享持久 SQLite 记录与链接。",
+ "m.dispatch":"按租户/提供商/模型调度，有界队列，带退避的重试。",
+ "m.press":"HTTP 入口——OpenAI 兼容 API、SSE 流式传输、幂等性。",
+ "m.type":"跨 OpenAI/Anthropic/Ollama 兼容后端的推理提供商抽象。",
+ "m.sorts":"工具执行、MCP 集成、运行器抽象。",
+ "m.compositor":"会话编排、队列、流程组合。",
+ "m.plate":"认知记忆——事实提取、\"做梦\"整合、混合召回、压缩。",
+ "m.lexicon":"从文档提取知识图谱，并解决冲突与矛盾。",
+ "m.imprimatur":"租户、API 密钥认证、作用域、RBAC、审计原语。",
+ "m.almanac":"确定性调度——cron、间隔、批处理、维护任务。",
+ "m.foundry":"引导、配置、doctor 检查、编排控制。",
+ "proto.tag":"互操作性",
+ "proto.h2":"支持所有重要的协议",
+ "proto.openai":"直接提供 <span class=\"mono\">/v1/chat/completions</span>、models、runs、sessions——现有客户端可直接指向 Jikji。",
+ "proto.mcp":"基于 stdio 的 MCP 服务端与客户端——既能使用 MCP 工具，也能把 Jikji 暴露为 MCP 工具。",
+ "proto.acp":"基于 stdio 的 Agent Communication Protocol，用于本地进程间的智能体对等通信。",
+ "proto.a2a":"智能体间协作——交接、委派、结果回收。",
+ "ops.h":"运维工具",
+ "ops.p":"<span class=\"mono\">jikjictl</span> 覆盖凭据与保险库、RBAC、策略、审计查询、链路追踪、用量和市场，另有一个从不在服务端存储密钥的独立 Web 控制台。",
+ "term.h":"终端原生",
+ "term.p":"交互式 TUI 聊天、单提示模式、面向自动化的 JSONL 事件流，以及 MCP 形态的 JSON-RPC 模式——可以用管道连接的智能体。",
+ "test.h":"像基础设施一样被测试",
+ "test.p":"确定性的 <span class=\"mono\">make verify</span> 门禁，加上针对真实提供商的受控线上冒烟测试。代码库各处遍布基准、模糊、属性和并发测试。",
+ "start.h2":"一分钟内跑起来",
+ "cm1":"启动服务器（默认端口 1377——没错，就是那个 1377）",
+ "cm2":"检查本地环境",
+ "cm3":"打开交互式聊天 TUI",
+ "cm4":"或调用 OpenAI 兼容 API",
+ "devnote":"⚠ Jikji 正在积极开发中，源代码尚未公开——即将开源。在首个稳定版本发布前，API 和模块边界可能会变化。本页内容以当前代码库中真实存在的功能为准。",
+ "foot.tagline":"智能体时代的金属活字。",
+ "foot.github":"GitHub（即将开放）"
+},
+"zh-tw":{
+ "nav.why":"為何選擇 Jikji","nav.arch":"架構","nav.protocols":"協定","nav.start":"快速開始",
+ "hero.kicker":"AI 代理平台 · 單一 Go 二進位檔 · 即將開源",
+ "hero.title":"如金屬活字般可靠的<br><span class=\"accent\">AI 代理平台。</span>",
+ "hero.sub":"Jikji 是一個以單一靜態 Go 二進位檔執行的模組化 AI 代理框架——確定性的代理迴圈、持久的編排狀態、內建的治理能力，從筆記型電腦到企業叢集都能一致運作。",
+ "cta.start":"快速開始","cta.github":"GitHub — 即將開放",
+ "story.tag":"名字的由來",
+ "story.h2":"得名於世界最早的金屬活字印本",
+ "story.p1":"<b>直指</b>（直指心體要節）於1377年在高麗印行，是現存最古老的金屬活字印本，比古騰堡早數十年。正如活字改變了出版業，Jikji 也要以同樣的方式改變 AI 代理：<b>可組合的零件，精密排布，規模化地產出可靠的結果。</b>",
+ "story.p2":"每個模組都以活版印刷術語命名——<b>foundry</b>（鑄字坊）鑄造執行環境，<b>type</b>（活字）對接模型，<b>sorts</b>（字釘）是工具，<b>compositor</b>（排字工）編排會話，<b>forme</b>（印版）鎖定代理迴圈，<b>press</b>（印刷機）對外提供服務。連預設連接埠都是 <span class=\"mono\">1377</span>。",
+ "story.cap":"直指心體要節——現存最古老的金屬活字印本。聯合國教科文組織世界記憶遺產。",
+ "why.h2":"與其他 AI 代理框架有何不同",
+ "why.p":"大多數代理框架只是黏在向量資料庫上的 Python 函式庫：迴圈不透明，治理是事後補丁。Jikji 從第一天起就按基礎設施來打造。",
+ "c1.h":"單一靜態二進位檔，沒有依賴地獄",
+ "c1.p":"以 Go 撰寫，以單一靜態二進位檔發布。無需 Python 環境，沒有相依性衝突。同一個二進位檔可以在筆電上執行，也可以拆分為多個服務，或透過內附的 Helm Chart 部署到 Kubernetes。",
+ "c2.h":"確定性、可復原的代理迴圈",
+ "c2.p":"<code>forme</code> 迴圈把每一步建模為顯式的動作和觀測，檢查點與復原內建在引擎中。代理執行是可重播、可稽核的紀錄，而不是一當機就消失的黑盒鏈條。",
+ "c3.h":"治理是內建的，不是事後補丁",
+ "c3.p":"多租戶、帶範圍的 API 金鑰、RBAC、帶保留策略的結構化稽核日誌、工具使用的政策閘門、人工審批（HITL）——全部內建於核心，還有支援地區模式的個資/金鑰遮罩。",
+ "c4.h":"無級擴展：筆電 → 服務 → 網格",
+ "c4.p":"基於 SQLite 的本地優先持久狀態。從單一程序起步，拆分為服務，再透過 TLS 中繼隧道把工具執行推到遠端節點——代理程式碼無需更動。",
+ "c5.h":"真正會學習的記憶",
+ "c5.p":"<code>plate</code> 認知記憶層從對話中擷取事實，透過背景「做夢」（dreaming）過程加以整合，並提供帶上下文壓縮的混合召回。<code>lexicon</code> 從文件建構知識圖譜，還能偵測矛盾。",
+ "c6.h":"開放協定，沒有鎖定",
+ "c6.p":"提供 OpenAI 相容 API，支援 MCP（伺服器與客戶端）、ACP，以及用於代理間協作的 A2A。可對接 OpenAI 相容、Anthropic 相容、Ollama 和 GLM/Z.AI 後端。",
+ "mods.h2":"像印刷工坊一樣組合的模組",
+ "mods.p":"每個模組在嚴格的邊界內只負責一件事，組合起來構成完整的 AI 代理平台。",
+ "m.forme":"確定性代理迴圈——委派、HITL、Lua 掛鉤、檢查點、步驟事件。",
+ "m.galley":"用於多代理協作的共享持久 SQLite 紀錄與連結。",
+ "m.dispatch":"按租戶/供應商/模型排程，有界佇列，帶退避的重試。",
+ "m.press":"HTTP 入口——OpenAI 相容 API、SSE 串流、冪等性。",
+ "m.type":"跨 OpenAI/Anthropic/Ollama 相容後端的推理供應商抽象。",
+ "m.sorts":"工具執行、MCP 整合、執行器抽象。",
+ "m.compositor":"會話編排、佇列、流程組合。",
+ "m.plate":"認知記憶——事實擷取、「做夢」整合、混合召回、壓縮。",
+ "m.lexicon":"從文件擷取知識圖譜，並解決衝突與矛盾。",
+ "m.imprimatur":"租戶、API 金鑰驗證、範圍、RBAC、稽核原語。",
+ "m.almanac":"確定性排程——cron、間隔、批次、維護任務。",
+ "m.foundry":"引導、設定、doctor 檢查、編排控制。",
+ "proto.tag":"互通性",
+ "proto.h2":"支援所有重要的協定",
+ "proto.openai":"直接提供 <span class=\"mono\">/v1/chat/completions</span>、models、runs、sessions——現有客戶端可直接指向 Jikji。",
+ "proto.mcp":"基於 stdio 的 MCP 伺服器與客戶端——既能使用 MCP 工具，也能把 Jikji 公開為 MCP 工具。",
+ "proto.acp":"基於 stdio 的 Agent Communication Protocol，用於本地程序間的代理對等通訊。",
+ "proto.a2a":"代理間協作——交接、委派、結果回收。",
+ "ops.h":"維運工具",
+ "ops.p":"<span class=\"mono\">jikjictl</span> 涵蓋憑證與保險庫、RBAC、政策、稽核查詢、鏈路追蹤、用量和市集，另有一個從不在伺服器端儲存金鑰的獨立 Web 主控台。",
+ "term.h":"終端機原生",
+ "term.p":"互動式 TUI 聊天、單一提示模式、面向自動化的 JSONL 事件串流，以及 MCP 形態的 JSON-RPC 模式——可以用管線串接的代理。",
+ "test.h":"像基礎設施一樣被測試",
+ "test.p":"確定性的 <span class=\"mono\">make verify</span> 閘門，加上針對真實供應商的受控線上煙霧測試。程式碼庫各處遍布基準、模糊、屬性和並行測試。",
+ "start.h2":"一分鐘內跑起來",
+ "cm1":"啟動伺服器（預設連接埠 1377——沒錯，就是那個 1377）",
+ "cm2":"檢查本地環境",
+ "cm3":"開啟互動式聊天 TUI",
+ "cm4":"或呼叫 OpenAI 相容 API",
+ "devnote":"⚠ Jikji 正在積極開發中，原始碼尚未公開——即將開源。在首個穩定版本發布前，API 和模組邊界可能會變動。本頁內容以目前程式碼庫中真實存在的功能為準。",
+ "foot.tagline":"AI 代理時代的金屬活字。",
+ "foot.github":"GitHub（即將開放）"
+},
+fr:{
+ "nav.why":"Pourquoi Jikji","nav.arch":"Architecture","nav.protocols":"Protocoles","nav.start":"Démarrer",
+ "hero.kicker":"Plateforme d'agents · Binaire Go unique · Open source bientôt",
+ "hero.title":"La plateforme d'agents,<br><span class=\"accent\">composée en caractères de plomb.</span>",
+ "hero.sub":"Jikji est un framework d'agents modulaire qui s'exécute en un seul binaire Go statique — boucles d'agents déterministes, état d'orchestration durable et gouvernance intégrée, du portable aux clusters d'entreprise.",
+ "cta.start":"Démarrer","cta.github":"GitHub — bientôt",
+ "story.tag":"Le nom",
+ "story.h2":"Nommé d'après le premier livre imprimé en caractères métalliques mobiles",
+ "story.p1":"<b>Jikji</b> (직지심체요절) fut imprimé en Corée en 1377 — le plus ancien livre conservé imprimé en caractères métalliques mobiles, des décennies avant Gutenberg. Les caractères mobiles ont transformé l'édition comme Jikji veut transformer les agents : <b>des pièces composables, assemblées avec précision, produisant des résultats fiables à grande échelle.</b>",
+ "story.p2":"Chaque module porte un nom de typographie — la <b>foundry</b> fond le runtime, <b>type</b> incarne les modèles, les <b>sorts</b> sont les outils, le <b>compositor</b> compose les sessions, la <b>forme</b> verrouille la boucle d'agent et la <b>press</b> la sert au monde. Même le port par défaut est <span class=\"mono\">1377</span>.",
+ "story.cap":"Jikjisimcheyojeol — le plus ancien livre imprimé en caractères métalliques mobiles. Mémoire du monde de l'UNESCO.",
+ "why.h2":"Ce qui le distingue des autres frameworks d'agents",
+ "why.p":"La plupart des frameworks d'agents sont des bibliothèques Python collées à une base vectorielle, avec des boucles opaques et une gouvernance ajoutée après coup. Jikji est conçu comme une infrastructure dès le premier jour.",
+ "c1.h":"Un binaire statique, zéro enfer de dépendances",
+ "c1.p":"Écrit en Go et livré en un seul binaire statique. Pas d'environnements Python, pas de conflits de dépendances. Le même binaire tourne sur votre portable, en services séparés ou dans Kubernetes avec le chart Helm inclus.",
+ "c2.h":"Une boucle d'agent déterministe et récupérable",
+ "c2.p":"La boucle <code>forme</code> modélise chaque étape en actions et observations explicites — avec checkpoints et récupération intégrés au moteur. Les exécutions d'agents sont rejouables et auditables, pas des chaînes opaques qui disparaissent au crash.",
+ "c3.h":"Gouvernance intégrée, pas ajoutée après coup",
+ "c3.p":"Multi-tenant, clés API à portées, RBAC, pistes d'audit structurées avec rétention, garde-fous de politique sur l'usage des outils et validations human-in-the-loop — le tout dans le cœur, plus la rédaction des PII/secrets avec motifs régionaux.",
+ "c4.h":"Sans rupture d'échelle : portable → services → grille",
+ "c4.p":"État durable local-first sur SQLite. Démarrez en un seul processus, scindez en services, puis déportez l'exécution des outils vers des nœuds distants via des tunnels relais TLS — sans changer vos agents.",
+ "c5.h":"Une mémoire qui apprend vraiment",
+ "c5.p":"Le plan de mémoire cognitive <code>plate</code> extrait des faits des conversations, les consolide lors de passes de « rêve » en arrière-plan et sert un rappel hybride avec compaction du contexte. <code>lexicon</code> construit un graphe de connaissances à partir des documents, avec détection des contradictions.",
+ "c6.h":"Protocoles ouverts, zéro verrouillage",
+ "c6.p":"Sert une API compatible OpenAI et parle MCP (serveur et client), ACP et A2A pour la collaboration entre agents. Fonctionne avec les backends compatibles OpenAI, Anthropic, Ollama et GLM/Z.AI.",
+ "mods.h2":"Un atelier d'imprimerie de modules composables",
+ "mods.p":"Chaque module possède une seule responsabilité derrière une frontière stricte. Ensemble, ils composent une plateforme d'agents complète.",
+ "m.forme":"Boucle d'agent déterministe — délégation, HITL, hooks Lua, checkpoints, événements de pas.",
+ "m.galley":"Enregistrements SQLite durables partagés pour la collaboration multi-agents.",
+ "m.dispatch":"Ordonnancement par tenant/fournisseur/modèle, files bornées, retry avec backoff.",
+ "m.press":"Ingress HTTP — API compatible OpenAI, streaming SSE, idempotence.",
+ "m.type":"Abstractions de fournisseurs d'inférence pour backends compatibles OpenAI/Anthropic/Ollama.",
+ "m.sorts":"Exécution d'outils, intégration MCP, abstractions de runners.",
+ "m.compositor":"Orchestration de sessions, files et composition de flux.",
+ "m.plate":"Mémoire cognitive — extraction de faits, dreaming, rappel hybride, compaction.",
+ "m.lexicon":"Extraction de graphes de connaissances depuis les documents, avec résolution des conflits.",
+ "m.imprimatur":"Tenancy, auth par clé API, scopes, RBAC et primitives d'audit.",
+ "m.almanac":"Planification déterministe — cron, intervalles, batch, maintenance.",
+ "m.foundry":"Bootstrap, configuration, contrôles doctor, pilotage de l'orchestration.",
+ "proto.tag":"Interopérabilité",
+ "proto.h2":"Parle tous les protocoles qui comptent",
+ "proto.openai":"<span class=\"mono\">/v1/chat/completions</span>, models, runs et sessions prêts à l'emploi — pointez vos clients existants vers Jikji.",
+ "proto.mcp":"Serveur et client Model Context Protocol via stdio — consommez des outils MCP ou exposez Jikji comme tel.",
+ "proto.acp":"Agent Communication Protocol via stdio pour des agents pairs en processus locaux.",
+ "proto.a2a":"Collaboration agent-à-agent — transfert, délégation et collecte des résultats.",
+ "ops.h":"Outils d'exploitation",
+ "ops.p":"<span class=\"mono\">jikjictl</span> couvre identifiants et coffre, RBAC, politiques, requêtes d'audit, traçage, usage et une marketplace — plus un tableau de bord web séparé qui ne stocke jamais les clés côté serveur.",
+ "term.h":"Natif du terminal",
+ "term.p":"Chat TUI interactif, mode prompt unique, flux d'événements JSONL pour l'automatisation et mode JSON-RPC façon MCP — des agents qu'on peut piper.",
+ "test.h":"Testé comme une infrastructure",
+ "test.p":"Une porte <span class=\"mono\">make verify</span> déterministe plus des smoke tests live encadrés contre de vrais fournisseurs. Tests de benchmark, fuzzing, propriétés et concurrence dans toute la base de code.",
+ "start.h2":"Opérationnel en moins d'une minute",
+ "cm1":"démarrer le serveur (port par défaut 1377 — oui, ce 1377-là)",
+ "cm2":"vérifier l'environnement local",
+ "cm3":"ouvrir le chat TUI interactif",
+ "cm4":"ou appeler l'API compatible OpenAI",
+ "devnote":"⚠ Jikji est en développement actif et le code source n'est pas encore public — il sera bientôt open source. Les API et les frontières des modules peuvent changer avant la première version stable. Cette page décrit ce qui existe aujourd'hui dans le code.",
+ "foot.tagline":"Des caractères mobiles pour l'ère des agents.",
+ "foot.github":"GitHub (bientôt)"
+},
+de:{
+ "nav.why":"Warum Jikji","nav.arch":"Architektur","nav.protocols":"Protokolle","nav.start":"Loslegen",
+ "hero.kicker":"Agenten-Plattform · Eine statische Go-Binary · Bald Open Source",
+ "hero.title":"Die Agenten-Plattform,<br><span class=\"accent\">gesetzt in Metalllettern.</span>",
+ "hero.sub":"Jikji ist ein modulares Agenten-Framework in einer einzigen statischen Go-Binary — deterministische Agenten-Loops, dauerhafter Orchestrierungszustand und eingebaute Governance, vom Laptop bis zum Enterprise-Cluster.",
+ "cta.start":"Loslegen","cta.github":"GitHub — bald verfügbar",
+ "story.tag":"Der Name",
+ "story.h2":"Benannt nach dem ältesten mit beweglichen Metalllettern gedruckten Buch",
+ "story.p1":"<b>Jikji</b> (직지심체요절) wurde 1377 in Korea gedruckt — das älteste erhaltene Buch aus beweglichen Metalllettern, Jahrzehnte vor Gutenberg. Bewegliche Lettern veränderten das Publizieren so, wie Jikji Agenten verändern will: <b>komponierbare Teile, präzise gesetzt, mit verlässlichem Ergebnis in jeder Größenordnung.</b>",
+ "story.p2":"Jedes Modul trägt einen Namen aus dem Buchdruck — die <b>foundry</b> gießt die Runtime, <b>type</b> steht für die Modelle, <b>sorts</b> sind die Werkzeuge, der <b>compositor</b> setzt Sessions, die <b>forme</b> schließt den Agenten-Loop ein, und die <b>press</b> liefert alles aus. Sogar der Standardport ist <span class=\"mono\">1377</span>.",
+ "story.cap":"Jikjisimcheyojeol — das älteste erhaltene Buch aus beweglichen Metalllettern. UNESCO-Weltdokumentenerbe.",
+ "why.h2":"Was es von anderen Agenten-Frameworks unterscheidet",
+ "why.p":"Die meisten Agenten-Frameworks sind Python-Bibliotheken, die an eine Vektor-DB geklebt sind — mit undurchsichtigen Loops und nachträglich angeschraubter Governance. Jikji ist vom ersten Tag an wie Infrastruktur gebaut.",
+ "c1.h":"Eine statische Binary, keine Dependency-Hölle",
+ "c1.p":"In Go geschrieben und als eine statische Binary ausgeliefert. Keine Python-Umgebungen, keine Abhängigkeitskonflikte. Dieselbe Binary läuft auf dem Laptop, als getrennte Dienste oder mit dem mitgelieferten Helm-Chart in Kubernetes.",
+ "c2.h":"Ein deterministischer, wiederherstellbarer Agenten-Loop",
+ "c2.p":"Der <code>forme</code>-Loop modelliert jeden Schritt als explizite Aktionen und Beobachtungen — mit Checkpoints und Recovery direkt in der Engine. Agenten-Läufe sind wiederholbar und auditierbar, keine undurchsichtigen Ketten, die beim Absturz verschwinden.",
+ "c3.h":"Governance eingebaut, nicht angeschraubt",
+ "c3.p":"Mandantenfähigkeit, API-Keys mit Scopes, RBAC, strukturierte Audit-Trails mit Aufbewahrung, Policy-Gates für Tool-Nutzung und Human-in-the-Loop-Freigaben — alles im Kern, dazu PII-/Secret-Schwärzung mit Locale-Mustern.",
+ "c4.h":"Skalenfrei: Laptop → Dienste → Grid",
+ "c4.p":"Local-first, dauerhafter Zustand auf SQLite. In einem Prozess starten, in Dienste aufteilen, dann Tool-Ausführung über TLS-Relay-Tunnel auf entfernte Knoten verlagern — ohne die Agenten zu ändern.",
+ "c5.h":"Ein Gedächtnis, das wirklich lernt",
+ "c5.p":"Die kognitive Gedächtnisebene <code>plate</code> extrahiert Fakten aus Gesprächen, konsolidiert sie in „Dreaming“-Läufen im Hintergrund und liefert hybriden Recall mit Kontext-Kompaktierung. <code>lexicon</code> baut aus Dokumenten einen Wissensgraphen — inklusive Widerspruchserkennung.",
+ "c6.h":"Offene Protokolle, kein Lock-in",
+ "c6.p":"Stellt eine OpenAI-kompatible API bereit und spricht MCP (Server und Client), ACP sowie A2A für die Zusammenarbeit zwischen Agenten. Funktioniert mit OpenAI-kompatiblen, Anthropic-kompatiblen, Ollama- und GLM/Z.AI-Backends.",
+ "mods.h2":"Eine Druckerei aus komponierbaren Modulen",
+ "mods.p":"Jedes Modul besitzt genau eine Aufgabe hinter einer strikten Grenze. Zusammen ergeben sie eine vollständige Agenten-Plattform.",
+ "m.forme":"Deterministischer Agenten-Loop — Delegation, HITL, Lua-Hooks, Checkpoints, Schritt-Events.",
+ "m.galley":"Gemeinsame, dauerhafte SQLite-Datensätze für Multi-Agenten-Zusammenarbeit.",
+ "m.dispatch":"Scheduling je Tenant/Provider/Modell, begrenzte Queues, Retry mit Backoff.",
+ "m.press":"HTTP-Ingress — OpenAI-kompatible API, SSE-Streaming, Idempotenz.",
+ "m.type":"Abstraktionen für Inferenz-Provider über OpenAI-/Anthropic-/Ollama-kompatible Backends.",
+ "m.sorts":"Tool-Ausführung, MCP-Integration, Runner-Abstraktionen.",
+ "m.compositor":"Session-Orchestrierung, Queues und Flow-Komposition.",
+ "m.plate":"Kognitives Gedächtnis — Faktenextraktion, Dreaming, hybrider Recall, Kompaktierung.",
+ "m.lexicon":"Wissensgraph-Extraktion aus Dokumenten mit Konfliktauflösung.",
+ "m.imprimatur":"Tenancy, API-Key-Auth, Scopes, RBAC und Audit-Primitive.",
+ "m.almanac":"Deterministisches Scheduling — Cron, Intervalle, Batch, Wartung.",
+ "m.foundry":"Bootstrap, Konfiguration, Doctor-Checks, Orchestrierungssteuerung.",
+ "proto.tag":"Interoperabilität",
+ "proto.h2":"Spricht jedes Protokoll, das zählt",
+ "proto.openai":"<span class=\"mono\">/v1/chat/completions</span>, models, runs und sessions als Drop-in — vorhandene Clients einfach auf Jikji zeigen lassen.",
+ "proto.mcp":"Model-Context-Protocol-Server und -Client über stdio — MCP-Tools nutzen oder Jikji selbst als Tool bereitstellen.",
+ "proto.acp":"Agent Communication Protocol über stdio für lokale prozessbasierte Agenten-Peers.",
+ "proto.a2a":"Agent-zu-Agent-Zusammenarbeit — Handoff, Delegation und Ergebnis-Einsammlung.",
+ "ops.h":"Operator-Tooling",
+ "ops.p":"<span class=\"mono\">jikjictl</span> deckt Credentials und Vault, RBAC, Policies, Audit-Abfragen, Tracing, Nutzung und einen Marketplace ab — plus ein separates Web-Dashboard, das Keys nie serverseitig speichert.",
+ "term.h":"Terminal-nativ",
+ "term.p":"Interaktiver TUI-Chat, Single-Prompt-Modus, JSONL-Event-Streams für Automatisierung und ein MCP-förmiger JSON-RPC-Modus — Agenten zum Pipen.",
+ "test.h":"Getestet wie Infrastruktur",
+ "test.p":"Ein deterministisches <span class=\"mono\">make verify</span>-Gate plus abgesicherte Live-Smoke-Tests gegen echte Provider. Benchmark-, Fuzz-, Property- und Concurrency-Tests in der gesamten Codebasis.",
+ "start.h2":"In unter einer Minute am Laufen",
+ "cm1":"Server starten (Standardport 1377 — ja, genau dieses 1377)",
+ "cm2":"lokale Umgebung prüfen",
+ "cm3":"interaktiven Chat-TUI öffnen",
+ "cm4":"oder die OpenAI-kompatible API aufrufen",
+ "devnote":"⚠ Jikji befindet sich in aktiver Entwicklung und der Quellcode ist noch nicht öffentlich — er wird bald als Open Source veröffentlicht. APIs und Modulgrenzen können sich bis zum ersten stabilen Release ändern. Diese Seite beschreibt, was heute im Code existiert.",
+ "foot.tagline":"Bewegliche Lettern für das Zeitalter der Agenten.",
+ "foot.github":"GitHub (bald)"
+},
+es:{
+ "nav.why":"Por qué Jikji","nav.arch":"Arquitectura","nav.protocols":"Protocolos","nav.start":"Empezar",
+ "hero.kicker":"Plataforma de agentes · Binario Go único · Pronto open source",
+ "hero.title":"La plataforma de agentes,<br><span class=\"accent\">compuesta en tipos de metal.</span>",
+ "hero.sub":"Jikji es un framework de agentes modular que se ejecuta como un único binario Go estático: bucles de agentes deterministas, estado de orquestación duradero y gobernanza integrada, del portátil a los clústeres empresariales.",
+ "cta.start":"Empezar","cta.github":"GitHub — próximamente",
+ "story.tag":"El nombre",
+ "story.h2":"Nombrado en honor al primer libro impreso con tipos metálicos móviles",
+ "story.p1":"<b>Jikji</b> (직지심체요절) se imprimió en Corea en 1377: el libro más antiguo conservado impreso con tipos metálicos móviles, décadas antes de Gutenberg. Los tipos móviles cambiaron la edición igual que Jikji quiere cambiar los agentes: <b>piezas componibles, compuestas con precisión, produciendo resultados fiables a escala.</b>",
+ "story.p2":"Cada módulo lleva un nombre de imprenta: la <b>foundry</b> funde el runtime, <b>type</b> representa los modelos, los <b>sorts</b> son las herramientas, el <b>compositor</b> compone las sesiones, la <b>forme</b> fija el bucle del agente y la <b>press</b> lo sirve al mundo. Hasta el puerto por defecto es <span class=\"mono\">1377</span>.",
+ "story.cap":"Jikjisimcheyojeol: el libro más antiguo impreso con tipos metálicos móviles. Memoria del Mundo de la UNESCO.",
+ "why.h2":"Qué lo hace diferente de otros frameworks de agentes",
+ "why.p":"La mayoría de los frameworks de agentes son bibliotecas Python pegadas a una BD vectorial, con bucles opacos y gobernanza añadida después. Jikji está construido como infraestructura desde el primer día.",
+ "c1.h":"Un binario estático, cero infierno de dependencias",
+ "c1.p":"Escrito en Go y distribuido como un único binario estático. Sin entornos Python ni conflictos de dependencias. El mismo binario corre en tu portátil, como servicios separados o en Kubernetes con el chart de Helm incluido.",
+ "c2.h":"Un bucle de agente determinista y recuperable",
+ "c2.p":"El bucle <code>forme</code> modela cada paso como acciones y observaciones explícitas, con checkpoints y recuperación integrados en el motor. Las ejecuciones son reproducibles y auditables, no cadenas opacas que desaparecen al fallar.",
+ "c3.h":"Gobernanza integrada, no añadida",
+ "c3.p":"Multi-tenencia, claves API con alcances, RBAC, auditoría estructurada con retención, controles de política sobre el uso de herramientas y aprobaciones human-in-the-loop, todo en el núcleo, más redacción de PII/secretos con patrones regionales.",
+ "c4.h":"Sin límites de escala: portátil → servicios → grid",
+ "c4.p":"Estado duradero local-first sobre SQLite. Empieza en un proceso, divide en servicios y luego lleva la ejecución de herramientas a nodos remotos mediante túneles de relé TLS, sin cambiar tus agentes.",
+ "c5.h":"Memoria que realmente aprende",
+ "c5.p":"El plano de memoria cognitiva <code>plate</code> extrae hechos de las conversaciones, los consolida en pasadas de «sueño» en segundo plano y ofrece recuperación híbrida con compactación de contexto. <code>lexicon</code> construye un grafo de conocimiento a partir de documentos, con detección de contradicciones.",
+ "c6.h":"Protocolos abiertos, sin dependencia",
+ "c6.p":"Sirve una API compatible con OpenAI y habla MCP (servidor y cliente), ACP y A2A para la colaboración entre agentes. Funciona con backends compatibles con OpenAI, Anthropic, Ollama y GLM/Z.AI.",
+ "mods.h2":"Una imprenta de módulos componibles",
+ "mods.p":"Cada módulo posee una sola responsabilidad tras un límite estricto. Juntos componen una plataforma de agentes completa.",
+ "m.forme":"Bucle de agente determinista: delegación, HITL, hooks Lua, checkpoints, eventos de paso.",
+ "m.galley":"Registros SQLite duraderos compartidos para la colaboración multiagente.",
+ "m.dispatch":"Planificación por tenant/proveedor/modelo, colas acotadas, reintentos con backoff.",
+ "m.press":"Ingreso HTTP: API compatible con OpenAI, streaming SSE, idempotencia.",
+ "m.type":"Abstracciones de proveedores de inferencia para backends compatibles con OpenAI/Anthropic/Ollama.",
+ "m.sorts":"Ejecución de herramientas, integración MCP, abstracciones de runners.",
+ "m.compositor":"Orquestación de sesiones, colas y composición de flujos.",
+ "m.plate":"Memoria cognitiva: extracción de hechos, dreaming, recuperación híbrida, compactación.",
+ "m.lexicon":"Extracción de grafos de conocimiento desde documentos, con resolución de conflictos.",
+ "m.imprimatur":"Tenencia, autenticación por clave API, alcances, RBAC y primitivas de auditoría.",
+ "m.almanac":"Planificación determinista: cron, intervalos, lotes, mantenimiento.",
+ "m.foundry":"Arranque, configuración, comprobaciones doctor, control de orquestación.",
+ "proto.tag":"Interoperabilidad",
+ "proto.h2":"Habla todos los protocolos que importan",
+ "proto.openai":"<span class=\"mono\">/v1/chat/completions</span>, models, runs y sessions listos para usar: apunta tus clientes existentes a Jikji.",
+ "proto.mcp":"Servidor y cliente del Model Context Protocol por stdio: consume herramientas MCP o expón Jikji como una.",
+ "proto.acp":"Agent Communication Protocol por stdio para agentes pares basados en procesos locales.",
+ "proto.a2a":"Colaboración entre agentes: traspaso, delegación y recolección de resultados.",
+ "ops.h":"Herramientas de operación",
+ "ops.p":"<span class=\"mono\">jikjictl</span> cubre credenciales y vault, RBAC, políticas, consultas de auditoría, trazas, uso y un marketplace, además de un panel web separado que nunca guarda claves en el servidor.",
+ "term.h":"Nativo de terminal",
+ "term.p":"Chat TUI interactivo, modo de prompt único, flujos de eventos JSONL para automatización y un modo JSON-RPC al estilo MCP: agentes que puedes encadenar con pipes.",
+ "test.h":"Probado como infraestructura",
+ "test.p":"Una puerta determinista <span class=\"mono\">make verify</span> más smoke tests en vivo controlados contra proveedores reales. Tests de benchmark, fuzzing, propiedades y concurrencia por toda la base de código.",
+ "start.h2":"Funcionando en menos de un minuto",
+ "cm1":"inicia el servidor (puerto por defecto 1377; sí, ese 1377)",
+ "cm2":"comprueba tu entorno local",
+ "cm3":"abre el chat TUI interactivo",
+ "cm4":"o llama a la API compatible con OpenAI",
+ "devnote":"⚠ Jikji está en desarrollo activo y el código fuente aún no es público; pronto será open source. Las API y los límites de los módulos pueden cambiar antes de la primera versión estable. Esta página describe lo que existe hoy en el código.",
+ "foot.tagline":"Tipos móviles para la era de los agentes.",
+ "foot.github":"GitHub (próximamente)"
+},
+pt:{
+ "nav.why":"Por que Jikji","nav.arch":"Arquitetura","nav.protocols":"Protocolos","nav.start":"Começar",
+ "hero.kicker":"Plataforma de agentes · Binário Go único · Open source em breve",
+ "hero.title":"A plataforma de agentes,<br><span class=\"accent\">composta em tipos de metal.</span>",
+ "hero.sub":"Jikji é um framework de agentes modular que roda como um único binário Go estático — loops de agentes determinísticos, estado de orquestração durável e governança integrada, do laptop a clusters corporativos.",
+ "cta.start":"Começar","cta.github":"GitHub — em breve",
+ "story.tag":"O nome",
+ "story.h2":"Nomeado em homenagem ao primeiro livro impresso com tipos metálicos móveis",
+ "story.p1":"<b>Jikji</b> (직지심체요절) foi impresso na Coreia em 1377 — o livro mais antigo preservado impresso com tipos metálicos móveis, décadas antes de Gutenberg. Os tipos móveis mudaram a publicação assim como o Jikji quer mudar os agentes: <b>peças componíveis, compostas com precisão, produzindo resultados confiáveis em escala.</b>",
+ "story.p2":"Cada módulo carrega um nome da tipografia — a <b>foundry</b> funde o runtime, <b>type</b> representa os modelos, os <b>sorts</b> são as ferramentas, o <b>compositor</b> compõe as sessões, a <b>forme</b> trava o loop do agente e a <b>press</b> o serve ao mundo. Até a porta padrão é <span class=\"mono\">1377</span>.",
+ "story.cap":"Jikjisimcheyojeol — o livro mais antigo impresso com tipos metálicos móveis. Memória do Mundo da UNESCO.",
+ "why.h2":"O que o torna diferente de outros frameworks de agentes",
+ "why.p":"A maioria dos frameworks de agentes são bibliotecas Python coladas a um banco vetorial, com loops opacos e governança adicionada depois. Jikji é construído como infraestrutura desde o primeiro dia.",
+ "c1.h":"Um binário estático, zero inferno de dependências",
+ "c1.p":"Escrito em Go e distribuído como um único binário estático. Sem ambientes Python, sem conflitos de dependências. O mesmo binário roda no seu laptop, como serviços separados ou no Kubernetes com o Helm chart incluído.",
+ "c2.h":"Um loop de agente determinístico e recuperável",
+ "c2.p":"O loop <code>forme</code> modela cada passo como ações e observações explícitas — com checkpoints e recuperação embutidos no motor. As execuções são reproduzíveis e auditáveis, não cadeias opacas que somem ao travar.",
+ "c3.h":"Governança embutida, não adicionada depois",
+ "c3.p":"Multilocação, chaves de API com escopos, RBAC, trilhas de auditoria estruturadas com retenção, controles de política sobre uso de ferramentas e aprovações human-in-the-loop — tudo no núcleo, além de redação de PII/segredos com padrões regionais.",
+ "c4.h":"Escala livre: laptop → serviços → grade",
+ "c4.p":"Estado durável local-first em SQLite. Comece em um processo, divida em serviços e depois leve a execução de ferramentas a nós remotos por túneis de relay TLS — sem mudar seus agentes.",
+ "c5.h":"Memória que realmente aprende",
+ "c5.p":"O plano de memória cognitiva <code>plate</code> extrai fatos das conversas, consolida-os em passes de \"sonho\" em segundo plano e oferece recall híbrido com compactação de contexto. <code>lexicon</code> constrói um grafo de conhecimento a partir de documentos, com detecção de contradições.",
+ "c6.h":"Protocolos abertos, sem lock-in",
+ "c6.p":"Serve uma API compatível com OpenAI e fala MCP (servidor e cliente), ACP e A2A para colaboração entre agentes. Funciona com backends compatíveis com OpenAI, Anthropic, Ollama e GLM/Z.AI.",
+ "mods.h2":"Uma tipografia de módulos componíveis",
+ "mods.p":"Cada módulo possui uma única responsabilidade atrás de uma fronteira estrita. Juntos, compõem uma plataforma de agentes completa.",
+ "m.forme":"Loop de agente determinístico — delegação, HITL, hooks Lua, checkpoints, eventos de passo.",
+ "m.galley":"Registros SQLite duráveis compartilhados para colaboração multiagente.",
+ "m.dispatch":"Agendamento por tenant/provedor/modelo, filas limitadas, retry com backoff.",
+ "m.press":"Ingress HTTP — API compatível com OpenAI, streaming SSE, idempotência.",
+ "m.type":"Abstrações de provedores de inferência para backends compatíveis com OpenAI/Anthropic/Ollama.",
+ "m.sorts":"Execução de ferramentas, integração MCP, abstrações de runners.",
+ "m.compositor":"Orquestração de sessões, filas e composição de fluxos.",
+ "m.plate":"Memória cognitiva — extração de fatos, dreaming, recall híbrido, compactação.",
+ "m.lexicon":"Extração de grafo de conhecimento de documentos, com resolução de conflitos.",
+ "m.imprimatur":"Locação, autenticação por chave de API, escopos, RBAC e primitivas de auditoria.",
+ "m.almanac":"Agendamento determinístico — cron, intervalos, lotes, manutenção.",
+ "m.foundry":"Bootstrap, configuração, verificações doctor, controle de orquestração.",
+ "proto.tag":"Interoperabilidade",
+ "proto.h2":"Fala todos os protocolos que importam",
+ "proto.openai":"<span class=\"mono\">/v1/chat/completions</span>, models, runs e sessions prontos para uso — aponte seus clientes existentes para o Jikji.",
+ "proto.mcp":"Servidor e cliente do Model Context Protocol via stdio — consuma ferramentas MCP ou exponha o Jikji como uma.",
+ "proto.acp":"Agent Communication Protocol via stdio para agentes pares baseados em processos locais.",
+ "proto.a2a":"Colaboração entre agentes — handoff, delegação e coleta de resultados.",
+ "ops.h":"Ferramentas de operação",
+ "ops.p":"<span class=\"mono\">jikjictl</span> cobre credenciais e vault, RBAC, políticas, consultas de auditoria, tracing, uso e um marketplace — além de um dashboard web separado que nunca armazena chaves no servidor.",
+ "term.h":"Nativo do terminal",
+ "term.p":"Chat TUI interativo, modo de prompt único, fluxos de eventos JSONL para automação e um modo JSON-RPC no formato MCP — agentes que você pode encadear com pipes.",
+ "test.h":"Testado como infraestrutura",
+ "test.p":"Um gate determinístico <span class=\"mono\">make verify</span>, mais smoke tests ao vivo controlados contra provedores reais. Testes de benchmark, fuzz, propriedade e concorrência em toda a base de código.",
+ "start.h2":"Rodando em menos de um minuto",
+ "cm1":"inicie o servidor (porta padrão 1377 — sim, aquele 1377)",
+ "cm2":"verifique seu ambiente local",
+ "cm3":"abra o chat TUI interativo",
+ "cm4":"ou chame a API compatível com OpenAI",
+ "devnote":"⚠ O Jikji está em desenvolvimento ativo e o código-fonte ainda não é público — será open source em breve. APIs e fronteiras de módulos podem mudar antes da primeira versão estável. Esta página descreve o que existe hoje no código.",
+ "foot.tagline":"Tipos móveis para a era dos agentes.",
+ "foot.github":"GitHub (em breve)"
+},
+it:{
+ "nav.why":"Perché Jikji","nav.arch":"Architettura","nav.protocols":"Protocolli","nav.start":"Inizia",
+ "hero.kicker":"Piattaforma di agenti · Un unico binario Go · Presto open source",
+ "hero.title":"La piattaforma di agenti,<br><span class=\"accent\">composta in caratteri di metallo.</span>",
+ "hero.sub":"Jikji è un framework di agenti modulare che gira come un unico binario Go statico — loop di agenti deterministici, stato di orchestrazione durevole e governance integrata, dal laptop ai cluster enterprise.",
+ "cta.start":"Inizia","cta.github":"GitHub — in arrivo",
+ "story.tag":"Il nome",
+ "story.h2":"Prende il nome dal primo libro stampato a caratteri metallici mobili",
+ "story.p1":"<b>Jikji</b> (직지심체요절) fu stampato in Corea nel 1377 — il più antico libro esistente stampato a caratteri metallici mobili, decenni prima di Gutenberg. I caratteri mobili cambiarono l'editoria come Jikji vuole cambiare gli agenti: <b>pezzi componibili, composti con precisione, che producono risultati affidabili su larga scala.</b>",
+ "story.p2":"Ogni modulo porta un nome tipografico — la <b>foundry</b> fonde il runtime, <b>type</b> rappresenta i modelli, i <b>sorts</b> sono gli strumenti, il <b>compositor</b> compone le sessioni, la <b>forme</b> blocca il loop dell'agente e la <b>press</b> lo serve al mondo. Perfino la porta predefinita è <span class=\"mono\">1377</span>.",
+ "story.cap":"Jikjisimcheyojeol — il più antico libro stampato a caratteri metallici mobili. Memoria del Mondo UNESCO.",
+ "why.h2":"Cosa lo rende diverso dagli altri framework di agenti",
+ "why.p":"La maggior parte dei framework di agenti sono librerie Python incollate a un DB vettoriale, con loop opachi e governance aggiunta dopo. Jikji è costruito come infrastruttura dal primo giorno.",
+ "c1.h":"Un binario statico, zero inferno di dipendenze",
+ "c1.p":"Scritto in Go e distribuito come un unico binario statico. Niente ambienti Python, niente conflitti di dipendenze. Lo stesso binario gira sul laptop, come servizi separati o su Kubernetes con il chart Helm incluso.",
+ "c2.h":"Un loop di agente deterministico e recuperabile",
+ "c2.p":"Il loop <code>forme</code> modella ogni passo come azioni e osservazioni esplicite — con checkpoint e ripristino integrati nel motore. Le esecuzioni degli agenti sono riproducibili e verificabili, non catene opache che svaniscono al crash.",
+ "c3.h":"Governance integrata, non aggiunta dopo",
+ "c3.p":"Multi-tenancy, chiavi API con scope, RBAC, audit trail strutturati con retention, policy gate sull'uso degli strumenti e approvazioni human-in-the-loop — tutto nel core, più la redazione di PII/segreti con pattern locali.",
+ "c4.h":"Senza limiti di scala: laptop → servizi → griglia",
+ "c4.p":"Stato durevole local-first su SQLite. Parti con un processo, dividi in servizi, poi sposta l'esecuzione degli strumenti su nodi remoti tramite tunnel relay TLS — senza cambiare i tuoi agenti.",
+ "c5.h":"Una memoria che impara davvero",
+ "c5.p":"Il piano di memoria cognitiva <code>plate</code> estrae fatti dalle conversazioni, li consolida in passaggi di \"sogno\" in background e offre richiamo ibrido con compattazione del contesto. <code>lexicon</code> costruisce un grafo di conoscenza dai documenti, con rilevamento delle contraddizioni.",
+ "c6.h":"Protocolli aperti, nessun lock-in",
+ "c6.p":"Serve un'API compatibile OpenAI e parla MCP (server e client), ACP e A2A per la collaborazione tra agenti. Funziona con backend compatibili OpenAI, Anthropic, Ollama e GLM/Z.AI.",
+ "mods.h2":"Una tipografia di moduli componibili",
+ "mods.p":"Ogni modulo possiede una sola responsabilità dietro un confine rigoroso. Insieme compongono una piattaforma di agenti completa.",
+ "m.forme":"Loop di agente deterministico — delega, HITL, hook Lua, checkpoint, eventi di passo.",
+ "m.galley":"Record SQLite durevoli condivisi per la collaborazione multi-agente.",
+ "m.dispatch":"Scheduling per tenant/provider/modello, code limitate, retry con backoff.",
+ "m.press":"Ingress HTTP — API compatibile OpenAI, streaming SSE, idempotenza.",
+ "m.type":"Astrazioni dei provider di inferenza per backend compatibili OpenAI/Anthropic/Ollama.",
+ "m.sorts":"Esecuzione di strumenti, integrazione MCP, astrazioni dei runner.",
+ "m.compositor":"Orchestrazione delle sessioni, code e composizione dei flussi.",
+ "m.plate":"Memoria cognitiva — estrazione di fatti, dreaming, richiamo ibrido, compattazione.",
+ "m.lexicon":"Estrazione di grafi di conoscenza dai documenti con risoluzione dei conflitti.",
+ "m.imprimatur":"Tenancy, autenticazione con chiavi API, scope, RBAC e primitive di audit.",
+ "m.almanac":"Scheduling deterministico — cron, intervalli, batch, manutenzione.",
+ "m.foundry":"Bootstrap, configurazione, controlli doctor, controllo dell'orchestrazione.",
+ "proto.tag":"Interoperabilità",
+ "proto.h2":"Parla tutti i protocolli che contano",
+ "proto.openai":"<span class=\"mono\">/v1/chat/completions</span>, models, runs e sessions pronti all'uso — punta i client esistenti su Jikji.",
+ "proto.mcp":"Server e client Model Context Protocol via stdio — consuma strumenti MCP o esponi Jikji come uno di essi.",
+ "proto.acp":"Agent Communication Protocol via stdio per agenti peer basati su processi locali.",
+ "proto.a2a":"Collaborazione tra agenti — handoff, delega e raccolta dei risultati.",
+ "ops.h":"Strumenti per operatori",
+ "ops.p":"<span class=\"mono\">jikjictl</span> copre credenziali e vault, RBAC, policy, query di audit, tracing, consumi e un marketplace — più una dashboard web separata che non salva mai le chiavi lato server.",
+ "term.h":"Nativo del terminale",
+ "term.p":"Chat TUI interattiva, modalità a prompt singolo, flussi di eventi JSONL per l'automazione e una modalità JSON-RPC in stile MCP — agenti che puoi mettere in pipe.",
+ "test.h":"Testato come infrastruttura",
+ "test.p":"Un gate <span class=\"mono\">make verify</span> deterministico più smoke test live controllati su provider reali. Test di benchmark, fuzzing, proprietà e concorrenza in tutta la codebase.",
+ "start.h2":"Operativo in meno di un minuto",
+ "cm1":"avvia il server (porta predefinita 1377 — sì, proprio quel 1377)",
+ "cm2":"controlla l'ambiente locale",
+ "cm3":"apri la chat TUI interattiva",
+ "cm4":"oppure chiama l'API compatibile OpenAI",
+ "devnote":"⚠ Jikji è in sviluppo attivo e il codice sorgente non è ancora pubblico — sarà presto open source. Le API e i confini dei moduli possono cambiare prima della prima release stabile. Questa pagina descrive ciò che esiste oggi nel codice.",
+ "foot.tagline":"Caratteri mobili per l'era degli agenti.",
+ "foot.github":"GitHub (in arrivo)"
+},
+ru:{
+ "nav.why":"Почему Jikji","nav.arch":"Архитектура","nav.protocols":"Протоколы","nav.start":"Начать",
+ "hero.kicker":"Платформа агентов · Один Go-бинарник · Скоро в open source",
+ "hero.title":"Платформа агентов,<br><span class=\"accent\">набранная металлическим шрифтом.</span>",
+ "hero.sub":"Jikji — модульный агентный фреймворк, работающий как один статический Go-бинарник: детерминированные циклы агентов, долговечное состояние оркестрации и встроенное управление — от ноутбука до корпоративных кластеров.",
+ "cta.start":"Начать","cta.github":"GitHub — скоро",
+ "story.tag":"Имя",
+ "story.h2":"Назван в честь первой книги, напечатанной подвижным металлическим шрифтом",
+ "story.p1":"<b>Чикчи</b> (직지심체요절) была напечатана в Корее в 1377 году — старейшая сохранившаяся книга, напечатанная подвижным металлическим шрифтом, за десятилетия до Гутенберга. Подвижный шрифт изменил книгопечатание так же, как Jikji хочет изменить агентов: <b>композируемые детали, точно набранные, дающие надёжный результат в любом масштабе.</b>",
+ "story.p2":"Каждый модуль носит типографское имя — <b>foundry</b> отливает рантайм, <b>type</b> отвечает за модели, <b>sorts</b> — это инструменты, <b>compositor</b> набирает сессии, <b>forme</b> запирает цикл агента, а <b>press</b> отдаёт всё миру. Даже порт по умолчанию — <span class=\"mono\">1377</span>.",
+ "story.cap":"Чикчи симчхе ёджоль — старейшая сохранившаяся книга, напечатанная подвижным металлическим шрифтом. «Память мира» ЮНЕСКО.",
+ "why.h2":"Чем он отличается от других агентных фреймворков",
+ "why.p":"Большинство агентных фреймворков — это Python-библиотеки, приклеенные к векторной БД, с непрозрачными циклами и управлением, прикрученным позже. Jikji с первого дня построен как инфраструктура.",
+ "c1.h":"Один статический бинарник, никакого ада зависимостей",
+ "c1.p":"Написан на Go и поставляется одним статическим бинарником. Никаких Python-окружений и конфликтов зависимостей. Тот же бинарник работает на ноутбуке, в виде отдельных сервисов или в Kubernetes с прилагаемым Helm-чартом.",
+ "c2.h":"Детерминированный, восстанавливаемый цикл агента",
+ "c2.p":"Цикл <code>forme</code> моделирует каждый шаг как явные действия и наблюдения — с чекпоинтами и восстановлением, встроенными в движок. Запуски агентов воспроизводимы и аудируемы, а не непрозрачные цепочки, исчезающие при сбое.",
+ "c3.h":"Управление встроено, а не прикручено",
+ "c3.p":"Мультиарендность, API-ключи со скоупами, RBAC, структурированные журналы аудита с ретенцией, политики на использование инструментов и согласования human-in-the-loop — всё в ядре, плюс маскирование PII/секретов с региональными шаблонами.",
+ "c4.h":"Без границ масштаба: ноутбук → сервисы → грид",
+ "c4.p":"Долговечное local-first состояние на SQLite. Начните с одного процесса, разделите на сервисы, затем вынесите выполнение инструментов на удалённые узлы через TLS-релейные туннели — не меняя агентов.",
+ "c5.h":"Память, которая действительно учится",
+ "c5.p":"Когнитивный слой памяти <code>plate</code> извлекает факты из разговоров, консолидирует их фоновыми проходами «сновидений» и обеспечивает гибридный отзыв с компактизацией контекста. <code>lexicon</code> строит граф знаний из документов с обнаружением противоречий.",
+ "c6.h":"Открытые протоколы, без привязки",
+ "c6.p":"Предоставляет OpenAI-совместимый API и говорит на MCP (сервер и клиент), ACP и A2A для взаимодействия агентов. Работает с OpenAI-совместимыми, Anthropic-совместимыми, Ollama и GLM/Z.AI бэкендами.",
+ "mods.h2":"Типография из композируемых модулей",
+ "mods.p":"Каждый модуль отвечает за одну задачу за строгой границей. Вместе они складываются в полную платформу агентов.",
+ "m.forme":"Детерминированный цикл агента — делегирование, HITL, Lua-хуки, чекпоинты, события шагов.",
+ "m.galley":"Общие долговечные записи SQLite для совместной работы агентов.",
+ "m.dispatch":"Планирование по арендатору/провайдеру/модели, ограниченные очереди, ретраи с бэкоффом.",
+ "m.press":"HTTP-вход — OpenAI-совместимый API, SSE-стриминг, идемпотентность.",
+ "m.type":"Абстракции провайдеров инференса для OpenAI/Anthropic/Ollama-совместимых бэкендов.",
+ "m.sorts":"Выполнение инструментов, интеграция MCP, абстракции раннеров.",
+ "m.compositor":"Оркестрация сессий, очереди и композиция потоков.",
+ "m.plate":"Когнитивная память — извлечение фактов, «сновидения», гибридный отзыв, компактизация.",
+ "m.lexicon":"Извлечение графа знаний из документов с разрешением конфликтов.",
+ "m.imprimatur":"Аренда, аутентификация по API-ключам, скоупы, RBAC и примитивы аудита.",
+ "m.almanac":"Детерминированное планирование — cron, интервалы, батчи, обслуживание.",
+ "m.foundry":"Бутстрап, конфигурация, doctor-проверки, управление оркестрацией.",
+ "proto.tag":"Совместимость",
+ "proto.h2":"Говорит на всех важных протоколах",
+ "proto.openai":"Готовые <span class=\"mono\">/v1/chat/completions</span>, models, runs и sessions — просто направьте существующие клиенты на Jikji.",
+ "proto.mcp":"Сервер и клиент Model Context Protocol через stdio — используйте MCP-инструменты или предоставьте Jikji как один из них.",
+ "proto.acp":"Agent Communication Protocol через stdio для локальных процессных агентов-пиров.",
+ "proto.a2a":"Взаимодействие агентов — передача, делегирование и сбор результатов.",
+ "ops.h":"Инструменты оператора",
+ "ops.p":"<span class=\"mono\">jikjictl</span> покрывает учётные данные и vault, RBAC, политики, запросы аудита, трассировку, потребление и маркетплейс — плюс отдельная веб-панель, которая никогда не хранит ключи на сервере.",
+ "term.h":"Родной для терминала",
+ "term.p":"Интерактивный TUI-чат, режим одного промпта, потоки событий JSONL для автоматизации и JSON-RPC режим в духе MCP — агенты, которые можно соединять пайпами.",
+ "test.h":"Протестирован как инфраструктура",
+ "test.p":"Детерминированный гейт <span class=\"mono\">make verify</span> плюс контролируемые живые smoke-тесты на реальных провайдерах. Бенчмарки, фаззинг, property- и конкурентные тесты по всей кодовой базе.",
+ "start.h2":"Запуск меньше чем за минуту",
+ "cm1":"запустить сервер (порт по умолчанию 1377 — да, тот самый 1377)",
+ "cm2":"проверить локальное окружение",
+ "cm3":"открыть интерактивный TUI-чат",
+ "cm4":"или вызвать OpenAI-совместимый API",
+ "devnote":"⚠ Jikji активно разрабатывается, исходный код пока не опубликован — он скоро станет open source. API и границы модулей могут измениться до первого стабильного релиза. Эта страница описывает то, что существует в коде сегодня.",
+ "foot.tagline":"Подвижный шрифт для эпохи агентов.",
+ "foot.github":"GitHub (скоро)"
+},
+vi:{
+ "nav.why":"Vì sao chọn Jikji","nav.arch":"Kiến trúc","nav.protocols":"Giao thức","nav.start":"Bắt đầu",
+ "hero.kicker":"Nền tảng agent · Một binary Go duy nhất · Sắp mở mã nguồn",
+ "hero.title":"Nền tảng agent,<br><span class=\"accent\">vững như chữ in kim loại.</span>",
+ "hero.sub":"Jikji là framework agent dạng mô-đun chạy bằng một binary Go tĩnh duy nhất — vòng lặp agent tất định, trạng thái điều phối bền vững và quản trị tích hợp sẵn, từ laptop đến cụm máy chủ doanh nghiệp.",
+ "cta.start":"Bắt đầu","cta.github":"GitHub — sắp ra mắt",
+ "story.tag":"Nguồn gốc cái tên",
+ "story.h2":"Đặt theo tên cuốn sách in bằng chữ kim loại rời đầu tiên trên thế giới",
+ "story.p1":"<b>Jikji</b> (직지심체요절) được in tại Hàn Quốc năm 1377 — cuốn sách cổ nhất còn tồn tại được in bằng chữ kim loại rời, trước Gutenberg hàng chục năm. Chữ rời đã thay đổi ngành xuất bản đúng như cách Jikji muốn thay đổi agent: <b>các mảnh ghép có thể kết hợp, sắp đặt chính xác, tạo ra kết quả đáng tin cậy ở quy mô lớn.</b>",
+ "story.p2":"Mỗi mô-đun mang một cái tên từ nghề in — <b>foundry</b> đúc runtime, <b>type</b> đại diện cho mô hình, <b>sorts</b> là công cụ, <b>compositor</b> sắp xếp phiên, <b>forme</b> khóa vòng lặp agent, và <b>press</b> phục vụ ra thế giới. Đến cả cổng mặc định cũng là <span class=\"mono\">1377</span>.",
+ "story.cap":"Jikjisimcheyojeol — cuốn sách cổ nhất còn tồn tại in bằng chữ kim loại rời. Di sản Ký ức Thế giới của UNESCO.",
+ "why.h2":"Điều gì khiến nó khác các framework agent khác",
+ "why.p":"Hầu hết framework agent là thư viện Python dán vào một vector DB, vòng lặp mờ đục và quản trị được vá thêm sau. Jikji được xây như hạ tầng ngay từ ngày đầu.",
+ "c1.h":"Một binary tĩnh, không có địa ngục dependency",
+ "c1.p":"Viết bằng Go và phát hành dưới dạng một binary tĩnh duy nhất. Không cần môi trường Python, không xung đột dependency. Cùng một binary chạy trên laptop, dưới dạng các service tách rời, hoặc trên Kubernetes với Helm chart kèm theo.",
+ "c2.h":"Vòng lặp agent tất định, có thể khôi phục",
+ "c2.p":"Vòng lặp <code>forme</code> mô hình hóa mỗi bước thành hành động và quan sát tường minh — với checkpoint và khôi phục tích hợp trong engine. Các lần chạy agent có thể phát lại và kiểm toán, không phải chuỗi mờ đục biến mất khi crash.",
+ "c3.h":"Quản trị tích hợp sẵn, không vá thêm",
+ "c3.p":"Đa tenant, API key theo phạm vi, RBAC, nhật ký kiểm toán có cấu trúc với chính sách lưu trữ, cổng chính sách cho việc dùng công cụ và phê duyệt human-in-the-loop — tất cả trong lõi, cùng tính năng che PII/bí mật theo mẫu vùng miền.",
+ "c4.h":"Không giới hạn quy mô: laptop → service → lưới",
+ "c4.p":"Trạng thái bền vững local-first trên SQLite. Bắt đầu trong một tiến trình, tách thành các service, rồi đẩy việc thực thi công cụ sang các node từ xa qua đường hầm relay TLS — không cần sửa agent.",
+ "c5.h":"Bộ nhớ thực sự biết học",
+ "c5.p":"Tầng bộ nhớ nhận thức <code>plate</code> trích xuất sự kiện từ hội thoại, hợp nhất chúng trong các lượt \"mơ\" chạy nền, và cung cấp truy hồi lai với nén ngữ cảnh. <code>lexicon</code> xây đồ thị tri thức từ tài liệu, kèm phát hiện mâu thuẫn.",
+ "c6.h":"Giao thức mở, không khóa chân",
+ "c6.p":"Cung cấp API tương thích OpenAI và nói MCP (server lẫn client), ACP, và A2A cho cộng tác giữa các agent. Hoạt động với backend tương thích OpenAI, Anthropic, Ollama và GLM/Z.AI.",
+ "mods.h2":"Một xưởng in gồm các mô-đun có thể kết hợp",
+ "mods.p":"Mỗi mô-đun chỉ đảm nhận một việc sau một ranh giới nghiêm ngặt. Kết hợp lại, chúng tạo thành nền tảng agent hoàn chỉnh.",
+ "m.forme":"Vòng lặp agent tất định — ủy quyền, HITL, hook Lua, checkpoint, sự kiện từng bước.",
+ "m.galley":"Bản ghi SQLite bền vững dùng chung cho cộng tác đa agent.",
+ "m.dispatch":"Lập lịch theo tenant/nhà cung cấp/mô hình, hàng đợi có giới hạn, retry với backoff.",
+ "m.press":"Cổng vào HTTP — API tương thích OpenAI, streaming SSE, tính idempotent.",
+ "m.type":"Trừu tượng hóa nhà cung cấp suy luận cho backend tương thích OpenAI/Anthropic/Ollama.",
+ "m.sorts":"Thực thi công cụ, tích hợp MCP, trừu tượng hóa runner.",
+ "m.compositor":"Điều phối phiên, hàng đợi và tổ hợp luồng.",
+ "m.plate":"Bộ nhớ nhận thức — trích xuất sự kiện, dreaming, truy hồi lai, nén.",
+ "m.lexicon":"Trích xuất đồ thị tri thức từ tài liệu, kèm giải quyết xung đột.",
+ "m.imprimatur":"Tenant, xác thực API key, phạm vi, RBAC và các primitive kiểm toán.",
+ "m.almanac":"Lập lịch tất định — cron, khoảng thời gian, batch, bảo trì.",
+ "m.foundry":"Khởi tạo, cấu hình, kiểm tra doctor, điều khiển điều phối.",
+ "proto.tag":"Khả năng tương tác",
+ "proto.h2":"Nói mọi giao thức quan trọng",
+ "proto.openai":"<span class=\"mono\">/v1/chat/completions</span>, models, runs và sessions dùng ngay — chỉ cần trỏ client hiện có sang Jikji.",
+ "proto.mcp":"Server và client Model Context Protocol qua stdio — dùng công cụ MCP hoặc đưa Jikji thành một công cụ MCP.",
+ "proto.acp":"Agent Communication Protocol qua stdio cho các agent ngang hàng dạng tiến trình cục bộ.",
+ "proto.a2a":"Cộng tác giữa agent — bàn giao, ủy quyền và thu hoạch kết quả.",
+ "ops.h":"Công cụ vận hành",
+ "ops.p":"<span class=\"mono\">jikjictl</span> bao quát thông tin xác thực và vault, RBAC, chính sách, truy vấn kiểm toán, tracing, mức dùng và marketplace — cùng một dashboard web riêng không bao giờ lưu key phía server.",
+ "term.h":"Sinh ra cho terminal",
+ "term.p":"Chat TUI tương tác, chế độ một prompt, luồng sự kiện JSONL cho tự động hóa, và chế độ JSON-RPC kiểu MCP — những agent bạn có thể nối ống (pipe).",
+ "test.h":"Được kiểm thử như hạ tầng",
+ "test.p":"Cổng <span class=\"mono\">make verify</span> tất định cộng với smoke test trực tiếp có kiểm soát trên nhà cung cấp thật. Test benchmark, fuzz, property và concurrency phủ khắp codebase.",
+ "start.h2":"Chạy trong chưa đầy một phút",
+ "cm1":"khởi động server (cổng mặc định 1377 — đúng, chính là 1377 đó)",
+ "cm2":"kiểm tra môi trường cục bộ",
+ "cm3":"mở chat TUI tương tác",
+ "cm4":"hoặc gọi API tương thích OpenAI",
+ "devnote":"⚠ Jikji đang được phát triển tích cực và mã nguồn chưa công khai — sẽ sớm được mở mã nguồn. API và ranh giới mô-đun có thể thay đổi trước bản phát hành ổn định đầu tiên. Trang này mô tả những gì thực sự tồn tại trong codebase hôm nay.",
+ "foot.tagline":"Chữ in rời cho kỷ nguyên agent.",
+ "foot.github":"GitHub (sắp ra mắt)"
+},
+id:{
+ "nav.why":"Mengapa Jikji","nav.arch":"Arsitektur","nav.protocols":"Protokol","nav.start":"Mulai",
+ "hero.kicker":"Platform Agen · Satu Binary Go · Segera Open Source",
+ "hero.title":"Platform agen,<br><span class=\"accent\">dicetak dengan huruf logam.</span>",
+ "hero.sub":"Jikji adalah framework agen modular yang berjalan sebagai satu binary Go statis — loop agen deterministik, state orkestrasi yang tahan lama, dan tata kelola bawaan, dari laptop hingga klaster enterprise.",
+ "cta.start":"Mulai","cta.github":"GitHub — segera",
+ "story.tag":"Asal nama",
+ "story.h2":"Dinamai dari buku pertama di dunia yang dicetak dengan huruf logam lepas",
+ "story.p1":"<b>Jikji</b> (직지심체요절) dicetak di Korea pada 1377 — buku tertua yang masih ada yang dicetak dengan huruf logam lepas, puluhan tahun sebelum Gutenberg. Huruf lepas mengubah penerbitan sebagaimana Jikji ingin mengubah agen: <b>komponen yang dapat dikomposisi, disusun presisi, menghasilkan keluaran andal dalam skala besar.</b>",
+ "story.p2":"Setiap modul memakai nama dari dunia percetakan — <b>foundry</b> menuang runtime, <b>type</b> mewakili model, <b>sorts</b> adalah perkakas, <b>compositor</b> menyusun sesi, <b>forme</b> mengunci loop agen, dan <b>press</b> menyajikannya ke dunia. Bahkan port default-nya <span class=\"mono\">1377</span>.",
+ "story.cap":"Jikjisimcheyojeol — buku tertua yang dicetak dengan huruf logam lepas. Memori Dunia UNESCO.",
+ "why.h2":"Apa bedanya dengan framework agen lain",
+ "why.p":"Kebanyakan framework agen adalah pustaka Python yang ditempel ke vector DB, dengan loop yang buram dan tata kelola yang ditambal belakangan. Jikji dibangun seperti infrastruktur sejak hari pertama.",
+ "c1.h":"Satu binary statis, nol neraka dependensi",
+ "c1.p":"Ditulis dengan Go dan dirilis sebagai satu binary statis. Tanpa lingkungan Python, tanpa konflik dependensi. Binary yang sama berjalan di laptop, sebagai layanan terpisah, atau di Kubernetes dengan Helm chart bawaan.",
+ "c2.h":"Loop agen deterministik dan dapat dipulihkan",
+ "c2.p":"Loop <code>forme</code> memodelkan tiap langkah sebagai aksi dan observasi eksplisit — dengan checkpoint dan pemulihan tertanam di mesin. Eksekusi agen dapat diputar ulang dan diaudit, bukan rantai buram yang lenyap saat crash.",
+ "c3.h":"Tata kelola bawaan, bukan tambalan",
+ "c3.p":"Multi-tenant, API key dengan scope, RBAC, jejak audit terstruktur dengan retensi, gerbang kebijakan pada penggunaan tool, dan persetujuan human-in-the-loop — semuanya di inti, plus redaksi PII/rahasia dengan pola lokal.",
+ "c4.h":"Bebas skala: laptop → layanan → grid",
+ "c4.p":"State tahan lama local-first di SQLite. Mulai dari satu proses, pecah menjadi layanan, lalu dorong eksekusi tool ke node jarak jauh lewat terowongan relay TLS — tanpa mengubah agen Anda.",
+ "c5.h":"Memori yang benar-benar belajar",
+ "c5.p":"Lapisan memori kognitif <code>plate</code> mengekstrak fakta dari percakapan, mengonsolidasikannya lewat proses \"bermimpi\" di latar belakang, dan menyajikan recall hibrida dengan pemadatan konteks. <code>lexicon</code> membangun graf pengetahuan dari dokumen dengan deteksi kontradiksi.",
+ "c6.h":"Protokol terbuka, tanpa lock-in",
+ "c6.p":"Menyajikan API yang kompatibel dengan OpenAI dan berbicara MCP (server dan klien), ACP, serta A2A untuk kolaborasi antaragen. Bekerja dengan backend kompatibel OpenAI, Anthropic, Ollama, dan GLM/Z.AI.",
+ "mods.h2":"Percetakan berisi modul-modul yang dapat dikomposisi",
+ "mods.p":"Tiap modul memegang satu tanggung jawab di balik batas yang ketat. Bersama-sama mereka membentuk platform agen yang utuh.",
+ "m.forme":"Loop agen deterministik — delegasi, HITL, hook Lua, checkpoint, event langkah.",
+ "m.galley":"Rekaman SQLite tahan lama bersama untuk kolaborasi multi-agen.",
+ "m.dispatch":"Penjadwalan per tenant/penyedia/model, antrean terbatas, retry dengan backoff.",
+ "m.press":"Ingress HTTP — API kompatibel OpenAI, streaming SSE, idempotensi.",
+ "m.type":"Abstraksi penyedia inferensi lintas backend kompatibel OpenAI/Anthropic/Ollama.",
+ "m.sorts":"Eksekusi tool, integrasi MCP, abstraksi runner.",
+ "m.compositor":"Orkestrasi sesi, antrean, dan komposisi alur.",
+ "m.plate":"Memori kognitif — ekstraksi fakta, dreaming, recall hibrida, pemadatan.",
+ "m.lexicon":"Ekstraksi graf pengetahuan dari dokumen dengan resolusi konflik.",
+ "m.imprimatur":"Tenancy, autentikasi API key, scope, RBAC, dan primitif audit.",
+ "m.almanac":"Penjadwalan deterministik — cron, interval, batch, pemeliharaan.",
+ "m.foundry":"Bootstrap, konfigurasi, pemeriksaan doctor, kontrol orkestrasi.",
+ "proto.tag":"Interoperabilitas",
+ "proto.h2":"Berbicara semua protokol yang penting",
+ "proto.openai":"<span class=\"mono\">/v1/chat/completions</span>, models, runs, dan sessions siap pakai — arahkan klien yang ada ke Jikji.",
+ "proto.mcp":"Server dan klien Model Context Protocol lewat stdio — pakai tool MCP atau ekspos Jikji sebagai salah satunya.",
+ "proto.acp":"Agent Communication Protocol lewat stdio untuk agen peer berbasis proses lokal.",
+ "proto.a2a":"Kolaborasi antaragen — handoff, delegasi, dan pengumpulan hasil.",
+ "ops.h":"Perkakas operator",
+ "ops.p":"<span class=\"mono\">jikjictl</span> mencakup kredensial dan vault, RBAC, kebijakan, kueri audit, tracing, pemakaian, dan marketplace — plus dashboard web terpisah yang tak pernah menyimpan key di sisi server.",
+ "term.h":"Asli terminal",
+ "term.p":"Chat TUI interaktif, mode prompt tunggal, aliran event JSONL untuk otomasi, dan mode JSON-RPC bergaya MCP — agen yang bisa Anda pipe.",
+ "test.h":"Diuji seperti infrastruktur",
+ "test.p":"Gerbang <span class=\"mono\">make verify</span> yang deterministik plus smoke test langsung terkontrol terhadap penyedia nyata. Tes benchmark, fuzz, properti, dan konkurensi di seluruh codebase.",
+ "start.h2":"Berjalan dalam waktu kurang dari satu menit",
+ "cm1":"jalankan server (port default 1377 — ya, 1377 itu)",
+ "cm2":"periksa lingkungan lokal Anda",
+ "cm3":"buka chat TUI interaktif",
+ "cm4":"atau panggil API kompatibel OpenAI",
+ "devnote":"⚠ Jikji sedang dikembangkan aktif dan kode sumbernya belum publik — akan segera di-open-source-kan. API dan batas modul dapat berubah sebelum rilis stabil pertama. Halaman ini menjelaskan apa yang benar-benar ada di codebase saat ini.",
+ "foot.tagline":"Huruf lepas untuk era agen.",
+ "foot.github":"GitHub (segera)"
+}
+};
+
+const SUPPORTED = ["en","ko","ja","zh","zh-tw","fr","de","es","pt","it","ru","vi","id"];
+
 function setLang(l){
-  document.documentElement.classList.remove('lang-en','lang-ko');
-  document.documentElement.classList.add('lang-'+l);
-  document.documentElement.lang = l === 'ko' ? 'ko' : 'en';
-  document.getElementById('langToggle').textContent = l === 'ko' ? 'English' : '한국어';
-  try{localStorage.setItem('jikji-lang', l);}catch(e){}
+  if(!I18N[l]) l = "en";
+  const dict = I18N[l];
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(dict[k] !== undefined) el.innerHTML = dict[k];
+  });
+  document.documentElement.lang = l;
+  const sel = document.getElementById("langSel");
+  if(sel) sel.value = l;
+  try{localStorage.setItem("jikji-lang", l);}catch(e){}
 }
-function toggleLang(){
-  setLang(document.documentElement.classList.contains('lang-ko') ? 'en' : 'ko');
-}
+
 (function(){
-  var saved = null;
-  try{saved = localStorage.getItem('jikji-lang');}catch(e){}
-  var l = saved || ((navigator.language||'').toLowerCase().indexOf('ko')===0 ? 'ko' : 'en');
+  let saved = null;
+  try{saved = localStorage.getItem("jikji-lang");}catch(e){}
+  let l = saved;
+  if(!l || !I18N[l]){
+    const nav = (navigator.language || "").toLowerCase();
+    if(nav.startsWith("zh")){
+      l = /tw|hk|mo|hant/.test(nav) ? "zh-tw" : "zh";
+    }else{
+      const p = nav.slice(0,2);
+      l = SUPPORTED.includes(p) ? p : "en";
+    }
+  }
   setLang(l);
 })();
 </script>
