@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jikji — The Agent Platform, Set in Metal Type</title>
+<meta name="description" content="Jikji is a modular agent platform in a single Go binary — deterministic agent loops, durable state, built-in governance, and open protocols, from your laptop to enterprise orchestration.">
+<meta property="og:title" content="Jikji — The Agent Platform, Set in Metal Type">
+<meta property="og:description" content="A modular agent platform in a single Go binary. Deterministic, durable, governed.">
+<meta property="og:url" content="https://www.jikji-labs.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f3ec;
+  --paper-deep:#efe8db;
+  --ink:#1d1a16;
+  --ink-soft:#4a443c;
+  --ink-faint:#7d756a;
+  --vermilion:#c0392b;
+  --vermilion-deep:#9a2c20;
+  --gold:#a8842c;
+  --line:#d9d0c0;
+  --card:#fffdf8;
+  --code-bg:#211d18;
+  --code-fg:#e8e0d2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans KR',-apple-system,'Segoe UI',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:16px;
+}
+.serif{font-family:'Noto Serif KR',Georgia,serif}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+
+/* language switching */
+html.lang-en .ko{display:none}
+html.lang-ko .en{display:none}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* header */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,243,236,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand .seal{
+  width:32px;height:32px;border:2px solid var(--vermilion);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Noto Serif KR',serif;font-weight:700;color:var(--vermilion);
+  font-size:15px;border-radius:4px;
+}
+.brand b{font-family:'Noto Serif KR',serif;font-size:19px;letter-spacing:.04em}
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-size:14px}
+.nav-links a:hover{color:var(--vermilion)}
+.lang-btn{
+  border:1px solid var(--line);background:var(--card);border-radius:20px;
+  padding:5px 14px;font-size:13px;cursor:pointer;color:var(--ink-soft);
+  font-family:inherit;
+}
+.lang-btn:hover{border-color:var(--vermilion);color:var(--vermilion)}
+
+/* hero */
+.hero{padding:96px 0 72px;text-align:center;position:relative;overflow:hidden}
+.hero .kicker{
+  display:inline-block;font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--vermilion);border:1px solid var(--vermilion);
+  padding:4px 14px;border-radius:20px;margin-bottom:28px;
+}
+.hero h1{
+  font-family:'Noto Serif KR',serif;font-size:clamp(34px,5.5vw,58px);
+  font-weight:700;line-height:1.25;letter-spacing:-.01em;
+}
+.hero h1 .accent{color:var(--vermilion)}
+.hero .sub{
+  max-width:680px;margin:24px auto 0;color:var(--ink-soft);
+  font-size:clamp(16px,2vw,19px);
+}
+.hero .cta{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;text-decoration:none;border-radius:6px;
+  padding:12px 26px;font-size:15px;font-weight:500;transition:transform .15s;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.hero .typebar{
+  margin-top:64px;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
+}
+.hero .typebar span{
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-faint);
+  border:1px solid var(--line);background:var(--card);
+  padding:4px 10px;border-radius:3px;letter-spacing:.05em;
+}
+
+/* sections */
+section{padding:76px 0}
+section.alt{background:var(--paper-deep)}
+.sec-head{max-width:720px;margin-bottom:44px}
+.sec-head .tag{
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  font-weight:700;display:block;margin-bottom:10px;
+}
+.sec-head h2{font-family:'Noto Serif KR',serif;font-size:clamp(26px,3.4vw,36px);line-height:1.3}
+.sec-head p{margin-top:14px;color:var(--ink-soft)}
+
+/* story */
+.story{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.story-plate{
+  background:var(--code-bg);color:var(--code-fg);border-radius:10px;
+  padding:36px;font-family:'Noto Serif KR',serif;text-align:center;
+  box-shadow:0 18px 40px rgba(29,26,22,.18);
+}
+.story-plate .big{font-size:54px;font-weight:700;letter-spacing:.1em;color:#f0e6d2}
+.story-plate .year{
+  font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--gold);
+  margin-top:10px;letter-spacing:.3em;
+}
+.story-plate .cap{font-size:13px;color:#9a9183;margin-top:16px;font-family:'Noto Sans KR',sans-serif}
+.story p{color:var(--ink-soft);margin-bottom:14px}
+.story p b{color:var(--ink)}
+
+/* why cards */
+.grid{display:grid;gap:20px}
+.grid.cols3{grid-template-columns:repeat(3,1fr)}
+.grid.cols2{grid-template-columns:repeat(2,1fr)}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  padding:26px;transition:box-shadow .2s,border-color .2s;
+}
+.card:hover{box-shadow:0 10px 28px rgba(29,26,22,.08);border-color:#cabfa9}
+.card .num{
+  font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--vermilion);
+  letter-spacing:.15em;display:block;margin-bottom:12px;
+}
+.card h3{font-family:'Noto Serif KR',serif;font-size:18px;margin-bottom:10px;line-height:1.4}
+.card p{font-size:14px;color:var(--ink-soft)}
+.card p code{
+  font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--paper-deep);
+  padding:1px 6px;border-radius:3px;color:var(--vermilion-deep);
+}
+
+/* modules */
+.mods{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.mod{
+  background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px;
+}
+.mod .name{
+  font-family:'JetBrains Mono',monospace;font-weight:600;font-size:14px;color:var(--ink);
+  display:flex;align-items:baseline;gap:8px;
+}
+.mod .gloss{font-size:11px;color:var(--gold)}
+.mod p{font-size:12.5px;color:var(--ink-faint);margin-top:8px;line-height:1.55}
+
+/* protocol strip */
+.protos{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+.proto{
+  background:var(--card);border:1px solid var(--line);border-radius:8px;
+  padding:16px 22px;flex:1;min-width:200px;
+}
+.proto .p-name{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:14px;color:var(--vermilion-deep)}
+.proto p{font-size:13px;color:var(--ink-soft);margin-top:6px}
+
+/* quickstart */
+.code-block{
+  background:var(--code-bg);color:var(--code-fg);border-radius:10px;
+  padding:26px 28px;font-family:'JetBrains Mono',monospace;font-size:13.5px;
+  line-height:1.9;overflow-x:auto;box-shadow:0 14px 34px rgba(29,26,22,.18);
+}
+.code-block .c{color:#857c6d}
+.code-block .cmd{color:#e8e0d2}
+.code-block .cmd::before{content:"$ ";color:var(--gold)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-deep)}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.foot .small{font-size:13px;color:var(--ink-faint)}
+.foot a{color:var(--ink-soft);text-decoration:none;font-size:13px;margin-left:18px}
+.foot a:hover{color:var(--vermilion)}
+.dev-note{
+  margin-top:56px;border:1px dashed var(--line);border-radius:8px;
+  padding:16px 22px;font-size:13px;color:var(--ink-faint);background:var(--card);
+}
+
+@media(max-width:880px){
+  .grid.cols3{grid-template-columns:1fr 1fr}
+  .mods{grid-template-columns:1fr 1fr}
+  .story{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .grid.cols3,.grid.cols2,.mods{grid-template-columns:1fr}
+  .nav-links a:not(.lang-btn){display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">
+      <span class="seal">直</span>
+      <b>Jikji</b>
+    </a>
+    <nav class="nav-links">
+      <a href="#why"><span class="en">Why Jikji</span><span class="ko">왜 Jikji인가</span></a>
+      <a href="#modules"><span class="en">Architecture</span><span class="ko">아키텍처</span></a>
+      <a href="#protocols"><span class="en">Protocols</span><span class="ko">프로토콜</span></a>
+      <a href="#start"><span class="en">Get Started</span><span class="ko">시작하기</span></a>
+      <button class="lang-btn" id="langToggle" onclick="toggleLang()">한국어</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <span class="kicker"><span class="en">Open Agent Platform · Single Go Binary</span><span class="ko">오픈 에이전트 플랫폼 · 단일 Go 바이너리</span></span>
+    <h1>
+      <span class="en">The agent platform,<br><span class="accent">set in metal type.</span></span>
+      <span class="ko">금속활자처럼 단단한<br><span class="accent">에이전트 플랫폼.</span></span>
+    </h1>
+    <p class="sub">
+      <span class="en">Jikji is a modular agent framework that runs as one static Go binary — deterministic agent loops, durable orchestration state, and built-in governance, from a laptop to enterprise clusters.</span>
+      <span class="ko">Jikji는 단일 정적 Go 바이너리로 실행되는 모듈형 에이전트 프레임워크입니다. 결정적(deterministic) 에이전트 루프, 영속적인 오케스트레이션 상태, 그리고 처음부터 내장된 거버넌스를 노트북에서 엔터프라이즈 클러스터까지 동일하게 제공합니다.</span>
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#start"><span class="en">Get Started</span><span class="ko">시작하기</span></a>
+      <a class="btn btn-ghost" href="https://github.com/jikji-labs"><span class="en">GitHub</span><span class="ko">GitHub</span></a>
+    </div>
+    <div class="typebar">
+      <span>foundry</span><span>press</span><span>type</span><span>sorts</span><span>dispatch</span><span>compositor</span><span>forme</span><span>galley</span><span>plate</span><span>lexicon</span><span>imprimatur</span><span>almanac</span>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="alt" id="story">
+  <div class="wrap story">
+    <div>
+      <div class="sec-head" style="margin-bottom:24px">
+        <span class="tag"><span class="en">The Name</span><span class="ko">이름의 유래</span></span>
+        <h2>
+          <span class="en">Named after the world's first movable metal type book</span>
+          <span class="ko">세계 최초의 금속활자본에서 따온 이름</span>
+        </h2>
+      </div>
+      <p>
+        <span class="en"><b>Jikji</b> (직지심체요절) was printed in Korea in 1377 — the oldest surviving book printed with movable metal type, decades before Gutenberg. Movable type changed publishing the same way Jikji aims to change agents: <b>composable pieces, set precisely, producing reliable output at scale.</b></span>
+        <span class="ko"><b>직지심체요절</b>은 1377년 고려에서 간행된, 현존하는 세계에서 가장 오래된 금속활자본입니다. 구텐베르크보다 수십 년 앞섰죠. 금속활자가 출판을 바꾼 방식 그대로, Jikji는 에이전트를 바꾸려 합니다. <b>조합 가능한 부품을 정밀하게 조판해, 대규모에서도 신뢰할 수 있는 결과를 만들어내는 것.</b></span>
+      </p>
+      <p>
+        <span class="en">Every module carries a letterpress name — the <b>foundry</b> casts the runtime, <b>type</b> faces the models, <b>sorts</b> are the tools, the <b>compositor</b> sets sessions, the <b>forme</b> locks the agent loop, and the <b>press</b> serves it to the world. Even the default port is <span class="mono">1377</span>.</span>
+        <span class="ko">모든 모듈이 활판인쇄 용어로 이름 지어져 있습니다. <b>foundry</b>(주조소)는 런타임을 부트스트랩하고, <b>type</b>(활자)은 모델을, <b>sorts</b>(낱자)는 도구를, <b>compositor</b>(식자공)는 세션을, <b>forme</b>(판)은 에이전트 루프를, <b>press</b>(인쇄기)는 API를 담당합니다. 기본 포트마저 <span class="mono">1377</span>입니다.</span>
+      </p>
+    </div>
+    <div class="story-plate">
+      <div class="big">直指</div>
+      <div class="year">EST. 1377</div>
+      <div class="cap">
+        <span class="en">Jikjisimcheyojeol — the oldest extant book printed with movable metal type. UNESCO Memory of the World.</span>
+        <span class="ko">직지심체요절 — 현존 최고(最古)의 금속활자본. 유네스코 세계기록유산.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag"><span class="en">Why Jikji</span><span class="ko">왜 Jikji인가</span></span>
+      <h2>
+        <span class="en">What makes it different from other agent frameworks</span>
+        <span class="ko">다른 에이전트 프레임워크와 무엇이 다른가</span>
+      </h2>
+      <p>
+        <span class="en">Most agent frameworks are Python libraries glued to a vector DB, with opaque loops and governance bolted on later. Jikji is built like infrastructure from day one.</span>
+        <span class="ko">대부분의 에이전트 프레임워크는 벡터 DB에 붙인 파이썬 라이브러리이고, 루프는 불투명하며 거버넌스는 나중에 덧붙입니다. Jikji는 처음부터 인프라처럼 설계되었습니다.</span>
+      </p>
+    </div>
+    <div class="grid cols3">
+      <div class="card">
+        <span class="num">01</span>
+        <h3><span class="en">One static binary, zero dependency hell</span><span class="ko">단일 정적 바이너리, 의존성 지옥 없음</span></h3>
+        <p>
+          <span class="en">Written in Go and shipped as a single static binary. No Python environments, no dependency conflicts. The same binary runs on your laptop, as split services, or in Kubernetes with the included Helm chart.</span>
+          <span class="ko">Go로 작성되어 단일 정적 바이너리로 배포됩니다. 파이썬 환경 구성도, 의존성 충돌도 없습니다. 같은 바이너리가 노트북에서도, 분리된 서비스로도, 포함된 Helm 차트로 Kubernetes에서도 그대로 동작합니다.</span>
+        </p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3><span class="en">A deterministic, recoverable agent loop</span><span class="ko">결정적이고 복구 가능한 에이전트 루프</span></h3>
+        <p>
+          <span class="en">The <code>forme</code> loop models every step as explicit actions and observations — with checkpointing and recovery built into the engine. Agent runs are replayable and auditable, not opaque chains that vanish on crash.</span>
+          <span class="ko"><code>forme</code> 루프는 모든 단계를 명시적인 액션과 관찰(observation)로 모델링하며, 체크포인트와 복구가 엔진에 내장되어 있습니다. 에이전트 실행은 크래시와 함께 사라지는 블랙박스가 아니라, 재생(replay)과 감사가 가능한 기록입니다.</span>
+        </p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3><span class="en">Governance built in, not bolted on</span><span class="ko">덧붙인 게 아닌, 내장된 거버넌스</span></h3>
+        <p>
+          <span class="en">Multi-tenancy, scoped API keys, RBAC, structured audit trails with retention, policy gates on tool use, and human-in-the-loop approvals — all in the core, plus PII/secret redaction with Korean locale patterns.</span>
+          <span class="ko">멀티테넌시, 스코프 기반 API 키, RBAC, 보존 정책이 있는 구조화된 감사 로그, 도구 사용에 대한 정책 게이트, 휴먼 인 더 루프(HITL) 승인까지 모두 코어에 들어 있습니다. 한국어 로케일 패턴을 지원하는 개인정보·시크릿 마스킹도 기본입니다.</span>
+        </p>
+      </div>
+      <div class="card">
+        <span class="num">04</span>
+        <h3><span class="en">Scale-free: laptop → services → grid</span><span class="ko">스케일 프리: 노트북 → 서비스 → 그리드</span></h3>
+        <p>
+          <span class="en">Local-first durable state on SQLite. Start in one process, split into services, then push tool execution to remote nodes over TLS relay tunnels — without changing your agents.</span>
+          <span class="ko">SQLite 기반의 로컬 우선 영속 상태. 한 프로세스로 시작해 서비스로 분리하고, TLS 릴레이 터널을 통해 원격 노드로 도구 실행을 확장할 수 있습니다. 에이전트 코드는 그대로입니다.</span>
+        </p>
+      </div>
+      <div class="card">
+        <span class="num">05</span>
+        <h3><span class="en">Memory that actually learns</span><span class="ko">실제로 학습하는 메모리</span></h3>
+        <p>
+          <span class="en">The <code>plate</code> cognitive memory plane extracts facts from conversations, consolidates them in background "dreaming" passes, and serves hybrid recall with context compaction. <code>lexicon</code> builds a knowledge graph from documents with contradiction detection.</span>
+          <span class="ko"><code>plate</code> 인지 메모리 플레인은 대화에서 사실을 추출하고, 백그라운드 "드리밍" 과정으로 통합하며, 컨텍스트 압축과 하이브리드 리콜을 제공합니다. <code>lexicon</code>은 문서에서 지식 그래프를 구축하고 모순 탐지까지 수행합니다.</span>
+        </p>
+      </div>
+      <div class="card">
+        <span class="num">06</span>
+        <h3><span class="en">Open protocols, no lock-in</span><span class="ko">오픈 프로토콜, 락인 없음</span></h3>
+        <p>
+          <span class="en">Serves an OpenAI-compatible API and speaks MCP (server and client), ACP, and A2A for agent-to-agent collaboration. Works with OpenAI-compatible, Anthropic-compatible, Ollama, and GLM/Z.AI backends.</span>
+          <span class="ko">OpenAI 호환 API를 제공하고, MCP(서버·클라이언트), ACP, 에이전트 간 협업을 위한 A2A 프로토콜을 지원합니다. OpenAI 호환, Anthropic 호환, Ollama, GLM/Z.AI 백엔드와 함께 동작합니다.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="alt" id="modules">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag"><span class="en">Architecture</span><span class="ko">아키텍처</span></span>
+      <h2>
+        <span class="en">A print shop of composable modules</span>
+        <span class="ko">조판실처럼 구성된 모듈들</span>
+      </h2>
+      <p>
+        <span class="en">Each module owns one concern behind a strict boundary. Together they compose into a full agent platform.</span>
+        <span class="ko">각 모듈은 엄격한 경계 뒤에서 하나의 책임만 가집니다. 이들이 모여 완전한 에이전트 플랫폼을 이룹니다.</span>
+      </p>
+    </div>
+    <div class="mods">
+      <div class="mod"><div class="name">forme <span class="gloss">판</span></div><p><span class="en">Deterministic agent loop — delegation, HITL, Lua hooks, checkpoints, step events.</span><span class="ko">결정적 에이전트 루프 — 위임, HITL, Lua 훅, 체크포인트, 스텝 이벤트.</span></p></div>
+      <div class="mod"><div class="name">galley <span class="gloss">게라</span></div><p><span class="en">Shared durable SQLite records and links for multi-agent collaboration.</span><span class="ko">멀티 에이전트 협업을 위한 공유 영속 SQLite 레코드와 링크.</span></p></div>
+      <div class="mod"><div class="name">dispatch <span class="gloss">배차</span></div><p><span class="en">Tenant/provider/model scheduling, bounded queues, retry with backoff.</span><span class="ko">테넌트·프로바이더·모델 단위 스케줄링, 큐 제한, 백오프 재시도.</span></p></div>
+      <div class="mod"><div class="name">press <span class="gloss">인쇄기</span></div><p><span class="en">HTTP ingress — OpenAI-compatible API, SSE streaming, idempotency.</span><span class="ko">HTTP 인그레스 — OpenAI 호환 API, SSE 스트리밍, 멱등성 처리.</span></p></div>
+      <div class="mod"><div class="name">type <span class="gloss">활자</span></div><p><span class="en">Inference provider abstractions across OpenAI/Anthropic/Ollama-compatible backends.</span><span class="ko">OpenAI·Anthropic·Ollama 호환 백엔드를 아우르는 추론 프로바이더 추상화.</span></p></div>
+      <div class="mod"><div class="name">sorts <span class="gloss">낱자</span></div><p><span class="en">Tool execution, MCP integration, and runner abstractions.</span><span class="ko">도구 실행, MCP 통합, 러너 추상화.</span></p></div>
+      <div class="mod"><div class="name">compositor <span class="gloss">식자공</span></div><p><span class="en">Session orchestration, queues, and flow composition.</span><span class="ko">세션 오케스트레이션, 큐, 플로우 조합.</span></p></div>
+      <div class="mod"><div class="name">plate <span class="gloss">연판</span></div><p><span class="en">Cognitive memory — fact extraction, dreaming, hybrid recall, compaction.</span><span class="ko">인지 메모리 — 사실 추출, 드리밍, 하이브리드 리콜, 압축.</span></p></div>
+      <div class="mod"><div class="name">lexicon <span class="gloss">사전</span></div><p><span class="en">Knowledge graph extraction from documents with conflict resolution.</span><span class="ko">문서로부터 지식 그래프 추출, 충돌·모순 해소.</span></p></div>
+      <div class="mod"><div class="name">imprimatur <span class="gloss">출판인가</span></div><p><span class="en">Tenancy, API-key auth, scopes, RBAC, and audit primitives.</span><span class="ko">테넌시, API 키 인증, 스코프, RBAC, 감사 프리미티브.</span></p></div>
+      <div class="mod"><div class="name">almanac <span class="gloss">책력</span></div><p><span class="en">Deterministic scheduling — cron, interval, batch, maintenance work.</span><span class="ko">결정적 스케줄링 — 크론, 인터벌, 배치, 유지보수 작업.</span></p></div>
+      <div class="mod"><div class="name">foundry <span class="gloss">주조소</span></div><p><span class="en">Bootstrap, configuration, doctor checks, orchestration control.</span><span class="ko">부트스트랩, 설정, 닥터 체크, 오케스트레이션 제어.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOCOLS -->
+<section id="protocols">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag"><span class="en">Interoperability</span><span class="ko">상호운용성</span></span>
+      <h2>
+        <span class="en">Speaks every protocol that matters</span>
+        <span class="ko">필요한 프로토콜은 전부 지원</span>
+      </h2>
+    </div>
+    <div class="protos">
+      <div class="proto"><div class="p-name">OpenAI-compatible API</div><p><span class="en">Drop-in <span class="mono">/v1/chat/completions</span>, models, runs, and sessions — point existing clients at Jikji.</span><span class="ko"><span class="mono">/v1/chat/completions</span>, models, runs, sessions를 그대로 제공 — 기존 클라이언트를 그대로 연결할 수 있습니다.</span></p></div>
+      <div class="proto"><div class="p-name">MCP</div><p><span class="en">Model Context Protocol server and client over stdio — consume MCP tools or expose Jikji as one.</span><span class="ko">stdio 기반 MCP 서버와 클라이언트 — MCP 도구를 사용할 수도, Jikji를 MCP 도구로 노출할 수도 있습니다.</span></p></div>
+      <div class="proto"><div class="p-name">ACP</div><p><span class="en">Agent Communication Protocol over stdio for local process-based agent peers.</span><span class="ko">로컬 프로세스 기반 에이전트 피어를 위한 stdio ACP 지원.</span></p></div>
+      <div class="proto"><div class="p-name">A2A</div><p><span class="en">Agent-to-agent collaboration — handoff, delegation, and result harvesting between agents.</span><span class="ko">에이전트 간 협업 — 핸드오프, 위임, 결과 수확(harvest)을 지원합니다.</span></p></div>
+    </div>
+
+    <div class="grid cols3" style="margin-top:44px">
+      <div class="card">
+        <h3><span class="en">Operator tooling</span><span class="ko">운영자 도구</span></h3>
+        <p><span class="en"><span class="mono">jikjictl</span> covers credentials and vault, RBAC, policy, audit queries, tracing, usage, and a marketplace — plus a separate web dashboard that never stores keys server-side.</span><span class="ko"><span class="mono">jikjictl</span>은 자격증명·볼트, RBAC, 정책, 감사 조회, 트레이싱, 사용량, 마켓플레이스까지 다룹니다. 서버에 키를 저장하지 않는 별도 웹 대시보드도 제공됩니다.</span></p>
+      </div>
+      <div class="card">
+        <h3><span class="en">Terminal-native</span><span class="ko">터미널 네이티브</span></h3>
+        <p><span class="en">Interactive TUI chat, single-prompt mode, JSONL event streams for automation, and an MCP-shaped JSON-RPC mode — agents you can pipe.</span><span class="ko">인터랙티브 TUI 채팅, 단일 프롬프트 모드, 자동화를 위한 JSONL 이벤트 스트림, MCP 형태의 JSON-RPC 모드 — 파이프로 연결할 수 있는 에이전트입니다.</span></p>
+      </div>
+      <div class="card">
+        <h3><span class="en">Tested like infrastructure</span><span class="ko">인프라 수준의 테스트</span></h3>
+        <p><span class="en">A deterministic <span class="mono">make verify</span> gate plus guarded live smoke tests against real providers. Benchmark, fuzz, property, and concurrency tests throughout the codebase.</span><span class="ko">결정적 <span class="mono">make verify</span> 게이트와 실제 프로바이더 대상 라이브 스모크 테스트. 코드베이스 전반에 벤치마크, 퍼즈, 프로퍼티, 동시성 테스트가 깔려 있습니다.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<section class="alt" id="start">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag"><span class="en">Get Started</span><span class="ko">시작하기</span></span>
+      <h2>
+        <span class="en">Running in under a minute</span>
+        <span class="ko">1분 안에 실행하기</span>
+      </h2>
+    </div>
+    <div class="code-block">
+<div><span class="c"># <span class="en">start the server (default port 1377 — yes, that 1377)</span><span class="ko">서버 시작 (기본 포트 1377 — 네, 그 1377입니다)</span></span></div>
+<div class="cmd">go run ./cmd/jikji serve --config config.example.yaml</div>
+<br>
+<div><span class="c"># <span class="en">check your local environment</span><span class="ko">로컬 환경 점검</span></span></div>
+<div class="cmd">go run ./cmd/jikji doctor</div>
+<br>
+<div><span class="c"># <span class="en">open the interactive chat TUI</span><span class="ko">인터랙티브 채팅 TUI 열기</span></span></div>
+<div class="cmd">go run ./cmd/jikji chat --mode tui</div>
+<br>
+<div><span class="c"># <span class="en">or call the OpenAI-compatible API</span><span class="ko">또는 OpenAI 호환 API 호출</span></span></div>
+<div class="cmd">curl -X POST http://127.0.0.1:1377/v1/chat/completions \</div>
+<div style="padding-left:2ch">-H 'Content-Type: application/json' \</div>
+<div style="padding-left:2ch">-d '{"model":"jikji-echo","messages":[{"role":"user","content":"hello"}]}'</div>
+    </div>
+
+    <div class="dev-note">
+      <span class="en">⚠ Jikji is under active development. APIs and module boundaries may change before the first stable release. This page describes what exists in the codebase today.</span>
+      <span class="ko">⚠ Jikji는 활발히 개발 중입니다. 첫 안정 릴리스 전까지 API와 모듈 경계는 변경될 수 있습니다. 이 페이지는 현재 코드베이스에 실제로 존재하는 내용을 기준으로 작성되었습니다.</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="brand" style="margin-bottom:6px"><span class="seal">直</span><b>Jikji Labs</b></div>
+      <div class="small">
+        <span class="en">Movable type for the age of agents.</span>
+        <span class="ko">에이전트 시대의 금속활자.</span>
+      </div>
+    </div>
+    <div>
+      <a href="https://github.com/jikji-labs">GitHub</a>
+      <a href="#why"><span class="en">Why Jikji</span><span class="ko">왜 Jikji인가</span></a>
+      <a href="#modules"><span class="en">Architecture</span><span class="ko">아키텍처</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setLang(l){
+  document.documentElement.classList.remove('lang-en','lang-ko');
+  document.documentElement.classList.add('lang-'+l);
+  document.documentElement.lang = l === 'ko' ? 'ko' : 'en';
+  document.getElementById('langToggle').textContent = l === 'ko' ? 'English' : '한국어';
+  try{localStorage.setItem('jikji-lang', l);}catch(e){}
+}
+function toggleLang(){
+  setLang(document.documentElement.classList.contains('lang-ko') ? 'en' : 'ko');
+}
+(function(){
+  var saved = null;
+  try{saved = localStorage.getItem('jikji-lang');}catch(e){}
+  var l = saved || ((navigator.language||'').toLowerCase().indexOf('ko')===0 ? 'ko' : 'en');
+  setLang(l);
+})();
+</script>
+</body>
+</html>
