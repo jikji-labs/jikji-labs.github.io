@@ -494,5 +494,8 @@ window.JIKJI_I18N["id"]={
  "ent.mt.3.h": "Memori terisolasi per pengguna",
  "ent.mt.3.p": "Pemanggilan ulang dan penyerapan dipartisi berdasarkan tenant <em>dan</em> actor, lalu dicapkan ke setiap proses dari principal — sehingga seorang pengguna tidak pernah melihat memori pengguna lain, bahkan di dalam layanan yang sama.",
  "ent.mt.4.h": "Respons yang sangat dipersonalisasi",
- "ent.mt.4.p": "Fakta milik tiap pengguna dan ontologi pribadinya membentuk cara agen menjawab mereka — konteks yang dipersonalisasi dan disuntikkan per principal, bukan satu prompt yang dibagikan untuk semua orang."
+ "ent.mt.4.p": "Fakta milik tiap pengguna dan ontologi pribadinya membentuk cara agen menjawab mereka — konteks yang dipersonalisasi dan disuntikkan per principal, bukan satu prompt yang dibagikan untuk semua orang.",
+ "loop.human.label": "Manusia di dalam &amp; di atas loop<span class=\"mono\">setujui · awasi</span>",
+ "loop.human.in": "<b>Manusia di dalam loop (human in the loop).</b> Gerbang persetujuan dan kueri menjeda eksekusi untuk menunggu keputusan — agen berhenti hingga seseorang menyetujui, menolak, atau menjawab, lalu melanjutkan tepat dari checkpoint tempat ia berhenti. Tidak ada hal berisiko yang terjadi di belakang Anda.",
+ "loop.human.on": "<b>Manusia di atas loop (human on the loop).</b> Secara default, eksekusi menyiarkan setiap langkah secara langsung, sehingga operator dapat memantau secara real-time dan hanya turun tangan saat diperlukan — ubah kebijakan sebuah alat menjadi <code>ask</code>, jawab sebuah kueri, batalkan eksekusi, atau kembalikan sesi ke snapshot yang diketahui baik. Pengawasan tanpa perlu mengasuh terus-menerus."
 };

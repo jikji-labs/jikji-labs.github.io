@@ -494,5 +494,8 @@ window.JIKJI_I18N["it"]={
  "ent.mt.3.h": "Memoria isolata per utente",
  "ent.mt.3.p": "Il richiamo e l'acquisizione sono partizionati per tenant <em>e</em> attore, e impressi su ogni esecuzione a partire dal principal — così un utente non vede mai la memoria di un altro, nemmeno all'interno dello stesso servizio.",
  "ent.mt.4.h": "Risposte iper-personalizzate",
- "ent.mt.4.p": "I fatti propri di ciascun utente e la sua ontologia personale plasmano il modo in cui l'agente gli risponde — un contesto personalizzato iniettato per principal, e non un unico prompt condiviso da tutti."
+ "ent.mt.4.p": "I fatti propri di ciascun utente e la sua ontologia personale plasmano il modo in cui l'agente gli risponde — un contesto personalizzato iniettato per principal, e non un unico prompt condiviso da tutti.",
+ "loop.human.label": "Umano nel &amp; sul loop<span class=\"mono\">approva · supervisiona</span>",
+ "loop.human.in": "<b>Umano nel loop («human in the loop»).</b> I gate di approvazione e le richieste mettono in pausa l'esecuzione in attesa di una decisione: l'agente si blocca finché una persona non approva, rifiuta o risponde, poi riprende esattamente dal checkpoint in cui si era fermato. Nulla di rischioso accade alle tue spalle.",
+ "loop.human.on": "<b>Umano sul loop («human on the loop»).</b> Per impostazione predefinita, un'esecuzione trasmette ogni passaggio in tempo reale, così un operatore osserva dal vivo e interviene solo quando serve: cambia la policy di uno strumento su <code>ask</code>, rispondi a una richiesta, annulla un'esecuzione o riporta una sessione a uno snapshot integro. Supervisione senza dover stare col fiato sul collo."
 };

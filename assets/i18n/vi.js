@@ -494,5 +494,8 @@ window.JIKJI_I18N["vi"]={
  "ent.mt.3.h": "Bộ nhớ cô lập theo từng người dùng",
  "ent.mt.3.p": "Việc truy hồi và nạp dữ liệu được phân vùng theo tenant <em>và</em> actor, rồi được đóng dấu lên mỗi lần chạy từ principal — nên một người dùng không bao giờ thấy bộ nhớ của người khác, ngay cả trong cùng một dịch vụ.",
  "ent.mt.4.h": "Phản hồi siêu cá nhân hóa",
- "ent.mt.4.p": "Các sự kiện riêng và ontology cá nhân của mỗi người dùng định hình cách tác nhân trả lời họ — một ngữ cảnh được cá nhân hóa, tiêm theo từng principal, chứ không phải một prompt chung cho tất cả mọi người."
+ "ent.mt.4.p": "Các sự kiện riêng và ontology cá nhân của mỗi người dùng định hình cách tác nhân trả lời họ — một ngữ cảnh được cá nhân hóa, tiêm theo từng principal, chứ không phải một prompt chung cho tất cả mọi người.",
+ "loop.human.label": "Con người trong &amp; trên vòng lặp<span class=\"mono\">phê duyệt · giám sát</span>",
+ "loop.human.in": "<b>Con người trong vòng lặp (human in the loop).</b> Các cổng phê duyệt và truy vấn sẽ tạm dừng lượt chạy để chờ quyết định — tác nhân dừng lại cho đến khi có người phê duyệt, từ chối hoặc trả lời, rồi tiếp tục đúng từ điểm kiểm tra nơi nó đã dừng. Không có điều gì rủi ro xảy ra sau lưng bạn.",
+ "loop.human.on": "<b>Con người trên vòng lặp (human on the loop).</b> Theo mặc định, một lượt chạy phát trực tiếp từng bước ngay khi diễn ra, nên người vận hành theo dõi trực tiếp và chỉ can thiệp khi cần — chuyển chính sách của một công cụ sang <code>ask</code>, trả lời một truy vấn, hủy một lượt chạy, hoặc khôi phục phiên về một ảnh chụp đã biết là ổn. Giám sát mà không phải trông chừng từng li từng tí."
 };

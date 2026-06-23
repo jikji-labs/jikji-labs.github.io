@@ -494,5 +494,8 @@ window.JIKJI_I18N["de"]={
  "ent.mt.3.h": "Speicher pro Nutzer isoliert",
  "ent.mt.3.p": "Abruf und Aufnahme sind nach Mandant <em>und</em> Akteur partitioniert und werden vom Principal auf jeden Lauf geprägt — so sieht ein Nutzer niemals den Speicher eines anderen, selbst innerhalb desselben Dienstes.",
  "ent.mt.4.h": "Hyperpersonalisierte Antworten",
- "ent.mt.4.p": "Die eigenen Fakten jedes Nutzers und seine persönliche Ontologie prägen, wie der Agent ihm antwortet — ein personalisierter Kontext, der pro Principal injiziert wird, statt eines einzigen, für alle gleichen Prompts."
+ "ent.mt.4.p": "Die eigenen Fakten jedes Nutzers und seine persönliche Ontologie prägen, wie der Agent ihm antwortet — ein personalisierter Kontext, der pro Principal injiziert wird, statt eines einzigen, für alle gleichen Prompts.",
+ "loop.human.label": "Mensch in &amp; über der Schleife<span class=\"mono\">freigeben · überwachen</span>",
+ "loop.human.in": "<b>Mensch in der Schleife („human in the loop“).</b> Freigabe-Gates und Rückfragen pausieren den Lauf für eine Entscheidung — der Agent blockiert, bis jemand genehmigt, ablehnt oder antwortet, und setzt dann genau an dem Checkpoint fort, an dem er stehen geblieben ist. Nichts Riskantes passiert hinter Ihrem Rücken.",
+ "loop.human.on": "<b>Mensch über der Schleife („human on the loop“).</b> Standardmäßig streamt ein Lauf jeden Schritt in Echtzeit, sodass ein Operator live zusieht und nur bei Bedarf eingreift — die Richtlinie eines Tools auf <code>ask</code> umstellen, eine Rückfrage beantworten, einen Lauf abbrechen oder eine Sitzung auf einen bekannten, fehlerfreien Snapshot zurücksetzen. Aufsicht, ohne ständig danebenzustehen."
 };

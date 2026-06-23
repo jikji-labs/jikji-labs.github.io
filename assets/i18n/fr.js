@@ -494,5 +494,8 @@ window.JIKJI_I18N["fr"]={
  "ent.mt.3.h": "Une mémoire isolée par utilisateur",
  "ent.mt.3.p": "Le rappel et l'ingestion sont partitionnés par tenant <em>et</em> par acteur, et estampillés sur chaque exécution depuis le principal — ainsi un utilisateur ne voit jamais la mémoire d'un autre, même au sein du même service.",
  "ent.mt.4.h": "Des réponses hyper-personnalisées",
- "ent.mt.4.p": "Les faits propres à chaque utilisateur et son ontologie personnelle façonnent la manière dont l'agent lui répond — un contexte personnalisé injecté par principal, et non un seul et même prompt partagé par tous."
+ "ent.mt.4.p": "Les faits propres à chaque utilisateur et son ontologie personnelle façonnent la manière dont l'agent lui répond — un contexte personnalisé injecté par principal, et non un seul et même prompt partagé par tous.",
+ "loop.human.label": "Humain dans &amp; sur la boucle<span class=\"mono\">approuver · superviser</span>",
+ "loop.human.in": "<b>Humain dans la boucle (« human in the loop »).</b> Les points de validation et les requêtes mettent l'exécution en pause pour une décision — l'agent se bloque jusqu'à ce qu'une personne approuve, refuse ou réponde, puis reprend exactement au point de contrôle où il s'était arrêté. Rien de risqué ne se produit à votre insu.",
+ "loop.human.on": "<b>Humain sur la boucle (« human on the loop »).</b> Par défaut, une exécution diffuse chaque étape en temps réel : un opérateur observe en direct et n'intervient qu'en cas de besoin — basculer la politique d'un outil sur <code>ask</code>, répondre à une requête, annuler une exécution ou restaurer une session à un instantané sain. Une supervision sans avoir à tout surveiller de près."
 };

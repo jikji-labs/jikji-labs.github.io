@@ -494,5 +494,8 @@ window.JIKJI_I18N["es"]={
  "ent.mt.3.h": "Memoria aislada por usuario",
  "ent.mt.3.p": "La recuperación y la ingesta se particionan por inquilino <em>y</em> actor, y se sellan en cada ejecución a partir del principal — así un usuario nunca ve la memoria de otro, ni siquiera dentro del mismo servicio.",
  "ent.mt.4.h": "Respuestas hiperpersonalizadas",
- "ent.mt.4.p": "Los datos propios de cada usuario y su ontología personal moldean cómo le responde el agente — un contexto personalizado inyectado por principal, y no un único prompt compartido para todos."
+ "ent.mt.4.p": "Los datos propios de cada usuario y su ontología personal moldean cómo le responde el agente — un contexto personalizado inyectado por principal, y no un único prompt compartido para todos.",
+ "loop.human.label": "Humano dentro &amp; sobre el bucle<span class=\"mono\">aprobar · supervisar</span>",
+ "loop.human.in": "<b>Humano dentro del bucle («human in the loop»).</b> Las puertas de aprobación y las consultas pausan la ejecución a la espera de una decisión: el agente se bloquea hasta que una persona aprueba, rechaza o responde, y luego se reanuda exactamente desde el punto de control en el que se detuvo. Nada arriesgado ocurre a tus espaldas.",
+ "loop.human.on": "<b>Humano sobre el bucle («human on the loop»).</b> De forma predeterminada, una ejecución transmite cada paso en tiempo real, de modo que un operador observa en directo e interviene solo cuando hace falta: cambia la política de una herramienta a <code>ask</code>, responde a una consulta, cancela una ejecución o revierte una sesión a una instantánea en buen estado. Supervisión sin tener que estar encima."
 };
