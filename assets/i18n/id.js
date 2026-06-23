@@ -329,7 +329,7 @@ window.JIKJI_I18N["id"]={
  "ent.rob.3.h": "Integritas rantai pasok",
  "ent.rob.3.p": "Instalasi marketplace bertanda tangan (Ed25519 atau HMAC) dengan checksum terverifikasi, serta firewall egress yang memblokir secara default jika filternya tak bisa dipasang.",
  "ent.rob.4.h": "Channel &amp; webhook",
- "ent.rob.4.p": "Channel pesan yang bisa dipasang (saat ini adapter Telegram) dan webhook masuk bertanda tangan yang menjalankan eksekusi agent, dengan allowlist dan rate limit per chat.",
+ "ent.rob.4.p": "Antarmuka adaptor kanal yang dapat dipasang menggerakkan run agen dari platform perpesanan — hari ini adaptor Telegram, dirancang untuk berkembang lebih jauh (Slack dan seterusnya) — ditambah webhook masuk yang ditandatangani, dengan cakupan tool per-obrolan, allowlist, dan batas laju.",
  "ent.rob.5.h": "Konfigurasi &amp; reload",
  "ent.rob.5.p": "Ekspor konfigurasi operator dan hot reload lewat API, CLI, dan dashboard, dengan parsing konfigurasi yang deterministik, tervalidasi, dan teruji.",
  "ent.rob.6.h": "Perkakas operator",
@@ -512,5 +512,7 @@ window.JIKJI_I18N["id"]={
  "ent.pii.2.p": "Placeholder yang dapat dibalik dan stabil dipulihkan ke pemanggil, sehingga tampilan pengguna akhir tetap utuh — perjalanan bolak-balik penyamaran tak terlihat oleh mereka, tanpa ada yang kacau atau hilang.",
  "ent.pii.3.h": "Aman untuk streaming &amp; sementara",
  "ent.pii.3.p": "Placeholder dipulihkan dengan benar bahkan melintasi batas potongan streaming, dan peta placeholder terikat pada tenant dan tidak pernah disimpan permanen — ia hanya hidup selama permintaan berlangsung.",
- "arch.perf.note": "<b>Efisiensi yang tak bergantung pada skala.</b> Di laptop, ia berjalan adem dan menyedot daya sangat sedikit, tak mengganggu baterai maupun kipas. Di server, biner yang persis sama merespons lebih cepat dan menampung lebih banyak sesi serentak per core — lebih sedikit perangkat keras untuk beban yang sama. Satu runtime, disetel oleh tempat ia berjalan."
+ "arch.perf.note": "<b>Efisiensi yang tak bergantung pada skala.</b> Di laptop, ia berjalan adem dan menyedot daya sangat sedikit, tak mengganggu baterai maupun kipas. Di server, biner yang persis sama merespons lebih cepat dan menampung lebih banyak sesi serentak per core — lebih sedikit perangkat keras untuk beban yang sama. Satu runtime, disetel oleh tempat ia berjalan.",
+ "orch.svc.5.h": "Temui pengguna di kanal mereka",
+ "orch.svc.5.p": "Hadirkan agen yang sama di berbagai kanal perpesanan: pesan masuk menjadi sebuah run dan balasannya langsung dikirim kembali, lengkap dengan cakupan tool per-obrolan, memori yang tersimpan per-obrolan, allowlist, dan batas laju. Adaptor Telegram sudah tersedia hari ini, dan antarmuka adaptornya dirancang untuk berkembang lebih jauh — Slack dan seterusnya — disertai webhook masuk yang ditandatangani."
 };

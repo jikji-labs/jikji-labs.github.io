@@ -329,7 +329,7 @@ window.JIKJI_I18N["it"]={
  "ent.rob.3.h": "Integrità della supply chain",
  "ent.rob.3.p": "Installazioni dal marketplace firmate (Ed25519 o HMAC) con checksum verificati, e un firewall in uscita che blocca per impostazione predefinita se il suo filtro non si installa.",
  "ent.rob.4.h": "Canali &amp; webhook",
- "ent.rob.4.p": "Canali di messaggistica modulari (oggi un adattatore Telegram) e webhook in entrata firmati che avviano esecuzioni di agenti, con allowlist e limiti di frequenza per chat.",
+ "ent.rob.4.p": "Un'interfaccia di adattatori di canale modulare guida le esecuzioni dell'agente dalle piattaforme di messaggistica — oggi un adattatore Telegram, progettato per andare oltre (Slack e non solo) — oltre a webhook in entrata firmati, con ambiti degli strumenti per ogni chat, allowlist e limiti di frequenza.",
  "ent.rob.5.h": "Configurazione &amp; ricarica",
  "ent.rob.5.p": "Export della configurazione per gli operatori e ricarica a caldo via API, CLI e dashboard, con un parsing della configurazione deterministico, validato e coperto da test.",
  "ent.rob.6.h": "Strumenti per gli operatori",
@@ -512,5 +512,7 @@ window.JIKJI_I18N["it"]={
  "ent.pii.2.p": "Segnaposto reversibili e stabili vengono ripristinati per chi effettua la chiamata, così la vista dell'utente finale resta integra — il giro completo del mascheramento è per lui invisibile, senza nulla di alterato o perso.",
  "ent.pii.3.h": "Sicuro in streaming ed effimero",
  "ent.pii.3.p": "I segnaposto vengono ripristinati correttamente anche a cavallo dei confini dei chunk in streaming, e la mappa dei segnaposto è legata al tenant e non viene mai persistita — vive soltanto per la durata della richiesta.",
- "arch.perf.note": "<b>Efficienza indipendente dalla scala.</b> Su un portatile rimane fresco e consuma pochissimo, lasciando in pace batteria e ventole. Su un server lo stesso identico binario risponde più in fretta e ospita più sessioni simultanee per core — meno hardware per lo stesso carico. Un solo runtime, calibrato dal luogo in cui gira."
+ "arch.perf.note": "<b>Efficienza indipendente dalla scala.</b> Su un portatile rimane fresco e consuma pochissimo, lasciando in pace batteria e ventole. Su un server lo stesso identico binario risponde più in fretta e ospita più sessioni simultanee per core — meno hardware per lo stesso carico. Un solo runtime, calibrato dal luogo in cui gira.",
+ "orch.svc.5.h": "Raggiungi gli utenti sui loro canali",
+ "orch.svc.5.p": "Offri lo stesso agente sui canali di messaggistica: un messaggio in arrivo diventa un'esecuzione e la risposta riparte subito, con ambiti degli strumenti per ogni chat, memoria persistente per ogni chat, allowlist e limiti di frequenza. Un adattatore Telegram è disponibile già oggi, e l'interfaccia degli adattatori è progettata per andare oltre — Slack e non solo — insieme a webhook in entrata firmati."
 };

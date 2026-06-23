@@ -329,7 +329,7 @@ window.JIKJI_I18N["fr"]={
  "ent.rob.3.h": "Intégrité de la chaîne d'approvisionnement",
  "ent.rob.3.p": "Installations signées depuis la place de marché (Ed25519 ou HMAC) avec sommes de contrôle vérifiées, et un pare-feu de sortie qui se bloque par défaut si son filtre ne peut pas s'installer.",
  "ent.rob.4.h": "Canaux &amp; webhooks",
- "ent.rob.4.p": "Des canaux de messagerie enfichables (un adaptateur Telegram aujourd'hui) et des webhooks entrants signés qui déclenchent des exécutions d'agents, avec des listes d'autorisation et des limites de débit par conversation.",
+ "ent.rob.4.p": "Une interface d'adaptateur de canal modulaire pilote les exécutions d'agent depuis les plateformes de messagerie — un adaptateur Telegram aujourd'hui, conçu pour aller plus loin (Slack et au-delà) — avec en complément des webhooks entrants signés, des portées d'outils propres à chaque conversation, des listes d'autorisation et des limites de débit.",
  "ent.rob.5.h": "Configuration &amp; rechargement",
  "ent.rob.5.p": "Export de la configuration par l'opérateur et rechargement à chaud via API, CLI et tableau de bord, avec une analyse de configuration déterministe, validée et couverte par des tests.",
  "ent.rob.6.h": "Outils d'exploitation",
@@ -512,5 +512,7 @@ window.JIKJI_I18N["fr"]={
  "ent.pii.2.p": "Des substituts réversibles et stables sont restaurés pour l'appelant, si bien que la vue de l'utilisateur final reste intacte — l'aller-retour de masquage lui est invisible, sans rien de tronqué ni de perdu.",
  "ent.pii.3.h": "Sûr en flux &amp; éphémère",
  "ent.pii.3.p": "Les substituts sont restaurés correctement, même à cheval sur les frontières des fragments de streaming, et la table des substituts est liée au locataire et jamais persistée — elle ne vit que le temps de la requête.",
- "arch.perf.note": "<b>Une efficacité indépendante de l'échelle.</b> Sur un ordinateur portable, il reste frais et consomme très peu, laissant la batterie et les ventilateurs tranquilles. Sur un serveur, ce même binaire répond plus vite et accueille davantage de sessions simultanées par cœur — moins de matériel pour la même charge. Un seul runtime, ajusté par l'endroit où il tourne."
+ "arch.perf.note": "<b>Une efficacité indépendante de l'échelle.</b> Sur un ordinateur portable, il reste frais et consomme très peu, laissant la batterie et les ventilateurs tranquilles. Sur un serveur, ce même binaire répond plus vite et accueille davantage de sessions simultanées par cœur — moins de matériel pour la même charge. Un seul runtime, ajusté par l'endroit où il tourne.",
+ "orch.svc.5.h": "Rejoignez vos utilisateurs sur leurs canaux",
+ "orch.svc.5.p": "Proposez le même agent sur vos canaux de messagerie : un message entrant devient une exécution et la réponse repart aussitôt, avec des portées d'outils propres à chaque conversation, une mémoire persistante par conversation, des listes d'autorisation et des limites de débit. Un adaptateur Telegram est disponible dès aujourd'hui, et l'interface d'adaptateur est conçue pour aller plus loin — Slack et au-delà — le tout complété par des webhooks entrants signés."
 };

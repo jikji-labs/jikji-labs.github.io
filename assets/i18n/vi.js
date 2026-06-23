@@ -329,7 +329,7 @@ window.JIKJI_I18N["vi"]={
  "ent.rob.3.h": "Toàn vẹn chuỗi cung ứng",
  "ent.rob.3.p": "Cài đặt từ marketplace có ký số (Ed25519 hoặc HMAC) với checksum đã kiểm, và một tường lửa truy cập ra ngoài mặc định chặn nếu không cài được bộ lọc của nó.",
  "ent.rob.4.h": "Kênh &amp; webhook",
- "ent.rob.4.p": "Các kênh nhắn tin cắm thêm được (hiện có một bộ tiếp hợp Telegram) và các webhook gọi vào có ký số để kích hoạt lần chạy agent, với danh sách cho phép và giới hạn tốc độ theo từng cuộc trò chuyện.",
+ "ent.rob.4.p": "Giao diện bộ chuyển đổi kênh dạng cắm-và-chạy điều khiển các lượt chạy agent từ những nền tảng nhắn tin — hôm nay là bộ chuyển đổi Telegram, được thiết kế để mở rộng hơn nữa (Slack và nhiều nền tảng khác) — cùng với webhook đến có chữ ký, phạm vi công cụ riêng cho từng cuộc trò chuyện, danh sách cho phép và giới hạn tần suất.",
  "ent.rob.5.h": "Cấu hình &amp; nạp lại",
  "ent.rob.5.p": "Xuất cấu hình và nạp lại nóng cho người vận hành qua API, CLI, và dashboard, với việc đọc cấu hình tất định, có kiểm tra hợp lệ, và được phủ kín bằng kiểm thử.",
  "ent.rob.6.h": "Công cụ cho người vận hành",
@@ -512,5 +512,7 @@ window.JIKJI_I18N["vi"]={
  "ent.pii.2.p": "Các chỗ giữ có thể đảo ngược, ổn định được khôi phục cho bên gọi, nên những gì người dùng cuối thấy vẫn nguyên vẹn — vòng che-rồi-khôi-phục là vô hình với họ, không có gì bị méo hay rớt.",
  "ent.pii.3.h": "An toàn khi truyền luồng &amp; tạm thời",
  "ent.pii.3.p": "Các chỗ giữ được khôi phục chính xác ngay cả khi vắt qua ranh giới các đoạn dữ liệu truyền luồng, và bản đồ chỗ giữ gắn với tenant và không bao giờ được lưu lại — nó chỉ tồn tại trong suốt yêu cầu.",
- "arch.perf.note": "<b>Hiệu quả không phụ thuộc quy mô.</b> Trên laptop, nó chạy mát và tiêu thụ rất ít điện, không làm phiền pin lẫn quạt. Trên máy chủ, cũng chính tệp nhị phân ấy phản hồi nhanh hơn và chứa được nhiều phiên đồng thời hơn trên mỗi nhân — ít phần cứng hơn cho cùng một mức tải. Một runtime duy nhất, tự điều chỉnh theo nơi nó chạy."
+ "arch.perf.note": "<b>Hiệu quả không phụ thuộc quy mô.</b> Trên laptop, nó chạy mát và tiêu thụ rất ít điện, không làm phiền pin lẫn quạt. Trên máy chủ, cũng chính tệp nhị phân ấy phản hồi nhanh hơn và chứa được nhiều phiên đồng thời hơn trên mỗi nhân — ít phần cứng hơn cho cùng một mức tải. Một runtime duy nhất, tự điều chỉnh theo nơi nó chạy.",
+ "orch.svc.5.h": "Gặp người dùng ngay trên kênh của họ",
+ "orch.svc.5.p": "Phục vụ cùng một agent qua các kênh nhắn tin: tin nhắn đến sẽ trở thành một lượt chạy và phản hồi được gửi trả lại ngay, kèm theo phạm vi công cụ riêng cho từng cuộc trò chuyện, bộ nhớ lưu giữ riêng cho từng cuộc trò chuyện, danh sách cho phép và giới hạn tần suất. Bộ chuyển đổi Telegram đã sẵn sàng ngay hôm nay, và giao diện bộ chuyển đổi được thiết kế để mở rộng hơn nữa — Slack và nhiều nền tảng khác — cùng với webhook đến có chữ ký."
 };

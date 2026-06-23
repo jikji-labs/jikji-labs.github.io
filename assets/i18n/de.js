@@ -329,7 +329,7 @@ window.JIKJI_I18N["de"]={
  "ent.rob.3.h": "Integrität der Lieferkette",
  "ent.rob.3.p": "Signierte Marktplatz-Installationen (Ed25519 oder HMAC) mit verifizierten Prüfsummen und eine Egress-Firewall, die im Zweifel sperrt, falls sich ihr Filter nicht installieren lässt.",
  "ent.rob.4.h": "Kanäle &amp; Webhooks",
- "ent.rob.4.p": "Austauschbare Messaging-Kanäle (heute ein Telegram-Adapter) und signierte eingehende Webhooks, die Agent-Läufe anstoßen, mit Allowlists pro Chat und Rate-Limits.",
+ "ent.rob.4.p": "Eine modulare Kanal-Adapter-Schnittstelle steuert Agentenläufe von Messaging-Plattformen aus – heute ein Telegram-Adapter, ausgelegt auf mehr (Slack und darüber hinaus) – ergänzt durch signierte eingehende Webhooks sowie Tool-Berechtigungen pro Chat, Allowlists und Ratenbegrenzungen.",
  "ent.rob.5.h": "Konfiguration &amp; Reload",
  "ent.rob.5.p": "Export der Betreiber-Konfiguration und Hot-Reload über API, CLI und Dashboard, mit deterministischem, validiertem und durch Tests abgedecktem Parsen der Konfiguration.",
  "ent.rob.6.h": "Werkzeuge für den Betrieb",
@@ -512,5 +512,7 @@ window.JIKJI_I18N["de"]={
  "ent.pii.2.p": "Umkehrbare, stabile Platzhalter werden dem Aufrufer wiederhergestellt, sodass die Ansicht des Endnutzers unversehrt bleibt — der Maskierungs-Rundlauf ist für ihn unsichtbar, nichts wird verstümmelt oder verworfen.",
  "ent.pii.3.h": "Stream-sicher &amp; flüchtig",
  "ent.pii.3.p": "Platzhalter werden auch über Streaming-Chunk-Grenzen hinweg korrekt wiederhergestellt, und die Platzhalter-Tabelle ist mandantengebunden und wird nie persistiert — sie existiert nur für die Dauer der Anfrage.",
- "arch.perf.note": "<b>Skalenunabhängige Effizienz.</b> Auf einem Laptop läuft sie kühl und zieht kaum Strom, sodass Akku und Lüfter in Ruhe bleiben. Auf einem Server antwortet genau dieselbe Binärdatei schneller und fasst mehr gleichzeitige Sitzungen pro Kern — weniger Hardware für dieselbe Last. Eine Runtime, abgestimmt darauf, wo sie läuft."
+ "arch.perf.note": "<b>Skalenunabhängige Effizienz.</b> Auf einem Laptop läuft sie kühl und zieht kaum Strom, sodass Akku und Lüfter in Ruhe bleiben. Auf einem Server antwortet genau dieselbe Binärdatei schneller und fasst mehr gleichzeitige Sitzungen pro Kern — weniger Hardware für dieselbe Last. Eine Runtime, abgestimmt darauf, wo sie läuft.",
+ "orch.svc.5.h": "Erreichen Sie Nutzer auf ihren Kanälen",
+ "orch.svc.5.p": "Stellen Sie denselben Agenten über Messaging-Kanäle bereit: Eine eingehende Nachricht wird zu einem Lauf, und die Antwort geht direkt zurück – mit Tool-Berechtigungen pro Chat, persistentem Gedächtnis pro Chat, Allowlists und Ratenbegrenzungen. Ein Telegram-Adapter ist ab sofort verfügbar, und die Adapter-Schnittstelle ist auf mehr ausgelegt – Slack und darüber hinaus – ergänzt durch signierte eingehende Webhooks."
 };

@@ -329,7 +329,7 @@ window.JIKJI_I18N["es"]={
  "ent.rob.3.h": "Integridad de la cadena de suministro",
  "ent.rob.3.p": "Instalaciones de marketplace firmadas (Ed25519 o HMAC) con sumas de verificación comprobadas, y un cortafuegos de salida que bloquea por defecto si su filtro no se puede instalar.",
  "ent.rob.4.h": "Canales y webhooks",
- "ent.rob.4.p": "Canales de mensajería conectables (hoy un adaptador de Telegram) y webhooks entrantes firmados que disparan ejecuciones de agente, con listas de permitidos y límites de tasa por chat.",
+ "ent.rob.4.p": "Una interfaz de adaptadores de canal modular impulsa las ejecuciones del agente desde plataformas de mensajería —hoy un adaptador de Telegram, pensado para ir más allá (Slack y mucho más)—, además de webhooks entrantes firmados, con ámbitos de herramientas por chat, listas de permitidos y límites de frecuencia.",
  "ent.rob.5.h": "Configuración y recarga",
  "ent.rob.5.p": "Exportación de configuración para operadores y recarga en caliente por API, CLI y panel, con un análisis de configuración determinista, validado y cubierto por pruebas.",
  "ent.rob.6.h": "Herramientas para operadores",
@@ -512,5 +512,7 @@ window.JIKJI_I18N["es"]={
  "ent.pii.2.p": "Se restauran marcadores reversibles y estables para quien llama, de modo que la vista del usuario final queda intacta: el ida y vuelta del enmascarado le resulta invisible, sin nada distorsionado ni perdido.",
  "ent.pii.3.h": "Seguro en streaming y efímero",
  "ent.pii.3.p": "Los marcadores se restauran correctamente incluso a través de los límites de los fragmentos de streaming, y el mapa de marcadores está vinculado al inquilino y nunca se persiste: solo vive durante la solicitud.",
- "arch.perf.note": "<b>Eficiencia independiente de la escala.</b> En un portátil funciona fresco y consume muy poco, sin molestar a la batería ni a los ventiladores. En un servidor, ese mismo binario responde más rápido y aloja más sesiones simultáneas por núcleo — menos hardware para la misma carga. Un único runtime, ajustado por el lugar donde se ejecuta."
+ "arch.perf.note": "<b>Eficiencia independiente de la escala.</b> En un portátil funciona fresco y consume muy poco, sin molestar a la batería ni a los ventiladores. En un servidor, ese mismo binario responde más rápido y aloja más sesiones simultáneas por núcleo — menos hardware para la misma carga. Un único runtime, ajustado por el lugar donde se ejecuta.",
+ "orch.svc.5.h": "Llega a tus usuarios en sus canales",
+ "orch.svc.5.p": "Ofrece el mismo agente a través de canales de mensajería: un mensaje entrante se convierte en una ejecución y la respuesta sale de inmediato, con ámbitos de herramientas por chat, memoria persistente por chat, listas de permitidos y límites de frecuencia. Hoy ya está disponible un adaptador de Telegram, y la interfaz de adaptadores está pensada para ir más allá —Slack y mucho más—, junto con webhooks entrantes firmados."
 };
