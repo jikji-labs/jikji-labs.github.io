@@ -142,15 +142,44 @@
   </div>
 </section>
 
-<!-- CROSS-REGION -->
+<!-- SHIP AS SERVICE -->
 <section class="alt">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag" data-i18n="orch.xr.tag">Cross-Region Orchestration</span>
-      <h2 data-i18n="orch.xr.h2">Tools without borders</h2>
-      <p data-i18n="orch.xr.p">A tool call doesn't have to run where the agent is thinking. Tools execute on remote nodes chosen by capability and placement, reachable over relay tunnels — so a single run can reach across machines, clouds, and regions, with a durable shared catalog, per-node circuit breakers, and failover.</p>
+      <span class="tag" data-i18n="orch.svc.tag">Ship It as a Service</span>
+      <h2 data-i18n="orch.svc.h2">Turn a session into a service — often without code</h2>
+      <p data-i18n="orch.svc.p">What you build in a chat is the product. Jikji can serve a primed session as a model, filter its output with Lua, expose your ontology, and run it on a schedule — so a new service-agent is configuration, not a codebase.</p>
     </div>
-    <div class="callout" data-i18n="orch.xr.eg"><b>One run, three regions.</b> Read the logs on a node in Seattle, scale a container on a node in Tokyo, then check the response from a node in Seoul — each tool routed to the node that can run it, all within one deterministic, checkpointed agent run.</div>
+    <div class="grid cols2">
+      <div class="card">
+        <h3 data-i18n="orch.svc.1.h">A session becomes a model</h3>
+        <p data-i18n="orch.svc.1.p">Register a primed session — its context captured as a prompt-cached prefix — and it appears in <code>/v1/models</code>, callable immediately as a model id. The expensive priming is a cache hit on every call, so the context is preserved cheaply. No new code, no redeploy.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="orch.svc.2.h">Filter responses with Lua</h3>
+        <p data-i18n="orch.svc.2.p">A fail-closed Lua content filter screens and reshapes what passes through — redact, rewrite, or gate a response before it reaches the caller — with opt-in, allowlisted HTTP for enrichment.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="orch.svc.3.h">Serve the ontology</h3>
+        <p data-i18n="orch.svc.3.p">Expose the native knowledge graph as a queryable service, so SPARQL and semantic search are available to callers — not just to the agent that built it.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="orch.svc.4.h">Run it on a schedule</h3>
+        <p data-i18n="orch.svc.4.p">The <code>almanac</code> scheduler drives cron, interval, and timer jobs — a nightly ontology refresh, a periodic report, a recurring check — with no external scheduler to wire up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROSS-REGION -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="orch.xr.tag">Cross-Region &amp; Cross-OS</span>
+      <h2 data-i18n="orch.xr.h2">Tools without borders</h2>
+      <p data-i18n="orch.xr.p">A tool call doesn't have to run where the agent is thinking. Tools execute on remote nodes chosen by capability and placement, reachable over relay tunnels — so a single run can reach across machines, clouds, regions, and operating systems, with a durable shared catalog, per-node circuit breakers, and failover.</p>
+    </div>
+    <div class="callout" data-i18n="orch.xr.eg"><b>One run, three regions, three operating systems.</b> Read the logs on a Linux node in Seattle, scale a container from a macOS node in Tokyo, then check the response from a Windows node in Seoul — each tool routed to the node that can run it, all within one deterministic, checkpointed agent run.</div>
   </div>
 </section>
 
