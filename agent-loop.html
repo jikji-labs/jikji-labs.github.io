@@ -46,7 +46,18 @@
       <p data-i18n="loop.l.p">A planner proposes the next action; the engine validates it, runs it, folds the observation back into state, and emits a step event. Every action kind is explicit and bounded.</p>
     </div>
 
-    <div class="frow">
+    <div class="loop-dia">
+      <div class="node"><div class="t">plan</div><div class="d" data-i18n="loop.dia.1">propose the next action</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t">act</div><div class="d" data-i18n="loop.dia.2">validate &amp; execute</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t">observe</div><div class="d" data-i18n="loop.dia.3">fold a typed observation</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t">checkpoint</div><div class="d" data-i18n="loop.dia.4">persist &amp; emit a step event</div></div>
+    </div>
+    <div class="loop-back" data-i18n="loop.dia.back">↻ repeat until <span class="mono">respond</span>, <span class="mono">stop</span>, or the step budget is reached</div>
+
+    <div class="frow" style="margin-top:18px">
       <div class="flabel" data-i18n="loop.act.label">Action kinds<span class="mono">forme.Action</span></div>
       <div class="fbody">
         <p data-i18n="loop.act.p">Each turn resolves to exactly one action, validated before it runs:</p>
@@ -104,6 +115,30 @@
       <div class="flabel" data-i18n="loop.ctx.label">Context &amp; budget<span class="mono">stays in window</span></div>
       <div class="fbody">
         <p data-i18n="loop.ctx.p">A model-promotion ladder retries an overflowing turn on the next larger context window and stays promoted. Per-turn dynamic hints feed forward guidance, and a run budget (max tokens, max wall-clock) stops gracefully — producing a synthesized final answer instead of a hard cutoff.</p>
+      </div>
+    </div>
+
+    <div class="grid cols2" style="margin-top:36px;align-items:start">
+      <div>
+        <p class="code-cap" data-i18n="loop.cfg.cap">Shape the loop with a planner, named profiles, and Lua hooks:</p>
+<pre class="code-block"><span class="k">forme</span>:
+  <span class="k">planner</span>: contract        <span class="c"># deterministic action contract</span>
+  <span class="k">default_profile</span>: sre
+  <span class="k">profiles</span>:
+    <span class="k">sre</span>:
+      <span class="k">system_prompt</span>: <span class="s">"You are an SRE assistant."</span>
+      <span class="k">skills</span>: [incident-response]
+  <span class="k">lua_hook</span>:
+    <span class="k">enabled</span>: <span class="p">true</span>
+    <span class="k">hooks</span>: [plan, before_tool, after_tool]</pre>
+      </div>
+      <div>
+        <p class="code-cap" data-i18n="loop.trace.cap">Every step is emitted as a JSONL event — replayable and auditable:</p>
+<pre class="code-block"><span class="p">{</span><span class="k">"step"</span>:0,<span class="k">"action"</span>:<span class="s">"think"</span>,<span class="k">"obs"</span>:<span class="s">"thought"</span><span class="p">}</span>
+<span class="p">{</span><span class="k">"step"</span>:1,<span class="k">"action"</span>:<span class="s">"tool"</span>,<span class="k">"tool"</span>:<span class="s">"web_search"</span><span class="p">}</span>
+<span class="p">{</span><span class="k">"step"</span>:2,<span class="k">"action"</span>:<span class="s">"tool"</span>,<span class="k">"tool"</span>:<span class="s">"file.read"</span><span class="p">}</span>
+<span class="p">{</span><span class="k">"step"</span>:3,<span class="k">"action"</span>:<span class="s">"respond"</span>,<span class="k">"obs"</span>:<span class="s">"final"</span><span class="p">}</span>
+<span class="c"># go run ./cmd/jikji chat --mode jsonl --prompt "..."</span></pre>
       </div>
     </div>
   </div>

@@ -93,6 +93,19 @@
       </div>
     </div>
     <div class="callout" style="margin-top:24px" data-i18n="arch.dep.note"><b>Profiles</b> — bootstrap presets (<span class="mono">desktop</span>, <span class="mono">edge</span>, <span class="mono">controller</span>, <span class="mono">all</span>) select which planes a node runs, so the same image fills any role in the cluster.</div>
+    <p class="code-cap" style="margin-top:30px" data-i18n="arch.dep.cap">Multi-node HA is a configuration change, not a rewrite — point the same binary at a shared database:</p>
+<pre class="code-block"><span class="k">runtime</span>:
+  <span class="k">mode</span>: production
+  <span class="k">ha</span>:
+    <span class="k">enabled</span>: <span class="p">true</span>            <span class="c"># durable controller leases elect one leader</span>
+<span class="k">galley</span>:
+  <span class="k">backend</span>: postgresql      <span class="c"># sqlite · postgresql · mysql (shared DB for HA)</span>
+  <span class="k">dsn_env</span>: GALLEY_POSTGRES_DSN
+<span class="k">typebackbone</span>:
+  <span class="k">model_groups</span>:
+    <span class="k">balanced</span>:
+      <span class="k">providers</span>: [ollama-cloud, glm-5.1]
+      <span class="k">strategy</span>: round_robin   <span class="c"># round_robin · first_available · failover</span></pre>
   </div>
 </section>
 

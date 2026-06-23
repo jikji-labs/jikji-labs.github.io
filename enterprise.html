@@ -62,6 +62,13 @@
         <p data-i18n="ent.perm.3.p">Composable request filters with conditional <code>when</code> predicates (time, environment, request attributes), human-in-the-loop approval gates, external policy calls, and permission modes <code>auto</code> / <code>ask</code> / <code>deny</code>.</p>
       </div>
     </div>
+    <p class="code-cap" style="margin-top:30px" data-i18n="ent.perm.cap">Policy is data — rules evaluate to allow, ask, or deny, and fail closed by default:</p>
+<pre class="code-block"><span class="k">rubric</span>:
+  <span class="k">default_decision</span>: deny          <span class="c"># fail closed</span>
+  <span class="k">rules</span>:
+    - <span class="p">{</span> id: allow-low-risk-reads, decision: allow, operations: [read], risks: [low] <span class="p">}</span>
+    - <span class="p">{</span> id: ask-moderate-actions, decision: ask,   operations: [write, execute, connect], risks: [moderate] <span class="p">}</span>
+    - <span class="p">{</span> id: deny-high-risk,       decision: deny,  operations: [write, delete, execute], risks: [high] <span class="p">}</span></pre>
   </div>
 </section>
 
@@ -150,6 +157,12 @@
         <p data-i18n="ent.rob.6.p"><code>jikjictl</code> for credentials, RBAC, policy, filters, audit, tracing, usage, and marketplace — plus a web dashboard that never stores keys server-side.</p>
       </div>
     </div>
+    <p class="code-cap" style="margin-top:30px" data-i18n="ent.cli.cap">Drive it all from the operator CLI:</p>
+<pre class="code-block">jikjictl health                       <span class="c"># controller + dependency health</span>
+jikjictl provider usage               <span class="c"># external provider quota windows</span>
+jikjictl config export                <span class="c"># redacted live config snapshot</span>
+jikjictl filter toggle pii            <span class="c"># enable/disable a runtime filter</span>
+jikjictl provider oauth reset codex   <span class="c"># clear a quarantined OAuth token</span></pre>
     <div class="dev-note" data-i18n="devnote">⚠ Jikji is under active development and the source code is not yet public — it will be open-sourced soon. APIs and module boundaries may change before the first stable release. This page describes what exists in the codebase today.</div>
   </div>
 </section>

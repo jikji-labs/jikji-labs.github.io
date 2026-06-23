@@ -91,6 +91,13 @@
         <p data-i18n="mem.ctx.4.p">A dedicated embedding path routes recall and re-ranking through purpose-built embedding models (Jina), kept distinct from the chat provider so retrieval quality is tuned on its own.</p>
       </div>
     </div>
+    <p class="code-cap" style="margin-top:30px" data-i18n="mem.ctx.cap">Semantic response caching reuses answers by meaning, not exact text:</p>
+<pre class="code-block"><span class="k">typebackbone</span>:
+  <span class="k">response_cache</span>:
+    <span class="k">enabled</span>: <span class="p">true</span>
+    <span class="k">embedding_model</span>: jina-embeddings-v3
+    <span class="k">similarity_threshold</span>: 0.86
+    <span class="k">ttl</span>: 1h</pre>
   </div>
 </section>
 
@@ -119,6 +126,14 @@
         <p data-i18n="mem.kg.rerank.p">Catalog-loaded ontologies, tenant scoping, and semantic re-ranking let retrieval lean on structured meaning rather than keyword overlap alone.</p>
       </div>
     </div>
+    <p class="code-cap" style="margin-top:24px" data-i18n="mem.kg.cap">Query the knowledge graph with SPARQL 1.1:</p>
+<pre class="code-block"><span class="k">PREFIX</span> org: &lt;http://example.org/&gt;
+<span class="k">SELECT</span> ?service ?owner <span class="k">WHERE</span> {
+  ?service a org:Service ;
+           org:owner ?owner ;
+           org:tier  <span class="s">"critical"</span> .
+}
+<span class="k">ORDER BY</span> ?service</pre>
   </div>
 </section>
 

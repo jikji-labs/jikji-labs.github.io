@@ -62,6 +62,19 @@
         <p data-i18n="orch.sw.3.p">Run the same task across several models or settings and compare the candidates side by side, so routing and provider choices rest on evidence, not guesswork.</p>
       </div>
     </div>
+    <p class="code-cap" style="margin-top:30px" data-i18n="orch.sw.cap">Call a swarm as a tool — participants debate, then a verifier panel gates the result:</p>
+<pre class="code-block"><span class="p">{</span>
+  <span class="k">"tool"</span>: <span class="s">"agent.swarm"</span>,
+  <span class="k">"args"</span>: <span class="p">{</span>
+    <span class="k">"question"</span>: <span class="s">"Design a rate limiter for the public API."</span>,
+    <span class="k">"participants"</span>: <span class="p">[</span>
+      <span class="p">{</span> <span class="k">"name"</span>: <span class="s">"architect"</span>, <span class="k">"model"</span>: <span class="s">"glm-5.1"</span> <span class="p">}</span>,
+      <span class="p">{</span> <span class="k">"name"</span>: <span class="s">"skeptic"</span>,   <span class="k">"model"</span>: <span class="s">"deepseek-v4-flash:cloud"</span> <span class="p">}</span>
+    <span class="p">]</span>,
+    <span class="k">"rounds"</span>: 2,
+    <span class="k">"verify"</span>: <span class="p">true</span>
+  <span class="p">}</span>
+<span class="p">}</span></pre>
   </div>
 </section>
 
@@ -91,6 +104,11 @@
         <p data-i18n="orch.tr.ens.p">Coordination composes with the loop's verify-revise gate and ensemble synthesis, so multiple models contribute and a verifier holds the bar before an answer is returned.</p>
       </div>
     </div>
+    <p class="code-cap" style="margin-top:26px" data-i18n="orch.tr.cap">Routing strategies are configurable per model group:</p>
+<pre class="code-block"><span class="k">typebackbone</span>:
+  <span class="k">model_groups</span>:
+    <span class="k">premium</span>:  <span class="p">{</span> <span class="k">providers</span>: [deepseek-v4-pro], <span class="k">strategy</span>: first_available <span class="p">}</span>
+    <span class="k">fallback</span>: <span class="p">{</span> <span class="k">providers</span>: [glm-5.1, ollama-cloud, echo], <span class="k">strategy</span>: failover <span class="p">}</span></pre>
   </div>
 </section>
 
