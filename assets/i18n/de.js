@@ -342,7 +342,7 @@ window.JIKJI_I18N["de"]={
  "exp.more6": "Mehr erfahren →",
  "arch.perf.tag": "Leistung &amp; Effizienz",
  "arch.perf.h2": "Viele Sitzungen, schlanker Fußabdruck",
- "arch.perf.p": "Ein kompilierter Go-Kern, kein Interpreter — gebaut, damit ein einzelner Knoten viele gleichzeitige Sitzungen bedient und dabei sparsam mit dem Speicher umgeht und schnell antwortet.",
+ "arch.perf.p": "Ein kompilierter Go-Kern, kein Interpreter — so gebaut, dass ein einzelner Knoten viele gleichzeitige Sitzungen bedient und dabei sparsam mit dem Speicher umgeht und schnell antwortet. Effizienz ist skalenunabhängig (scale-free): Dieselbe Runtime genehmigt sich auf einem Laptop kaum Strom und schafft auf einem Server mehr Arbeit pro Kern.",
  "arch.perf.1.h": "Nebenläufigkeit ohne Ballast",
  "arch.perf.1.p": "Go-Goroutinen bewältigen Dutzende gleichzeitiger Sitzungen in einem einzigen Prozess — oft mit einem Bruchteil eines Prozents eines einzelnen CPU-Kerns — ohne Interpreter oder Runtime, die pro Sitzung hochgefahren werden müssten. Die Arbeit läuft zuerst im Prozess, deshalb ist Koordination ein Funktionsaufruf statt eines Netzwerk-Hops.",
  "arch.perf.2.h": "Schnell von Grund auf",
@@ -511,5 +511,6 @@ window.JIKJI_I18N["de"]={
  "ent.pii.2.h": "Unversehrt für den echten Nutzer",
  "ent.pii.2.p": "Umkehrbare, stabile Platzhalter werden dem Aufrufer wiederhergestellt, sodass die Ansicht des Endnutzers unversehrt bleibt — der Maskierungs-Rundlauf ist für ihn unsichtbar, nichts wird verstümmelt oder verworfen.",
  "ent.pii.3.h": "Stream-sicher &amp; flüchtig",
- "ent.pii.3.p": "Platzhalter werden auch über Streaming-Chunk-Grenzen hinweg korrekt wiederhergestellt, und die Platzhalter-Tabelle ist mandantengebunden und wird nie persistiert — sie existiert nur für die Dauer der Anfrage."
+ "ent.pii.3.p": "Platzhalter werden auch über Streaming-Chunk-Grenzen hinweg korrekt wiederhergestellt, und die Platzhalter-Tabelle ist mandantengebunden und wird nie persistiert — sie existiert nur für die Dauer der Anfrage.",
+ "arch.perf.note": "<b>Skalenunabhängige Effizienz.</b> Auf einem Laptop läuft sie kühl und zieht kaum Strom, sodass Akku und Lüfter in Ruhe bleiben. Auf einem Server antwortet genau dieselbe Binärdatei schneller und fasst mehr gleichzeitige Sitzungen pro Kern — weniger Hardware für dieselbe Last. Eine Runtime, abgestimmt darauf, wo sie läuft."
 };

@@ -342,7 +342,7 @@ window.JIKJI_I18N["id"]={
  "exp.more6": "Selengkapnya →",
  "arch.perf.tag": "Performa &amp; efisiensi",
  "arch.perf.h2": "Banyak sesi, jejak sumber daya yang ramping",
- "arch.perf.p": "Inti Go yang dikompilasi, bukan interpreter — dirancang agar satu node melayani banyak sesi sekaligus sambil tetap hemat memori dan cepat merespons.",
+ "arch.perf.p": "Inti Go yang terkompilasi, bukan interpreter — dirancang agar satu node melayani banyak sesi serentak sambil tetap hemat memori dan cepat merespons. Efisiensinya tak bergantung pada skala (scale-free): runtime yang sama nyaris tak menguras daya di laptop dan menangani lebih banyak pekerjaan per core di server.",
  "arch.perf.1.h": "Konkurensi tanpa beban",
  "arch.perf.1.p": "Goroutine Go menangani puluhan sesi serentak dalam satu proses — sering kali hanya dengan sepersekian persen dari satu inti CPU — tanpa interpreter atau runtime yang harus dijalankan per sesi. Pekerjaan berjalan di dalam proses terlebih dahulu, sehingga koordinasi adalah panggilan fungsi, bukan lompatan jaringan.",
  "arch.perf.2.h": "Cepat sejak dari rancangannya",
@@ -511,5 +511,6 @@ window.JIKJI_I18N["id"]={
  "ent.pii.2.h": "Utuh bagi pengguna sebenarnya",
  "ent.pii.2.p": "Placeholder yang dapat dibalik dan stabil dipulihkan ke pemanggil, sehingga tampilan pengguna akhir tetap utuh — perjalanan bolak-balik penyamaran tak terlihat oleh mereka, tanpa ada yang kacau atau hilang.",
  "ent.pii.3.h": "Aman untuk streaming &amp; sementara",
- "ent.pii.3.p": "Placeholder dipulihkan dengan benar bahkan melintasi batas potongan streaming, dan peta placeholder terikat pada tenant dan tidak pernah disimpan permanen — ia hanya hidup selama permintaan berlangsung."
+ "ent.pii.3.p": "Placeholder dipulihkan dengan benar bahkan melintasi batas potongan streaming, dan peta placeholder terikat pada tenant dan tidak pernah disimpan permanen — ia hanya hidup selama permintaan berlangsung.",
+ "arch.perf.note": "<b>Efisiensi yang tak bergantung pada skala.</b> Di laptop, ia berjalan adem dan menyedot daya sangat sedikit, tak mengganggu baterai maupun kipas. Di server, biner yang persis sama merespons lebih cepat dan menampung lebih banyak sesi serentak per core — lebih sedikit perangkat keras untuk beban yang sama. Satu runtime, disetel oleh tempat ia berjalan."
 };

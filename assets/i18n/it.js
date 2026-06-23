@@ -342,7 +342,7 @@ window.JIKJI_I18N["it"]={
  "exp.more6": "Scopri di più →",
  "arch.perf.tag": "Prestazioni &amp; efficienza",
  "arch.perf.h2": "Molte sessioni, ingombro ridotto",
- "arch.perf.p": "Un core Go compilato, non un interprete: progettato perché un singolo nodo serva molte sessioni simultanee restando leggero in memoria e pronto a rispondere.",
+ "arch.perf.p": "Un core Go compilato, non un interprete — progettato perché un singolo nodo serva molte sessioni simultanee restando leggero in memoria e rapido a rispondere. L'efficienza è indipendente dalla scala (scale-free): lo stesso runtime consuma pochissimo su un portatile e svolge più lavoro per core su un server.",
  "arch.perf.1.h": "Concorrenza senza zavorra",
  "arch.perf.1.p": "Le goroutine di Go gestiscono decine di sessioni simultanee in un solo processo — spesso con una frazione di punto percentuale di un singolo core CPU — senza alcun interprete o runtime da avviare per ogni sessione. Il lavoro gira prima in-process, quindi il coordinamento è una chiamata di funzione, non un salto di rete.",
  "arch.perf.2.h": "Veloce per costruzione",
@@ -511,5 +511,6 @@ window.JIKJI_I18N["it"]={
  "ent.pii.2.h": "Integro per l'utente reale",
  "ent.pii.2.p": "Segnaposto reversibili e stabili vengono ripristinati per chi effettua la chiamata, così la vista dell'utente finale resta integra — il giro completo del mascheramento è per lui invisibile, senza nulla di alterato o perso.",
  "ent.pii.3.h": "Sicuro in streaming ed effimero",
- "ent.pii.3.p": "I segnaposto vengono ripristinati correttamente anche a cavallo dei confini dei chunk in streaming, e la mappa dei segnaposto è legata al tenant e non viene mai persistita — vive soltanto per la durata della richiesta."
+ "ent.pii.3.p": "I segnaposto vengono ripristinati correttamente anche a cavallo dei confini dei chunk in streaming, e la mappa dei segnaposto è legata al tenant e non viene mai persistita — vive soltanto per la durata della richiesta.",
+ "arch.perf.note": "<b>Efficienza indipendente dalla scala.</b> Su un portatile rimane fresco e consuma pochissimo, lasciando in pace batteria e ventole. Su un server lo stesso identico binario risponde più in fretta e ospita più sessioni simultanee per core — meno hardware per lo stesso carico. Un solo runtime, calibrato dal luogo in cui gira."
 };

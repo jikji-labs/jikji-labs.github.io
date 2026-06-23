@@ -342,7 +342,7 @@ window.JIKJI_I18N["pt"]={
  "exp.more6": "Saiba mais →",
  "arch.perf.tag": "Desempenho &amp; eficiência",
  "arch.perf.h2": "Muitas sessões, pegada enxuta",
- "arch.perf.p": "Um núcleo Go compilado, não um interpretador — feito para que um único nó atenda muitas sessões simultâneas mantendo-se leve na memória e rápido para responder.",
+ "arch.perf.p": "Um núcleo Go compilado, não um interpretador — feito para que um único nó atenda muitas sessões simultâneas mantendo-se leve na memória e rápido a responder. A eficiência independe da escala (scale-free): o mesmo runtime mal consome energia num notebook e entrega mais trabalho por núcleo num servidor.",
  "arch.perf.1.h": "Concorrência sem peso",
  "arch.perf.1.p": "As goroutines do Go lidam com dezenas de sessões simultâneas em um único processo — muitas vezes com uma fração de um por cento de um único núcleo de CPU — sem nenhum interpretador ou runtime para subir por sessão. O trabalho roda primeiro no processo, então a coordenação é uma chamada de função, não um salto de rede.",
  "arch.perf.2.h": "Rápido por construção",
@@ -511,5 +511,6 @@ window.JIKJI_I18N["pt"]={
  "ent.pii.2.h": "Intacto para o usuário real",
  "ent.pii.2.p": "Marcadores reversíveis e estáveis são restaurados para quem chamou, de modo que a visão do usuário final fica intacta — o ida e volta do mascaramento é invisível para ele, sem nada truncado ou perdido.",
  "ent.pii.3.h": "Seguro em streaming e efêmero",
- "ent.pii.3.p": "Os marcadores são restaurados corretamente mesmo entre os limites dos blocos de streaming, e o mapa de marcadores é vinculado ao inquilino e nunca persistido — ele vive apenas durante a requisição."
+ "ent.pii.3.p": "Os marcadores são restaurados corretamente mesmo entre os limites dos blocos de streaming, e o mapa de marcadores é vinculado ao inquilino e nunca persistido — ele vive apenas durante a requisição.",
+ "arch.perf.note": "<b>Eficiência independente de escala.</b> Num notebook, ele roda frio e consome pouquíssima energia, sem mexer com a bateria nem com as ventoinhas. Num servidor, esse mesmo binário responde mais rápido e acomoda mais sessões simultâneas por núcleo — menos hardware para a mesma carga. Um único runtime, ajustado pelo lugar onde roda."
 };

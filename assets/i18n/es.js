@@ -342,7 +342,7 @@ window.JIKJI_I18N["es"]={
  "exp.more6": "Saber más →",
  "arch.perf.tag": "Rendimiento &amp; eficiencia",
  "arch.perf.h2": "Muchas sesiones, una huella mínima",
- "arch.perf.p": "Un núcleo Go compilado, no un intérprete: diseñado para que un solo nodo atienda muchas sesiones simultáneas manteniéndose ligero en memoria y rápido al responder.",
+ "arch.perf.p": "Un núcleo Go compilado, no un intérprete — diseñado para que un solo nodo atienda muchas sesiones simultáneas manteniéndose ligero en memoria y rápido al responder. La eficiencia es independiente de la escala (scale-free): el mismo runtime apenas consume en un portátil y rinde más por núcleo en un servidor.",
  "arch.perf.1.h": "Concurrencia sin peso",
  "arch.perf.1.p": "Las goroutines de Go manejan decenas de sesiones simultáneas en un solo proceso — a menudo con una fracción de porcentaje de un único núcleo de CPU — sin un intérprete ni un runtime que arrancar por sesión. El trabajo se ejecuta primero dentro del proceso, así que la coordinación es una llamada de función, no un salto de red.",
  "arch.perf.2.h": "Rápido por diseño",
@@ -511,5 +511,6 @@ window.JIKJI_I18N["es"]={
  "ent.pii.2.h": "Intacto para el usuario real",
  "ent.pii.2.p": "Se restauran marcadores reversibles y estables para quien llama, de modo que la vista del usuario final queda intacta: el ida y vuelta del enmascarado le resulta invisible, sin nada distorsionado ni perdido.",
  "ent.pii.3.h": "Seguro en streaming y efímero",
- "ent.pii.3.p": "Los marcadores se restauran correctamente incluso a través de los límites de los fragmentos de streaming, y el mapa de marcadores está vinculado al inquilino y nunca se persiste: solo vive durante la solicitud."
+ "ent.pii.3.p": "Los marcadores se restauran correctamente incluso a través de los límites de los fragmentos de streaming, y el mapa de marcadores está vinculado al inquilino y nunca se persiste: solo vive durante la solicitud.",
+ "arch.perf.note": "<b>Eficiencia independiente de la escala.</b> En un portátil funciona fresco y consume muy poco, sin molestar a la batería ni a los ventiladores. En un servidor, ese mismo binario responde más rápido y aloja más sesiones simultáneas por núcleo — menos hardware para la misma carga. Un único runtime, ajustado por el lugar donde se ejecuta."
 };

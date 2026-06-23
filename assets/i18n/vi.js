@@ -342,7 +342,7 @@ window.JIKJI_I18N["vi"]={
  "exp.more6": "Tìm hiểu thêm →",
  "arch.perf.tag": "Hiệu năng &amp; hiệu quả",
  "arch.perf.h2": "Nhiều phiên, dấu chân tài nguyên nhỏ gọn",
- "arch.perf.p": "Một lõi Go đã biên dịch, không phải trình thông dịch — được dựng để một node duy nhất phục vụ nhiều phiên đồng thời mà vẫn nhẹ bộ nhớ và phản hồi nhanh.",
+ "arch.perf.p": "Một lõi Go đã biên dịch, không phải trình thông dịch — được xây dựng để một node duy nhất phục vụ nhiều phiên đồng thời mà vẫn nhẹ bộ nhớ và phản hồi nhanh. Hiệu quả không phụ thuộc vào quy mô (scale-free): cùng một runtime gần như không tốn điện trên laptop và xử lý nhiều việc hơn trên mỗi nhân ở máy chủ.",
  "arch.perf.1.h": "Đồng thời mà không nặng nề",
  "arch.perf.1.p": "Các goroutine của Go xử lý hàng chục phiên đồng thời trong một tiến trình duy nhất — thường chỉ tốn một phần nhỏ của một phần trăm một lõi CPU — mà không cần khởi động trình thông dịch hay runtime riêng cho mỗi phiên. Công việc chạy trong tiến trình trước, nên việc điều phối là một lời gọi hàm, không phải một chặng mạng.",
  "arch.perf.2.h": "Nhanh từ trong thiết kế",
@@ -511,5 +511,6 @@ window.JIKJI_I18N["vi"]={
  "ent.pii.2.h": "Nguyên vẹn cho người dùng thật",
  "ent.pii.2.p": "Các chỗ giữ có thể đảo ngược, ổn định được khôi phục cho bên gọi, nên những gì người dùng cuối thấy vẫn nguyên vẹn — vòng che-rồi-khôi-phục là vô hình với họ, không có gì bị méo hay rớt.",
  "ent.pii.3.h": "An toàn khi truyền luồng &amp; tạm thời",
- "ent.pii.3.p": "Các chỗ giữ được khôi phục chính xác ngay cả khi vắt qua ranh giới các đoạn dữ liệu truyền luồng, và bản đồ chỗ giữ gắn với tenant và không bao giờ được lưu lại — nó chỉ tồn tại trong suốt yêu cầu."
+ "ent.pii.3.p": "Các chỗ giữ được khôi phục chính xác ngay cả khi vắt qua ranh giới các đoạn dữ liệu truyền luồng, và bản đồ chỗ giữ gắn với tenant và không bao giờ được lưu lại — nó chỉ tồn tại trong suốt yêu cầu.",
+ "arch.perf.note": "<b>Hiệu quả không phụ thuộc quy mô.</b> Trên laptop, nó chạy mát và tiêu thụ rất ít điện, không làm phiền pin lẫn quạt. Trên máy chủ, cũng chính tệp nhị phân ấy phản hồi nhanh hơn và chứa được nhiều phiên đồng thời hơn trên mỗi nhân — ít phần cứng hơn cho cùng một mức tải. Một runtime duy nhất, tự điều chỉnh theo nơi nó chạy."
 };

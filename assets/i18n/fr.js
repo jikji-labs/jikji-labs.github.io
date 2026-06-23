@@ -342,7 +342,7 @@ window.JIKJI_I18N["fr"]={
  "exp.more6": "En savoir plus →",
  "arch.perf.tag": "Performance &amp; efficacité",
  "arch.perf.h2": "Beaucoup de sessions, une empreinte minime",
- "arch.perf.p": "Un cœur Go compilé, pas un interpréteur — conçu pour qu'un seul nœud serve de nombreuses sessions simultanées tout en restant léger en mémoire et rapide à répondre.",
+ "arch.perf.p": "Un cœur Go compilé, pas un interpréteur — conçu pour qu'un seul nœud serve de nombreuses sessions simultanées tout en restant léger en mémoire et prompt à répondre. L'efficacité est indépendante de l'échelle (scale-free) : le même runtime consomme à peine sur un ordinateur portable et abat plus de travail par cœur sur un serveur.",
  "arch.perf.1.h": "De la concurrence sans le poids",
  "arch.perf.1.p": "Les goroutines Go gèrent des dizaines de sessions simultanées dans un seul processus — souvent pour une fraction de pourcent d'un seul cœur CPU — sans aucun interpréteur ni runtime à lancer par session. Le travail s'exécute d'abord en interne, si bien que la coordination est un appel de fonction, pas un saut réseau.",
  "arch.perf.2.h": "Rapide par conception",
@@ -511,5 +511,6 @@ window.JIKJI_I18N["fr"]={
  "ent.pii.2.h": "Intact pour l'utilisateur réel",
  "ent.pii.2.p": "Des substituts réversibles et stables sont restaurés pour l'appelant, si bien que la vue de l'utilisateur final reste intacte — l'aller-retour de masquage lui est invisible, sans rien de tronqué ni de perdu.",
  "ent.pii.3.h": "Sûr en flux &amp; éphémère",
- "ent.pii.3.p": "Les substituts sont restaurés correctement, même à cheval sur les frontières des fragments de streaming, et la table des substituts est liée au locataire et jamais persistée — elle ne vit que le temps de la requête."
+ "ent.pii.3.p": "Les substituts sont restaurés correctement, même à cheval sur les frontières des fragments de streaming, et la table des substituts est liée au locataire et jamais persistée — elle ne vit que le temps de la requête.",
+ "arch.perf.note": "<b>Une efficacité indépendante de l'échelle.</b> Sur un ordinateur portable, il reste frais et consomme très peu, laissant la batterie et les ventilateurs tranquilles. Sur un serveur, ce même binaire répond plus vite et accueille davantage de sessions simultanées par cœur — moins de matériel pour la même charge. Un seul runtime, ajusté par l'endroit où il tourne."
 };
