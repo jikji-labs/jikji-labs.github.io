@@ -402,5 +402,21 @@ window.JIKJI_I18N["vi"]={
  "ent.upd.2.h": "Nạp lại cấu hình nóng",
  "ent.upd.2.p": "Xuất và nạp lại cấu hình runtime qua API, CLI hoặc bảng điều khiển mà không cần khởi động lại — đổi nhà cung cấp, bộ lọc và chính sách khi đang chạy, với việc phân tích cú pháp tất định và đã được kiểm chứng.",
  "ent.upd.3.h": "Cập nhật cuốn chiếu nhờ HA",
- "ent.upd.3.p": "Khi bật HA, các controller dùng chung một cơ sở dữ liệu và bầu ra một leader duy nhất cho các bộ lập lịch singleton, trong khi mọi node vẫn phục vụ lưu lượng — nhờ vậy bạn cập nhật từng node một mà cụm vẫn luôn chạy."
+ "ent.upd.3.p": "Khi bật HA, các controller dùng chung một cơ sở dữ liệu và bầu ra một leader duy nhất cho các bộ lập lịch singleton, trong khi mọi node vẫn phục vụ lưu lượng — nhờ vậy bạn cập nhật từng node một mà cụm vẫn luôn chạy.",
+ "foot.author": "Được xây dựng bởi Jioh L. Jung.",
+ "nav.about": "Giới thiệu &amp; Liên hệ",
+ "about.crumb": "Giới thiệu",
+ "about.kicker": "Jikji Labs",
+ "about.title": "Giới thiệu về <span class=\"accent\">Jikji Labs</span>",
+ "about.sub": "Jikji Labs xây dựng Jikji — một nền tảng tác tử mô-đun lấy cảm hứng từ chữ rời bằng kim loại. Chúng tôi tin rằng hạ tầng tác tử nên có khả năng kết hợp, được quản trị và bền vững ngay từ ngày đầu, giống như cách chữ rời đã giúp ngành xuất bản trở nên đáng tin cậy ở quy mô lớn.",
+ "about.p1": "<b>Jikji</b> là một tệp nhị phân Go tĩnh duy nhất, chạy vòng lặp tác tử tất định, điều phối đa mô hình thích ứng, lớp bộ nhớ có khả năng học, một engine ontology gốc và quản trị cấp doanh nghiệp — từ một chiếc laptop đến cụm nhiều nút.",
+ "about.p2": "Dự án đang được phát triển tích cực và mã nguồn hiện chưa công khai; sẽ sớm được mở nguồn. Nếu bạn quan tâm đến nền tảng, muốn xem trước sớm hoặc muốn hợp tác, chúng tôi rất mong được nghe từ bạn.",
+ "about.c.tag": "Liên hệ",
+ "about.c.h2": "Liên hệ với đội ngũ",
+ "about.maint.k": "Người duy trì",
+ "about.email.k": "Email",
+ "about.li.k": "LinkedIn",
+ "about.gh.k": "GitHub",
+ "about.gh.v": "Mã nguồn mở sắp ra mắt.",
+ "about.note": "Jikji Labs là một dự án độc lập. Trang này mô tả những gì hiện có trong mã nguồn hôm nay; các API và ranh giới mô-đun có thể thay đổi trước bản phát hành ổn định đầu tiên."
 };

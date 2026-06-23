@@ -402,5 +402,21 @@ window.JIKJI_I18N["id"]={
  "ent.upd.2.h": "Muat ulang konfigurasi panas",
  "ent.upd.2.p": "Ekspor dan muat ulang konfigurasi runtime lewat API, CLI, atau dasbor tanpa restart — ganti penyedia, filter, dan kebijakan saat berjalan, dengan parsing yang deterministik dan tervalidasi.",
  "ent.upd.3.h": "Pembaruan bergulir lewat HA",
- "ent.upd.3.p": "Dengan HA aktif, para controller berbagi satu basis data dan memilih satu leader tunggal untuk scheduler singleton sementara setiap node melayani trafik — sehingga Anda memperbarui node satu per satu dan kluster tetap berjalan."
+ "ent.upd.3.p": "Dengan HA aktif, para controller berbagi satu basis data dan memilih satu leader tunggal untuk scheduler singleton sementara setiap node melayani trafik — sehingga Anda memperbarui node satu per satu dan kluster tetap berjalan.",
+ "foot.author": "Dibuat oleh Jioh L. Jung.",
+ "nav.about": "Tentang &amp; Kontak",
+ "about.crumb": "Tentang",
+ "about.kicker": "Jikji Labs",
+ "about.title": "Tentang <span class=\"accent\">Jikji Labs</span>",
+ "about.sub": "Jikji Labs membangun Jikji — platform agen modular yang terinspirasi dari aksara logam bergerak. Kami percaya infrastruktur agen seharusnya dapat dikomposisikan, terkelola, dan tahan lama sejak hari pertama, sebagaimana aksara bergerak membuat penerbitan andal dalam skala besar.",
+ "about.p1": "<b>Jikji</b> adalah satu biner Go statis yang menjalankan loop agen deterministik, orkestrasi multimodel adaptif, lapisan memori yang belajar, mesin ontologi native, dan tata kelola tingkat perusahaan — dari laptop hingga klaster multi-node.",
+ "about.p2": "Proyek ini sedang dikembangkan secara aktif dan kode sumbernya belum publik; akan segera dijadikan open source. Jika Anda tertarik pada platform ini, ingin melihat lebih awal, atau ingin bekerja sama, kami senang mendengar kabar dari Anda.",
+ "about.c.tag": "Hubungi kami",
+ "about.c.h2": "Hubungi tim",
+ "about.maint.k": "Pengelola",
+ "about.email.k": "Email",
+ "about.li.k": "LinkedIn",
+ "about.gh.k": "GitHub",
+ "about.gh.v": "Open source segera hadir.",
+ "about.note": "Jikji Labs adalah proyek independen. Halaman ini menjelaskan apa yang ada di basis kode saat ini; API dan batas antarmodul dapat berubah sebelum rilis stabil pertama."
 };

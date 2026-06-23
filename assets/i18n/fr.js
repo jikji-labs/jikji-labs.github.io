@@ -402,5 +402,21 @@ window.JIKJI_I18N["fr"]={
  "ent.upd.2.h": "Rechargement de config à chaud",
  "ent.upd.2.p": "Exportez et rechargez la config du runtime via l'API, la CLI ou le tableau de bord sans redémarrer — changez fournisseurs, filtres et politiques à chaud, avec un parsing déterministe et validé.",
  "ent.upd.3.h": "Mises à jour progressives via HA",
- "ent.upd.3.p": "Avec la HA activée, les contrôleurs partagent une même base de données et élisent un unique leader pour les planificateurs singletons, tandis que chaque nœud sert le trafic — vous mettez ainsi les nœuds à jour un par un et le cluster continue de tourner."
+ "ent.upd.3.p": "Avec la HA activée, les contrôleurs partagent une même base de données et élisent un unique leader pour les planificateurs singletons, tandis que chaque nœud sert le trafic — vous mettez ainsi les nœuds à jour un par un et le cluster continue de tourner.",
+ "foot.author": "Conçu par Jioh L. Jung.",
+ "nav.about": "À propos &amp; Contact",
+ "about.crumb": "À propos",
+ "about.kicker": "Jikji Labs",
+ "about.title": "À propos de <span class=\"accent\">Jikji Labs</span>",
+ "about.sub": "Jikji Labs développe Jikji, une plateforme d'agents modulaire inspirée des caractères mobiles en métal. Nous pensons que l'infrastructure d'agents doit être composable, gouvernée et durable dès le premier jour, à l'image des caractères mobiles qui ont rendu l'édition fiable à grande échelle.",
+ "about.p1": "<b>Jikji</b> est un binaire Go statique unique qui exécute une boucle d'agent déterministe, une orchestration multimodèle adaptative, un plan de mémoire apprenant, un moteur d'ontologie natif et une gouvernance d'entreprise, d'un ordinateur portable à un cluster multinœud.",
+ "about.p2": "Le projet est en développement actif et le code source n'est pas encore public ; il sera bientôt ouvert. Si la plateforme vous intéresse, que vous souhaitez un aperçu en avant-première ou collaborer avec nous, nous serions ravis d'échanger avec vous.",
+ "about.c.tag": "Contactez-nous",
+ "about.c.h2": "Contacter l'équipe",
+ "about.maint.k": "Mainteneur",
+ "about.email.k": "E-mail",
+ "about.li.k": "LinkedIn",
+ "about.gh.k": "GitHub",
+ "about.gh.v": "Bientôt en open source.",
+ "about.note": "Jikji Labs est un projet indépendant. Cette page décrit ce qui existe aujourd'hui dans le code ; les API et les frontières entre modules peuvent évoluer avant la première version stable."
 };
