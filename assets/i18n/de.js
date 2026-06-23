@@ -497,5 +497,19 @@ window.JIKJI_I18N["de"]={
  "ent.mt.4.p": "Die eigenen Fakten jedes Nutzers und seine persönliche Ontologie prägen, wie der Agent ihm antwortet — ein personalisierter Kontext, der pro Principal injiziert wird, statt eines einzigen, für alle gleichen Prompts.",
  "loop.human.label": "Mensch in &amp; über der Schleife<span class=\"mono\">freigeben · überwachen</span>",
  "loop.human.in": "<b>Mensch in der Schleife („human in the loop“).</b> Freigabe-Gates und Rückfragen pausieren den Lauf für eine Entscheidung — der Agent blockiert, bis jemand genehmigt, ablehnt oder antwortet, und setzt dann genau an dem Checkpoint fort, an dem er stehen geblieben ist. Nichts Riskantes passiert hinter Ihrem Rücken.",
- "loop.human.on": "<b>Mensch über der Schleife („human on the loop“).</b> Standardmäßig streamt ein Lauf jeden Schritt in Echtzeit, sodass ein Operator live zusieht und nur bei Bedarf eingreift — die Richtlinie eines Tools auf <code>ask</code> umstellen, eine Rückfrage beantworten, einen Lauf abbrechen oder eine Sitzung auf einen bekannten, fehlerfreien Snapshot zurücksetzen. Aufsicht, ohne ständig danebenzustehen."
+ "loop.human.on": "<b>Mensch über der Schleife („human on the loop“).</b> Standardmäßig streamt ein Lauf jeden Schritt in Echtzeit, sodass ein Operator live zusieht und nur bei Bedarf eingreift — die Richtlinie eines Tools auf <code>ask</code> umstellen, eine Rückfrage beantworten, einen Lauf abbrechen oder eine Sitzung auf einen bekannten, fehlerfreien Snapshot zurücksetzen. Aufsicht, ohne ständig danebenzustehen.",
+ "ent.pii.tag": "proof — PII &amp; Geheimnisse",
+ "ent.pii.h2": "Leaks an der Quelle gestoppt",
+ "ent.pii.p": "PII und Geheimnisse werden maskiert, <b>bevor</b> eine Anfrage überhaupt zu einem Modell, einem Tool oder einem Log abgeht — und auf dem Rückweg werden die echten Werte wiederhergestellt, sodass die Gegenseite eine unversehrte Ausgabe erhält. Für den Nutzer geht nichts kaputt; an Dritte gelangt nichts.",
+ "ent.pii.d1": "deine Daten",
+ "ent.pii.d2": "maskieren",
+ "ent.pii.d3": "Modell · Tool · Log",
+ "ent.pii.d4": "wiederherstellen",
+ "ent.pii.flow": "Modell, Tool und Log sehen stets nur einen stabilen Platzhalter wie <span class=\"mono\">[PII_EMAIL_1]</span>; der Aufrufer erhält den echten Wert zurück.",
+ "ent.pii.1.h": "Maskiert, bevor es rausgeht",
+ "ent.pii.1.p": "Eingaben und Tool-Ausgaben werden auf dem Weg nach draußen geschwärzt, sodass rohe PII und Geheimnisse nie einen Anbieter, ein Tool oder deine Logs erreichen — Leaks werden an der Quelle verhindert, nicht nachträglich geflickt.",
+ "ent.pii.2.h": "Unversehrt für den echten Nutzer",
+ "ent.pii.2.p": "Umkehrbare, stabile Platzhalter werden dem Aufrufer wiederhergestellt, sodass die Ansicht des Endnutzers unversehrt bleibt — der Maskierungs-Rundlauf ist für ihn unsichtbar, nichts wird verstümmelt oder verworfen.",
+ "ent.pii.3.h": "Stream-sicher &amp; flüchtig",
+ "ent.pii.3.p": "Platzhalter werden auch über Streaming-Chunk-Grenzen hinweg korrekt wiederhergestellt, und die Platzhalter-Tabelle ist mandantengebunden und wird nie persistiert — sie existiert nur für die Dauer der Anfrage."
 };

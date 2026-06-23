@@ -131,6 +131,41 @@
   </div>
 </section>
 
+<!-- PII: MASK & RESTORE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="ent.pii.tag">proof — PII &amp; Secrets</span>
+      <h2 data-i18n="ent.pii.h2">Leakage stopped at the source</h2>
+      <p data-i18n="ent.pii.p">PII and secrets are masked <b>before</b> a request ever leaves for a model, a tool, or a log — and the real values are restored on the way back, so the person on the other end sees intact output. Nothing is broken for the user; nothing leaks to a third party.</p>
+    </div>
+    <div class="loop-dia">
+      <div class="node"><div class="t" data-i18n="ent.pii.d1">your data</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t" data-i18n="ent.pii.d2">mask</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t" data-i18n="ent.pii.d3">model · tool · log</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t" data-i18n="ent.pii.d4">restore</div></div>
+    </div>
+    <div class="loop-back" data-i18n="ent.pii.flow">The model, tool, and log only ever see a stable placeholder like <span class="mono">[PII_EMAIL_1]</span>; the caller gets the real value back.</div>
+    <div class="grid cols3" style="margin-top:34px">
+      <div class="card">
+        <h3 data-i18n="ent.pii.1.h">Masked before it leaves</h3>
+        <p data-i18n="ent.pii.1.p">Inputs and tool outputs are redacted on the way out, so raw PII and secrets never reach a provider, a tool, or your logs — leakage is prevented at the source, not patched after the fact.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="ent.pii.2.h">Unbroken for the real user</h3>
+        <p data-i18n="ent.pii.2.p">Reversible, stable placeholders are restored to the caller, so the end-user's view is intact — the masking round-trip is invisible to them, with nothing garbled or dropped.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="ent.pii.3.h">Stream-safe &amp; ephemeral</h3>
+        <p data-i18n="ent.pii.3.p">Placeholders are restored correctly even across streaming chunk boundaries, and the placeholder map is tenant-bound and never persisted — it lives only for the request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- OBSERVABILITY + USAGE -->
 <section>
   <div class="wrap">

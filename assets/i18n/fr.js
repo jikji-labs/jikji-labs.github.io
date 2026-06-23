@@ -497,5 +497,19 @@ window.JIKJI_I18N["fr"]={
  "ent.mt.4.p": "Les faits propres à chaque utilisateur et son ontologie personnelle façonnent la manière dont l'agent lui répond — un contexte personnalisé injecté par principal, et non un seul et même prompt partagé par tous.",
  "loop.human.label": "Humain dans &amp; sur la boucle<span class=\"mono\">approuver · superviser</span>",
  "loop.human.in": "<b>Humain dans la boucle (« human in the loop »).</b> Les points de validation et les requêtes mettent l'exécution en pause pour une décision — l'agent se bloque jusqu'à ce qu'une personne approuve, refuse ou réponde, puis reprend exactement au point de contrôle où il s'était arrêté. Rien de risqué ne se produit à votre insu.",
- "loop.human.on": "<b>Humain sur la boucle (« human on the loop »).</b> Par défaut, une exécution diffuse chaque étape en temps réel : un opérateur observe en direct et n'intervient qu'en cas de besoin — basculer la politique d'un outil sur <code>ask</code>, répondre à une requête, annuler une exécution ou restaurer une session à un instantané sain. Une supervision sans avoir à tout surveiller de près."
+ "loop.human.on": "<b>Humain sur la boucle (« human on the loop »).</b> Par défaut, une exécution diffuse chaque étape en temps réel : un opérateur observe en direct et n'intervient qu'en cas de besoin — basculer la politique d'un outil sur <code>ask</code>, répondre à une requête, annuler une exécution ou restaurer une session à un instantané sain. Une supervision sans avoir à tout surveiller de près.",
+ "ent.pii.tag": "proof — PII &amp; secrets",
+ "ent.pii.h2": "La fuite stoppée à la source",
+ "ent.pii.p": "Les PII et les secrets sont masqués <b>avant</b> qu'une requête ne parte vers un modèle, un outil ou un journal — et les vraies valeurs sont restaurées au retour, si bien que la personne à l'autre bout reçoit une sortie intacte. Rien n'est cassé pour l'utilisateur ; rien ne fuit vers un tiers.",
+ "ent.pii.d1": "vos données",
+ "ent.pii.d2": "masquage",
+ "ent.pii.d3": "modèle · outil · journal",
+ "ent.pii.d4": "restauration",
+ "ent.pii.flow": "Le modèle, l'outil et le journal ne voient jamais qu'un substitut stable comme <span class=\"mono\">[PII_EMAIL_1]</span> ; l'appelant récupère la vraie valeur.",
+ "ent.pii.1.h": "Masqué avant de partir",
+ "ent.pii.1.p": "Les entrées et les sorties d'outils sont caviardées à la sortie, de sorte que les PII et les secrets bruts n'atteignent jamais un fournisseur, un outil ou vos journaux — la fuite est empêchée à la source, et non rafistolée après coup.",
+ "ent.pii.2.h": "Intact pour l'utilisateur réel",
+ "ent.pii.2.p": "Des substituts réversibles et stables sont restaurés pour l'appelant, si bien que la vue de l'utilisateur final reste intacte — l'aller-retour de masquage lui est invisible, sans rien de tronqué ni de perdu.",
+ "ent.pii.3.h": "Sûr en flux &amp; éphémère",
+ "ent.pii.3.p": "Les substituts sont restaurés correctement, même à cheval sur les frontières des fragments de streaming, et la table des substituts est liée au locataire et jamais persistée — elle ne vit que le temps de la requête."
 };

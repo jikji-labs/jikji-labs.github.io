@@ -497,5 +497,19 @@ window.JIKJI_I18N["vi"]={
  "ent.mt.4.p": "Các sự kiện riêng và ontology cá nhân của mỗi người dùng định hình cách tác nhân trả lời họ — một ngữ cảnh được cá nhân hóa, tiêm theo từng principal, chứ không phải một prompt chung cho tất cả mọi người.",
  "loop.human.label": "Con người trong &amp; trên vòng lặp<span class=\"mono\">phê duyệt · giám sát</span>",
  "loop.human.in": "<b>Con người trong vòng lặp (human in the loop).</b> Các cổng phê duyệt và truy vấn sẽ tạm dừng lượt chạy để chờ quyết định — tác nhân dừng lại cho đến khi có người phê duyệt, từ chối hoặc trả lời, rồi tiếp tục đúng từ điểm kiểm tra nơi nó đã dừng. Không có điều gì rủi ro xảy ra sau lưng bạn.",
- "loop.human.on": "<b>Con người trên vòng lặp (human on the loop).</b> Theo mặc định, một lượt chạy phát trực tiếp từng bước ngay khi diễn ra, nên người vận hành theo dõi trực tiếp và chỉ can thiệp khi cần — chuyển chính sách của một công cụ sang <code>ask</code>, trả lời một truy vấn, hủy một lượt chạy, hoặc khôi phục phiên về một ảnh chụp đã biết là ổn. Giám sát mà không phải trông chừng từng li từng tí."
+ "loop.human.on": "<b>Con người trên vòng lặp (human on the loop).</b> Theo mặc định, một lượt chạy phát trực tiếp từng bước ngay khi diễn ra, nên người vận hành theo dõi trực tiếp và chỉ can thiệp khi cần — chuyển chính sách của một công cụ sang <code>ask</code>, trả lời một truy vấn, hủy một lượt chạy, hoặc khôi phục phiên về một ảnh chụp đã biết là ổn. Giám sát mà không phải trông chừng từng li từng tí.",
+ "ent.pii.tag": "proof — PII &amp; bí mật",
+ "ent.pii.h2": "Chặn rò rỉ ngay từ gốc",
+ "ent.pii.p": "PII và bí mật được che <b>trước khi</b> một yêu cầu rời đi đến mô hình, công cụ hay nhật ký — và các giá trị thật được khôi phục trên đường về, nên đầu bên kia nhận được kết quả nguyên vẹn. Không có gì hỏng đối với người dùng; không có gì rò rỉ cho bên thứ ba.",
+ "ent.pii.d1": "dữ liệu của bạn",
+ "ent.pii.d2": "che",
+ "ent.pii.d3": "mô hình · công cụ · nhật ký",
+ "ent.pii.d4": "khôi phục",
+ "ent.pii.flow": "Mô hình, công cụ và nhật ký luôn chỉ thấy một chỗ giữ ổn định như <span class=\"mono\">[PII_EMAIL_1]</span>; bên gọi nhận lại giá trị thật.",
+ "ent.pii.1.h": "Che trước khi rời đi",
+ "ent.pii.1.p": "Đầu vào và đầu ra của công cụ được biên tập che ngay trên đường ra, nên PII và bí mật thô không bao giờ chạm tới nhà cung cấp, công cụ hay nhật ký của bạn — rò rỉ được ngăn ngay từ gốc, chứ không vá lại sau.",
+ "ent.pii.2.h": "Nguyên vẹn cho người dùng thật",
+ "ent.pii.2.p": "Các chỗ giữ có thể đảo ngược, ổn định được khôi phục cho bên gọi, nên những gì người dùng cuối thấy vẫn nguyên vẹn — vòng che-rồi-khôi-phục là vô hình với họ, không có gì bị méo hay rớt.",
+ "ent.pii.3.h": "An toàn khi truyền luồng &amp; tạm thời",
+ "ent.pii.3.p": "Các chỗ giữ được khôi phục chính xác ngay cả khi vắt qua ranh giới các đoạn dữ liệu truyền luồng, và bản đồ chỗ giữ gắn với tenant và không bao giờ được lưu lại — nó chỉ tồn tại trong suốt yêu cầu."
 };

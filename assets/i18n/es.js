@@ -497,5 +497,19 @@ window.JIKJI_I18N["es"]={
  "ent.mt.4.p": "Los datos propios de cada usuario y su ontología personal moldean cómo le responde el agente — un contexto personalizado inyectado por principal, y no un único prompt compartido para todos.",
  "loop.human.label": "Humano dentro &amp; sobre el bucle<span class=\"mono\">aprobar · supervisar</span>",
  "loop.human.in": "<b>Humano dentro del bucle («human in the loop»).</b> Las puertas de aprobación y las consultas pausan la ejecución a la espera de una decisión: el agente se bloquea hasta que una persona aprueba, rechaza o responde, y luego se reanuda exactamente desde el punto de control en el que se detuvo. Nada arriesgado ocurre a tus espaldas.",
- "loop.human.on": "<b>Humano sobre el bucle («human on the loop»).</b> De forma predeterminada, una ejecución transmite cada paso en tiempo real, de modo que un operador observa en directo e interviene solo cuando hace falta: cambia la política de una herramienta a <code>ask</code>, responde a una consulta, cancela una ejecución o revierte una sesión a una instantánea en buen estado. Supervisión sin tener que estar encima."
+ "loop.human.on": "<b>Humano sobre el bucle («human on the loop»).</b> De forma predeterminada, una ejecución transmite cada paso en tiempo real, de modo que un operador observa en directo e interviene solo cuando hace falta: cambia la política de una herramienta a <code>ask</code>, responde a una consulta, cancela una ejecución o revierte una sesión a una instantánea en buen estado. Supervisión sin tener que estar encima.",
+ "ent.pii.tag": "proof — PII y secretos",
+ "ent.pii.h2": "La fuga detenida en el origen",
+ "ent.pii.p": "Los PII y los secretos se enmascaran <b>antes</b> de que una solicitud salga hacia un modelo, una herramienta o un registro, y los valores reales se restauran en el camino de vuelta, de modo que quien está al otro lado recibe una salida intacta. Nada se rompe para el usuario; nada se filtra a terceros.",
+ "ent.pii.d1": "tus datos",
+ "ent.pii.d2": "enmascarar",
+ "ent.pii.d3": "modelo · herramienta · registro",
+ "ent.pii.d4": "restaurar",
+ "ent.pii.flow": "El modelo, la herramienta y el registro solo ven un marcador estable como <span class=\"mono\">[PII_EMAIL_1]</span>; quien llama recupera el valor real.",
+ "ent.pii.1.h": "Enmascarado antes de salir",
+ "ent.pii.1.p": "Las entradas y las salidas de las herramientas se redactan al salir, de modo que los PII y secretos en bruto nunca llegan a un proveedor, una herramienta ni a tus registros: la fuga se evita en el origen, no se parchea después.",
+ "ent.pii.2.h": "Intacto para el usuario real",
+ "ent.pii.2.p": "Se restauran marcadores reversibles y estables para quien llama, de modo que la vista del usuario final queda intacta: el ida y vuelta del enmascarado le resulta invisible, sin nada distorsionado ni perdido.",
+ "ent.pii.3.h": "Seguro en streaming y efímero",
+ "ent.pii.3.p": "Los marcadores se restauran correctamente incluso a través de los límites de los fragmentos de streaming, y el mapa de marcadores está vinculado al inquilino y nunca se persiste: solo vive durante la solicitud."
 };

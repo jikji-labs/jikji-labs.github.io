@@ -497,5 +497,19 @@ window.JIKJI_I18N["it"]={
  "ent.mt.4.p": "I fatti propri di ciascun utente e la sua ontologia personale plasmano il modo in cui l'agente gli risponde — un contesto personalizzato iniettato per principal, e non un unico prompt condiviso da tutti.",
  "loop.human.label": "Umano nel &amp; sul loop<span class=\"mono\">approva · supervisiona</span>",
  "loop.human.in": "<b>Umano nel loop («human in the loop»).</b> I gate di approvazione e le richieste mettono in pausa l'esecuzione in attesa di una decisione: l'agente si blocca finché una persona non approva, rifiuta o risponde, poi riprende esattamente dal checkpoint in cui si era fermato. Nulla di rischioso accade alle tue spalle.",
- "loop.human.on": "<b>Umano sul loop («human on the loop»).</b> Per impostazione predefinita, un'esecuzione trasmette ogni passaggio in tempo reale, così un operatore osserva dal vivo e interviene solo quando serve: cambia la policy di uno strumento su <code>ask</code>, rispondi a una richiesta, annulla un'esecuzione o riporta una sessione a uno snapshot integro. Supervisione senza dover stare col fiato sul collo."
+ "loop.human.on": "<b>Umano sul loop («human on the loop»).</b> Per impostazione predefinita, un'esecuzione trasmette ogni passaggio in tempo reale, così un operatore osserva dal vivo e interviene solo quando serve: cambia la policy di uno strumento su <code>ask</code>, rispondi a una richiesta, annulla un'esecuzione o riporta una sessione a uno snapshot integro. Supervisione senza dover stare col fiato sul collo.",
+ "ent.pii.tag": "proof — PII e segreti",
+ "ent.pii.h2": "La fuga fermata all'origine",
+ "ent.pii.p": "I PII e i segreti vengono mascherati <b>prima</b> che una richiesta parta verso un modello, uno strumento o un log — e i valori reali vengono ripristinati al ritorno, così chi sta dall'altra parte riceve un output integro. Nulla si rompe per l'utente; nulla trapela a terzi.",
+ "ent.pii.d1": "i tuoi dati",
+ "ent.pii.d2": "mascheramento",
+ "ent.pii.d3": "modello · strumento · log",
+ "ent.pii.d4": "ripristino",
+ "ent.pii.flow": "Il modello, lo strumento e il log vedono sempre e solo un segnaposto stabile come <span class=\"mono\">[PII_EMAIL_1]</span>; chi effettua la chiamata riottiene il valore reale.",
+ "ent.pii.1.h": "Mascherato prima di uscire",
+ "ent.pii.1.p": "Gli input e gli output degli strumenti vengono oscurati in uscita, così i PII e i segreti grezzi non raggiungono mai un provider, uno strumento o i tuoi log — la fuga è impedita all'origine, non rattoppata a posteriori.",
+ "ent.pii.2.h": "Integro per l'utente reale",
+ "ent.pii.2.p": "Segnaposto reversibili e stabili vengono ripristinati per chi effettua la chiamata, così la vista dell'utente finale resta integra — il giro completo del mascheramento è per lui invisibile, senza nulla di alterato o perso.",
+ "ent.pii.3.h": "Sicuro in streaming ed effimero",
+ "ent.pii.3.p": "I segnaposto vengono ripristinati correttamente anche a cavallo dei confini dei chunk in streaming, e la mappa dei segnaposto è legata al tenant e non viene mai persistita — vive soltanto per la durata della richiesta."
 };

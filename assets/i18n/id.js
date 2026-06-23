@@ -497,5 +497,19 @@ window.JIKJI_I18N["id"]={
  "ent.mt.4.p": "Fakta milik tiap pengguna dan ontologi pribadinya membentuk cara agen menjawab mereka — konteks yang dipersonalisasi dan disuntikkan per principal, bukan satu prompt yang dibagikan untuk semua orang.",
  "loop.human.label": "Manusia di dalam &amp; di atas loop<span class=\"mono\">setujui · awasi</span>",
  "loop.human.in": "<b>Manusia di dalam loop (human in the loop).</b> Gerbang persetujuan dan kueri menjeda eksekusi untuk menunggu keputusan — agen berhenti hingga seseorang menyetujui, menolak, atau menjawab, lalu melanjutkan tepat dari checkpoint tempat ia berhenti. Tidak ada hal berisiko yang terjadi di belakang Anda.",
- "loop.human.on": "<b>Manusia di atas loop (human on the loop).</b> Secara default, eksekusi menyiarkan setiap langkah secara langsung, sehingga operator dapat memantau secara real-time dan hanya turun tangan saat diperlukan — ubah kebijakan sebuah alat menjadi <code>ask</code>, jawab sebuah kueri, batalkan eksekusi, atau kembalikan sesi ke snapshot yang diketahui baik. Pengawasan tanpa perlu mengasuh terus-menerus."
+ "loop.human.on": "<b>Manusia di atas loop (human on the loop).</b> Secara default, eksekusi menyiarkan setiap langkah secara langsung, sehingga operator dapat memantau secara real-time dan hanya turun tangan saat diperlukan — ubah kebijakan sebuah alat menjadi <code>ask</code>, jawab sebuah kueri, batalkan eksekusi, atau kembalikan sesi ke snapshot yang diketahui baik. Pengawasan tanpa perlu mengasuh terus-menerus.",
+ "ent.pii.tag": "proof — PII &amp; rahasia",
+ "ent.pii.h2": "Kebocoran dihentikan dari sumbernya",
+ "ent.pii.p": "PII dan rahasia disamarkan <b>sebelum</b> sebuah permintaan dikirim ke model, alat, atau log — dan nilai aslinya dipulihkan dalam perjalanan kembali, sehingga pihak di seberang menerima keluaran yang utuh. Tidak ada yang rusak bagi pengguna; tidak ada yang bocor ke pihak ketiga.",
+ "ent.pii.d1": "data Anda",
+ "ent.pii.d2": "samarkan",
+ "ent.pii.d3": "model · alat · log",
+ "ent.pii.d4": "pulihkan",
+ "ent.pii.flow": "Model, alat, dan log selalu hanya melihat placeholder stabil seperti <span class=\"mono\">[PII_EMAIL_1]</span>; pemanggil mendapatkan nilai aslinya kembali.",
+ "ent.pii.1.h": "Disamarkan sebelum keluar",
+ "ent.pii.1.p": "Masukan dan keluaran alat disunting saat keluar, sehingga PII dan rahasia mentah tidak pernah sampai ke penyedia, alat, atau log Anda — kebocoran dicegah dari sumbernya, bukan ditambal belakangan.",
+ "ent.pii.2.h": "Utuh bagi pengguna sebenarnya",
+ "ent.pii.2.p": "Placeholder yang dapat dibalik dan stabil dipulihkan ke pemanggil, sehingga tampilan pengguna akhir tetap utuh — perjalanan bolak-balik penyamaran tak terlihat oleh mereka, tanpa ada yang kacau atau hilang.",
+ "ent.pii.3.h": "Aman untuk streaming &amp; sementara",
+ "ent.pii.3.p": "Placeholder dipulihkan dengan benar bahkan melintasi batas potongan streaming, dan peta placeholder terikat pada tenant dan tidak pernah disimpan permanen — ia hanya hidup selama permintaan berlangsung."
 };

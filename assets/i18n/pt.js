@@ -497,5 +497,19 @@ window.JIKJI_I18N["pt"]={
  "ent.mt.4.p": "Os fatos próprios de cada usuário e sua ontologia pessoal moldam como o agente responde a ele — um contexto personalizado injetado por principal, e não um único prompt compartilhado por todos.",
  "loop.human.label": "Humano dentro &amp; acima do loop<span class=\"mono\">aprovar · supervisionar</span>",
  "loop.human.in": "<b>Humano dentro do loop («human in the loop»).</b> As etapas de aprovação e as consultas pausam a execução à espera de uma decisão — o agente fica bloqueado até que uma pessoa aprove, rejeite ou responda e, então, retoma exatamente do checkpoint em que parou. Nada arriscado acontece pelas suas costas.",
- "loop.human.on": "<b>Humano acima do loop («human on the loop»).</b> Por padrão, uma execução transmite cada passo em tempo real, então um operador acompanha ao vivo e intervém apenas quando necessário — mude a política de uma ferramenta para <code>ask</code>, responda a uma consulta, cancele uma execução ou reverta uma sessão para um snapshot confiável. Supervisão sem precisar ficar de babá."
+ "loop.human.on": "<b>Humano acima do loop («human on the loop»).</b> Por padrão, uma execução transmite cada passo em tempo real, então um operador acompanha ao vivo e intervém apenas quando necessário — mude a política de uma ferramenta para <code>ask</code>, responda a uma consulta, cancele uma execução ou reverta uma sessão para um snapshot confiável. Supervisão sem precisar ficar de babá.",
+ "ent.pii.tag": "proof — PII e segredos",
+ "ent.pii.h2": "O vazamento barrado na origem",
+ "ent.pii.p": "PII e segredos são mascarados <b>antes</b> de uma requisição sair para um modelo, uma ferramenta ou um log — e os valores reais são restaurados na volta, de modo que quem está do outro lado recebe uma saída intacta. Nada quebra para o usuário; nada vaza para terceiros.",
+ "ent.pii.d1": "seus dados",
+ "ent.pii.d2": "mascarar",
+ "ent.pii.d3": "modelo · ferramenta · log",
+ "ent.pii.d4": "restaurar",
+ "ent.pii.flow": "O modelo, a ferramenta e o log só veem um marcador estável como <span class=\"mono\">[PII_EMAIL_1]</span>; quem chamou recebe o valor real de volta.",
+ "ent.pii.1.h": "Mascarado antes de sair",
+ "ent.pii.1.p": "As entradas e as saídas de ferramentas são redigidas na saída, de modo que PII e segredos brutos nunca chegam a um provedor, a uma ferramenta ou aos seus logs — o vazamento é evitado na origem, não remendado depois.",
+ "ent.pii.2.h": "Intacto para o usuário real",
+ "ent.pii.2.p": "Marcadores reversíveis e estáveis são restaurados para quem chamou, de modo que a visão do usuário final fica intacta — o ida e volta do mascaramento é invisível para ele, sem nada truncado ou perdido.",
+ "ent.pii.3.h": "Seguro em streaming e efêmero",
+ "ent.pii.3.p": "Os marcadores são restaurados corretamente mesmo entre os limites dos blocos de streaming, e o mapa de marcadores é vinculado ao inquilino e nunca persistido — ele vive apenas durante a requisição."
 };
