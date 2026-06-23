@@ -164,7 +164,7 @@
     <div class="grid cols3">
       <div class="card">
         <h3 data-i18n="arch.perf.1.h">Concurrency without weight</h3>
-        <p data-i18n="arch.perf.1.p">Go goroutines handle many sessions in one process — no per-session interpreter or runtime to spin up. Work runs in-process first, so coordination is a function call, not a network hop.</p>
+        <p data-i18n="arch.perf.1.p">Go goroutines handle dozens of concurrent sessions in one process — often at a fraction of a percent of a single CPU core — with no per-session interpreter or runtime to spin up. Work runs in-process first, so coordination is a function call, not a network hop.</p>
       </div>
       <div class="card">
         <h3 data-i18n="arch.perf.2.h">Fast by construction</h3>
@@ -172,7 +172,7 @@
       </div>
       <div class="card">
         <h3 data-i18n="arch.perf.3.h">Frugal footprint</h3>
-        <p data-i18n="arch.perf.3.p">One static binary with embedded SQLite, hot-path memo caching, and context compaction — minimal memory and CPU per session, from a laptop to a dense multi-tenant node.</p>
+        <p data-i18n="arch.perf.3.p">One static binary with embedded SQLite and hot-path memo caching keeps the resident footprint around 50&nbsp;MB without the ontology engine loaded — minimal memory and CPU per session, from a laptop to a dense multi-tenant node.</p>
       </div>
     </div>
   </div>

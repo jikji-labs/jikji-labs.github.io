@@ -84,6 +84,10 @@ header{
 .btn-primary{background:var(--ink);color:var(--paper)}
 .btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
 .typebar{margin-top:56px;display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
+.topnote{
+  margin-top:30px;font-size:13px;color:var(--ink-faint);
+  max-width:620px;margin-left:auto;margin-right:auto;
+}
 .typebar span{
   font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-faint);
   border:1px solid var(--line);background:var(--card);
