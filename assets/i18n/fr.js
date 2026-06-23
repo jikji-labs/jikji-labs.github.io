@@ -342,7 +342,7 @@ window.JIKJI_I18N["fr"]={
  "exp.more6": "En savoir plus →",
  "arch.perf.tag": "Performance &amp; efficacité",
  "arch.perf.h2": "Beaucoup de sessions, une empreinte minime",
- "arch.perf.p": "Un cœur Go compilé, pas un interpréteur — conçu pour qu'un seul nœud serve de nombreuses sessions simultanées tout en restant léger en mémoire et prompt à répondre. L'efficacité est indépendante de l'échelle (scale-free) : le même runtime consomme à peine sur un ordinateur portable et abat plus de travail par cœur sur un serveur.",
+ "arch.perf.p": "Un cœur Go compilé, et non un interpréteur : il ne paie donc jamais la lourde facture de mémoire et de latence que traînent les stacks fondées sur des scripts (Python ou Node.js). Un seul nœud sert de nombreuses sessions simultanées tout en restant léger en mémoire et prompt à répondre. L'efficacité ne dépend pas de l'échelle : le même runtime consomme à peine sur un ordinateur portable et abat davantage de travail par cœur sur un serveur.",
  "arch.perf.1.h": "De la concurrence sans le poids",
  "arch.perf.1.p": "Les goroutines Go gèrent des dizaines de sessions simultanées dans un seul processus — souvent pour une fraction de pourcent d'un seul cœur CPU — sans aucun interpréteur ni runtime à lancer par session. Le travail s'exécute d'abord en interne, si bien que la coordination est un appel de fonction, pas un saut réseau.",
  "arch.perf.2.h": "Rapide par conception",
@@ -458,7 +458,7 @@ window.JIKJI_I18N["fr"]={
  "tools.cat.note": "Chaque appel d'outil passe d'abord par le plan de politique <span class=\"mono\">rubric</span>, de sorte qu'un agent n'exécute jamais que ce que son tenant et ses portées autorisent.",
  "tools.fn.tag": "Étendez-le vous-même",
  "tools.fn.h2": "Une fonction est un outil",
- "tools.fn.p": "Pas besoin de recompiler pour ajouter une capacité. Écrivez une fonction Lua ou Python, publiez-la, et elle est enregistrée comme un outil de premier ordre à l'exécution — derrière le même contrôle de politique et le même bac à sable, et exposable via MCP, exactement comme les outils intégrés.",
+ "tools.fn.p": "Pas besoin de recompiler pour ajouter une capacité. Écrivez une fonction Lua ou Python — ou un script Python complet —, publiez-la, et elle est enregistrée comme un outil de premier ordre à l'exécution, derrière le même contrôle de politique et le même bac à sable, exposable via MCP, exactement comme les outils intégrés. Python s'exécute au niveau de la fonction pour un assistant rapide, ou au niveau du script pour des tâches plus lourdes.",
  "tools.fn.cap": "Publiez-la sur le <span class=\"mono\">bookstore</span> et elle s'enregistre automatiquement — sans recompilation, avec vérification de signature facultative avant exécution.",
  "tools.xr.note": "Les outils ne sont pas obligés de s'exécuter là où l'agent réfléchit — voir l'<a href=\"orchestration.html#protocols\">orchestration d'outils inter-régions</a> sur la page Orchestration.",
  "arch.prov.tag": "type — Fournisseurs &amp; Modèles",
@@ -525,5 +525,7 @@ window.JIKJI_I18N["fr"]={
  "loop.lh.3.h": "Des objectifs qui survivent à une exécution",
  "loop.lh.3.p": "Un objectif durable est porté à travers de nombreuses exécutions et sessions jusqu'à ce qu'il soit atteint — un travail au long cours garde la mémoire de sa propre intention, et pas seulement de son dernier tour.",
  "loop.lh.4.h": "Cohérent sur toute la distance",
- "loop.lh.4.p": "La compaction du contexte et l'échelle de promotion des modèles maintiennent les exécutions très longues dans la fenêtre, et le planificateur <code>almanac</code> pilote les tâches récurrentes — un workflow peut donc s'étaler sur des jours tout en gardant le fil."
+ "loop.lh.4.p": "La compaction du contexte et l'échelle de promotion des modèles maintiennent les exécutions très longues dans la fenêtre, et le planificateur <code>almanac</code> pilote les tâches récurrentes — un workflow peut donc s'étaler sur des jours tout en gardant le fil.",
+ "ent.obs.4.h": "Débogage en direct, attachable à chaud",
+ "ent.obs.4.p": "Attachez-vous à une session en cours via un terminal interactif adossé à WebSocket (un PTY, sous Unix et Windows) pour l'observer et la piloter en direct — chaque création, attache, détachement et fermeture est audité. La trace d'étapes JSONL rejoue une exécution de bout en bout, et <code>/debug/pprof</code> profile le processus en cours d'exécution."
 };

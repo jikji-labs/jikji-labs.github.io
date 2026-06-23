@@ -342,7 +342,7 @@ window.JIKJI_I18N["it"]={
  "exp.more6": "Scopri di più →",
  "arch.perf.tag": "Prestazioni &amp; efficienza",
  "arch.perf.h2": "Molte sessioni, ingombro ridotto",
- "arch.perf.p": "Un core Go compilato, non un interprete — progettato perché un singolo nodo serva molte sessioni simultanee restando leggero in memoria e rapido a rispondere. L'efficienza è indipendente dalla scala (scale-free): lo stesso runtime consuma pochissimo su un portatile e svolge più lavoro per core su un server.",
+ "arch.perf.p": "Un core Go compilato, non un interprete: così non paga mai il pesante costo di memoria e latenza che si portano dietro gli stack basati su script (Python o Node.js). Un singolo nodo serve molte sessioni simultanee restando leggero in memoria e pronto a rispondere. L'efficienza è indipendente dalla scala: lo stesso runtime consuma pochissimo su un portatile e svolge più lavoro per core su un server.",
  "arch.perf.1.h": "Concorrenza senza zavorra",
  "arch.perf.1.p": "Le goroutine di Go gestiscono decine di sessioni simultanee in un solo processo — spesso con una frazione di punto percentuale di un singolo core CPU — senza alcun interprete o runtime da avviare per ogni sessione. Il lavoro gira prima in-process, quindi il coordinamento è una chiamata di funzione, non un salto di rete.",
  "arch.perf.2.h": "Veloce per costruzione",
@@ -458,7 +458,7 @@ window.JIKJI_I18N["it"]={
  "tools.cat.note": "Ogni chiamata a uno strumento passa prima dal piano di policy <span class=\"mono\">rubric</span>, così un agente esegue solo ciò che il suo tenant e i suoi scope consentono.",
  "tools.fn.tag": "Estendilo tu stesso",
  "tools.fn.h2": "Una funzione è uno strumento",
- "tools.fn.p": "Non devi ricompilare per aggiungere una capacità. Scrivi una funzione Lua o Python, pubblicala, e viene registrata come strumento di prima classe a runtime — dietro lo stesso gate di policy e la stessa sandbox, ed esponibile tramite MCP, proprio come quelli integrati.",
+ "tools.fn.p": "Non serve ricompilare per aggiungere una funzionalità. Scrivi una funzione Lua o Python — o un intero script Python —, pubblicala e viene registrata come strumento di prima classe a runtime, dietro lo stesso gate di policy e la stessa sandbox e esponibile via MCP, proprio come quelli integrati. Python gira a livello di funzione per un aiutante rapido o a livello di script per lavori più impegnativi.",
  "tools.fn.cap": "Pubblicala sul <span class=\"mono\">bookstore</span> e si registra in automatico — senza ricompilare, con verifica della firma opzionale prima dell'esecuzione.",
  "tools.xr.note": "Gli strumenti non devono per forza girare dove l'agente sta pensando — vedi l'<a href=\"orchestration.html#protocols\">orchestrazione di strumenti tra regioni</a> nella pagina Orchestrazione.",
  "arch.prov.tag": "type — Provider &amp; Modelli",
@@ -525,5 +525,7 @@ window.JIKJI_I18N["it"]={
  "loop.lh.3.h": "Obiettivi che sopravvivono a un'esecuzione",
  "loop.lh.3.p": "Un obiettivo durevole viene portato avanti attraverso molte esecuzioni e sessioni finché non viene raggiunto — il lavoro di lunga durata ha memoria della propria intenzione, non solo del suo ultimo turno.",
  "loop.lh.4.h": "Coerente per tutta la distanza",
- "loop.lh.4.p": "La compattazione del contesto e la scala di promozione dei modelli mantengono le esecuzioni molto lunghe dentro la finestra, e lo scheduler <code>almanac</code> guida il lavoro ricorrente — così un workflow può estendersi su più giorni e mantenere comunque il filo."
+ "loop.lh.4.p": "La compattazione del contesto e la scala di promozione dei modelli mantengono le esecuzioni molto lunghe dentro la finestra, e lo scheduler <code>almanac</code> guida il lavoro ricorrente — così un workflow può estendersi su più giorni e mantenere comunque il filo.",
+ "ent.obs.4.h": "Debug live, agganciabile al volo",
+ "ent.obs.4.p": "Agganciati a una sessione in esecuzione tramite un terminale interattivo basato su WebSocket (un PTY, su Unix e Windows) per osservarla e pilotarla dal vivo: ogni creazione, aggancio, sgancio e chiusura viene registrata negli audit. La traccia di passi JSONL riproduce un'esecuzione dall'inizio alla fine e <code>/debug/pprof</code> profila il processo in esecuzione."
 };

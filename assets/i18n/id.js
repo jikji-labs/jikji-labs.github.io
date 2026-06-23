@@ -342,7 +342,7 @@ window.JIKJI_I18N["id"]={
  "exp.more6": "Selengkapnya →",
  "arch.perf.tag": "Performa &amp; efisiensi",
  "arch.perf.h2": "Banyak sesi, jejak sumber daya yang ramping",
- "arch.perf.p": "Inti Go yang terkompilasi, bukan interpreter — dirancang agar satu node melayani banyak sesi serentak sambil tetap hemat memori dan cepat merespons. Efisiensinya tak bergantung pada skala (scale-free): runtime yang sama nyaris tak menguras daya di laptop dan menangani lebih banyak pekerjaan per core di server.",
+ "arch.perf.p": "Inti Go yang sudah dikompilasi, bukan interpreter — sehingga tidak pernah membayar beban memori dan latensi berat yang ditanggung stack berbasis skrip (Python atau Node.js). Satu node melayani banyak sesi sekaligus sambil tetap ringan di memori dan cepat merespons. Efisiensinya tidak bergantung pada skala: runtime yang sama nyaris tak menguras daya di laptop dan mengerjakan lebih banyak per core di server.",
  "arch.perf.1.h": "Konkurensi tanpa beban",
  "arch.perf.1.p": "Goroutine Go menangani puluhan sesi serentak dalam satu proses — sering kali hanya dengan sepersekian persen dari satu inti CPU — tanpa interpreter atau runtime yang harus dijalankan per sesi. Pekerjaan berjalan di dalam proses terlebih dahulu, sehingga koordinasi adalah panggilan fungsi, bukan lompatan jaringan.",
  "arch.perf.2.h": "Cepat sejak dari rancangannya",
@@ -458,7 +458,7 @@ window.JIKJI_I18N["id"]={
  "tools.cat.note": "Setiap panggilan alat melewati bidang kebijakan <span class=\"mono\">rubric</span> lebih dulu, sehingga agen hanya menjalankan apa yang diizinkan oleh tenant dan cakupannya.",
  "tools.fn.tag": "Perluas Sendiri",
  "tools.fn.h2": "Fungsi adalah sebuah alat",
- "tools.fn.p": "Anda tidak perlu mengompilasi ulang untuk menambah kemampuan. Tulis fungsi Lua atau Python, terbitkan, dan ia terdaftar sebagai alat kelas satu saat runtime — di balik gerbang kebijakan dan sandbox yang sama, serta dapat dipaparkan lewat MCP, persis seperti alat bawaan.",
+ "tools.fn.p": "Anda tidak perlu mengompilasi ulang untuk menambah kemampuan. Tulis sebuah fungsi Lua atau Python — atau seluruh skrip Python — lalu terbitkan, dan ia langsung terdaftar sebagai alat kelas satu saat runtime, di balik gerbang kebijakan dan sandbox yang sama serta dapat diekspos lewat MCP, persis seperti alat bawaan. Python berjalan pada level fungsi untuk pembantu cepat atau pada level skrip untuk pekerjaan yang lebih berat.",
  "tools.fn.cap": "Terbitkan ke <span class=\"mono\">bookstore</span> dan ia mendaftar otomatis — tanpa build ulang, dengan verifikasi tanda tangan opsional sebelum dijalankan.",
  "tools.xr.note": "Alat tidak harus berjalan di tempat agen berpikir — lihat <a href=\"orchestration.html#protocols\">orkestrasi alat lintas wilayah</a> di halaman Orkestrasi.",
  "arch.prov.tag": "type — Penyedia &amp; Model",
@@ -525,5 +525,7 @@ window.JIKJI_I18N["id"]={
  "loop.lh.3.h": "Tujuan yang hidup lebih lama dari satu eksekusi",
  "loop.lh.3.p": "Sebuah tujuan yang tahan lama dibawa terus melintasi banyak eksekusi dan sesi hingga tercapai — pekerjaan jangka panjang memiliki ingatan akan niatnya sendiri, bukan hanya giliran terakhirnya.",
  "loop.lh.4.h": "Koheren sepanjang jarak",
- "loop.lh.4.p": "Pemadatan konteks dan tangga promosi model menjaga eksekusi yang sangat panjang tetap berada di dalam jendela, dan penjadwal <code>almanac</code> menggerakkan pekerjaan berulang — sehingga sebuah alur kerja bisa membentang berhari-hari dan tetap menjaga alurnya."
+ "loop.lh.4.p": "Pemadatan konteks dan tangga promosi model menjaga eksekusi yang sangat panjang tetap berada di dalam jendela, dan penjadwal <code>almanac</code> menggerakkan pekerjaan berulang — sehingga sebuah alur kerja bisa membentang berhari-hari dan tetap menjaga alurnya.",
+ "ent.obs.4.h": "Debugging langsung yang bisa dipasang kapan saja",
+ "ent.obs.4.p": "Pasang ke sesi yang sedang berjalan lewat terminal interaktif berbasis WebSocket (sebuah PTY, di Unix dan Windows) untuk mengamati dan mengendalikannya secara langsung — setiap pembuatan, pemasangan, pelepasan, dan penutupan diaudit. Jejak langkah JSONL memutar ulang satu eksekusi dari awal sampai akhir, dan <code>/debug/pprof</code> memprofil proses yang sedang berjalan."
 };

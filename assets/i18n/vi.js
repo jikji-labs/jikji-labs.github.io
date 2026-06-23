@@ -342,7 +342,7 @@ window.JIKJI_I18N["vi"]={
  "exp.more6": "Tìm hiểu thêm →",
  "arch.perf.tag": "Hiệu năng &amp; hiệu quả",
  "arch.perf.h2": "Nhiều phiên, dấu chân tài nguyên nhỏ gọn",
- "arch.perf.p": "Một lõi Go đã biên dịch, không phải trình thông dịch — được xây dựng để một node duy nhất phục vụ nhiều phiên đồng thời mà vẫn nhẹ bộ nhớ và phản hồi nhanh. Hiệu quả không phụ thuộc vào quy mô (scale-free): cùng một runtime gần như không tốn điện trên laptop và xử lý nhiều việc hơn trên mỗi nhân ở máy chủ.",
+ "arch.perf.p": "Một lõi Go đã biên dịch, không phải trình thông dịch — nên nó không bao giờ phải trả cái giá nặng nề về bộ nhớ và độ trễ mà các stack dựa trên script (Python hay Node.js) phải gánh. Một node duy nhất phục vụ nhiều phiên đồng thời mà vẫn nhẹ về bộ nhớ và phản hồi nhanh. Hiệu suất không phụ thuộc vào quy mô: cùng một runtime gần như không tốn điện trên laptop và xử lý nhiều việc hơn trên mỗi lõi ở máy chủ.",
  "arch.perf.1.h": "Đồng thời mà không nặng nề",
  "arch.perf.1.p": "Các goroutine của Go xử lý hàng chục phiên đồng thời trong một tiến trình duy nhất — thường chỉ tốn một phần nhỏ của một phần trăm một lõi CPU — mà không cần khởi động trình thông dịch hay runtime riêng cho mỗi phiên. Công việc chạy trong tiến trình trước, nên việc điều phối là một lời gọi hàm, không phải một chặng mạng.",
  "arch.perf.2.h": "Nhanh từ trong thiết kế",
@@ -458,7 +458,7 @@ window.JIKJI_I18N["vi"]={
  "tools.cat.note": "Mọi lệnh gọi công cụ đều đi qua mặt phẳng chính sách <span class=\"mono\">rubric</span> trước, nên tác nhân chỉ chạy đúng những gì tenant và phạm vi của nó cho phép.",
  "tools.fn.tag": "Tự mở rộng",
  "tools.fn.h2": "Một hàm là một công cụ",
- "tools.fn.p": "Bạn không cần biên dịch lại để thêm một khả năng. Viết một hàm Lua hoặc Python, công bố nó, và nó được đăng ký như một công cụ hạng nhất lúc chạy — sau cùng một cổng chính sách và sandbox, và có thể hiển lộ qua MCP, y như các công cụ tích hợp sẵn.",
+ "tools.fn.p": "Bạn không cần biên dịch lại để thêm một năng lực. Hãy viết một hàm Lua hoặc Python — hoặc cả một script Python — rồi phát hành, và nó được đăng ký thành công cụ hạng nhất ngay lúc chạy, nằm sau cùng cổng chính sách và sandbox, có thể đưa ra qua MCP, y như các công cụ tích hợp sẵn. Python chạy ở cấp hàm cho một trợ thủ nhanh gọn, hoặc ở cấp script cho công việc nặng hơn.",
  "tools.fn.cap": "Công bố lên <span class=\"mono\">bookstore</span> và nó tự đăng ký — không cần build lại, tùy chọn xác minh chữ ký trước khi chạy.",
  "tools.xr.note": "Công cụ không nhất thiết phải chạy ở nơi tác nhân đang suy nghĩ — xem <a href=\"orchestration.html#protocols\">điều phối công cụ liên vùng</a> trên trang Điều phối.",
  "arch.prov.tag": "type — Nhà cung cấp &amp; Mô hình",
@@ -525,5 +525,7 @@ window.JIKJI_I18N["vi"]={
  "loop.lh.3.h": "Mục tiêu sống lâu hơn một lượt chạy",
  "loop.lh.3.p": "Một mục tiêu bền vững được mang theo qua nhiều lượt chạy và phiên cho đến khi đạt được — công việc chạy dài có ký ức về ý định của chính nó, chứ không chỉ về lượt cuối cùng.",
  "loop.lh.4.h": "Mạch lạc trên suốt chặng đường",
- "loop.lh.4.p": "Việc nén ngữ cảnh và bậc thang thăng cấp mô hình giữ những lượt chạy rất dài nằm gọn trong cửa sổ, còn bộ lập lịch <code>almanac</code> điều khiển công việc lặp lại — nhờ vậy một quy trình có thể kéo dài qua nhiều ngày mà vẫn giữ được mạch."
+ "loop.lh.4.p": "Việc nén ngữ cảnh và bậc thang thăng cấp mô hình giữ những lượt chạy rất dài nằm gọn trong cửa sổ, còn bộ lập lịch <code>almanac</code> điều khiển công việc lặp lại — nhờ vậy một quy trình có thể kéo dài qua nhiều ngày mà vẫn giữ được mạch.",
+ "ent.obs.4.h": "Gỡ lỗi trực tiếp, gắn vào bất cứ lúc nào",
+ "ent.obs.4.p": "Gắn vào một phiên đang chạy qua terminal tương tác dựa trên WebSocket (một PTY, trên Unix và Windows) để quan sát và điều khiển nó trực tiếp — mọi thao tác tạo, gắn, gỡ và đóng đều được ghi nhật ký kiểm toán. Vết bước JSONL phát lại toàn bộ một lần chạy từ đầu đến cuối, và <code>/debug/pprof</code> phân tích hiệu năng tiến trình đang chạy."
 };

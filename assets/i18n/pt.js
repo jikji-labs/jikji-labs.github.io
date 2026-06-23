@@ -342,7 +342,7 @@ window.JIKJI_I18N["pt"]={
  "exp.more6": "Saiba mais →",
  "arch.perf.tag": "Desempenho &amp; eficiência",
  "arch.perf.h2": "Muitas sessões, pegada enxuta",
- "arch.perf.p": "Um núcleo Go compilado, não um interpretador — feito para que um único nó atenda muitas sessões simultâneas mantendo-se leve na memória e rápido a responder. A eficiência independe da escala (scale-free): o mesmo runtime mal consome energia num notebook e entrega mais trabalho por núcleo num servidor.",
+ "arch.perf.p": "Um núcleo Go compilado, não um interpretador — por isso nunca paga o pesado custo de memória e latência que os stacks baseados em scripts (Python ou Node.js) carregam. Um único nó atende muitas sessões simultâneas mantendo-se leve em memória e rápido para responder. A eficiência não depende da escala: o mesmo runtime mal consome energia num notebook e entrega mais trabalho por núcleo num servidor.",
  "arch.perf.1.h": "Concorrência sem peso",
  "arch.perf.1.p": "As goroutines do Go lidam com dezenas de sessões simultâneas em um único processo — muitas vezes com uma fração de um por cento de um único núcleo de CPU — sem nenhum interpretador ou runtime para subir por sessão. O trabalho roda primeiro no processo, então a coordenação é uma chamada de função, não um salto de rede.",
  "arch.perf.2.h": "Rápido por construção",
@@ -458,7 +458,7 @@ window.JIKJI_I18N["pt"]={
  "tools.cat.note": "Toda chamada de ferramenta passa primeiro pelo plano de políticas <span class=\"mono\">rubric</span>, de modo que um agente só executa o que seu tenant e seus escopos permitem.",
  "tools.fn.tag": "Estenda você mesmo",
  "tools.fn.h2": "Uma função é uma ferramenta",
- "tools.fn.p": "Você não recompila para adicionar uma capacidade. Escreva uma função em Lua ou Python, publique-a, e ela é registrada como ferramenta de primeira classe em tempo de execução — por trás do mesmo portão de políticas e do mesmo sandbox, e exponível via MCP, assim como as integradas.",
+ "tools.fn.p": "Você não recompila para adicionar um recurso. Escreva uma função Lua ou Python — ou um script Python inteiro —, publique-a, e ela é registrada como ferramenta de primeira classe em tempo de execução, atrás do mesmo controle de políticas e do mesmo sandbox e exponível via MCP, como as nativas. O Python roda no nível de função para um auxiliar rápido ou no nível de script para trabalhos mais pesados.",
  "tools.fn.cap": "Publique no <span class=\"mono\">bookstore</span> e ela se registra automaticamente — sem reconstruir, com verificação de assinatura opcional antes de rodar.",
  "tools.xr.note": "As ferramentas não precisam rodar onde o agente está pensando — veja a <a href=\"orchestration.html#protocols\">orquestração de ferramentas entre regiões</a> na página de Orquestração.",
  "arch.prov.tag": "type — Provedores &amp; Modelos",
@@ -525,5 +525,7 @@ window.JIKJI_I18N["pt"]={
  "loop.lh.3.h": "Metas que sobrevivem a uma execução",
  "loop.lh.3.p": "Uma meta durável é levada adiante por muitas execuções e sessões até ser cumprida — o trabalho de longa duração tem memória da própria intenção, não apenas do último turno.",
  "loop.lh.4.h": "Coerente por toda a distância",
- "loop.lh.4.p": "A compactação de contexto e a escada de promoção de modelos mantêm execuções muito longas dentro da janela, e o agendador <code>almanac</code> conduz o trabalho recorrente — assim um fluxo de trabalho pode se estender por dias e ainda manter o fio da meada."
+ "loop.lh.4.p": "A compactação de contexto e a escada de promoção de modelos mantêm execuções muito longas dentro da janela, e o agendador <code>almanac</code> conduz o trabalho recorrente — assim um fluxo de trabalho pode se estender por dias e ainda manter o fio da meada.",
+ "ent.obs.4.h": "Depuração ao vivo, anexável a quente",
+ "ent.obs.4.p": "Anexe-se a uma sessão em execução por um terminal interativo sobre WebSocket (um PTY, no Unix e no Windows) para observá-la e conduzi-la ao vivo — cada criação, anexação, desanexação e fechamento é auditado. O rastro de passos em JSONL reproduz uma execução de ponta a ponta, e o <code>/debug/pprof</code> faz o profiling do processo em execução."
 };

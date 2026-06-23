@@ -342,7 +342,7 @@ window.JIKJI_I18N["de"]={
  "exp.more6": "Mehr erfahren →",
  "arch.perf.tag": "Leistung &amp; Effizienz",
  "arch.perf.h2": "Viele Sitzungen, schlanker Fußabdruck",
- "arch.perf.p": "Ein kompilierter Go-Kern, kein Interpreter — so gebaut, dass ein einzelner Knoten viele gleichzeitige Sitzungen bedient und dabei sparsam mit dem Speicher umgeht und schnell antwortet. Effizienz ist skalenunabhängig (scale-free): Dieselbe Runtime genehmigt sich auf einem Laptop kaum Strom und schafft auf einem Server mehr Arbeit pro Kern.",
+ "arch.perf.p": "Ein kompilierter Go-Kern, kein Interpreter – damit zahlt er nie den hohen Speicher- und Latenz-Tribut, den skriptbasierte Stacks (Python oder Node.js) mit sich schleppen. Ein einzelner Knoten bedient viele gleichzeitige Sitzungen, bleibt dabei sparsam im Speicher und antwortet schnell. Die Effizienz ist skalierungsunabhängig: Dieselbe Laufzeit zieht auf einem Laptop kaum Strom und leistet auf einem Server mehr Arbeit pro Kern.",
  "arch.perf.1.h": "Nebenläufigkeit ohne Ballast",
  "arch.perf.1.p": "Go-Goroutinen bewältigen Dutzende gleichzeitiger Sitzungen in einem einzigen Prozess — oft mit einem Bruchteil eines Prozents eines einzelnen CPU-Kerns — ohne Interpreter oder Runtime, die pro Sitzung hochgefahren werden müssten. Die Arbeit läuft zuerst im Prozess, deshalb ist Koordination ein Funktionsaufruf statt eines Netzwerk-Hops.",
  "arch.perf.2.h": "Schnell von Grund auf",
@@ -458,7 +458,7 @@ window.JIKJI_I18N["de"]={
  "tools.cat.note": "Jeder Tool-Aufruf durchläuft zuerst die <span class=\"mono\">rubric</span>-Policy-Ebene, sodass ein Agent stets nur das ausführt, was sein Tenant und seine Scopes erlauben.",
  "tools.fn.tag": "Selbst erweitern",
  "tools.fn.h2": "Eine Funktion ist ein Tool",
- "tools.fn.p": "Sie müssen nicht neu kompilieren, um eine Fähigkeit hinzuzufügen. Schreiben Sie eine Lua- oder Python-Funktion, veröffentlichen Sie sie, und sie wird zur Laufzeit als vollwertiges Tool registriert — hinter demselben Policy-Gate und derselben Sandbox und über MCP ansprechbar, genau wie die integrierten Tools.",
+ "tools.fn.p": "Sie müssen nicht neu kompilieren, um eine Fähigkeit hinzuzufügen. Schreiben Sie eine Lua- oder Python-Funktion – oder ein ganzes Python-Skript –, veröffentlichen Sie es, und es wird zur Laufzeit als vollwertiges Werkzeug registriert, hinter demselben Policy-Gate und derselben Sandbox und über MCP verfügbar, genau wie die eingebauten. Python läuft auf Funktionsebene für einen schnellen Helfer oder auf Skriptebene für umfangreichere Arbeit.",
  "tools.fn.cap": "Veröffentlichen Sie sie im <span class=\"mono\">bookstore</span>, und sie registriert sich automatisch — ohne Neukompilierung, optional mit Signaturprüfung vor der Ausführung.",
  "tools.xr.note": "Tools müssen nicht dort laufen, wo der Agent denkt — siehe <a href=\"orchestration.html#protocols\">regionsübergreifende Tool-Orchestrierung</a> auf der Orchestrierungsseite.",
  "arch.prov.tag": "type — Anbieter &amp; Modelle",
@@ -525,5 +525,7 @@ window.JIKJI_I18N["de"]={
  "loop.lh.3.h": "Ziele, die einen Lauf überdauern",
  "loop.lh.3.p": "Ein dauerhaftes Ziel wird über viele Läufe und Sitzungen hinweg weitergetragen, bis es erreicht ist — langlaufende Arbeit hat ein Gedächtnis für ihre eigene Absicht, nicht nur für ihren letzten Schritt.",
  "loop.lh.4.h": "Kohärent über die ganze Distanz",
- "loop.lh.4.p": "Kontext-Kompaktierung und die Modell-Aufstiegsleiter halten sehr lange Läufe innerhalb des Fensters, und der <code>almanac</code>-Scheduler treibt die wiederkehrende Arbeit an — so kann sich ein Workflow über Tage erstrecken und trotzdem den Faden halten."
+ "loop.lh.4.p": "Kontext-Kompaktierung und die Modell-Aufstiegsleiter halten sehr lange Läufe innerhalb des Fensters, und der <code>almanac</code>-Scheduler treibt die wiederkehrende Arbeit an — so kann sich ein Workflow über Tage erstrecken und trotzdem den Faden halten.",
+ "ent.obs.4.h": "Live-Debugging, jederzeit zuschaltbar",
+ "ent.obs.4.p": "Klinken Sie sich über ein WebSocket-gestütztes interaktives Terminal (ein PTY, unter Unix und Windows) in eine laufende Sitzung ein, um sie live zu beobachten und zu steuern – jedes Erstellen, Zuschalten, Trennen und Schließen wird auditiert. Der JSONL-Schritt-Trace spielt einen Lauf von Anfang bis Ende wieder ab, und <code>/debug/pprof</code> profiliert den laufenden Prozess."
 };
