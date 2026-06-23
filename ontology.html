@@ -145,7 +145,19 @@
         <h3 data-i18n="onto.h.4.h">Analysis in the loop</h3>
         <p data-i18n="onto.h.4.p">Put it together and an agent can pull rows with governed SQL, cross-reference them against the ontology, cache the intermediates, and reason over the result — a versatile data layer that turns operational data into answers.</p>
       </div>
+      <div class="card">
+        <h3 data-i18n="onto.h.5.h">Data science &amp; ML, in the loop</h3>
+        <p data-i18n="onto.h.5.p">Pull rows with governed SQL, reuse them from the cache, and hand them to a Python tool running pandas, NumPy, or scikit-learn — analysis and modeling happen inside one agent run, not off in a separate notebook.</p>
+      </div>
     </div>
+    <div class="loop-dia" style="margin-top:26px">
+      <div class="node"><div class="t" data-i18n="onto.h.f1">SQL DB</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t" data-i18n="onto.h.f2">SQL cache</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t">Python</div><div class="d">pandas · NumPy · scikit-learn</div></div>
+    </div>
+    <div class="loop-back" data-i18n="onto.h.flow">Query once, reuse the cached result, and analyze it with the scientific stack you provide in the sandbox — Jikji is as at home with data work as with chat.</div>
   </div>
 </section>
 

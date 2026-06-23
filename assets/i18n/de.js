@@ -527,5 +527,10 @@ window.JIKJI_I18N["de"]={
  "loop.lh.4.h": "Kohärent über die ganze Distanz",
  "loop.lh.4.p": "Kontext-Kompaktierung und die Modell-Aufstiegsleiter halten sehr lange Läufe innerhalb des Fensters, und der <code>almanac</code>-Scheduler treibt die wiederkehrende Arbeit an — so kann sich ein Workflow über Tage erstrecken und trotzdem den Faden halten.",
  "ent.obs.4.h": "Live-Debugging, jederzeit zuschaltbar",
- "ent.obs.4.p": "Klinken Sie sich über ein WebSocket-gestütztes interaktives Terminal (ein PTY, unter Unix und Windows) in eine laufende Sitzung ein, um sie live zu beobachten und zu steuern – jedes Erstellen, Zuschalten, Trennen und Schließen wird auditiert. Der JSONL-Schritt-Trace spielt einen Lauf von Anfang bis Ende wieder ab, und <code>/debug/pprof</code> profiliert den laufenden Prozess."
+ "ent.obs.4.p": "Klinken Sie sich über ein WebSocket-gestütztes interaktives Terminal (ein PTY, unter Unix und Windows) in eine laufende Sitzung ein, um sie live zu beobachten und zu steuern – jedes Erstellen, Zuschalten, Trennen und Schließen wird auditiert. Der JSONL-Schritt-Trace spielt einen Lauf von Anfang bis Ende wieder ab, und <code>/debug/pprof</code> profiliert den laufenden Prozess.",
+ "onto.h.5.h": "Data Science und ML, mitten im Loop",
+ "onto.h.5.p": "Hole Zeilen über kontrolliertes SQL ab, verwende sie aus dem Cache wieder und reiche sie an ein Python-Tool weiter, das pandas, NumPy oder scikit-learn ausführt — Analyse und Modellierung geschehen innerhalb eines einzigen Agent-Laufs, nicht abseits in einem separaten Notebook.",
+ "onto.h.f1": "SQL-DB",
+ "onto.h.f2": "SQL-Cache",
+ "onto.h.flow": "Einmal abfragen, das gecachte Ergebnis wiederverwenden und es mit dem wissenschaftlichen Stack analysieren, den du in der Sandbox bereitstellst — jikji ist mit Datenarbeit ebenso zu Hause wie mit dem Chat."
 };

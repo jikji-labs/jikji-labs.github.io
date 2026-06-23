@@ -527,5 +527,10 @@ window.JIKJI_I18N["id"]={
  "loop.lh.4.h": "Koheren sepanjang jarak",
  "loop.lh.4.p": "Pemadatan konteks dan tangga promosi model menjaga eksekusi yang sangat panjang tetap berada di dalam jendela, dan penjadwal <code>almanac</code> menggerakkan pekerjaan berulang — sehingga sebuah alur kerja bisa membentang berhari-hari dan tetap menjaga alurnya.",
  "ent.obs.4.h": "Debugging langsung yang bisa dipasang kapan saja",
- "ent.obs.4.p": "Pasang ke sesi yang sedang berjalan lewat terminal interaktif berbasis WebSocket (sebuah PTY, di Unix dan Windows) untuk mengamati dan mengendalikannya secara langsung — setiap pembuatan, pemasangan, pelepasan, dan penutupan diaudit. Jejak langkah JSONL memutar ulang satu eksekusi dari awal sampai akhir, dan <code>/debug/pprof</code> memprofil proses yang sedang berjalan."
+ "ent.obs.4.p": "Pasang ke sesi yang sedang berjalan lewat terminal interaktif berbasis WebSocket (sebuah PTY, di Unix dan Windows) untuk mengamati dan mengendalikannya secara langsung — setiap pembuatan, pemasangan, pelepasan, dan penutupan diaudit. Jejak langkah JSONL memutar ulang satu eksekusi dari awal sampai akhir, dan <code>/debug/pprof</code> memprofil proses yang sedang berjalan.",
+ "onto.h.5.h": "Data science dan ML, di dalam loop",
+ "onto.h.5.p": "Tarik baris dengan SQL yang terkelola, gunakan ulang dari cache, lalu serahkan ke tool Python yang menjalankan pandas, NumPy, atau scikit-learn — analisis dan pemodelan terjadi dalam satu kali eksekusi agent, bukan terpisah di notebook lain.",
+ "onto.h.f1": "DB SQL",
+ "onto.h.f2": "Cache SQL",
+ "onto.h.flow": "Kueri sekali, gunakan ulang hasil yang tersimpan di cache, lalu analisis dengan stack ilmiah yang kamu sediakan di sandbox — jikji sama cakapnya dalam mengolah data seperti halnya mengobrol."
 };

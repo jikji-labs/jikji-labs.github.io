@@ -527,5 +527,10 @@ window.JIKJI_I18N["pt"]={
  "loop.lh.4.h": "Coerente por toda a distância",
  "loop.lh.4.p": "A compactação de contexto e a escada de promoção de modelos mantêm execuções muito longas dentro da janela, e o agendador <code>almanac</code> conduz o trabalho recorrente — assim um fluxo de trabalho pode se estender por dias e ainda manter o fio da meada.",
  "ent.obs.4.h": "Depuração ao vivo, anexável a quente",
- "ent.obs.4.p": "Anexe-se a uma sessão em execução por um terminal interativo sobre WebSocket (um PTY, no Unix e no Windows) para observá-la e conduzi-la ao vivo — cada criação, anexação, desanexação e fechamento é auditado. O rastro de passos em JSONL reproduz uma execução de ponta a ponta, e o <code>/debug/pprof</code> faz o profiling do processo em execução."
+ "ent.obs.4.p": "Anexe-se a uma sessão em execução por um terminal interativo sobre WebSocket (um PTY, no Unix e no Windows) para observá-la e conduzi-la ao vivo — cada criação, anexação, desanexação e fechamento é auditado. O rastro de passos em JSONL reproduz uma execução de ponta a ponta, e o <code>/debug/pprof</code> faz o profiling do processo em execução.",
+ "onto.h.5.h": "Ciência de dados e ML, dentro do fluxo",
+ "onto.h.5.p": "Puxe linhas com SQL governado, reutilize-as do cache e entregue-as a uma ferramenta Python rodando pandas, NumPy ou scikit-learn — análise e modelagem acontecem dentro de uma única execução do agente, e não isoladas em um notebook à parte.",
+ "onto.h.f1": "Banco SQL",
+ "onto.h.f2": "Cache SQL",
+ "onto.h.flow": "Consulte uma vez, reaproveite o resultado em cache e analise-o com a stack científica que você fornece no sandbox — o jikji se sai tão bem com dados quanto com chat."
 };

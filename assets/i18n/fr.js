@@ -527,5 +527,10 @@ window.JIKJI_I18N["fr"]={
  "loop.lh.4.h": "Cohérent sur toute la distance",
  "loop.lh.4.p": "La compaction du contexte et l'échelle de promotion des modèles maintiennent les exécutions très longues dans la fenêtre, et le planificateur <code>almanac</code> pilote les tâches récurrentes — un workflow peut donc s'étaler sur des jours tout en gardant le fil.",
  "ent.obs.4.h": "Débogage en direct, attachable à chaud",
- "ent.obs.4.p": "Attachez-vous à une session en cours via un terminal interactif adossé à WebSocket (un PTY, sous Unix et Windows) pour l'observer et la piloter en direct — chaque création, attache, détachement et fermeture est audité. La trace d'étapes JSONL rejoue une exécution de bout en bout, et <code>/debug/pprof</code> profile le processus en cours d'exécution."
+ "ent.obs.4.p": "Attachez-vous à une session en cours via un terminal interactif adossé à WebSocket (un PTY, sous Unix et Windows) pour l'observer et la piloter en direct — chaque création, attache, détachement et fermeture est audité. La trace d'étapes JSONL rejoue une exécution de bout en bout, et <code>/debug/pprof</code> profile le processus en cours d'exécution.",
+ "onto.h.5.h": "Data science et ML, dans la boucle",
+ "onto.h.5.p": "Récupérez des lignes via du SQL gouverné, réutilisez-les depuis le cache, puis transmettez-les à un outil Python exécutant pandas, NumPy ou scikit-learn — l'analyse et la modélisation se déroulent au sein d'une même exécution de l'agent, pas à l'écart dans un notebook séparé.",
+ "onto.h.f1": "Base SQL",
+ "onto.h.f2": "Cache SQL",
+ "onto.h.flow": "Interrogez une fois, réutilisez le résultat mis en cache, puis analysez-le avec la pile scientifique que vous fournissez dans le bac à sable — jikji est aussi à l'aise avec le traitement des données qu'avec la conversation."
 };

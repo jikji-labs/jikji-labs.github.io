@@ -527,5 +527,10 @@ window.JIKJI_I18N["zh-tw"]={
  "loop.lh.4.h": "長距離上始終保持連貫",
  "loop.lh.4.p": "情境壓縮與模型晉升階梯讓超長執行始終保持在視窗之內，<code>almanac</code> 排程器則驅動週期性任務——於是一個工作流程即便橫跨數日，也能始終守住主線。",
  "ent.obs.4.h": "可即時接入的線上偵錯",
- "ent.obs.4.p": "透過基於 WebSocket 的互動式終端機（Unix 與 Windows 上的 PTY）接入執行中的工作階段，即時觀察並操控它——每一次建立、接入、卸離與關閉都會被稽核記錄。JSONL 步驟追蹤可端對端重播一次執行，<code>/debug/pprof</code> 則能對執行中的行程進行效能分析。"
+ "ent.obs.4.p": "透過基於 WebSocket 的互動式終端機（Unix 與 Windows 上的 PTY）接入執行中的工作階段，即時觀察並操控它——每一次建立、接入、卸離與關閉都會被稽核記錄。JSONL 步驟追蹤可端對端重播一次執行，<code>/debug/pprof</code> 則能對執行中的行程進行效能分析。",
+ "onto.h.5.h": "資料科學與 ML，盡在迴圈之中",
+ "onto.h.5.p": "用受治理的 SQL 拉取資料列，從快取中重複使用，再交給執行 pandas、NumPy 或 scikit-learn 的 Python 工具 —— 分析與建模都在同一次代理執行中完成，而不是另開一個 notebook。",
+ "onto.h.f1": "SQL 資料庫",
+ "onto.h.f2": "SQL 快取",
+ "onto.h.flow": "查詢一次，重複使用快取結果，再用你在沙箱中提供的科學運算堆疊進行分析 —— jikji 處理資料和聊天一樣得心應手。"
 };

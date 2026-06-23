@@ -527,5 +527,10 @@ window.JIKJI_I18N["vi"]={
  "loop.lh.4.h": "Mạch lạc trên suốt chặng đường",
  "loop.lh.4.p": "Việc nén ngữ cảnh và bậc thang thăng cấp mô hình giữ những lượt chạy rất dài nằm gọn trong cửa sổ, còn bộ lập lịch <code>almanac</code> điều khiển công việc lặp lại — nhờ vậy một quy trình có thể kéo dài qua nhiều ngày mà vẫn giữ được mạch.",
  "ent.obs.4.h": "Gỡ lỗi trực tiếp, gắn vào bất cứ lúc nào",
- "ent.obs.4.p": "Gắn vào một phiên đang chạy qua terminal tương tác dựa trên WebSocket (một PTY, trên Unix và Windows) để quan sát và điều khiển nó trực tiếp — mọi thao tác tạo, gắn, gỡ và đóng đều được ghi nhật ký kiểm toán. Vết bước JSONL phát lại toàn bộ một lần chạy từ đầu đến cuối, và <code>/debug/pprof</code> phân tích hiệu năng tiến trình đang chạy."
+ "ent.obs.4.p": "Gắn vào một phiên đang chạy qua terminal tương tác dựa trên WebSocket (một PTY, trên Unix và Windows) để quan sát và điều khiển nó trực tiếp — mọi thao tác tạo, gắn, gỡ và đóng đều được ghi nhật ký kiểm toán. Vết bước JSONL phát lại toàn bộ một lần chạy từ đầu đến cuối, và <code>/debug/pprof</code> phân tích hiệu năng tiến trình đang chạy.",
+ "onto.h.5.h": "Khoa học dữ liệu và ML, ngay trong vòng lặp",
+ "onto.h.5.p": "Lấy các hàng bằng SQL được quản trị, tái sử dụng chúng từ cache, rồi chuyển cho một công cụ Python chạy pandas, NumPy hay scikit-learn — phân tích và mô hình hóa diễn ra trong cùng một lượt chạy của agent, chứ không tách rời ở một notebook riêng.",
+ "onto.h.f1": "CSDL SQL",
+ "onto.h.f2": "Cache SQL",
+ "onto.h.flow": "Truy vấn một lần, tái sử dụng kết quả đã cache, rồi phân tích bằng bộ công cụ khoa học mà bạn cung cấp trong sandbox — jikji thành thạo việc xử lý dữ liệu chẳng kém gì trò chuyện."
 };
