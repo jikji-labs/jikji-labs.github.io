@@ -460,5 +460,17 @@ window.JIKJI_I18N["ja"]={
  "tools.fn.h2": "関数こそがツール",
  "tools.fn.p": "機能を追加するために再コンパイルは不要です。Lua または Python の関数を書いて公開すれば、実行時に第一級のツールとして登録されます — 同じポリシーゲートとサンドボックスの背後で、組み込みツールと同じく MCP 経由でも公開できます。",
  "tools.fn.cap": "<span class=\"mono\">bookstore</span> に公開すれば自動登録 — 再ビルド不要で、実行前に署名検証することもできます。",
- "tools.xr.note": "ツールはエージェントが考えている場所で動く必要はありません — オーケストレーションページの<a href=\"orchestration.html#protocols\">リージョン横断ツールオーケストレーション</a>をご覧ください。"
+ "tools.xr.note": "ツールはエージェントが考えている場所で動く必要はありません — オーケストレーションページの<a href=\"orchestration.html#protocols\">リージョン横断ツールオーケストレーション</a>をご覧ください。",
+ "arch.prov.tag": "type — プロバイダー &amp; モデル",
+ "arch.prov.h2": "どんなモデルも、思いどおりにルーティング",
+ "arch.prov.p": "<span class=\"mono\">type</span> バックボーンが単一のインターフェースの背後で多様なプロバイダーファミリーとやり取りするため、モデルを自由に組み合わせ、エージェントに手を加えることなく切り替えられます。",
+ "arch.prov.1.h": "多様なプロバイダーファミリー",
+ "arch.prov.1.p": "OpenAI 互換、Anthropic Messages、Ollama Cloud、GLM / Z.AI、xAI Grok、OpenAI Codex に加え、オフライン作業向けの組み込み echo プロバイダーまで。Chat、embedding、rerank の各カテゴリに対応し、指定した任意の OpenAI 互換エンドポイントを利用できます。",
+ "arch.prov.2.h": "OAuth でもキーでも、選ぶのはあなた",
+ "arch.prov.2.p": "認証情報は環境変数、vault、またはトークンを自動更新する OAuth デバイスログイン（Codex、Grok）から取得します。<code>oauth:grok</code> 形式のキーはリクエスト時に解決され、インラインキーは設定エクスポート時に伏せられます。",
+ "arch.prov.3.h": "スマートルーティング",
+ "arch.prov.3.p": "モデルエイリアス、<code>round_robin</code> / <code>first_available</code> / <code>failover</code> 戦略を備えたモデルグループ、マルチキーローテーション、キャッシュを考慮したスティッキールーティング — ルーティングはコードではなく設定です。",
+ "arch.prov.4.h": "プロバイダーを意識したランタイム",
+ "arch.prov.4.p": "プロバイダーごとのコンテキストウィンドウ認識がモデル昇格ラダーを駆動し、利用可能な場合はプロバイダーネイティブのプロンプトキャッシュが使われ、外部の利用上限がプロバイダー単位で追跡されます。",
+ "arch.prov.cap": "プロバイダーを組み合わせてエイリアスを設定 — OAuth、キー、そして自前のエンドポイントを並べて:"
 };

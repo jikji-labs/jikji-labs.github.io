@@ -460,5 +460,17 @@ window.JIKJI_I18N["pt"]={
  "tools.fn.h2": "Uma função é uma ferramenta",
  "tools.fn.p": "Você não recompila para adicionar uma capacidade. Escreva uma função em Lua ou Python, publique-a, e ela é registrada como ferramenta de primeira classe em tempo de execução — por trás do mesmo portão de políticas e do mesmo sandbox, e exponível via MCP, assim como as integradas.",
  "tools.fn.cap": "Publique no <span class=\"mono\">bookstore</span> e ela se registra automaticamente — sem reconstruir, com verificação de assinatura opcional antes de rodar.",
- "tools.xr.note": "As ferramentas não precisam rodar onde o agente está pensando — veja a <a href=\"orchestration.html#protocols\">orquestração de ferramentas entre regiões</a> na página de Orquestração."
+ "tools.xr.note": "As ferramentas não precisam rodar onde o agente está pensando — veja a <a href=\"orchestration.html#protocols\">orquestração de ferramentas entre regiões</a> na página de Orquestração.",
+ "arch.prov.tag": "type — Provedores &amp; Modelos",
+ "arch.prov.h2": "Conecte qualquer modelo e roteie do seu jeito",
+ "arch.prov.p": "A espinha dorsal <span class=\"mono\">type</span> conversa com muitas famílias de provedores por trás de uma única interface, então você combina modelos livremente e troca entre eles sem mexer nos seus agentes.",
+ "arch.prov.1.h": "Muitas famílias de provedores",
+ "arch.prov.1.p": "Compatível com OpenAI, Anthropic Messages, Ollama Cloud, GLM / Z.AI, xAI Grok e OpenAI Codex — além de um provedor echo embutido para trabalho offline. Categorias Chat, embedding e rerank, e qualquer endpoint compatível com OpenAI para o qual você apontar.",
+ "arch.prov.2.h": "OAuth ou chaves, você escolhe",
+ "arch.prov.2.p": "As credenciais vêm de variáveis de ambiente, do vault ou do login por dispositivo OAuth (Codex, Grok) com renovação automática de tokens. Uma chave no estilo <code>oauth:grok</code> é resolvida no momento da requisição, e chaves embutidas são ocultadas na exportação da configuração.",
+ "arch.prov.3.h": "Roteamento inteligente",
+ "arch.prov.3.p": "Aliases de modelos, grupos de modelos com estratégias <code>round_robin</code> / <code>first_available</code> / <code>failover</code>, rotação de múltiplas chaves e roteamento sticky com reconhecimento de cache — roteamento é configuração, não código.",
+ "arch.prov.4.h": "Runtime ciente do provedor",
+ "arch.prov.4.p": "O reconhecimento da janela de contexto por provedor impulsiona a escada de promoção de modelos, o cache de prompt nativo do provedor é usado onde disponível, e os limites de uso externos são monitorados por provedor.",
+ "arch.prov.cap": "Combine provedores e dê apelidos a eles — OAuth, chaves e seu próprio endpoint lado a lado:"
 };

@@ -460,5 +460,17 @@ window.JIKJI_I18N["it"]={
  "tools.fn.h2": "Una funzione è uno strumento",
  "tools.fn.p": "Non devi ricompilare per aggiungere una capacità. Scrivi una funzione Lua o Python, pubblicala, e viene registrata come strumento di prima classe a runtime — dietro lo stesso gate di policy e la stessa sandbox, ed esponibile tramite MCP, proprio come quelli integrati.",
  "tools.fn.cap": "Pubblicala sul <span class=\"mono\">bookstore</span> e si registra in automatico — senza ricompilare, con verifica della firma opzionale prima dell'esecuzione.",
- "tools.xr.note": "Gli strumenti non devono per forza girare dove l'agente sta pensando — vedi l'<a href=\"orchestration.html#protocols\">orchestrazione di strumenti tra regioni</a> nella pagina Orchestrazione."
+ "tools.xr.note": "Gli strumenti non devono per forza girare dove l'agente sta pensando — vedi l'<a href=\"orchestration.html#protocols\">orchestrazione di strumenti tra regioni</a> nella pagina Orchestrazione.",
+ "arch.prov.tag": "type — Provider &amp; Modelli",
+ "arch.prov.h2": "Collega qualsiasi modello e instradalo a modo tuo",
+ "arch.prov.p": "La struttura portante <span class=\"mono\">type</span> dialoga con molte famiglie di provider dietro un'unica interfaccia, così puoi combinare i modelli liberamente e cambiarli senza toccare i tuoi agenti.",
+ "arch.prov.1.h": "Molte famiglie di provider",
+ "arch.prov.1.p": "Compatibile con OpenAI, Anthropic Messages, Ollama Cloud, GLM / Z.AI, xAI Grok e OpenAI Codex — più un provider echo integrato per il lavoro offline. Categorie Chat, embedding e rerank, e qualsiasi endpoint compatibile con OpenAI a cui lo punti.",
+ "arch.prov.2.h": "OAuth o chiavi, decidi tu",
+ "arch.prov.2.p": "Le credenziali provengono da variabili d'ambiente, dal vault o dall'accesso tramite dispositivo OAuth (Codex, Grok) con aggiornamento automatico dei token. Una chiave in stile <code>oauth:grok</code> viene risolta al momento della richiesta, e le chiavi inline vengono oscurate nell'esportazione della configurazione.",
+ "arch.prov.3.h": "Instradamento intelligente",
+ "arch.prov.3.p": "Alias dei modelli, gruppi di modelli con strategie <code>round_robin</code> / <code>first_available</code> / <code>failover</code>, rotazione multi-chiave e instradamento sticky consapevole della cache — l'instradamento è configurazione, non codice.",
+ "arch.prov.4.h": "Runtime consapevole del provider",
+ "arch.prov.4.p": "La consapevolezza della finestra di contesto per ciascun provider guida la scala di promozione dei modelli, la cache dei prompt nativa del provider viene usata dove disponibile, e i limiti d'uso esterni sono tracciati per provider.",
+ "arch.prov.cap": "Combina i provider e assegna loro degli alias — OAuth, chiavi e il tuo endpoint fianco a fianco:"
 };

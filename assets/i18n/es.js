@@ -460,5 +460,17 @@ window.JIKJI_I18N["es"]={
  "tools.fn.h2": "Una función es una herramienta",
  "tools.fn.p": "No recompilas para añadir una capacidad. Escribe una función en Lua o Python, publícala, y queda registrada como herramienta de primera clase en tiempo de ejecución, tras la misma puerta de políticas y el mismo sandbox, y expuesta mediante MCP, igual que las integradas.",
  "tools.fn.cap": "Publícala en el <span class=\"mono\">bookstore</span> y se registra automáticamente: sin recompilar y, opcionalmente, con verificación de firma antes de ejecutarse.",
- "tools.xr.note": "Las herramientas no tienen por qué ejecutarse donde el agente piensa: consulta la <a href=\"orchestration.html#protocols\">orquestación de herramientas entre regiones</a> en la página de Orquestación."
+ "tools.xr.note": "Las herramientas no tienen por qué ejecutarse donde el agente piensa: consulta la <a href=\"orchestration.html#protocols\">orquestación de herramientas entre regiones</a> en la página de Orquestación.",
+ "arch.prov.tag": "type — Proveedores &amp; Modelos",
+ "arch.prov.h2": "Conecta cualquier modelo y enrútalo a tu manera",
+ "arch.prov.p": "La columna vertebral <span class=\"mono\">type</span> se comunica con muchas familias de proveedores tras una única interfaz, de modo que combinas modelos con total libertad y cambias entre ellos sin tocar tus agentes.",
+ "arch.prov.1.h": "Muchas familias de proveedores",
+ "arch.prov.1.p": "Compatible con OpenAI, Anthropic Messages, Ollama Cloud, GLM / Z.AI, xAI Grok y OpenAI Codex, además de un proveedor echo integrado para trabajar sin conexión. Categorías Chat, embedding y rerank, y cualquier endpoint compatible con OpenAI al que lo apuntes.",
+ "arch.prov.2.h": "OAuth o claves, tú decides",
+ "arch.prov.2.p": "Las credenciales provienen de variables de entorno, del vault o del inicio de sesión por dispositivo OAuth (Codex, Grok) con renovación automática de tokens. Una clave del tipo <code>oauth:grok</code> se resuelve en el momento de la solicitud, y las claves en línea se ocultan al exportar la configuración.",
+ "arch.prov.3.h": "Enrutamiento inteligente",
+ "arch.prov.3.p": "Alias de modelos, grupos de modelos con estrategias <code>round_robin</code> / <code>first_available</code> / <code>failover</code>, rotación de varias claves y enrutamiento persistente con conciencia de caché: el enrutamiento es configuración, no código.",
+ "arch.prov.4.h": "Runtime consciente del proveedor",
+ "arch.prov.4.p": "El conocimiento de la ventana de contexto de cada proveedor impulsa la escalera de promoción de modelos, se usa el almacenamiento en caché de prompts nativo del proveedor donde está disponible, y los límites de uso externos se controlan por proveedor.",
+ "arch.prov.cap": "Combina proveedores y asígnales alias: OAuth, claves y tu propio endpoint, uno junto a otro:"
 };

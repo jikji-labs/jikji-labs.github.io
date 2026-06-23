@@ -460,5 +460,17 @@ window.JIKJI_I18N["fr"]={
  "tools.fn.h2": "Une fonction est un outil",
  "tools.fn.p": "Pas besoin de recompiler pour ajouter une capacité. Écrivez une fonction Lua ou Python, publiez-la, et elle est enregistrée comme un outil de premier ordre à l'exécution — derrière le même contrôle de politique et le même bac à sable, et exposable via MCP, exactement comme les outils intégrés.",
  "tools.fn.cap": "Publiez-la sur le <span class=\"mono\">bookstore</span> et elle s'enregistre automatiquement — sans recompilation, avec vérification de signature facultative avant exécution.",
- "tools.xr.note": "Les outils ne sont pas obligés de s'exécuter là où l'agent réfléchit — voir l'<a href=\"orchestration.html#protocols\">orchestration d'outils inter-régions</a> sur la page Orchestration."
+ "tools.xr.note": "Les outils ne sont pas obligés de s'exécuter là où l'agent réfléchit — voir l'<a href=\"orchestration.html#protocols\">orchestration d'outils inter-régions</a> sur la page Orchestration.",
+ "arch.prov.tag": "type — Fournisseurs &amp; Modèles",
+ "arch.prov.h2": "Branchez n'importe quel modèle, routez-le à votre façon",
+ "arch.prov.p": "La colonne vertébrale <span class=\"mono\">type</span> dialogue avec de nombreuses familles de fournisseurs derrière une interface unique : vous mélangez librement les modèles et basculez de l'un à l'autre sans toucher à vos agents.",
+ "arch.prov.1.h": "De nombreuses familles de fournisseurs",
+ "arch.prov.1.p": "Compatible OpenAI, Anthropic Messages, Ollama Cloud, GLM / Z.AI, xAI Grok et OpenAI Codex — sans oublier un fournisseur echo intégré pour le travail hors ligne. Catégories Chat, embedding et rerank, et tout endpoint compatible OpenAI vers lequel vous le pointez.",
+ "arch.prov.2.h": "OAuth ou clés, à vous de choisir",
+ "arch.prov.2.p": "Les identifiants proviennent de variables d'environnement, du vault ou d'une connexion par appareil OAuth (Codex, Grok) avec rafraîchissement automatique des jetons. Une clé de type <code>oauth:grok</code> est résolue au moment de la requête, et les clés en clair sont masquées lors de l'export de la configuration.",
+ "arch.prov.3.h": "Routage intelligent",
+ "arch.prov.3.p": "Alias de modèles, groupes de modèles avec stratégies <code>round_robin</code> / <code>first_available</code> / <code>failover</code>, rotation multi-clés et routage persistant tenant compte du cache — le routage relève de la configuration, pas du code.",
+ "arch.prov.4.h": "Runtime conscient du fournisseur",
+ "arch.prov.4.p": "La prise en compte de la fenêtre de contexte propre à chaque fournisseur alimente l'échelle de promotion des modèles, le cache de prompt natif du fournisseur est utilisé là où il est disponible, et les limites d'usage externes sont suivies par fournisseur.",
+ "arch.prov.cap": "Mélangez les fournisseurs et donnez-leur des alias — OAuth, clés et votre propre endpoint côte à côte :"
 };

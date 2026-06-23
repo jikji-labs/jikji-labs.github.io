@@ -460,5 +460,17 @@ window.JIKJI_I18N["zh-tw"]={
  "tools.fn.h2": "函式即工具",
  "tools.fn.p": "新增能力無需重新編譯。寫一個 Lua 或 Python 函式，發布它，它就會在執行階段註冊為一等工具 — 同樣位於政策閘門和沙箱之後，並可像內建工具一樣透過 MCP 公開。",
  "tools.fn.cap": "發布到 <span class=\"mono\">bookstore</span> 即自動註冊 — 無需重新建置，還可選擇在執行前驗證簽章。",
- "tools.xr.note": "工具不必執行在代理思考的地方 — 詳見編排頁面的<a href=\"orchestration.html#protocols\">跨區域工具編排</a>。"
+ "tools.xr.note": "工具不必執行在代理思考的地方 — 詳見編排頁面的<a href=\"orchestration.html#protocols\">跨區域工具編排</a>。",
+ "arch.prov.tag": "type — 供應商 &amp; 模型",
+ "arch.prov.h2": "接入任意模型，依你的方式路由",
+ "arch.prov.p": "<span class=\"mono\">type</span> 主幹在單一介面背後與眾多供應商家族對接，因此你可以自由混用模型，無需改動代理人即可切換。",
+ "arch.prov.1.h": "眾多供應商家族",
+ "arch.prov.1.p": "OpenAI 相容、Anthropic Messages、Ollama Cloud、GLM / Z.AI、xAI Grok 以及 OpenAI Codex —— 還內建了用於離線工作的 echo 供應商。支援 Chat、embedding、rerank 類別，以及你所指向的任意 OpenAI 相容端點。",
+ "arch.prov.2.h": "OAuth 或金鑰，由你選擇",
+ "arch.prov.2.p": "憑證可來自環境變數、vault，或具備自動權杖刷新的 OAuth 裝置登入（Codex、Grok）。<code>oauth:grok</code> 形式的金鑰會在請求時解析，內嵌金鑰則會在組態匯出時被遮蔽。",
+ "arch.prov.3.h": "智慧路由",
+ "arch.prov.3.p": "模型別名、採用 <code>round_robin</code> / <code>first_available</code> / <code>failover</code> 策略的模型群組、多金鑰輪替，以及快取感知的黏性路由 —— 路由是組態，而非程式碼。",
+ "arch.prov.4.h": "感知供應商的執行階段",
+ "arch.prov.4.p": "針對各供應商的上下文視窗感知驅動模型升級階梯，在可用之處使用供應商原生的提示快取，並按供應商分別追蹤外部用量限額。",
+ "arch.prov.cap": "混用供應商並為其設定別名 —— 讓 OAuth、金鑰與你自己的端點並存:"
 };

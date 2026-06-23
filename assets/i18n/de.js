@@ -460,5 +460,17 @@ window.JIKJI_I18N["de"]={
  "tools.fn.h2": "Eine Funktion ist ein Tool",
  "tools.fn.p": "Sie müssen nicht neu kompilieren, um eine Fähigkeit hinzuzufügen. Schreiben Sie eine Lua- oder Python-Funktion, veröffentlichen Sie sie, und sie wird zur Laufzeit als vollwertiges Tool registriert — hinter demselben Policy-Gate und derselben Sandbox und über MCP ansprechbar, genau wie die integrierten Tools.",
  "tools.fn.cap": "Veröffentlichen Sie sie im <span class=\"mono\">bookstore</span>, und sie registriert sich automatisch — ohne Neukompilierung, optional mit Signaturprüfung vor der Ausführung.",
- "tools.xr.note": "Tools müssen nicht dort laufen, wo der Agent denkt — siehe <a href=\"orchestration.html#protocols\">regionsübergreifende Tool-Orchestrierung</a> auf der Orchestrierungsseite."
+ "tools.xr.note": "Tools müssen nicht dort laufen, wo der Agent denkt — siehe <a href=\"orchestration.html#protocols\">regionsübergreifende Tool-Orchestrierung</a> auf der Orchestrierungsseite.",
+ "arch.prov.tag": "type — Anbieter &amp; Modelle",
+ "arch.prov.h2": "Bring jedes Modell mit, route es nach deinen Regeln",
+ "arch.prov.p": "Das <span class=\"mono\">type</span>-Rückgrat spricht hinter einer einzigen Schnittstelle mit vielen Anbieterfamilien, sodass du Modelle frei kombinierst und wechselst, ohne deine Agenten anzufassen.",
+ "arch.prov.1.h": "Viele Anbieterfamilien",
+ "arch.prov.1.p": "OpenAI-kompatibel, Anthropic Messages, Ollama Cloud, GLM / Z.AI, xAI Grok und OpenAI Codex — dazu ein integrierter echo-Anbieter für die Offline-Arbeit. Die Kategorien Chat, embedding und rerank sowie jeder OpenAI-kompatible Endpoint, auf den du es richtest.",
+ "arch.prov.2.h": "OAuth oder Schlüssel, deine Wahl",
+ "arch.prov.2.p": "Anmeldedaten stammen aus Umgebungsvariablen, dem vault oder dem OAuth-Geräte-Login (Codex, Grok) mit automatischer Token-Aktualisierung. Ein Schlüssel im Stil von <code>oauth:grok</code> wird zur Anfragezeit aufgelöst, und Inline-Schlüssel werden beim Export der Konfiguration geschwärzt.",
+ "arch.prov.3.h": "Intelligentes Routing",
+ "arch.prov.3.p": "Modell-Aliase, Modellgruppen mit den Strategien <code>round_robin</code> / <code>first_available</code> / <code>failover</code>, Multi-Key-Rotation und cache-bewusstes Sticky-Routing — Routing ist Konfiguration, kein Code.",
+ "arch.prov.4.h": "Anbieterbewusste Laufzeit",
+ "arch.prov.4.p": "Das Bewusstsein für das Kontextfenster pro Anbieter steuert die Modell-Aufstiegsleiter, das anbietereigene Prompt-Caching wird genutzt, wo verfügbar, und externe Nutzungslimits werden pro Anbieter erfasst.",
+ "arch.prov.cap": "Kombiniere Anbieter und vergib Aliase — OAuth, Schlüssel und dein eigener Endpoint nebeneinander:"
 };

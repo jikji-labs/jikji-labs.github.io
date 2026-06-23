@@ -460,5 +460,17 @@ window.JIKJI_I18N["id"]={
  "tools.fn.h2": "Fungsi adalah sebuah alat",
  "tools.fn.p": "Anda tidak perlu mengompilasi ulang untuk menambah kemampuan. Tulis fungsi Lua atau Python, terbitkan, dan ia terdaftar sebagai alat kelas satu saat runtime — di balik gerbang kebijakan dan sandbox yang sama, serta dapat dipaparkan lewat MCP, persis seperti alat bawaan.",
  "tools.fn.cap": "Terbitkan ke <span class=\"mono\">bookstore</span> dan ia mendaftar otomatis — tanpa build ulang, dengan verifikasi tanda tangan opsional sebelum dijalankan.",
- "tools.xr.note": "Alat tidak harus berjalan di tempat agen berpikir — lihat <a href=\"orchestration.html#protocols\">orkestrasi alat lintas wilayah</a> di halaman Orkestrasi."
+ "tools.xr.note": "Alat tidak harus berjalan di tempat agen berpikir — lihat <a href=\"orchestration.html#protocols\">orkestrasi alat lintas wilayah</a> di halaman Orkestrasi.",
+ "arch.prov.tag": "type — Penyedia &amp; Model",
+ "arch.prov.h2": "Bawa model apa pun, rutekan sesuai keinginanmu",
+ "arch.prov.p": "Tulang punggung <span class=\"mono\">type</span> berkomunikasi dengan banyak keluarga penyedia di balik satu antarmuka, sehingga kamu bebas memadukan model dan beralih tanpa menyentuh agen-agenmu.",
+ "arch.prov.1.h": "Banyak keluarga penyedia",
+ "arch.prov.1.p": "Kompatibel dengan OpenAI, Anthropic Messages, Ollama Cloud, GLM / Z.AI, xAI Grok, dan OpenAI Codex — plus penyedia echo bawaan untuk pekerjaan offline. Kategori Chat, embedding, dan rerank, serta endpoint kompatibel OpenAI mana pun yang kamu arahkan.",
+ "arch.prov.2.h": "OAuth atau kunci, pilihanmu",
+ "arch.prov.2.p": "Kredensial berasal dari variabel lingkungan, vault, atau login perangkat OAuth (Codex, Grok) dengan penyegaran token otomatis. Kunci bergaya <code>oauth:grok</code> diselesaikan pada saat permintaan, dan kunci inline disamarkan saat ekspor konfigurasi.",
+ "arch.prov.3.h": "Perutean cerdas",
+ "arch.prov.3.p": "Alias model, grup model dengan strategi <code>round_robin</code> / <code>first_available</code> / <code>failover</code>, rotasi multi-kunci, dan perutean sticky yang sadar cache — perutean adalah konfigurasi, bukan kode.",
+ "arch.prov.4.h": "Runtime yang sadar penyedia",
+ "arch.prov.4.p": "Kesadaran jendela konteks per penyedia menggerakkan tangga promosi model, caching prompt native penyedia digunakan jika tersedia, dan batas penggunaan eksternal dilacak per penyedia.",
+ "arch.prov.cap": "Padukan penyedia dan beri alias — OAuth, kunci, dan endpoint milikmu sendiri berdampingan:"
 };

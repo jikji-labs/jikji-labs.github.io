@@ -460,5 +460,17 @@ window.JIKJI_I18N["vi"]={
  "tools.fn.h2": "Một hàm là một công cụ",
  "tools.fn.p": "Bạn không cần biên dịch lại để thêm một khả năng. Viết một hàm Lua hoặc Python, công bố nó, và nó được đăng ký như một công cụ hạng nhất lúc chạy — sau cùng một cổng chính sách và sandbox, và có thể hiển lộ qua MCP, y như các công cụ tích hợp sẵn.",
  "tools.fn.cap": "Công bố lên <span class=\"mono\">bookstore</span> và nó tự đăng ký — không cần build lại, tùy chọn xác minh chữ ký trước khi chạy.",
- "tools.xr.note": "Công cụ không nhất thiết phải chạy ở nơi tác nhân đang suy nghĩ — xem <a href=\"orchestration.html#protocols\">điều phối công cụ liên vùng</a> trên trang Điều phối."
+ "tools.xr.note": "Công cụ không nhất thiết phải chạy ở nơi tác nhân đang suy nghĩ — xem <a href=\"orchestration.html#protocols\">điều phối công cụ liên vùng</a> trên trang Điều phối.",
+ "arch.prov.tag": "type — Nhà cung cấp &amp; Mô hình",
+ "arch.prov.h2": "Mang đến bất kỳ mô hình nào, định tuyến theo cách của bạn",
+ "arch.prov.p": "Trục xương sống <span class=\"mono\">type</span> giao tiếp với nhiều họ nhà cung cấp sau một giao diện duy nhất, nhờ vậy bạn tự do kết hợp các mô hình và chuyển đổi mà không cần động đến các agent của mình.",
+ "arch.prov.1.h": "Nhiều họ nhà cung cấp",
+ "arch.prov.1.p": "Tương thích OpenAI, Anthropic Messages, Ollama Cloud, GLM / Z.AI, xAI Grok và OpenAI Codex — cùng một nhà cung cấp echo tích hợp sẵn cho công việc ngoại tuyến. Các danh mục Chat, embedding và rerank, cũng như bất kỳ endpoint tương thích OpenAI nào bạn trỏ tới.",
+ "arch.prov.2.h": "OAuth hay khóa, tùy bạn chọn",
+ "arch.prov.2.p": "Thông tin xác thực đến từ biến môi trường, vault, hoặc đăng nhập thiết bị OAuth (Codex, Grok) với tự động làm mới token. Khóa kiểu <code>oauth:grok</code> được phân giải tại thời điểm yêu cầu, và các khóa nội tuyến được che đi khi xuất cấu hình.",
+ "arch.prov.3.h": "Định tuyến thông minh",
+ "arch.prov.3.p": "Bí danh mô hình, nhóm mô hình với các chiến lược <code>round_robin</code> / <code>first_available</code> / <code>failover</code>, xoay vòng nhiều khóa, và định tuyến sticky có nhận biết cache — định tuyến là cấu hình, không phải mã.",
+ "arch.prov.4.h": "Runtime nhận biết nhà cung cấp",
+ "arch.prov.4.p": "Việc nhận biết cửa sổ ngữ cảnh theo từng nhà cung cấp điều khiển thang nâng cấp mô hình, bộ nhớ đệm prompt gốc của nhà cung cấp được dùng ở những nơi khả dụng, và giới hạn sử dụng bên ngoài được theo dõi theo từng nhà cung cấp.",
+ "arch.prov.cap": "Kết hợp các nhà cung cấp và đặt bí danh cho chúng — OAuth, khóa và endpoint của riêng bạn cạnh nhau:"
 };

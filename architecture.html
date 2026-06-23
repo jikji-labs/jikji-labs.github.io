@@ -69,6 +69,44 @@
   </div>
 </section>
 
+<!-- PROVIDERS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="arch.prov.tag">type — Providers &amp; Models</span>
+      <h2 data-i18n="arch.prov.h2">Bring any model, route it your way</h2>
+      <p data-i18n="arch.prov.p">The <span class="mono">type</span> backbone speaks to many provider families behind one interface, so you mix models freely and switch without touching your agents.</p>
+    </div>
+    <div class="grid cols2">
+      <div class="card">
+        <h3 data-i18n="arch.prov.1.h">Many provider families</h3>
+        <p data-i18n="arch.prov.1.p">OpenAI-compatible, Anthropic Messages, Ollama Cloud, GLM / Z.AI, xAI Grok, and OpenAI Codex — plus a built-in echo provider for offline work. Chat, embedding, and rerank categories, and any OpenAI-compatible endpoint you point it at.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="arch.prov.2.h">OAuth or keys, your choice</h3>
+        <p data-i18n="arch.prov.2.p">Credentials come from env vars, the vault, or OAuth device login (Codex, Grok) with automatic token refresh. An <code>oauth:grok</code>-style key resolves at request time, and inline keys are redacted from config export.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="arch.prov.3.h">Smart routing</h3>
+        <p data-i18n="arch.prov.3.p">Model aliases, model groups with <code>round_robin</code> / <code>first_available</code> / <code>failover</code> strategies, multi-key rotation, and cache-aware sticky routing — routing is configuration, not code.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="arch.prov.4.h">Provider-aware runtime</h3>
+        <p data-i18n="arch.prov.4.p">Per-provider context-window awareness drives the model-promotion ladder, provider-native prompt caching is used where available, and external usage limits are tracked per provider.</p>
+      </div>
+    </div>
+    <p class="code-cap" style="margin-top:30px" data-i18n="arch.prov.cap">Mix providers and alias them — OAuth, keys, and your own endpoint side by side:</p>
+<pre class="code-block"><span class="k">typebackbone</span>:
+  <span class="k">default_provider</span>: ollama-cloud
+  <span class="k">model_aliases</span>: <span class="p">{</span> fast: deepseek-v4-flash:cloud, smart: glm-5.2 <span class="p">}</span>
+  <span class="k">providers</span>:
+    - <span class="p">{</span> name: ollama-cloud, kind: ollama-cloud, model: deepseek-v4-flash:cloud <span class="p">}</span>
+    - <span class="p">{</span> name: zai,  kind: zai,        model: glm-5.1 <span class="p">}</span>
+    - <span class="p">{</span> name: grok, kind: grok-oauth, model: grok-4.3, api_key: oauth:grok <span class="p">}</span>
+    - <span class="p">{</span> name: openai, kind: openai-compatible, base_url: https://api.openai.com/v1, api_key_env: OPENAI_API_KEY <span class="p">}</span></pre>
+  </div>
+</section>
+
 <!-- DEPLOYMENT -->
 <section class="alt">
   <div class="wrap">

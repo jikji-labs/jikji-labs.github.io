@@ -460,5 +460,17 @@ window.JIKJI_I18N["ko"]={
  "tools.fn.h2": "함수가 곧 도구다",
  "tools.fn.p": "기능을 추가하려고 다시 컴파일할 필요가 없습니다. Lua나 Python 함수를 작성해 게시하면, 런타임에 일급 도구로 등록됩니다 — 동일한 정책 게이트와 샌드박스 뒤에서, 기본 제공 도구와 똑같이 MCP로도 노출할 수 있습니다.",
  "tools.fn.cap": "<span class=\"mono\">bookstore</span>에 게시하면 자동 등록됩니다 — 다시 빌드할 필요 없이, 선택적으로 실행 전 서명 검증까지.",
- "tools.xr.note": "도구가 꼭 에이전트가 생각하는 곳에서 실행될 필요는 없습니다 — 오케스트레이션 페이지의 <a href=\"orchestration.html#protocols\">교차 리전 도구 오케스트레이션</a>을 참고하세요."
+ "tools.xr.note": "도구가 꼭 에이전트가 생각하는 곳에서 실행될 필요는 없습니다 — 오케스트레이션 페이지의 <a href=\"orchestration.html#protocols\">교차 리전 도구 오케스트레이션</a>을 참고하세요.",
+ "arch.prov.tag": "type — 프로바이더 &amp; 모델",
+ "arch.prov.h2": "어떤 모델이든, 원하는 대로 라우팅",
+ "arch.prov.p": "<span class=\"mono\">type</span> 백본이 단일 인터페이스 뒤에서 다양한 프로바이더 계열과 소통하므로, 모델을 자유롭게 섞고 에이전트를 건드리지 않고도 전환할 수 있습니다.",
+ "arch.prov.1.h": "다양한 프로바이더 계열",
+ "arch.prov.1.p": "OpenAI 호환, Anthropic Messages, Ollama Cloud, GLM / Z.AI, xAI Grok, OpenAI Codex — 여기에 오프라인 작업용 내장 echo 프로바이더까지. Chat, embedding, rerank 카테고리는 물론, 지정하는 모든 OpenAI 호환 엔드포인트를 지원합니다.",
+ "arch.prov.2.h": "OAuth든 키든, 선택은 당신 몫",
+ "arch.prov.2.p": "자격 증명은 환경 변수, vault, 또는 자동 토큰 갱신이 되는 OAuth 디바이스 로그인(Codex, Grok)에서 가져옵니다. <code>oauth:grok</code> 형식의 키는 요청 시점에 해석되며, 인라인 키는 설정 내보내기에서 가려집니다.",
+ "arch.prov.3.h": "스마트 라우팅",
+ "arch.prov.3.p": "모델 별칭, <code>round_robin</code> / <code>first_available</code> / <code>failover</code> 전략을 갖춘 모델 그룹, 다중 키 로테이션, 캐시 인식 스티키 라우팅까지 — 라우팅은 코드가 아니라 설정입니다.",
+ "arch.prov.4.h": "프로바이더 인식 런타임",
+ "arch.prov.4.p": "프로바이더별 컨텍스트 윈도우 인식이 모델 승격 사다리를 작동시키고, 가능한 곳에서는 프로바이더 네이티브 프롬프트 캐싱이 사용되며, 외부 사용량 한도가 프로바이더별로 추적됩니다.",
+ "arch.prov.cap": "프로바이더를 섞고 별칭을 지정하세요 — OAuth, 키, 그리고 직접 운영하는 엔드포인트를 나란히:"
 };
