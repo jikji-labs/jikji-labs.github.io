@@ -290,8 +290,10 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--paper-de
   .loop-dia .arr{transform:rotate(90deg)}
   .loop-dia .node{flex-basis:100%}
 }
+@media(max-width:980px){
+  .nav-links a{display:none}
+}
 @media(max-width:560px){
   .grid.cols2,.grid.cols3,.mods{grid-template-columns:1fr}
-  .nav-links a{display:none}
   .spec th{width:auto}
 }

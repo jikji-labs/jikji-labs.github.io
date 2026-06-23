@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tools — Jikji</title>
+<meta name="description" content="Jikji's tool runtime: a catalog of built-in tools — files, shell, web search and a DOM-extracting browser, SQL and data pipelines, ontology, memory, orchestration — run under a defense-in-depth sandbox, over MCP, or on remote nodes, with a signed marketplace.">
+<meta property="og:title" content="Tools — Jikji">
+<meta property="og:url" content="https://www.jikji-labs.com/tools.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/jikji.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
+    <nav class="nav-links">
+      <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
+      <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
+      <a href="tools.html" class="active" data-i18n="nav.tools">Tools</a>
+      <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
+      <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+      <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
+      <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+    </nav>
+  </div>
+</header>
+
+<div class="hero compact">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> · <span data-i18n="nav.tools">Tools</span></div>
+    <span class="kicker" data-i18n="tools.kicker">sorts — the tool runtime</span>
+    <h1 data-i18n="tools.title">The <span class="accent">sorts</span> the loop sets</h1>
+    <p class="sub" data-i18n="tools.sub">Tools are the movable type Jikji sets into place — a broad built-in catalog plus anything you install, each one run behind a policy gate and a sandbox, locally or on a remote node.</p>
+  </div>
+</div>
+
+<!-- CATALOG -->
+<section class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="tools.cat.tag">The Catalog</span>
+      <h2 data-i18n="tools.cat.h2">Built-in tools, out of the box</h2>
+      <p data-i18n="tools.cat.p">A working agent needs more than a chat box. Jikji ships a broad set of tools so an agent can read, search, browse, query, analyze, and act from its first run.</p>
+    </div>
+    <table class="spec">
+      <tr><th data-i18n="tools.cat.1.k">Workspace</th><td><code>file.read</code> · <code>file.search</code> · <code>file.list</code> · <code>file.replace</code> · <code>file.write</code> · <code>shell</code></td></tr>
+      <tr><th data-i18n="tools.cat.2.k">Web &amp; browser</th><td><code>web_search</code> · <code>web_reader</code> · <code>fetch</code> · <code>browser.open/read/tabs/save_source</code> · DOM</td></tr>
+      <tr><th data-i18n="tools.cat.3.k">Data</th><td><code>sql</code> <span data-i18n="tools.cat.3.v">(sqlguard-governed)</span> · <code>data_pipeline_import</code> · <code>data_pipeline_export</code></td></tr>
+      <tr><th data-i18n="tools.cat.4.k">Knowledge</th><td><code>lexicon.query</code> <span data-i18n="tools.cat.4.v">(SPARQL)</span> · <code>ontology.search</code></td></tr>
+      <tr><th data-i18n="tools.cat.5.k">Orchestration</th><td><code>agent.swarm</code> · <code>agent.loop</code> · <code>agent.compare</code> · <code>delegate</code> · <code>inquiry</code></td></tr>
+      <tr><th data-i18n="tools.cat.6.k">Research &amp; skills</th><td><code>research.source</code> · <code>research.web_search</code> · <code>skill.load</code> · <code>skill.manage</code></td></tr>
+      <tr><th data-i18n="tools.cat.7.k">Channels</th><td><code>channel</code> <span data-i18n="tools.cat.7.v">(Telegram)</span> · <span data-i18n="tools.cat.7.v2">inbound webhooks</span></td></tr>
+    </table>
+    <div class="callout" style="margin-top:24px" data-i18n="tools.cat.note">Every tool call passes the <span class="mono">rubric</span> policy plane first, so an agent only ever runs what its tenant and scopes allow.</div>
+
+    <div class="sec-head" style="margin-top:52px;margin-bottom:18px">
+      <span class="tag" data-i18n="tools.fn.tag">Extend It Yourself</span>
+      <h2 data-i18n="tools.fn.h2">A function is a tool</h2>
+      <p data-i18n="tools.fn.p">You don't recompile to add a capability. Write a Lua or Python function, publish it, and it is registered as a first-class tool at runtime — behind the same policy gate and sandbox, and exposable over MCP, just like the built-ins.</p>
+    </div>
+    <div class="grid cols2" style="align-items:start">
+<pre class="code-block"><span class="c">-- Lua: the function becomes a tool</span>
+<span class="k">function</span> reverse(args)
+  <span class="k">return</span> string.reverse(args.text)
+<span class="k">end</span></pre>
+<pre class="code-block"><span class="c"># Python: the function becomes a tool</span>
+<span class="k">def</span> word_count(args):
+    <span class="k">return</span> {<span class="s">"count"</span>: len(args[<span class="s">"text"</span>].split())}</pre>
+    </div>
+    <p class="code-cap" data-i18n="tools.fn.cap">Publish to the <span class="mono">bookstore</span> and it auto-registers — no rebuild, optionally signature-verified before it runs.</p>
+  </div>
+</section>
+
+<!-- RUNTIME -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="loop.t.tag">The Tools — sorts</span>
+      <h2 data-i18n="loop.t.h2">A sandboxed tool runtime</h2>
+      <p data-i18n="loop.t.p">Tools are the movable <span class="mono">sorts</span> the loop sets into place — built-in or installed, run locally or on a remote node, always behind a policy gate and a sandbox.</p>
+    </div>
+    <div class="grid cols2">
+      <div class="card">
+        <h3 data-i18n="loop.t.1.h">Built-in tools &amp; runners</h3>
+        <p data-i18n="loop.t.1.p">File read/search/list/replace/write, shell, web search, a headless browser (tabs, DOM extraction, save-source), a clean-content web reader and fetch, ontology and channel tools, and skills. Runners cover sandboxed Python subprocesses, an embedded Lua engine, local commands, and remote nodes.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="loop.t.2.h">MCP, both ways</h3>
+        <p data-i18n="loop.t.2.p">A Model Context Protocol client speaks to stdio servers — tools, resources, sampling — and registers their tools into the toolbox. A server exposes Jikji's own tools to any MCP host. Calls bridge bidirectionally with streaming.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="loop.t.3.h">Defense-in-depth sandbox</h3>
+        <p data-i18n="loop.t.3.p">Linux namespaces, Landlock, seccomp, and parent-enforced RLIMITs plus cgroup v2 caps. Network modes <code>none</code>, <code>loopback</code>, or <code>host</code> with an egress allowlist — enforced at the syscall boundary, failing closed if the filter can't install.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="loop.t.4.h">Remote tool nodes</h3>
+        <p data-i18n="loop.t.4.p">Push tool execution onto <code>jikji-tool-node</code> workers across a <code>jikji-relay</code> TLS tunnel, with a durable shared catalog, per-node circuit breakers, and failover — without changing the agent.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="loop.t.5.h">Marketplace &amp; signing</h3>
+        <p data-i18n="loop.t.5.p">Publish Lua or Python tools to the <code>bookstore</code>, install them, and auto-register them at runtime. Installs can require Ed25519 or HMAC signatures, with checksums verified before a tool ever runs.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="loop.t.6.h">Prompt-injection guard</h3>
+        <p data-i18n="loop.t.6.p">Untrusted external content is spotlighted with nonce-wrapped markers and defanged; taint tracking blocks sensitive tools (shell, write, network) when a run has ingested untrusted data. Detected signals include instruction override and jailbreak attempts.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:24px" data-i18n="tools.xr.note">Tools don't have to run where the agent is thinking — see <a href="orchestration.html#protocols">cross-region tool orchestration</a> on the Orchestration page.</div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="pagenav">
+      <a href="agent-loop.html"><div class="dir" data-i18n="pn.back">← Back</div><div class="lbl" data-i18n="nav.loop">Agent Loop</div></a>
+      <a href="orchestration.html" style="text-align:right"><div class="dir" data-i18n="pn.next">Next →</div><div class="lbl" data-i18n="nav.orch">Orchestration</div></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="seal">直</span><b>Jikji Labs</b></div>
+        <div class="small" data-i18n="foot.tagline">Movable type for the age of agents.</div>
+        <div class="small" style="margin-top:6px" data-i18n="foot.author">Built by Jioh L. Jung.</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4 data-i18n="foot.explore">Explore</h4>
+          <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
+          <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
+          <a href="tools.html" data-i18n="nav.tools">Tools</a>
+          <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
+          <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+          <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
+          <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
+        </div>
+        <div class="foot-col">
+          <h4 data-i18n="foot.project">Project</h4>
+          <a href="#" style="opacity:.6" data-i18n="foot.github">GitHub (coming soon)</a>
+          <a href="index.html#why" data-i18n="nav.why">Why Jikji</a>
+          <a href="index.html#start" data-i18n="nav.start">Get Started</a>
+          <a href="contact.html" data-i18n="nav.about">About &amp; Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/i18n.js" defer></script>
+</body>
+</html>

@@ -20,6 +20,7 @@
     <nav class="nav-links">
       <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
       <a href="agent-loop.html" class="active" data-i18n="nav.loop">Agent Loop</a>
+      <a href="tools.html" data-i18n="nav.tools">Tools</a>
       <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
       <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
       <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
@@ -31,7 +32,7 @@
 
 <div class="hero compact">
   <div class="wrap">
-    <div class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> · <span data-i18n="pn.loop">Agent Loop &amp; Tools</span></div>
+    <div class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> · <span data-i18n="nav.loop">Agent Loop</span></div>
     <span class="kicker" data-i18n="loop.kicker">The Harness</span>
     <h1 data-i18n="loop.title">A deterministic, <span class="accent">recoverable</span> agent loop</h1>
     <p class="sub" data-i18n="loop.sub">The <span class="mono">forme</span> harness models every step as an explicit action and observation. Runs checkpoint after each step, resume exactly where they parked, and never silently lose work — so an agent loop behaves like a transaction, not a black box.</p>
@@ -157,43 +158,6 @@
   </div>
 </section>
 
-<!-- TOOLS -->
-<section class="alt">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="tag" data-i18n="loop.t.tag">The Tools — sorts</span>
-      <h2 data-i18n="loop.t.h2">A sandboxed tool runtime</h2>
-      <p data-i18n="loop.t.p">Tools are the movable <span class="mono">sorts</span> the loop sets into place — built-in or installed, run locally or on a remote node, always behind a policy gate and a sandbox.</p>
-    </div>
-    <div class="grid cols2">
-      <div class="card">
-        <h3 data-i18n="loop.t.1.h">Built-in tools &amp; runners</h3>
-        <p data-i18n="loop.t.1.p">File read/search/list/replace/write, shell, web search, a headless browser (tabs, DOM extraction, save-source), a clean-content web reader and fetch, ontology and channel tools, and skills. Runners cover sandboxed Python subprocesses, an embedded Lua engine, local commands, and remote nodes.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="loop.t.2.h">MCP, both ways</h3>
-        <p data-i18n="loop.t.2.p">A Model Context Protocol client speaks to stdio servers — tools, resources, sampling — and registers their tools into the toolbox. A server exposes Jikji's own tools to any MCP host. Calls bridge bidirectionally with streaming.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="loop.t.3.h">Defense-in-depth sandbox</h3>
-        <p data-i18n="loop.t.3.p">Linux namespaces, Landlock, seccomp, and parent-enforced RLIMITs plus cgroup v2 caps. Network modes <code>none</code>, <code>loopback</code>, or <code>host</code> with an egress allowlist — enforced at the syscall boundary, failing closed if the filter can't install.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="loop.t.4.h">Remote tool nodes</h3>
-        <p data-i18n="loop.t.4.p">Push tool execution onto <code>jikji-tool-node</code> workers across a <code>jikji-relay</code> TLS tunnel, with a durable shared catalog, per-node circuit breakers, and failover — without changing the agent.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="loop.t.5.h">Marketplace &amp; signing</h3>
-        <p data-i18n="loop.t.5.p">Publish Lua or Python tools to the <code>bookstore</code>, install them, and auto-register them at runtime. Installs can require Ed25519 or HMAC signatures, with checksums verified before a tool ever runs.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="loop.t.6.h">Prompt-injection guard</h3>
-        <p data-i18n="loop.t.6.p">Untrusted external content is spotlighted with nonce-wrapped markers and defanged; taint tracking blocks sensitive tools (shell, write, network) when a run has ingested untrusted data. Detected signals include instruction override and jailbreak attempts.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- SELF-IMPROVING -->
 <section>
   <div class="wrap">
@@ -227,7 +191,7 @@
   <div class="wrap">
     <div class="pagenav">
       <a href="architecture.html"><div class="dir" data-i18n="pn.back">← Back</div><div class="lbl" data-i18n="nav.arch">Architecture</div></a>
-      <a href="orchestration.html" style="text-align:right"><div class="dir" data-i18n="pn.next">Next →</div><div class="lbl" data-i18n="nav.orch">Orchestration</div></a>
+      <a href="tools.html" style="text-align:right"><div class="dir" data-i18n="pn.next">Next →</div><div class="lbl" data-i18n="nav.tools">Tools</div></a>
     </div>
   </div>
 </section>
@@ -245,6 +209,7 @@
           <h4 data-i18n="foot.explore">Explore</h4>
           <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
           <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
+          <a href="tools.html" data-i18n="nav.tools">Tools</a>
           <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
           <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
           <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
