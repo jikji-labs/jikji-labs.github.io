@@ -483,5 +483,16 @@ window.JIKJI_I18N["es"]={
  "orch.svc.3.h": "Sirve la ontología",
  "orch.svc.3.p": "Expón el grafo de conocimiento nativo como un servicio consultable, de modo que SPARQL y la búsqueda semántica estén disponibles para quienes lo invocan — no solo para el agente que lo construyó.",
  "orch.svc.4.h": "Ejecútala según un calendario",
- "orch.svc.4.p": "El planificador <code>almanac</code> impulsa tareas de cron, intervalo y temporizador — una actualización nocturna de la ontología, un informe periódico, una comprobación recurrente — sin ningún planificador externo que conectar."
+ "orch.svc.4.p": "El planificador <code>almanac</code> impulsa tareas de cron, intervalo y temporizador — una actualización nocturna de la ontología, un informe periódico, una comprobación recurrente — sin ningún planificador externo que conectar.",
+ "ent.mt.tag": "Multiinquilino &amp; personalización",
+ "ent.mt.h2": "Un servicio, muchos inquilinos, cada usuario el suyo",
+ "ent.mt.p": "Trae integrado un modelo de usuarios pensado para empresas. Levanta un servicio por inquilino, deja que los usuarios accedan mediante claves de cliente con alcance acotado y dale a cada uno un agente privado y personalizado — sin tener que ejecutar un despliegue aparte para nadie.",
+ "ent.mt.1.h": "Un inquilino es una frontera de servicio",
+ "ent.mt.1.p": "Cada inquilino tiene sus propias claves, datos, memoria y políticas. Levanta un servicio por inquilino — o por equipo, cliente o entorno — todos en el mismo clúster y completamente aislados entre sí.",
+ "ent.mt.2.h": "Cada usuario es un principal con alcance acotado",
+ "ent.mt.2.p": "Los usuarios finales acceden a un servicio mediante claves de cliente con alcance acotado. Cada principal lleva su inquilino, una identidad de actor y sus propios alcances — de modo que lo que un usuario determinado puede hacer se decide por petición, no por despliegue.",
+ "ent.mt.3.h": "Memoria aislada por usuario",
+ "ent.mt.3.p": "La recuperación y la ingesta se particionan por inquilino <em>y</em> actor, y se sellan en cada ejecución a partir del principal — así un usuario nunca ve la memoria de otro, ni siquiera dentro del mismo servicio.",
+ "ent.mt.4.h": "Respuestas hiperpersonalizadas",
+ "ent.mt.4.p": "Los datos propios de cada usuario y su ontología personal moldean cómo le responde el agente — un contexto personalizado inyectado por principal, y no un único prompt compartido para todos."
 };

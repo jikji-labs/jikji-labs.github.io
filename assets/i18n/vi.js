@@ -483,5 +483,16 @@ window.JIKJI_I18N["vi"]={
  "orch.svc.3.h": "Phục vụ bản thể học",
  "orch.svc.3.p": "Mở đồ thị tri thức gốc thành một dịch vụ có thể truy vấn, để SPARQL và tìm kiếm ngữ nghĩa sẵn sàng cho mọi bên gọi — chứ không chỉ cho tác nhân đã xây dựng nó.",
  "orch.svc.4.h": "Chạy theo lịch trình",
- "orch.svc.4.p": "Bộ lập lịch <code>almanac</code> điều khiển các tác vụ cron, theo khoảng thời gian và theo bộ định giờ — một lần làm mới bản thể học hằng đêm, một báo cáo định kỳ, một lần kiểm tra lặp lại — mà không cần đấu nối bất kỳ bộ lập lịch bên ngoài nào."
+ "orch.svc.4.p": "Bộ lập lịch <code>almanac</code> điều khiển các tác vụ cron, theo khoảng thời gian và theo bộ định giờ — một lần làm mới bản thể học hằng đêm, một báo cáo định kỳ, một lần kiểm tra lặp lại — mà không cần đấu nối bất kỳ bộ lập lịch bên ngoài nào.",
+ "ent.mt.tag": "Đa thuê bao &amp; cá nhân hóa",
+ "ent.mt.h2": "Một dịch vụ, nhiều tenant, mỗi người dùng một bản riêng",
+ "ent.mt.p": "Mô hình người dùng cấp doanh nghiệp được tích hợp sẵn. Dựng một dịch vụ cho mỗi tenant, để người dùng truy cập qua khóa client có phạm vi giới hạn, và trao cho mỗi người một tác nhân riêng tư, được cá nhân hóa — mà không cần chạy một bản triển khai riêng cho bất kỳ ai.",
+ "ent.mt.1.h": "Tenant là ranh giới dịch vụ",
+ "ent.mt.1.p": "Mỗi tenant có khóa, dữ liệu, bộ nhớ và chính sách riêng. Dựng một dịch vụ cho mỗi tenant — hoặc cho mỗi nhóm, khách hàng, môi trường — tất cả trên cùng một cụm, cô lập hoàn toàn với nhau.",
+ "ent.mt.2.h": "Mỗi người dùng là một principal có phạm vi giới hạn",
+ "ent.mt.2.p": "Người dùng cuối truy cập dịch vụ qua khóa client có phạm vi giới hạn. Mỗi principal mang theo tenant của mình, một danh tính actor và các phạm vi riêng — nên việc một người dùng cụ thể được phép làm gì sẽ được quyết định theo từng yêu cầu, chứ không theo từng bản triển khai.",
+ "ent.mt.3.h": "Bộ nhớ cô lập theo từng người dùng",
+ "ent.mt.3.p": "Việc truy hồi và nạp dữ liệu được phân vùng theo tenant <em>và</em> actor, rồi được đóng dấu lên mỗi lần chạy từ principal — nên một người dùng không bao giờ thấy bộ nhớ của người khác, ngay cả trong cùng một dịch vụ.",
+ "ent.mt.4.h": "Phản hồi siêu cá nhân hóa",
+ "ent.mt.4.p": "Các sự kiện riêng và ontology cá nhân của mỗi người dùng định hình cách tác nhân trả lời họ — một ngữ cảnh được cá nhân hóa, tiêm theo từng principal, chứ không phải một prompt chung cho tất cả mọi người."
 };

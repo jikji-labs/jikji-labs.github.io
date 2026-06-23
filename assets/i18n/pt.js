@@ -483,5 +483,16 @@ window.JIKJI_I18N["pt"]={
  "orch.svc.3.h": "Sirva a ontologia",
  "orch.svc.3.p": "Exponha o grafo de conhecimento nativo como um serviço consultável, para que SPARQL e a busca semântica fiquem disponíveis a quem o invoca — e não apenas ao agente que o construiu.",
  "orch.svc.4.h": "Execute em um agendamento",
- "orch.svc.4.p": "O agendador <code>almanac</code> conduz tarefas de cron, intervalo e temporizador — uma atualização noturna da ontologia, um relatório periódico, uma verificação recorrente — sem nenhum agendador externo para configurar."
+ "orch.svc.4.p": "O agendador <code>almanac</code> conduz tarefas de cron, intervalo e temporizador — uma atualização noturna da ontologia, um relatório periódico, uma verificação recorrente — sem nenhum agendador externo para configurar.",
+ "ent.mt.tag": "Multitenancy &amp; personalização",
+ "ent.mt.h2": "Um serviço, muitos tenants, cada usuário com o seu",
+ "ent.mt.p": "Um modelo de usuários pensado para empresas já vem embutido. Suba um serviço por tenant, deixe os usuários acessarem por meio de chaves de cliente com escopo definido e entregue a cada um um agente privado e personalizado — sem precisar rodar um deployment separado para ninguém.",
+ "ent.mt.1.h": "Um tenant é uma fronteira de serviço",
+ "ent.mt.1.p": "Cada tenant tem suas próprias chaves, dados, memória e políticas. Suba um serviço por tenant — ou por equipe, cliente ou ambiente — todos no mesmo cluster, totalmente isolados uns dos outros.",
+ "ent.mt.2.h": "Cada usuário é um principal com escopo definido",
+ "ent.mt.2.p": "Os usuários finais acessam um serviço por meio de chaves de cliente com escopo definido. Cada principal carrega o seu tenant, uma identidade de ator e os seus próprios escopos — de modo que o que um determinado usuário pode fazer é decidido por requisição, não por deployment.",
+ "ent.mt.3.h": "Memória isolada por usuário",
+ "ent.mt.3.p": "A recuperação e a ingestão são particionadas por tenant <em>e</em> ator, e carimbadas em cada execução a partir do principal — assim um usuário nunca vê a memória de outro, mesmo dentro do mesmo serviço.",
+ "ent.mt.4.h": "Respostas hiperpersonalizadas",
+ "ent.mt.4.p": "Os fatos próprios de cada usuário e sua ontologia pessoal moldam como o agente responde a ele — um contexto personalizado injetado por principal, e não um único prompt compartilhado por todos."
 };

@@ -483,5 +483,16 @@ window.JIKJI_I18N["de"]={
  "orch.svc.3.h": "Die Ontologie bereitstellen",
  "orch.svc.3.p": "Stelle den nativen Wissensgraphen als abfragbaren Service bereit, sodass SPARQL und semantische Suche allen Aufrufern zur Verfügung stehen — nicht nur dem Agenten, der ihn aufgebaut hat.",
  "orch.svc.4.h": "Nach Zeitplan ausführen",
- "orch.svc.4.p": "Der <code>almanac</code>-Scheduler steuert Cron-, Intervall- und Timer-Jobs — ein nächtliches Ontologie-Update, ein periodischer Report, eine wiederkehrende Prüfung — ganz ohne externen Scheduler, den man verdrahten müsste."
+ "orch.svc.4.p": "Der <code>almanac</code>-Scheduler steuert Cron-, Intervall- und Timer-Jobs — ein nächtliches Ontologie-Update, ein periodischer Report, eine wiederkehrende Prüfung — ganz ohne externen Scheduler, den man verdrahten müsste.",
+ "ent.mt.tag": "Mandantenfähigkeit &amp; Personalisierung",
+ "ent.mt.h2": "Ein Dienst, viele Mandanten, für jeden Nutzer ein eigener",
+ "ent.mt.p": "Ein Benutzermodell für Unternehmen ist von Haus aus eingebaut. Stellen Sie pro Mandant einen Dienst bereit, lassen Sie Nutzer über Client-Schlüssel mit eingeschränktem Geltungsbereich darauf zugreifen, und geben Sie jedem einen privaten, personalisierten Agenten — ohne für irgendjemanden ein separates Deployment betreiben zu müssen.",
+ "ent.mt.1.h": "Ein Mandant ist eine Dienstgrenze",
+ "ent.mt.1.p": "Jeder Mandant hat eigene Schlüssel, Daten, Speicher und Richtlinien. Stellen Sie einen Dienst pro Mandant bereit — oder pro Team, Kunde oder Umgebung — alle auf demselben Cluster, vollständig voneinander isoliert.",
+ "ent.mt.2.h": "Jeder Nutzer ist ein Principal mit definiertem Geltungsbereich",
+ "ent.mt.2.p": "Endnutzer erreichen einen Dienst über Client-Schlüssel mit eingeschränktem Geltungsbereich. Jeder Principal trägt seinen Mandanten, eine Akteursidentität und seine eigenen Geltungsbereiche — so wird pro Anfrage und nicht pro Deployment entschieden, was ein bestimmter Nutzer tun darf.",
+ "ent.mt.3.h": "Speicher pro Nutzer isoliert",
+ "ent.mt.3.p": "Abruf und Aufnahme sind nach Mandant <em>und</em> Akteur partitioniert und werden vom Principal auf jeden Lauf geprägt — so sieht ein Nutzer niemals den Speicher eines anderen, selbst innerhalb desselben Dienstes.",
+ "ent.mt.4.h": "Hyperpersonalisierte Antworten",
+ "ent.mt.4.p": "Die eigenen Fakten jedes Nutzers und seine persönliche Ontologie prägen, wie der Agent ihm antwortet — ein personalisierter Kontext, der pro Principal injiziert wird, statt eines einzigen, für alle gleichen Prompts."
 };

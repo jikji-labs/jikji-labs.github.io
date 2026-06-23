@@ -483,5 +483,16 @@ window.JIKJI_I18N["it"]={
  "orch.svc.3.h": "Servi l'ontologia",
  "orch.svc.3.p": "Esponi il knowledge graph nativo come servizio interrogabile, in modo che SPARQL e la ricerca semantica siano a disposizione di tutti i chiamanti — non solo dell'agente che l'ha costruito.",
  "orch.svc.4.h": "Eseguila secondo una pianificazione",
- "orch.svc.4.p": "Lo scheduler <code>almanac</code> gestisce job cron, a intervallo e a timer — un aggiornamento notturno dell'ontologia, un report periodico, un controllo ricorrente — senza alcuno scheduler esterno da collegare."
+ "orch.svc.4.p": "Lo scheduler <code>almanac</code> gestisce job cron, a intervallo e a timer — un aggiornamento notturno dell'ontologia, un report periodico, un controllo ricorrente — senza alcuno scheduler esterno da collegare.",
+ "ent.mt.tag": "Multitenancy &amp; personalizzazione",
+ "ent.mt.h2": "Un servizio, molti tenant, a ciascun utente il proprio",
+ "ent.mt.p": "Un modello di utenza pensato per le aziende è integrato di serie. Attiva un servizio per ogni tenant, lascia che gli utenti vi accedano tramite chiavi client con ambito definito e offri a ciascuno un agente privato e personalizzato — senza dover eseguire un deployment separato per nessuno.",
+ "ent.mt.1.h": "Un tenant è un confine di servizio",
+ "ent.mt.1.p": "Ogni tenant ha le proprie chiavi, dati, memoria e policy. Attiva un servizio per tenant — o per team, cliente o ambiente — tutti sullo stesso cluster, completamente isolati l'uno dall'altro.",
+ "ent.mt.2.h": "Ogni utente è un principal con ambito definito",
+ "ent.mt.2.p": "Gli utenti finali raggiungono un servizio tramite chiavi client con ambito definito. Ogni principal porta con sé il proprio tenant, un'identità di attore e i propri ambiti — così ciò che un determinato utente può fare viene deciso per richiesta, non per deployment.",
+ "ent.mt.3.h": "Memoria isolata per utente",
+ "ent.mt.3.p": "Il richiamo e l'acquisizione sono partizionati per tenant <em>e</em> attore, e impressi su ogni esecuzione a partire dal principal — così un utente non vede mai la memoria di un altro, nemmeno all'interno dello stesso servizio.",
+ "ent.mt.4.h": "Risposte iper-personalizzate",
+ "ent.mt.4.p": "I fatti propri di ciascun utente e la sua ontologia personale plasmano il modo in cui l'agente gli risponde — un contesto personalizzato iniettato per principal, e non un unico prompt condiviso da tutti."
 };

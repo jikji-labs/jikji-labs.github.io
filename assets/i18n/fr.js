@@ -483,5 +483,16 @@ window.JIKJI_I18N["fr"]={
  "orch.svc.3.h": "Exposez l'ontologie",
  "orch.svc.3.p": "Exposez le graphe de connaissances natif comme un service interrogeable, afin que SPARQL et la recherche sémantique soient accessibles à tous les appelants — pas seulement à l'agent qui l'a construit.",
  "orch.svc.4.h": "Exécutez-la selon un calendrier",
- "orch.svc.4.p": "Le planificateur <code>almanac</code> pilote les tâches cron, par intervalle et par minuterie — un rafraîchissement nocturne de l'ontologie, un rapport périodique, une vérification récurrente — sans aucun planificateur externe à brancher."
+ "orch.svc.4.p": "Le planificateur <code>almanac</code> pilote les tâches cron, par intervalle et par minuterie — un rafraîchissement nocturne de l'ontologie, un rapport périodique, une vérification récurrente — sans aucun planificateur externe à brancher.",
+ "ent.mt.tag": "Multitenancy &amp; personnalisation",
+ "ent.mt.h2": "Un seul service, de multiples tenants, à chaque utilisateur le sien",
+ "ent.mt.p": "Un modèle d'utilisateurs pensé pour l'entreprise est intégré d'emblée. Déployez un service par tenant, laissez les utilisateurs y accéder via des clés client à portée restreinte, et offrez à chacun un agent privé et personnalisé — sans faire tourner un déploiement distinct pour qui que ce soit.",
+ "ent.mt.1.h": "Un tenant est une frontière de service",
+ "ent.mt.1.p": "Chaque tenant possède ses propres clés, données, mémoire et politiques. Déployez un service par tenant — ou par équipe, client ou environnement — tous sur le même cluster, totalement isolés les uns des autres.",
+ "ent.mt.2.h": "Chaque utilisateur est un principal à portée définie",
+ "ent.mt.2.p": "Les utilisateurs finaux accèdent à un service via des clés client à portée restreinte. Chaque principal porte son tenant, une identité d'acteur et ses propres portées — de sorte que ce qu'un utilisateur donné peut faire se décide à chaque requête, et non par déploiement.",
+ "ent.mt.3.h": "Une mémoire isolée par utilisateur",
+ "ent.mt.3.p": "Le rappel et l'ingestion sont partitionnés par tenant <em>et</em> par acteur, et estampillés sur chaque exécution depuis le principal — ainsi un utilisateur ne voit jamais la mémoire d'un autre, même au sein du même service.",
+ "ent.mt.4.h": "Des réponses hyper-personnalisées",
+ "ent.mt.4.p": "Les faits propres à chaque utilisateur et son ontologie personnelle façonnent la manière dont l'agent lui répond — un contexte personnalisé injecté par principal, et non un seul et même prompt partagé par tous."
 };

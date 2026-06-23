@@ -483,5 +483,16 @@ window.JIKJI_I18N["id"]={
  "orch.svc.3.h": "Sajikan ontologi",
  "orch.svc.3.p": "Buka graf pengetahuan native sebagai layanan yang dapat dikueri, sehingga SPARQL dan pencarian semantik tersedia bagi semua pemanggil — bukan hanya bagi agen yang membangunnya.",
  "orch.svc.4.h": "Jalankan sesuai jadwal",
- "orch.svc.4.p": "Penjadwal <code>almanac</code> menggerakkan tugas cron, interval, dan timer — penyegaran ontologi setiap malam, laporan berkala, pemeriksaan berulang — tanpa perlu menyambungkan penjadwal eksternal apa pun."
+ "orch.svc.4.p": "Penjadwal <code>almanac</code> menggerakkan tugas cron, interval, dan timer — penyegaran ontologi setiap malam, laporan berkala, pemeriksaan berulang — tanpa perlu menyambungkan penjadwal eksternal apa pun.",
+ "ent.mt.tag": "Multitenancy &amp; personalisasi",
+ "ent.mt.h2": "Satu layanan, banyak tenant, tiap pengguna punya miliknya sendiri",
+ "ent.mt.p": "Model pengguna kelas enterprise sudah terpasang sejak awal. Jalankan satu layanan per tenant, biarkan pengguna mengaksesnya lewat kunci klien ber-scope, dan beri masing-masing agen pribadi yang dipersonalisasi — tanpa perlu menjalankan deployment terpisah untuk siapa pun.",
+ "ent.mt.1.h": "Tenant adalah batas layanan",
+ "ent.mt.1.p": "Setiap tenant punya kunci, data, memori, dan kebijakannya sendiri. Jalankan satu layanan per tenant — atau per tim, pelanggan, atau lingkungan — semuanya di kluster yang sama, terisolasi sepenuhnya satu sama lain.",
+ "ent.mt.2.h": "Setiap pengguna adalah principal ber-scope",
+ "ent.mt.2.p": "Pengguna akhir mengakses layanan lewat kunci klien ber-scope. Setiap principal membawa tenant-nya, identitas actor, dan scope-nya sendiri — sehingga apa yang boleh dilakukan seorang pengguna ditentukan per permintaan, bukan per deployment.",
+ "ent.mt.3.h": "Memori terisolasi per pengguna",
+ "ent.mt.3.p": "Pemanggilan ulang dan penyerapan dipartisi berdasarkan tenant <em>dan</em> actor, lalu dicapkan ke setiap proses dari principal — sehingga seorang pengguna tidak pernah melihat memori pengguna lain, bahkan di dalam layanan yang sama.",
+ "ent.mt.4.h": "Respons yang sangat dipersonalisasi",
+ "ent.mt.4.p": "Fakta milik tiap pengguna dan ontologi pribadinya membentuk cara agen menjawab mereka — konteks yang dipersonalisasi dan disuntikkan per principal, bukan satu prompt yang dibagikan untuk semua orang."
 };
