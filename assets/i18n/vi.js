@@ -202,7 +202,7 @@ window.JIKJI_I18N["vi"]={
  "loop.t.h2": "Một runtime công cụ chạy trong sandbox",
  "loop.t.p": "Công cụ là những con chữ <span class=\"mono\">sorts</span> mà vòng lặp sắp vào đúng chỗ — dựng sẵn hoặc cài thêm, chạy cục bộ hoặc trên một node từ xa, luôn nằm sau một cổng chính sách và một sandbox.",
  "loop.t.1.h": "Công cụ dựng sẵn &amp; runner",
- "loop.t.1.p": "Đọc/tìm/liệt kê/thay thế/ghi file, shell, tìm kiếm web, một trình duyệt, các công cụ ontology và kênh, cùng các skill. Runner bao gồm tiến trình con Python trong sandbox, một engine Lua nhúng, lệnh cục bộ, và các node từ xa.",
+ "loop.t.1.p": "Đọc/tìm kiếm/liệt kê/thay thế/ghi tệp, shell, tìm kiếm web, trình duyệt headless (thẻ tab, trích xuất DOM, lưu mã nguồn), trình đọc web với nội dung gọn gàng và tải trang, các công cụ bản thể luận và kênh, cùng các kỹ năng. Các runner bao gồm tiến trình con Python chạy trong sandbox, một engine Lua tích hợp, lệnh cục bộ và các node từ xa.",
  "loop.t.2.h": "MCP, cả hai chiều",
  "loop.t.2.p": "Một máy khách Model Context Protocol nói chuyện với các máy chủ stdio — công cụ, tài nguyên, lấy mẫu — và đăng ký công cụ của chúng vào hộp công cụ. Một máy chủ phơi bày chính công cụ của Jikji ra cho bất kỳ host MCP nào. Các lời gọi bắc cầu hai chiều kèm truyền luồng.",
  "loop.t.3.h": "Sandbox phòng thủ nhiều lớp",
@@ -430,5 +430,9 @@ window.JIKJI_I18N["vi"]={
  "loop.self.3.p": "Một cơ chế nghiên cứu lên kế hoạch điều tra, thu thập nguồn và chạy tìm kiếm web — để một agent có thể tự đi tìm thứ nó cần thay vì dừng lại ở ranh giới ngữ cảnh của mình.",
  "loop.self.4.h": "Mở rộng được ngay từ thiết kế",
  "loop.self.4.p": "Kỹ năng, hook Lua, công cụ MCP và các bản cài đặt có chữ ký từ marketplace đều mở rộng cùng một vòng lặp. Năng lực mới được thêm vào quanh engine, không bao giờ bằng cách viết lại nó.",
- "hero.note": "Trang này được viết dựa trên mã nguồn đang được triển khai hiện nay — Jikji đang được phát triển tích cực, và các chi tiết có thể thay đổi trước bản phát hành đầu tiên."
+ "hero.note": "Trang này được viết dựa trên mã nguồn đang được triển khai hiện nay — Jikji đang được phát triển tích cực, và các chi tiết có thể thay đổi trước bản phát hành đầu tiên.",
+ "orch.xr.tag": "Điều phối xuyên vùng",
+ "orch.xr.h2": "Công cụ không biên giới",
+ "orch.xr.p": "Một lệnh gọi công cụ không nhất thiết phải chạy tại nơi tác nhân đang suy nghĩ. Công cụ được thực thi trên các node từ xa được chọn dựa trên năng lực và vị trí, có thể tiếp cận qua các đường hầm chuyển tiếp — nhờ đó một lần chạy có thể trải rộng trên nhiều máy, nhiều đám mây và nhiều vùng, với một danh mục dùng chung bền vững, bộ ngắt mạch theo từng node và cơ chế chuyển đổi dự phòng.",
+ "orch.xr.eg": "<b>Một lần chạy, ba vùng.</b> Đọc nhật ký trên một node ở Seattle, mở rộng quy mô một container trên một node ở Tokyo, rồi kiểm tra phản hồi từ một node ở Seoul — mỗi công cụ được định tuyến đến node có thể chạy nó, tất cả trong cùng một lần chạy tác nhân mang tính tất định và có điểm kiểm tra."
 };

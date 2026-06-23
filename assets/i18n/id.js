@@ -202,7 +202,7 @@ window.JIKJI_I18N["id"]={
  "loop.t.h2": "Runtime tool ter-sandbox",
  "loop.t.p": "Tools adalah <span class=\"mono\">sorts</span> bergerak yang ditata loop pada tempatnya — bawaan atau hasil instalasi, dijalankan lokal atau di node jarak jauh, selalu di balik gerbang kebijakan dan sandbox.",
  "loop.t.1.h": "Tool bawaan &amp; runner",
- "loop.t.1.p": "Baca/cari/daftar/ganti/tulis file, shell, pencarian web, browser, tool ontologi dan channel, serta skill. Runner mencakup subproses Python ter-sandbox, engine Lua tertanam, perintah lokal, dan node jarak jauh.",
+ "loop.t.1.p": "Baca/cari/daftar/ganti/tulis berkas, shell, pencarian web, peramban headless (tab, ekstraksi DOM, simpan kode sumber), pembaca web berkonten bersih beserta pengambilan halaman, alat ontologi dan kanal, serta skill. Runner mencakup subproses Python dalam sandbox, mesin Lua tertanam, perintah lokal, dan node jarak jauh.",
  "loop.t.2.h": "MCP, dua arah",
  "loop.t.2.p": "Klien Model Context Protocol berbicara ke server stdio — tool, resource, sampling — dan mendaftarkan tool-nya ke dalam toolbox. Sebuah server membuka tool milik Jikji ke host MCP mana pun. Panggilan dijembatani dua arah dengan streaming.",
  "loop.t.3.h": "Sandbox berlapis pertahanan",
@@ -430,5 +430,9 @@ window.JIKJI_I18N["id"]={
  "loop.self.3.p": "Sebuah mekanisme riset merencanakan investigasi, menarik sumber, dan menjalankan pencarian web — sehingga agen bisa pergi mencari apa yang dibutuhkannya alih-alih berhenti di batas konteksnya.",
  "loop.self.4.h": "Dapat diperluas sejak desain",
  "loop.self.4.p": "Skill, hook Lua, alat MCP, dan instalasi marketplace bertanda tangan semuanya memperluas loop yang sama. Kemampuan baru ditambahkan di sekitar mesin, tidak pernah dengan menulis ulangnya.",
- "hero.note": "Situs ini ditulis berdasarkan kode yang sedang diimplementasikan saat ini — Jikji sedang dalam pengembangan aktif, dan detailnya dapat berubah sebelum rilis pertama."
+ "hero.note": "Situs ini ditulis berdasarkan kode yang sedang diimplementasikan saat ini — Jikji sedang dalam pengembangan aktif, dan detailnya dapat berubah sebelum rilis pertama.",
+ "orch.xr.tag": "Orkestrasi Lintas Wilayah",
+ "orch.xr.h2": "Alat tanpa batas",
+ "orch.xr.p": "Pemanggilan alat tidak harus berjalan di tempat agen berpikir. Alat dieksekusi pada node jarak jauh yang dipilih berdasarkan kapabilitas dan penempatannya, dapat dijangkau melalui terowongan relai — sehingga satu kali jalan bisa menjangkau berbagai mesin, cloud, dan wilayah, dengan katalog bersama yang tahan lama, pemutus sirkuit per node, dan failover.",
+ "orch.xr.eg": "<b>Satu kali jalan, tiga wilayah.</b> Baca log pada node di Seattle, skalakan kontainer pada node di Tokyo, lalu periksa respons dari node di Seoul — setiap alat dirutekan ke node yang mampu menjalankannya, semuanya dalam satu kali jalan agen yang deterministik dan ber-checkpoint."
 };

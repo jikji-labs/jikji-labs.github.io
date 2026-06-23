@@ -202,7 +202,7 @@ window.JIKJI_I18N["it"]={
  "loop.t.h2": "Un runtime di strumenti in sandbox",
  "loop.t.p": "Gli strumenti sono i <span class=\"mono\">sorts</span> mobili che il ciclo compone al loro posto: integrati o installati, eseguiti in locale o su un nodo remoto, sempre dietro un gate di policy e una sandbox.",
  "loop.t.1.h": "Strumenti integrati &amp; runner",
- "loop.t.1.p": "Lettura/ricerca/elenco/sostituzione/scrittura di file, shell, ricerca web, un browser, strumenti per ontologie e canali e skill. I runner coprono sottoprocessi Python in sandbox, un motore Lua integrato, comandi locali e nodi remoti.",
+ "loop.t.1.p": "Lettura/ricerca/elenco/sostituzione/scrittura di file, shell, ricerca web, un browser headless (schede, estrazione del DOM, salvataggio del sorgente), un lettore web a contenuto pulito con recupero delle pagine, strumenti di ontologia e di canale, e skill. I runner comprendono sottoprocessi Python in sandbox, un motore Lua integrato, comandi locali e nodi remoti.",
  "loop.t.2.h": "MCP, in entrambe le direzioni",
  "loop.t.2.p": "Un client Model Context Protocol dialoga con i server stdio — strumenti, risorse, sampling — e registra i loro strumenti nella toolbox. Un server espone gli strumenti di Jikji a qualsiasi host MCP. Le chiamate fanno da ponte in entrambe le direzioni, con streaming.",
  "loop.t.3.h": "Sandbox a difesa in profondità",
@@ -430,5 +430,9 @@ window.JIKJI_I18N["it"]={
  "loop.self.3.p": "Un meccanismo di ricerca pianifica un'indagine, recupera fonti ed esegue una ricerca sul web — così un agente può andare a cercare ciò che gli serve invece di fermarsi al limite del proprio contesto.",
  "loop.self.4.h": "Estensibile per progettazione",
  "loop.self.4.p": "Competenze, hook Lua, strumenti MCP e installazioni firmate dal marketplace estendono tutti lo stesso loop. Ogni nuova capacità si aggiunge attorno al motore, mai riscrivendolo.",
- "hero.note": "Questo sito è scritto a partire dal codice attualmente in fase di implementazione — Jikji è in sviluppo attivo e i dettagli potrebbero cambiare prima della prima release."
+ "hero.note": "Questo sito è scritto a partire dal codice attualmente in fase di implementazione — Jikji è in sviluppo attivo e i dettagli potrebbero cambiare prima della prima release.",
+ "orch.xr.tag": "Orchestrazione tra regioni",
+ "orch.xr.h2": "Strumenti senza confini",
+ "orch.xr.p": "Una chiamata a uno strumento non deve necessariamente essere eseguita dove l'agente sta ragionando. Gli strumenti vengono eseguiti su nodi remoti scelti in base alle capacità e al posizionamento, raggiungibili tramite tunnel di inoltro — così una singola esecuzione può estendersi tra più macchine, cloud e regioni, con un catalogo condiviso e durevole, interruttori di circuito per nodo e failover.",
+ "orch.xr.eg": "<b>Una sola esecuzione, tre regioni.</b> Leggi i log su un nodo a Seattle, scala un container su un nodo a Tokyo, poi verifica la risposta da un nodo a Seoul: ogni strumento viene instradato al nodo in grado di eseguirlo, il tutto all'interno di un'unica esecuzione dell'agente deterministica e con checkpoint."
 };

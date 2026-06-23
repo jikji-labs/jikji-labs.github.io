@@ -202,7 +202,7 @@ window.JIKJI_I18N["de"]={
  "loop.t.h2": "Eine sandboxed Werkzeug-Laufzeit",
  "loop.t.p": "Werkzeuge sind die beweglichen <span class=\"mono\">sorts</span>, die die Loop in Position setzt — eingebaut oder installiert, lokal oder auf einem entfernten Knoten ausgeführt, immer hinter einem Richtlinien-Gate und einer Sandbox.",
  "loop.t.1.h": "Eingebaute Werkzeuge &amp; Runner",
- "loop.t.1.p": "Dateien lesen/durchsuchen/auflisten/ersetzen/schreiben, Shell, Websuche, ein Browser, Ontologie- und Kanal-Werkzeuge sowie Skills. Runner decken sandboxed Python-Subprozesse, eine eingebettete Lua-Engine, lokale Befehle und entfernte Knoten ab.",
+ "loop.t.1.p": "Dateien lesen/suchen/auflisten/ersetzen/schreiben, Shell, Websuche, ein Headless-Browser (Tabs, DOM-Extraktion, Quelltext sichern), ein Web-Reader für aufbereitete Inhalte samt Abruf, Ontologie- und Channel-Tools sowie Skills. Die Runner umfassen sandboxed Python-Subprozesse, eine eingebettete Lua-Engine, lokale Befehle und Remote-Nodes.",
  "loop.t.2.h": "MCP in beide Richtungen",
  "loop.t.2.p": "Ein Model-Context-Protocol-Client spricht mit stdio-Servern — Werkzeuge, Ressourcen, Sampling — und registriert deren Werkzeuge in der Toolbox. Ein Server stellt Jikjis eigene Werkzeuge jedem MCP-Host bereit. Aufrufe werden bidirektional mit Streaming überbrückt.",
  "loop.t.3.h": "Mehrschichtige Sandbox",
@@ -430,5 +430,9 @@ window.JIKJI_I18N["de"]={
  "loop.self.3.p": "Ein Recherche-Mechanismus plant eine Untersuchung, zieht Quellen heran und führt eine Websuche durch — damit ein Agent sich holen kann, was er braucht, statt am Rand seines Kontexts haltzumachen.",
  "loop.self.4.h": "Erweiterbar von Grund auf",
  "loop.self.4.p": "Skills, Lua-Hooks, MCP-Werkzeuge und signierte Marketplace-Installationen erweitern alle dieselbe Schleife. Neue Fähigkeiten kommen rund um die Engine hinzu, niemals durch deren Neuschreiben.",
- "hero.note": "Diese Website basiert auf dem Code, der derzeit implementiert wird — Jikji befindet sich in aktiver Entwicklung, und Details können sich vor der ersten Veröffentlichung ändern."
+ "hero.note": "Diese Website basiert auf dem Code, der derzeit implementiert wird — Jikji befindet sich in aktiver Entwicklung, und Details können sich vor der ersten Veröffentlichung ändern.",
+ "orch.xr.tag": "Regionsübergreifende Orchestrierung",
+ "orch.xr.h2": "Werkzeuge ohne Grenzen",
+ "orch.xr.p": "Ein Tool-Aufruf muss nicht dort laufen, wo der Agent denkt. Tools werden auf Remote-Nodes ausgeführt, die nach Fähigkeit und Platzierung ausgewählt und über Relay-Tunnel erreichbar sind — so kann ein einziger Lauf Maschinen, Clouds und Regionen überspannen, mit einem dauerhaften gemeinsamen Katalog, Circuit-Breakern pro Node und Failover.",
+ "orch.xr.eg": "<b>Ein Lauf, drei Regionen.</b> Lies die Logs auf einem Node in Seattle, skaliere einen Container auf einem Node in Tokio und prüfe dann die Antwort von einem Node in Seoul — jedes Tool wird an den Node geroutet, der es ausführen kann, alles innerhalb eines einzigen deterministischen, mit Checkpoints versehenen Agent-Laufs."
 };

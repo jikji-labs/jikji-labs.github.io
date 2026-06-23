@@ -202,7 +202,7 @@ window.JIKJI_I18N["fr"]={
  "loop.t.h2": "Un runtime d'outils en bac à sable",
  "loop.t.p": "Les outils sont les <span class=\"mono\">sorts</span> mobiles que la boucle met en place — intégrés ou installés, exécutés en local ou sur un nœud distant, toujours derrière une porte de politique et un bac à sable.",
  "loop.t.1.h": "Outils intégrés &amp; runners",
- "loop.t.1.p": "Lecture/recherche/listage/remplacement/écriture de fichiers, shell, recherche web, navigateur, outils d'ontologie et de canaux, et skills. Les runners couvrent des sous-processus Python en bac à sable, un moteur Lua embarqué, des commandes locales et des nœuds distants.",
+ "loop.t.1.p": "Lecture/recherche/liste/remplacement/écriture de fichiers, shell, recherche web, navigateur sans interface (onglets, extraction du DOM, sauvegarde de la source), lecteur web au contenu épuré et récupération de pages, outils d'ontologie et de canaux, et compétences. Les exécuteurs couvrent des sous-processus Python en bac à sable, un moteur Lua embarqué, des commandes locales et des nœuds distants.",
  "loop.t.2.h": "MCP, dans les deux sens",
  "loop.t.2.p": "Un client Model Context Protocol dialogue avec des serveurs stdio — outils, ressources, échantillonnage — et enregistre leurs outils dans la boîte à outils. Un serveur expose les propres outils de Jikji à n'importe quel hôte MCP. Les appels font le pont dans les deux sens, avec streaming.",
  "loop.t.3.h": "Bac à sable en défense en profondeur",
@@ -430,5 +430,9 @@ window.JIKJI_I18N["fr"]={
  "loop.self.3.p": "Un mécanisme de recherche planifie une investigation, rassemble des sources et lance une recherche web — pour qu'un agent puisse aller chercher ce dont il a besoin au lieu de s'arrêter aux limites de son contexte.",
  "loop.self.4.h": "Extensible par conception",
  "loop.self.4.p": "Les compétences, les hooks Lua, les outils MCP et les installations signées depuis la marketplace étendent tous la même boucle. Toute nouvelle capacité s'ajoute autour du moteur, jamais en le réécrivant.",
- "hero.note": "Ce site est rédigé à partir du code en cours d'implémentation aujourd'hui — Jikji est en développement actif, et les détails peuvent changer avant la première version."
+ "hero.note": "Ce site est rédigé à partir du code en cours d'implémentation aujourd'hui — Jikji est en développement actif, et les détails peuvent changer avant la première version.",
+ "orch.xr.tag": "Orchestration interrégions",
+ "orch.xr.h2": "Des outils sans frontières",
+ "orch.xr.p": "Un appel d'outil n'a pas à s'exécuter là où l'agent réfléchit. Les outils s'exécutent sur des nœuds distants choisis selon leurs capacités et leur emplacement, accessibles via des tunnels relais — ainsi une seule exécution peut s'étendre sur plusieurs machines, clouds et régions, avec un catalogue partagé durable, des disjoncteurs par nœud et un basculement automatique.",
+ "orch.xr.eg": "<b>Une exécution, trois régions.</b> Lisez les journaux sur un nœud à Seattle, faites monter en charge un conteneur sur un nœud à Tokyo, puis vérifiez la réponse depuis un nœud à Séoul — chaque outil est routé vers le nœud capable de l'exécuter, le tout au sein d'une seule exécution d'agent déterministe et jalonnée de points de contrôle."
 };
