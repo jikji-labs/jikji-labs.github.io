@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture — Jikji</title>
+<meta name="description" content="Jikji's architecture: a print shop of composable modules behind strict boundaries, deployment shapes from one process to a multi-node grid, galley-backed storage, and open protocol surfaces.">
+<meta property="og:title" content="Architecture — Jikji">
+<meta property="og:url" content="https://www.jikji-labs.com/architecture.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/jikji.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
+    <nav class="nav-links">
+      <a href="architecture.html" class="active" data-i18n="nav.arch">Architecture</a>
+      <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
+      <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
+      <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+      <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+    </nav>
+  </div>
+</header>
+
+<div class="hero compact">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> · <span data-i18n="nav.arch">Architecture</span></div>
+    <span class="kicker" data-i18n="arch.kicker">Architecture</span>
+    <h1 data-i18n="arch.title">A print shop of <span class="accent">composable modules</span></h1>
+    <p class="sub" data-i18n="arch.sub">Each module owns one concern behind a strict boundary, usable in-process first and designed to move behind HTTP or gRPC without rewriting business logic. Together they compose into a full agent platform.</p>
+  </div>
+</div>
+
+<!-- MODULES -->
+<section class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="arch.mods.tag">The Modules</span>
+      <h2 data-i18n="arch.mods.h2">Sixteen pieces, set behind boundaries</h2>
+      <p data-i18n="arch.mods.p">Module names follow the Jikji printing worldview — each one prepares, authorizes, composes, prints, or distributes knowledge.</p>
+    </div>
+    <div class="mods">
+      <div class="mod"><div class="name">forme <span class="gloss" data-i18n="g.forme">locked forme</span></div><p data-i18n="m.forme">Deterministic agent loop — delegation, HITL, Lua hooks, checkpoints, step events.</p></div>
+      <div class="mod"><div class="name">trinity <span class="gloss" data-i18n="g.trinity">three judges</span></div><p data-i18n="m.trinity">Adaptive multi-model coordinator — swarm debate, verify-revise, evolved routing.</p></div>
+      <div class="mod"><div class="name">compositor <span class="gloss" data-i18n="g.compositor">typesetter</span></div><p data-i18n="m.compositor">Session orchestration, queues, flow composition, and collaboration memory.</p></div>
+      <div class="mod"><div class="name">dispatch <span class="gloss" data-i18n="g.dispatch">work routing</span></div><p data-i18n="m.dispatch">Tenant/provider/model scheduling, bounded queues, retry with backoff, circuit breakers.</p></div>
+      <div class="mod"><div class="name">type <span class="gloss" data-i18n="g.type">metal type</span></div><p data-i18n="m.type">Inference providers across OpenAI/Anthropic/Ollama/GLM-compatible backends, OAuth, context-window aware.</p></div>
+      <div class="mod"><div class="name">sorts <span class="gloss" data-i18n="g.sorts">type pieces</span></div><p data-i18n="m.sorts">Tool execution, MCP integration, runners, sandbox, and remote tool nodes.</p></div>
+      <div class="mod"><div class="name">press <span class="gloss" data-i18n="g.press">printing press</span></div><p data-i18n="m.press">HTTP ingress — OpenAI-compatible API, SSE streaming, signed webhooks, idempotency.</p></div>
+      <div class="mod"><div class="name">plate <span class="gloss" data-i18n="g.plate">stereotype plate</span></div><p data-i18n="m.plate">Cognitive memory — fact extraction, dreaming, hybrid recall, compaction.</p></div>
+      <div class="mod"><div class="name">lexicon <span class="gloss" data-i18n="g.lexicon">lexicon</span></div><p data-i18n="m.lexicon">Knowledge graph and ontology — SPARQL, semantic re-ranking, contradiction detection.</p></div>
+      <div class="mod"><div class="name">galley <span class="gloss" data-i18n="g.galley">galley tray</span></div><p data-i18n="m.galley">Shared SQLite/PostgreSQL/MySQL records and links for collaboration and durable state.</p></div>
+      <div class="mod"><div class="name">imprimatur <span class="gloss" data-i18n="g.imprimatur">licence to print</span></div><p data-i18n="m.imprimatur">Tenancy, API-key auth, scopes/RBAC, credential ingress, vault, and OAuth.</p></div>
+      <div class="mod"><div class="name">rubric <span class="gloss" data-i18n="g.rubric">style rubric</span></div><p data-i18n="m.rubric">Authorization decision plane — allow/deny/ask, policy evaluation, audit.</p></div>
+      <div class="mod"><div class="name">proof <span class="gloss" data-i18n="g.proof">proofing</span></div><p data-i18n="m.proof">PII and secret detection, reversible redaction, audit-safe text normalization.</p></div>
+      <div class="mod"><div class="name">bookstore <span class="gloss" data-i18n="g.bookstore">the bookstore</span></div><p data-i18n="m.bookstore">Package and agent marketplace — manifests, signing, install, reconciliation.</p></div>
+      <div class="mod"><div class="name">almanac <span class="gloss" data-i18n="g.almanac">almanac</span></div><p data-i18n="m.almanac">Deterministic scheduling — cron, interval, batch, and maintenance work.</p></div>
+      <div class="mod"><div class="name">foundry <span class="gloss" data-i18n="g.foundry">type foundry</span></div><p data-i18n="m.foundry">Bootstrap, configuration, doctor checks, and orchestration control.</p></div>
+    </div>
+    <div class="callout" style="margin-top:26px" data-i18n="arch.mods.note">A few more modules round out the platform — <span class="mono">screen</span> (the dynamic policy filter chain), <span class="mono">relay</span> (TLS tunnels to remote tool nodes), <span class="mono">usagelimit</span>, and <span class="mono">observability</span> — covered on the Enterprise page.</div>
+  </div>
+</section>
+
+<!-- DEPLOYMENT -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="arch.dep.tag">Deployment Shapes</span>
+      <h2 data-i18n="arch.dep.h2">Scale-free: one process → services → grid</h2>
+      <p data-i18n="arch.dep.p">The same binary changes shape by configuration. Start everything in one process, split the planes into services, then push tool execution onto remote nodes — without changing your agents.</p>
+    </div>
+    <div class="grid cols3">
+      <div class="card">
+        <span class="num">DESKTOP</span>
+        <h3 data-i18n="arch.dep.1.h">One process, local-first</h3>
+        <p data-i18n="arch.dep.1.p">A single binary with embedded SQLite for durable state. No external services required — the whole platform boots from one config file on a laptop or an edge box.</p>
+      </div>
+      <div class="card">
+        <span class="num">SERVICES</span>
+        <h3 data-i18n="arch.dep.2.h">Split into services</h3>
+        <p data-i18n="arch.dep.2.p">Run <code>press</code> ingress, the <code>dispatch</code> controller, and tool nodes as separate processes that talk over gRPC, with optional TLS. Tool execution moves to <code>jikji-tool-node</code> workers behind a <code>jikji-relay</code> tunnel.</p>
+      </div>
+      <div class="card">
+        <span class="num">GRID</span>
+        <h3 data-i18n="arch.dep.3.h">Multi-node cluster</h3>
+        <p data-i18n="arch.dep.3.p">Point <code>galley</code> at shared PostgreSQL or MySQL for multi-node HA, coordinate dispatch over gRPC with per-node circuit breakers and failover, and export traces and metrics to your stack.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:24px" data-i18n="arch.dep.note"><b>Profiles</b> — bootstrap presets (<span class="mono">desktop</span>, <span class="mono">edge</span>, <span class="mono">controller</span>, <span class="mono">all</span>) select which planes a node runs, so the same image fills any role in the cluster.</div>
+  </div>
+</section>
+
+<!-- STORAGE + BINARIES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="arch.store.tag">Storage &amp; Binaries</span>
+      <h2 data-i18n="arch.store.h2">Galley-first state, five binaries</h2>
+    </div>
+    <div class="prose" style="max-width:none">
+      <p data-i18n="arch.store.p"><b>galley</b> is the shared collaboration workspace — a single schema, with explicit migrations, that backs memory, dispatch records, the marketplace, A2A tasks, credentials, and audit logs. It runs on embedded SQLite by default and on PostgreSQL or MySQL for multi-node deployments, with dialect-aware DDL and a distributed lease manager for task recovery.</p>
+    </div>
+    <table class="spec">
+      <tr><th data-i18n="arch.bin.1.k">jikji</th><td data-i18n="arch.bin.1.v">The main runtime server — agent loop, OpenAI-compatible API, dispatch, channels, and the dashboard, selected by profile.</td></tr>
+      <tr><th data-i18n="arch.bin.2.k">jikjictl</th><td data-i18n="arch.bin.2.v">The operator CLI — health, models, credentials and vault, RBAC, policy, filters, provider OAuth, usage, audit, and marketplace.</td></tr>
+      <tr><th data-i18n="arch.bin.3.k">jikjicode</th><td data-i18n="arch.bin.3.v">A standalone coding CLI that drives local sandboxed tools against a remote OpenAI-compatible model server.</td></tr>
+      <tr><th data-i18n="arch.bin.4.k">jikji-relay</th><td data-i18n="arch.bin.4.v">A TLS tunneling proxy (TLS 1.3) that connects a controller to remote tool nodes across networks.</td></tr>
+      <tr><th data-i18n="arch.bin.5.k">jikji-tool-node</th><td data-i18n="arch.bin.5.v">A remote tool executor — registers with the controller, runs tools under the sandbox, and heartbeats its health.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- PROTOCOLS -->
+<section class="alt" id="protocols">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="proto.tag">Interoperability</span>
+      <h2 data-i18n="arch.proto.h2">Open protocol surfaces</h2>
+      <p data-i18n="arch.proto.p">Jikji is built to fit into what you already run — point existing OpenAI clients at it, bridge MCP tools both ways, or federate agents over A2A.</p>
+    </div>
+    <div class="protos">
+      <div class="proto"><div class="p-name">OpenAI-compatible</div><p data-i18n="arch.proto.openai"><span class="mono">/v1/chat/completions</span>, <span class="mono">/v1/models</span>, <span class="mono">/v1/embeddings</span>, plus native agent runs and sessions.</p></div>
+      <div class="proto"><div class="p-name">MCP</div><p data-i18n="arch.proto.mcp">Model Context Protocol server and client over stdio — consume MCP tools or expose Jikji as one.</p></div>
+      <div class="proto"><div class="p-name">ACP</div><p data-i18n="arch.proto.acp">Agent Communication Protocol over stdio for local process-based agent peers.</p></div>
+      <div class="proto"><div class="p-name">A2A &amp; gRPC</div><p data-i18n="arch.proto.a2a">Agent-to-agent task dispatch and registry, plus a gRPC dispatch controller for multi-node coordination.</p></div>
+    </div>
+    <table class="spec" style="margin-top:30px">
+      <tr><th data-i18n="arch.routes.1.k">Chat &amp; models</th><td><code>POST /v1/chat/completions</code> · <code>GET /v1/models</code> · <code>POST /v1/embeddings</code></td></tr>
+      <tr><th data-i18n="arch.routes.2.k">Agent runs</th><td><code>POST /v1/runs</code> · <code>GET /v1/sessions/{id}</code></td></tr>
+      <tr><th data-i18n="arch.routes.3.k">Health &amp; ops</th><td><code>GET /health</code> · <code>/healthz</code> · <code>/readyz</code> · <code>/metrics</code> · <code>/openapi.json</code></td></tr>
+      <tr><th data-i18n="arch.routes.4.k">Admin</th><td><code>GET /v1/admin/config</code> · <code>POST /v1/admin/config/reload</code> <span data-i18n="arch.routes.4.note">(operator-scoped)</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="pagenav">
+      <a href="index.html"><div class="dir" data-i18n="pn.back">← Back</div><div class="lbl" data-i18n="pn.home">Overview</div></a>
+      <a href="agent-loop.html" style="text-align:right"><div class="dir" data-i18n="pn.next">Next →</div><div class="lbl" data-i18n="pn.loop">Agent Loop &amp; Tools</div></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="seal">直</span><b>Jikji Labs</b></div>
+        <div class="small" data-i18n="foot.tagline">Movable type for the age of agents.</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4 data-i18n="foot.explore">Explore</h4>
+          <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
+          <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
+          <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
+          <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+          <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
+        </div>
+        <div class="foot-col">
+          <h4 data-i18n="foot.project">Project</h4>
+          <a href="#" style="opacity:.6" data-i18n="foot.github">GitHub (coming soon)</a>
+          <a href="index.html#why" data-i18n="nav.why">Why Jikji</a>
+          <a href="index.html#start" data-i18n="nav.start">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/i18n.js" defer></script>
+</body>
+</html>
