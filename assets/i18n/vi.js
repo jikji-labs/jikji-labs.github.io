@@ -7,7 +7,7 @@ window.JIKJI_I18N["vi"]={
  "nav.enterprise": "Doanh nghiệp",
  "hero.kicker": "Nền tảng agent · Một binary Go duy nhất · Sắp mở mã nguồn",
  "hero.title": "Nền tảng agent,<br/><span class=\"accent\">đúc bằng con chữ kim loại.</span>",
- "hero.sub": "Jikji là một framework agent dạng mô-đun, chạy gọn trong một binary Go tĩnh duy nhất — với vòng lặp agent tất định, trạng thái điều phối không bao giờ mất, khả năng phối hợp nhiều mô hình một cách thích ứng, và cơ chế quản trị tích hợp sẵn, từ chiếc laptop cho tới cụm máy chủ doanh nghiệp.",
+ "hero.sub": "Jikji là một framework tác tử mô-đun chạy dưới dạng một tệp nhị phân Go tĩnh duy nhất — gồm vòng lặp tác tử tất định, trạng thái điều phối bền vững, phối hợp đa mô hình thích ứng và quản trị tích hợp sẵn. Được xây dựng cho các quy trình tác tử dài hạn, từ laptop đến các cụm máy chủ doanh nghiệp.",
  "cta.start": "Bắt đầu",
  "cta.github": "GitHub — Sắp ra mắt",
  "story.tag": "Cái tên",
@@ -514,5 +514,16 @@ window.JIKJI_I18N["vi"]={
  "ent.pii.3.p": "Các chỗ giữ được khôi phục chính xác ngay cả khi vắt qua ranh giới các đoạn dữ liệu truyền luồng, và bản đồ chỗ giữ gắn với tenant và không bao giờ được lưu lại — nó chỉ tồn tại trong suốt yêu cầu.",
  "arch.perf.note": "<b>Hiệu quả không phụ thuộc quy mô.</b> Trên laptop, nó chạy mát và tiêu thụ rất ít điện, không làm phiền pin lẫn quạt. Trên máy chủ, cũng chính tệp nhị phân ấy phản hồi nhanh hơn và chứa được nhiều phiên đồng thời hơn trên mỗi nhân — ít phần cứng hơn cho cùng một mức tải. Một runtime duy nhất, tự điều chỉnh theo nơi nó chạy.",
  "orch.svc.5.h": "Gặp người dùng ngay trên kênh của họ",
- "orch.svc.5.p": "Phục vụ cùng một agent qua các kênh nhắn tin: tin nhắn đến sẽ trở thành một lượt chạy và phản hồi được gửi trả lại ngay, kèm theo phạm vi công cụ riêng cho từng cuộc trò chuyện, bộ nhớ lưu giữ riêng cho từng cuộc trò chuyện, danh sách cho phép và giới hạn tần suất. Bộ chuyển đổi Telegram đã sẵn sàng ngay hôm nay, và giao diện bộ chuyển đổi được thiết kế để mở rộng hơn nữa — Slack và nhiều nền tảng khác — cùng với webhook đến có chữ ký."
+ "orch.svc.5.p": "Phục vụ cùng một agent qua các kênh nhắn tin: tin nhắn đến sẽ trở thành một lượt chạy và phản hồi được gửi trả lại ngay, kèm theo phạm vi công cụ riêng cho từng cuộc trò chuyện, bộ nhớ lưu giữ riêng cho từng cuộc trò chuyện, danh sách cho phép và giới hạn tần suất. Bộ chuyển đổi Telegram đã sẵn sàng ngay hôm nay, và giao diện bộ chuyển đổi được thiết kế để mở rộng hơn nữa — Slack và nhiều nền tảng khác — cùng với webhook đến có chữ ký.",
+ "loop.lh.tag": "Tầm nhìn dài hạn",
+ "loop.lh.h2": "Sẵn sàng cho công việc tác tử dài hạn",
+ "loop.lh.p": "Các quy trình tác tử thực thụ không kết thúc trong một hơi thở — chúng chạy hàng giờ, chờ đợi thế giới bên ngoài và kéo dài qua nhiều ngày. Mỗi nguyên thủy trên trang này tồn tại để một lượt chạy có thể đi đến cùng mà không đánh mất mạch.",
+ "loop.lh.1.h": "Trạng thái sống sót qua mọi thứ",
+ "loop.lh.1.p": "Các điểm kiểm tra ở từng bước được lưu vào bộ nhớ bền vững, nên một lượt chạy vẫn sống sót qua các lần khởi động lại tiến trình, sự cố và triển khai lại — và tiếp tục đúng chỗ đã dừng, không cần chạy lại công cụ nào.",
+ "loop.lh.2.h": "Tạm dừng bây giờ, tiếp tục sau",
+ "loop.lh.2.p": "Một lượt chạy có thể chờ một sự kiện bên ngoài, một phê duyệt hoặc một tác tử con rồi thức dậy sau hàng giờ hay hàng ngày — không có gì phải bị ghim trong bộ nhớ suốt cả khoảng thời gian đó.",
+ "loop.lh.3.h": "Mục tiêu sống lâu hơn một lượt chạy",
+ "loop.lh.3.p": "Một mục tiêu bền vững được mang theo qua nhiều lượt chạy và phiên cho đến khi đạt được — công việc chạy dài có ký ức về ý định của chính nó, chứ không chỉ về lượt cuối cùng.",
+ "loop.lh.4.h": "Mạch lạc trên suốt chặng đường",
+ "loop.lh.4.p": "Việc nén ngữ cảnh và bậc thang thăng cấp mô hình giữ những lượt chạy rất dài nằm gọn trong cửa sổ, còn bộ lập lịch <code>almanac</code> điều khiển công việc lặp lại — nhờ vậy một quy trình có thể kéo dài qua nhiều ngày mà vẫn giữ được mạch."
 };

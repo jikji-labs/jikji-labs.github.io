@@ -7,7 +7,7 @@ window.JIKJI_I18N["fr"]={
  "nav.enterprise": "Entreprise",
  "hero.kicker": "Plateforme d'agents · Un seul binaire Go · Bientôt open source",
  "hero.title": "La plateforme d'agents,<br/><span class=\"accent\">composée en caractères de plomb.</span>",
- "hero.sub": "Jikji est un framework d'agents modulaire qui tient dans un seul binaire Go statique : une boucle d'agent déterministe, un état d'orchestration qui ne se perd jamais, une coordination multi-modèles adaptative et une gouvernance native, du simple ordinateur portable au cluster d'entreprise.",
+ "hero.sub": "Jikji est un framework d'agents modulaire qui s'exécute sous la forme d'un seul binaire Go statique — une boucle d'agent déterministe, un état d'orchestration durable, une coordination multimodèle adaptative et une gouvernance intégrée. Conçu pour les workflows agentiques à long horizon, du portable aux clusters d'entreprise.",
  "cta.start": "Commencer",
  "cta.github": "GitHub — bientôt disponible",
  "story.tag": "Le nom",
@@ -514,5 +514,16 @@ window.JIKJI_I18N["fr"]={
  "ent.pii.3.p": "Les substituts sont restaurés correctement, même à cheval sur les frontières des fragments de streaming, et la table des substituts est liée au locataire et jamais persistée — elle ne vit que le temps de la requête.",
  "arch.perf.note": "<b>Une efficacité indépendante de l'échelle.</b> Sur un ordinateur portable, il reste frais et consomme très peu, laissant la batterie et les ventilateurs tranquilles. Sur un serveur, ce même binaire répond plus vite et accueille davantage de sessions simultanées par cœur — moins de matériel pour la même charge. Un seul runtime, ajusté par l'endroit où il tourne.",
  "orch.svc.5.h": "Rejoignez vos utilisateurs sur leurs canaux",
- "orch.svc.5.p": "Proposez le même agent sur vos canaux de messagerie : un message entrant devient une exécution et la réponse repart aussitôt, avec des portées d'outils propres à chaque conversation, une mémoire persistante par conversation, des listes d'autorisation et des limites de débit. Un adaptateur Telegram est disponible dès aujourd'hui, et l'interface d'adaptateur est conçue pour aller plus loin — Slack et au-delà — le tout complété par des webhooks entrants signés."
+ "orch.svc.5.p": "Proposez le même agent sur vos canaux de messagerie : un message entrant devient une exécution et la réponse repart aussitôt, avec des portées d'outils propres à chaque conversation, une mémoire persistante par conversation, des listes d'autorisation et des limites de débit. Un adaptateur Telegram est disponible dès aujourd'hui, et l'interface d'adaptateur est conçue pour aller plus loin — Slack et au-delà — le tout complété par des webhooks entrants signés.",
+ "loop.lh.tag": "Le long horizon",
+ "loop.lh.h2": "Prêt pour le travail agentique à long horizon",
+ "loop.lh.p": "Les vrais workflows agentiques ne se terminent pas d'un seul souffle — ils s'exécutent pendant des heures, attendent le monde extérieur et s'étalent sur des jours. Chaque primitive de cette page existe pour qu'une exécution puisse aller au bout sans perdre le fil.",
+ "loop.lh.1.h": "Un état qui survit à tout",
+ "loop.lh.1.p": "Les points de contrôle, étape par étape, sont enregistrés dans un stockage durable : une exécution survit ainsi aux redémarrages de processus, aux plantages et aux redéploiements — et reprend exactement là où elle s'était arrêtée, sans réexécuter le moindre outil.",
+ "loop.lh.2.h": "Mettez en pause, reprenez plus tard",
+ "loop.lh.2.p": "Une exécution peut attendre un événement externe, une approbation ou un agent enfant, puis se réveiller des heures ou des jours plus tard — rien n'a besoin de rester épinglé en mémoire pendant toute la durée.",
+ "loop.lh.3.h": "Des objectifs qui survivent à une exécution",
+ "loop.lh.3.p": "Un objectif durable est porté à travers de nombreuses exécutions et sessions jusqu'à ce qu'il soit atteint — un travail au long cours garde la mémoire de sa propre intention, et pas seulement de son dernier tour.",
+ "loop.lh.4.h": "Cohérent sur toute la distance",
+ "loop.lh.4.p": "La compaction du contexte et l'échelle de promotion des modèles maintiennent les exécutions très longues dans la fenêtre, et le planificateur <code>almanac</code> pilote les tâches récurrentes — un workflow peut donc s'étaler sur des jours tout en gardant le fil."
 };

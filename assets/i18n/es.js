@@ -7,7 +7,7 @@ window.JIKJI_I18N["es"]={
  "nav.enterprise": "Empresa",
  "hero.kicker": "Plataforma de agentes · Un solo binario Go · Open source muy pronto",
  "hero.title": "La plataforma de agentes,<br/><span class=\"accent\">compuesta en tipos de metal.</span>",
- "hero.sub": "Jikji es un framework modular de agentes que funciona como un único binario estático de Go: un bucle de agente determinista, un estado de orquestación que nunca se pierde, coordinación adaptativa entre varios modelos y gobernanza integrada, desde un portátil hasta clústeres empresariales.",
+ "hero.sub": "Jikji es un framework de agentes modular que se ejecuta como un único binario estático de Go — un bucle de agente determinista, estado de orquestación duradero, coordinación multimodelo adaptativa y gobernanza integrada. Diseñado para flujos de trabajo agénticos de largo horizonte, desde un portátil hasta clústeres empresariales.",
  "cta.start": "Empezar",
  "cta.github": "GitHub — muy pronto",
  "story.tag": "El nombre",
@@ -514,5 +514,16 @@ window.JIKJI_I18N["es"]={
  "ent.pii.3.p": "Los marcadores se restauran correctamente incluso a través de los límites de los fragmentos de streaming, y el mapa de marcadores está vinculado al inquilino y nunca se persiste: solo vive durante la solicitud.",
  "arch.perf.note": "<b>Eficiencia independiente de la escala.</b> En un portátil funciona fresco y consume muy poco, sin molestar a la batería ni a los ventiladores. En un servidor, ese mismo binario responde más rápido y aloja más sesiones simultáneas por núcleo — menos hardware para la misma carga. Un único runtime, ajustado por el lugar donde se ejecuta.",
  "orch.svc.5.h": "Llega a tus usuarios en sus canales",
- "orch.svc.5.p": "Ofrece el mismo agente a través de canales de mensajería: un mensaje entrante se convierte en una ejecución y la respuesta sale de inmediato, con ámbitos de herramientas por chat, memoria persistente por chat, listas de permitidos y límites de frecuencia. Hoy ya está disponible un adaptador de Telegram, y la interfaz de adaptadores está pensada para ir más allá —Slack y mucho más—, junto con webhooks entrantes firmados."
+ "orch.svc.5.p": "Ofrece el mismo agente a través de canales de mensajería: un mensaje entrante se convierte en una ejecución y la respuesta sale de inmediato, con ámbitos de herramientas por chat, memoria persistente por chat, listas de permitidos y límites de frecuencia. Hoy ya está disponible un adaptador de Telegram, y la interfaz de adaptadores está pensada para ir más allá —Slack y mucho más—, junto con webhooks entrantes firmados.",
+ "loop.lh.tag": "El largo horizonte",
+ "loop.lh.h2": "Listo para el trabajo agéntico de largo horizonte",
+ "loop.lh.p": "Los flujos de trabajo agénticos reales no terminan de un suspiro — se ejecutan durante horas, esperan al mundo exterior y se extienden por días. Cada primitiva de esta página existe para que una ejecución pueda llegar hasta el final sin perder el hilo.",
+ "loop.lh.1.h": "Un estado que sobrevive a todo",
+ "loop.lh.1.p": "Los puntos de control de cada paso se guardan en almacenamiento duradero, de modo que una ejecución sobrevive a reinicios de proceso, caídas y redespliegues — y se reanuda exactamente donde se detuvo, sin volver a ejecutar ninguna herramienta.",
+ "loop.lh.2.h": "Pausa ahora, continúa después",
+ "loop.lh.2.p": "Una ejecución puede esperar un evento externo, una aprobación o un agente hijo y despertar horas o días después — nada tiene que permanecer fijado en memoria durante toda la duración.",
+ "loop.lh.3.h": "Objetivos que sobreviven a una ejecución",
+ "loop.lh.3.p": "Un objetivo duradero se arrastra a lo largo de muchas ejecuciones y sesiones hasta cumplirse — el trabajo de larga duración tiene memoria de su propia intención, no solo de su último turno.",
+ "loop.lh.4.h": "Coherente a lo largo de toda la distancia",
+ "loop.lh.4.p": "La compactación de contexto y la escalera de promoción de modelos mantienen las ejecuciones muy largas dentro de la ventana, y el planificador <code>almanac</code> impulsa el trabajo recurrente — así un flujo de trabajo puede extenderse por días y aun así mantener el hilo."
 };

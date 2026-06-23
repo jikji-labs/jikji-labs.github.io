@@ -7,7 +7,7 @@ window.JIKJI_I18N["de"]={
  "nav.enterprise": "Enterprise",
  "hero.kicker": "Agent-Plattform · ein einziges Go-Binary · Open Source kommt bald",
  "hero.title": "Die Agent-Plattform,<br/><span class=\"accent\">im Bleisatz gesetzt.</span>",
- "hero.sub": "Jikji ist ein modulares Agent-Framework, das als ein einziges statisches Go-Binary läuft — mit deterministischer Agent-Loop, dauerhaft gesichertem Orchestrierungszustand, adaptivem Zusammenspiel mehrerer Modelle und integrierter Governance, vom Laptop bis zum Enterprise-Cluster.",
+ "hero.sub": "Jikji ist ein modulares Agenten-Framework, das als eine einzige statische Go-Binärdatei läuft — mit einer deterministischen Agentenschleife, dauerhaftem Orchestrierungszustand, adaptiver Multi-Modell-Koordination und integrierter Governance. Gebaut für Agenten-Workflows mit langem Zeithorizont, vom Laptop bis zum Enterprise-Cluster.",
  "cta.start": "Jetzt loslegen",
  "cta.github": "GitHub — kommt bald",
  "story.tag": "Der Name",
@@ -514,5 +514,16 @@ window.JIKJI_I18N["de"]={
  "ent.pii.3.p": "Platzhalter werden auch über Streaming-Chunk-Grenzen hinweg korrekt wiederhergestellt, und die Platzhalter-Tabelle ist mandantengebunden und wird nie persistiert — sie existiert nur für die Dauer der Anfrage.",
  "arch.perf.note": "<b>Skalenunabhängige Effizienz.</b> Auf einem Laptop läuft sie kühl und zieht kaum Strom, sodass Akku und Lüfter in Ruhe bleiben. Auf einem Server antwortet genau dieselbe Binärdatei schneller und fasst mehr gleichzeitige Sitzungen pro Kern — weniger Hardware für dieselbe Last. Eine Runtime, abgestimmt darauf, wo sie läuft.",
  "orch.svc.5.h": "Erreichen Sie Nutzer auf ihren Kanälen",
- "orch.svc.5.p": "Stellen Sie denselben Agenten über Messaging-Kanäle bereit: Eine eingehende Nachricht wird zu einem Lauf, und die Antwort geht direkt zurück – mit Tool-Berechtigungen pro Chat, persistentem Gedächtnis pro Chat, Allowlists und Ratenbegrenzungen. Ein Telegram-Adapter ist ab sofort verfügbar, und die Adapter-Schnittstelle ist auf mehr ausgelegt – Slack und darüber hinaus – ergänzt durch signierte eingehende Webhooks."
+ "orch.svc.5.p": "Stellen Sie denselben Agenten über Messaging-Kanäle bereit: Eine eingehende Nachricht wird zu einem Lauf, und die Antwort geht direkt zurück – mit Tool-Berechtigungen pro Chat, persistentem Gedächtnis pro Chat, Allowlists und Ratenbegrenzungen. Ein Telegram-Adapter ist ab sofort verfügbar, und die Adapter-Schnittstelle ist auf mehr ausgelegt – Slack und darüber hinaus – ergänzt durch signierte eingehende Webhooks.",
+ "loop.lh.tag": "Der lange Horizont",
+ "loop.lh.h2": "Bereit für agentische Arbeit mit langem Zeithorizont",
+ "loop.lh.p": "Echte agentische Workflows sind nicht in einem Atemzug erledigt — sie laufen über Stunden, warten auf die Außenwelt und erstrecken sich über Tage. Jedes Primitiv auf dieser Seite existiert, damit ein Lauf die Distanz schafft, ohne den Faden zu verlieren.",
+ "loop.lh.1.h": "Ein Zustand, der alles übersteht",
+ "loop.lh.1.p": "Checkpoints werden Schritt für Schritt in dauerhaftem Speicher abgelegt, sodass ein Lauf Prozess-Neustarts, Abstürze und Redeployments übersteht — und genau dort fortsetzt, wo er aufgehört hat, ohne ein Tool erneut auszuführen.",
+ "loop.lh.2.h": "Jetzt parken, später fortsetzen",
+ "loop.lh.2.p": "Ein Lauf kann auf ein externes Ereignis, eine Freigabe oder einen untergeordneten Agenten warten und Stunden oder Tage später wieder aufwachen — nichts muss für die gesamte Dauer im Speicher festgehalten werden.",
+ "loop.lh.3.h": "Ziele, die einen Lauf überdauern",
+ "loop.lh.3.p": "Ein dauerhaftes Ziel wird über viele Läufe und Sitzungen hinweg weitergetragen, bis es erreicht ist — langlaufende Arbeit hat ein Gedächtnis für ihre eigene Absicht, nicht nur für ihren letzten Schritt.",
+ "loop.lh.4.h": "Kohärent über die ganze Distanz",
+ "loop.lh.4.p": "Kontext-Kompaktierung und die Modell-Aufstiegsleiter halten sehr lange Läufe innerhalb des Fensters, und der <code>almanac</code>-Scheduler treibt die wiederkehrende Arbeit an — so kann sich ein Workflow über Tage erstrecken und trotzdem den Faden halten."
 };

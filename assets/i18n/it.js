@@ -7,7 +7,7 @@ window.JIKJI_I18N["it"]={
  "nav.enterprise": "Enterprise",
  "hero.kicker": "Piattaforma per agenti · Un solo binario Go · Open source in arrivo",
  "hero.title": "La piattaforma per agenti,<br/><span class=\"accent\">composta in caratteri di metallo.</span>",
- "hero.sub": "Jikji è un framework modulare per agenti che gira come un unico binario Go statico: un ciclo dell'agente deterministico, uno stato di orchestrazione che non si perde mai, un coordinamento adattivo tra più modelli e una governance integrata, dal portatile ai cluster enterprise.",
+ "hero.sub": "Jikji è un framework di agenti modulare che gira come un singolo binario statico Go — con un loop di agente deterministico, stato di orchestrazione durevole, coordinamento multimodello adattivo e governance integrata. Costruito per workflow agentici a lungo orizzonte, dal laptop ai cluster aziendali.",
  "cta.start": "Inizia subito",
  "cta.github": "GitHub — in arrivo",
  "story.tag": "Il nome",
@@ -514,5 +514,16 @@ window.JIKJI_I18N["it"]={
  "ent.pii.3.p": "I segnaposto vengono ripristinati correttamente anche a cavallo dei confini dei chunk in streaming, e la mappa dei segnaposto è legata al tenant e non viene mai persistita — vive soltanto per la durata della richiesta.",
  "arch.perf.note": "<b>Efficienza indipendente dalla scala.</b> Su un portatile rimane fresco e consuma pochissimo, lasciando in pace batteria e ventole. Su un server lo stesso identico binario risponde più in fretta e ospita più sessioni simultanee per core — meno hardware per lo stesso carico. Un solo runtime, calibrato dal luogo in cui gira.",
  "orch.svc.5.h": "Raggiungi gli utenti sui loro canali",
- "orch.svc.5.p": "Offri lo stesso agente sui canali di messaggistica: un messaggio in arrivo diventa un'esecuzione e la risposta riparte subito, con ambiti degli strumenti per ogni chat, memoria persistente per ogni chat, allowlist e limiti di frequenza. Un adattatore Telegram è disponibile già oggi, e l'interfaccia degli adattatori è progettata per andare oltre — Slack e non solo — insieme a webhook in entrata firmati."
+ "orch.svc.5.p": "Offri lo stesso agente sui canali di messaggistica: un messaggio in arrivo diventa un'esecuzione e la risposta riparte subito, con ambiti degli strumenti per ogni chat, memoria persistente per ogni chat, allowlist e limiti di frequenza. Un adattatore Telegram è disponibile già oggi, e l'interfaccia degli adattatori è progettata per andare oltre — Slack e non solo — insieme a webhook in entrata firmati.",
+ "loop.lh.tag": "Il lungo orizzonte",
+ "loop.lh.h2": "Pronto per il lavoro agentico a lungo orizzonte",
+ "loop.lh.p": "I veri workflow agentici non finiscono in un solo respiro — girano per ore, attendono il mondo esterno e si estendono su più giorni. Ogni primitiva di questa pagina esiste perché un'esecuzione possa arrivare fino in fondo senza perdere il filo.",
+ "loop.lh.1.h": "Uno stato che sopravvive a tutto",
+ "loop.lh.1.p": "I checkpoint, passo dopo passo, vengono salvati su storage durevole, così un'esecuzione sopravvive a riavvii di processo, crash e redeploy — e riprende esattamente da dove si era fermata, senza rieseguire alcuno strumento.",
+ "loop.lh.2.h": "Metti in pausa ora, continua dopo",
+ "loop.lh.2.p": "Un'esecuzione può attendere un evento esterno, un'approvazione o un agente figlio e risvegliarsi ore o giorni dopo — nulla deve restare bloccato in memoria per l'intera durata.",
+ "loop.lh.3.h": "Obiettivi che sopravvivono a un'esecuzione",
+ "loop.lh.3.p": "Un obiettivo durevole viene portato avanti attraverso molte esecuzioni e sessioni finché non viene raggiunto — il lavoro di lunga durata ha memoria della propria intenzione, non solo del suo ultimo turno.",
+ "loop.lh.4.h": "Coerente per tutta la distanza",
+ "loop.lh.4.p": "La compattazione del contesto e la scala di promozione dei modelli mantengono le esecuzioni molto lunghe dentro la finestra, e lo scheduler <code>almanac</code> guida il lavoro ricorrente — così un workflow può estendersi su più giorni e mantenere comunque il filo."
 };

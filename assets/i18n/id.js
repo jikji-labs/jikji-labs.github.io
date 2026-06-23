@@ -7,7 +7,7 @@ window.JIKJI_I18N["id"]={
  "nav.enterprise": "Enterprise",
  "hero.kicker": "Platform Agent · Satu Binary Go · Open Source Segera Hadir",
  "hero.title": "Platform agent,<br/><span class=\"accent\">disusun seperti huruf timah.</span>",
- "hero.sub": "Jikji adalah framework agent modular yang berjalan sebagai satu binary Go statis — agent loop yang deterministik, state orkestrasi yang tak pernah hilang, koordinasi multi-model yang adaptif, dan tata kelola bawaan, dari laptop hingga klaster enterprise.",
+ "hero.sub": "Jikji adalah framework agen modular yang berjalan sebagai satu biner Go statis tunggal — dengan loop agen deterministik, status orkestrasi yang tahan lama, koordinasi multimodel adaptif, dan tata kelola bawaan. Dibangun untuk alur kerja agentik berjangka panjang, dari laptop hingga klaster enterprise.",
  "cta.start": "Mulai Sekarang",
  "cta.github": "GitHub — Segera Hadir",
  "story.tag": "Asal Nama",
@@ -514,5 +514,16 @@ window.JIKJI_I18N["id"]={
  "ent.pii.3.p": "Placeholder dipulihkan dengan benar bahkan melintasi batas potongan streaming, dan peta placeholder terikat pada tenant dan tidak pernah disimpan permanen — ia hanya hidup selama permintaan berlangsung.",
  "arch.perf.note": "<b>Efisiensi yang tak bergantung pada skala.</b> Di laptop, ia berjalan adem dan menyedot daya sangat sedikit, tak mengganggu baterai maupun kipas. Di server, biner yang persis sama merespons lebih cepat dan menampung lebih banyak sesi serentak per core — lebih sedikit perangkat keras untuk beban yang sama. Satu runtime, disetel oleh tempat ia berjalan.",
  "orch.svc.5.h": "Temui pengguna di kanal mereka",
- "orch.svc.5.p": "Hadirkan agen yang sama di berbagai kanal perpesanan: pesan masuk menjadi sebuah run dan balasannya langsung dikirim kembali, lengkap dengan cakupan tool per-obrolan, memori yang tersimpan per-obrolan, allowlist, dan batas laju. Adaptor Telegram sudah tersedia hari ini, dan antarmuka adaptornya dirancang untuk berkembang lebih jauh — Slack dan seterusnya — disertai webhook masuk yang ditandatangani."
+ "orch.svc.5.p": "Hadirkan agen yang sama di berbagai kanal perpesanan: pesan masuk menjadi sebuah run dan balasannya langsung dikirim kembali, lengkap dengan cakupan tool per-obrolan, memori yang tersimpan per-obrolan, allowlist, dan batas laju. Adaptor Telegram sudah tersedia hari ini, dan antarmuka adaptornya dirancang untuk berkembang lebih jauh — Slack dan seterusnya — disertai webhook masuk yang ditandatangani.",
+ "loop.lh.tag": "Jangka Panjang",
+ "loop.lh.h2": "Siap untuk kerja agentik berjangka panjang",
+ "loop.lh.p": "Alur kerja agentik yang sesungguhnya tidak selesai dalam satu tarikan napas — alur itu berjalan berjam-jam, menunggu dunia luar, dan membentang berhari-hari. Setiap primitif di halaman ini ada agar sebuah eksekusi bisa menempuh jarak penuh tanpa kehilangan alur.",
+ "loop.lh.1.h": "Status yang bertahan dari apa pun",
+ "loop.lh.1.p": "Checkpoint di setiap langkah disimpan ke penyimpanan yang tahan lama, sehingga sebuah eksekusi bertahan melewati restart proses, crash, dan deploy ulang — dan melanjutkan persis di titik berhenti, tanpa menjalankan ulang tool apa pun.",
+ "loop.lh.2.h": "Jeda sekarang, lanjutkan nanti",
+ "loop.lh.2.p": "Sebuah eksekusi dapat menunggu peristiwa eksternal, persetujuan, atau agen anak lalu bangun berjam-jam atau berhari-hari kemudian — tidak ada yang perlu tetap tertambat di memori sepanjang durasinya.",
+ "loop.lh.3.h": "Tujuan yang hidup lebih lama dari satu eksekusi",
+ "loop.lh.3.p": "Sebuah tujuan yang tahan lama dibawa terus melintasi banyak eksekusi dan sesi hingga tercapai — pekerjaan jangka panjang memiliki ingatan akan niatnya sendiri, bukan hanya giliran terakhirnya.",
+ "loop.lh.4.h": "Koheren sepanjang jarak",
+ "loop.lh.4.p": "Pemadatan konteks dan tangga promosi model menjaga eksekusi yang sangat panjang tetap berada di dalam jendela, dan penjadwal <code>almanac</code> menggerakkan pekerjaan berulang — sehingga sebuah alur kerja bisa membentang berhari-hari dan tetap menjaga alurnya."
 };

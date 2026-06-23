@@ -7,7 +7,7 @@ window.JIKJI_I18N["pt"]={
  "nav.enterprise": "Enterprise",
  "hero.kicker": "Plataforma de agentes · Um único binário Go · Código aberto em breve",
  "hero.title": "A plataforma de agentes,<br/><span class=\"accent\">composta em tipos móveis.</span>",
- "hero.sub": "O Jikji é um framework modular de agentes que roda como um único binário Go estático: um loop de agente determinístico, estado de orquestração que nunca se perde, coordenação adaptativa entre múltiplos modelos e governança nativa — do notebook ao cluster corporativo.",
+ "hero.sub": "O Jikji é um framework de agentes modular que roda como um único binário estático de Go — um loop de agente determinístico, estado de orquestração durável, coordenação multimodelo adaptativa e governança integrada. Feito para fluxos de trabalho agênticos de longo horizonte, do laptop a clusters corporativos.",
  "cta.start": "Começar",
  "cta.github": "GitHub — em breve",
  "story.tag": "O nome",
@@ -514,5 +514,16 @@ window.JIKJI_I18N["pt"]={
  "ent.pii.3.p": "Os marcadores são restaurados corretamente mesmo entre os limites dos blocos de streaming, e o mapa de marcadores é vinculado ao inquilino e nunca persistido — ele vive apenas durante a requisição.",
  "arch.perf.note": "<b>Eficiência independente de escala.</b> Num notebook, ele roda frio e consome pouquíssima energia, sem mexer com a bateria nem com as ventoinhas. Num servidor, esse mesmo binário responde mais rápido e acomoda mais sessões simultâneas por núcleo — menos hardware para a mesma carga. Um único runtime, ajustado pelo lugar onde roda.",
  "orch.svc.5.h": "Encontre seus usuários nos canais deles",
- "orch.svc.5.p": "Ofereça o mesmo agente em canais de mensagens: uma mensagem recebida vira uma execução e a resposta sai na hora, com escopos de ferramentas por conversa, memória persistente por conversa, listas de permissões e limites de taxa. Um adaptador do Telegram já está disponível hoje, e a interface de adaptadores foi pensada para ir além — Slack e muito mais —, acompanhada de webhooks de entrada assinados."
+ "orch.svc.5.p": "Ofereça o mesmo agente em canais de mensagens: uma mensagem recebida vira uma execução e a resposta sai na hora, com escopos de ferramentas por conversa, memória persistente por conversa, listas de permissões e limites de taxa. Um adaptador do Telegram já está disponível hoje, e a interface de adaptadores foi pensada para ir além — Slack e muito mais —, acompanhada de webhooks de entrada assinados.",
+ "loop.lh.tag": "O longo horizonte",
+ "loop.lh.h2": "Pronto para o trabalho agêntico de longo horizonte",
+ "loop.lh.p": "Fluxos de trabalho agênticos de verdade não terminam num único fôlego — eles rodam por horas, esperam pelo mundo externo e se estendem por dias. Cada primitiva desta página existe para que uma execução possa ir até o fim sem perder o fio da meada.",
+ "loop.lh.1.h": "Um estado que sobrevive a tudo",
+ "loop.lh.1.p": "Os checkpoints de cada passo são gravados em armazenamento durável, de modo que uma execução sobrevive a reinícios de processo, falhas e novos deploys — e retoma exatamente de onde parou, sem reexecutar nenhuma ferramenta.",
+ "loop.lh.2.h": "Pause agora, continue depois",
+ "loop.lh.2.p": "Uma execução pode esperar por um evento externo, uma aprovação ou um agente filho e despertar horas ou dias depois — nada precisa ficar preso na memória durante todo o período.",
+ "loop.lh.3.h": "Metas que sobrevivem a uma execução",
+ "loop.lh.3.p": "Uma meta durável é levada adiante por muitas execuções e sessões até ser cumprida — o trabalho de longa duração tem memória da própria intenção, não apenas do último turno.",
+ "loop.lh.4.h": "Coerente por toda a distância",
+ "loop.lh.4.p": "A compactação de contexto e a escada de promoção de modelos mantêm execuções muito longas dentro da janela, e o agendador <code>almanac</code> conduz o trabalho recorrente — assim um fluxo de trabalho pode se estender por dias e ainda manter o fio da meada."
 };
