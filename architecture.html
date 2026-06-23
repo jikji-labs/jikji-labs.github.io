@@ -22,6 +22,7 @@
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
       <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
       <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+      <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
       <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
       <select class="lang-sel" id="langSel" aria-label="Language"></select>
     </nav>
@@ -152,6 +153,31 @@
   </div>
 </section>
 
+<!-- PERFORMANCE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="arch.perf.tag">Performance &amp; Efficiency</span>
+      <h2 data-i18n="arch.perf.h2">Many sessions, frugal footprint</h2>
+      <p data-i18n="arch.perf.p">A compiled Go core, not an interpreter — built so a single node serves many concurrent sessions while staying light on memory and fast to respond.</p>
+    </div>
+    <div class="grid cols3">
+      <div class="card">
+        <h3 data-i18n="arch.perf.1.h">Concurrency without weight</h3>
+        <p data-i18n="arch.perf.1.p">Go goroutines handle many sessions in one process — no per-session interpreter or runtime to spin up. Work runs in-process first, so coordination is a function call, not a network hop.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="arch.perf.2.h">Fast by construction</h3>
+        <p data-i18n="arch.perf.2.p">Cache-aware sticky routing, provider-native prompt caching, and a semantic response cache cut redundant model calls; circuit breakers and bounded queues keep a slow upstream from dragging everything down.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="arch.perf.3.h">Frugal footprint</h3>
+        <p data-i18n="arch.perf.3.p">One static binary with embedded SQLite, hot-path memo caching, and context compaction — minimal memory and CPU per session, from a laptop to a dense multi-tenant node.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="tight">
   <div class="wrap">
     <div class="pagenav">
@@ -175,6 +201,7 @@
           <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
           <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
           <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+          <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
           <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
         </div>
         <div class="foot-col">

@@ -22,6 +22,7 @@
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
       <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
       <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+      <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
       <a href="enterprise.html" class="active" data-i18n="nav.enterprise">Enterprise</a>
       <select class="lang-sel" id="langSel" aria-label="Language"></select>
     </nav>
@@ -167,10 +168,35 @@ jikjictl provider oauth reset codex   <span class="c"># clear a quarantined OAut
   </div>
 </section>
 
+<!-- ZERO-DOWNTIME -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="ent.upd.tag">Zero-Downtime Operations</span>
+      <h2 data-i18n="ent.upd.h2">Update it without taking it down</h2>
+      <p data-i18n="ent.upd.p">A platform that runs the business can't stop to be reconfigured. Jikji is built to change live — drain cleanly, reload config in place, and roll updates across a cluster that never stops serving.</p>
+    </div>
+    <div class="grid cols3">
+      <div class="card">
+        <h3 data-i18n="ent.upd.1.h">Graceful drain</h3>
+        <p data-i18n="ent.upd.1.p">On shutdown the node stops accepting new work, lets in-flight runs finish, and only then exits — so a restart or redeploy never drops a session mid-flight.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="ent.upd.2.h">Hot config reload</h3>
+        <p data-i18n="ent.upd.2.p">Export and reload runtime config over API, CLI, or dashboard without a restart — change providers, filters, and policy live, with deterministic, validated parsing.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="ent.upd.3.h">Rolling updates via HA</h3>
+        <p data-i18n="ent.upd.3.p">With HA enabled, controllers share one database and elect a single leader for the singleton schedulers while every node serves traffic — so you update nodes one at a time and the cluster keeps running.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="tight">
   <div class="wrap">
     <div class="pagenav">
-      <a href="memory.html"><div class="dir" data-i18n="pn.back">← Back</div><div class="lbl" data-i18n="nav.memory">Memory &amp; Data</div></a>
+      <a href="ontology.html"><div class="dir" data-i18n="pn.back">← Back</div><div class="lbl" data-i18n="nav.ontology">Ontology</div></a>
       <a href="index.html" style="text-align:right"><div class="dir" data-i18n="pn.next">Next →</div><div class="lbl" data-i18n="pn.start">Overview &amp; Get Started</div></a>
     </div>
   </div>
@@ -190,6 +216,7 @@ jikjictl provider oauth reset codex   <span class="c"># clear a quarantined OAut
           <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
           <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
           <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+          <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
           <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
         </div>
         <div class="foot-col">
