@@ -533,5 +533,16 @@ window.JIKJI_I18N["id"]={
  "onto.h.f1": "DB SQL",
  "onto.h.f2": "Cache SQL",
  "onto.h.flow": "Kueri sekali, gunakan ulang hasil yang tersimpan di cache, lalu analisis dengan stack ilmiah yang kamu sediakan di sandbox — jikji sama cakapnya dalam mengolah data seperti halnya mengobrol.",
- "arch.dep.free": "<b>Bebas di setiap sumbu.</b> <b>Bebas skala</b> — dari laptop hingga pusat data. <b>Bebas lokasi</b> — dari eksekusi lokal hingga node jarak jauh. <b>Bebas jaringan</b> — terowongan relay TLS menjangkau node lintas jaringan, di balik NAT atau firewall, on-premise maupun di cloud mana pun, sehingga lingkungan yang tadinya tak bisa saling melihat menyatu dalam satu jalinan. <b>Bebas region &amp; OS</b> — alat berjalan di mana pun node berada, di Linux, macOS, atau Windows. <b>Bebas instans</b> — satu proses atau banyak di balik basis data bersama, dengan pemilihan leader HA. Biner yang sama, agen yang sama; hanya konfigurasi yang berubah."
+ "arch.dep.free.h": "Bebas di setiap sumbu.",
+ "arch.dep.free.scale.l": "Tanpa batas skala",
+ "arch.dep.free.scale.d": "dari laptop hingga pusat data.",
+ "arch.dep.free.loc.l": "Tanpa batas lokasi",
+ "arch.dep.free.loc.d": "dari eksekusi lokal hingga node jarak jauh.",
+ "arch.dep.free.net.l": "Tanpa batas jaringan",
+ "arch.dep.free.net.d": "terowongan relay TLS menjangkau node melintasi jaringan, di balik NAT atau firewall, on-premises atau di cloud mana pun — sehingga lingkungan yang tadinya tak bisa saling melihat menyatu dalam satu jalinan.",
+ "arch.dep.free.os.l": "Tanpa batas region &amp; OS",
+ "arch.dep.free.os.d": "tools berjalan di mana pun node berada, di Linux, macOS, atau Windows.",
+ "arch.dep.free.inst.l": "Tanpa batas instance",
+ "arch.dep.free.inst.d": "satu proses atau banyak di balik basis data bersama, dengan pemilihan leader HA.",
+ "arch.dep.free.foot": "Biner yang sama, agen yang sama; hanya konfigurasinya yang berubah."
 };

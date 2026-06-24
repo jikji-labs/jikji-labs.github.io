@@ -205,6 +205,10 @@ section.tight{padding:48px 0}
   padding:18px 22px;font-size:14px;color:var(--ink-soft);margin-top:8px;
 }
 .callout b{color:var(--ink)}
+.freelist{list-style:none;margin:10px 0 0;padding:0}
+.freelist li{position:relative;padding-left:20px;margin-bottom:8px;font-size:14px;color:var(--ink-soft);line-height:1.55}
+.freelist li::before{content:"›";position:absolute;left:3px;color:var(--vermilion);font-weight:700}
+.freelist b{color:var(--ink)}
 
 /* protocol strip */
 .protos{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}

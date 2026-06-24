@@ -533,5 +533,16 @@ window.JIKJI_I18N["vi"]={
  "onto.h.f1": "CSDL SQL",
  "onto.h.f2": "Cache SQL",
  "onto.h.flow": "Truy vấn một lần, tái sử dụng kết quả đã cache, rồi phân tích bằng bộ công cụ khoa học mà bạn cung cấp trong sandbox — jikji thành thạo việc xử lý dữ liệu chẳng kém gì trò chuyện.",
- "arch.dep.free": "<b>Tự do trên mọi trục.</b> <b>Tự do về quy mô</b> — từ laptop đến trung tâm dữ liệu. <b>Tự do về vị trí</b> — từ thực thi cục bộ ra đến các node từ xa. <b>Tự do về mạng</b> — một đường hầm chuyển tiếp TLS vươn tới các node xuyên qua các mạng, sau NAT hay tường lửa, tại chỗ hay trên bất kỳ đám mây nào, để những môi trường lẽ ra không thấy được nhau cùng hợp thành một kết cấu. <b>Tự do về vùng &amp; HĐH</b> — công cụ chạy ở bất cứ nơi nào node tồn tại, trên Linux, macOS hay Windows. <b>Tự do về phiên bản chạy</b> — một tiến trình hay nhiều tiến trình sau một cơ sở dữ liệu dùng chung, với bầu chọn leader HA. Cùng một tệp nhị phân, cùng những agent; chỉ cấu hình thay đổi."
+ "arch.dep.free.h": "Tự do trên mọi trục.",
+ "arch.dep.free.scale.l": "Không giới hạn quy mô",
+ "arch.dep.free.scale.d": "từ laptop đến trung tâm dữ liệu.",
+ "arch.dep.free.loc.l": "Không ràng buộc vị trí",
+ "arch.dep.free.loc.d": "từ thực thi cục bộ đến các node từ xa.",
+ "arch.dep.free.net.l": "Không rào cản mạng",
+ "arch.dep.free.net.d": "một đường hầm relay TLS vươn tới các node xuyên qua các mạng, sau NAT hay tường lửa, tại chỗ hay trên bất kỳ đám mây nào — để những môi trường vốn không thấy được nhau cùng hợp thành một mạng lưới duy nhất.",
+ "arch.dep.free.os.l": "Không biên giới vùng &amp; hệ điều hành",
+ "arch.dep.free.os.d": "công cụ chạy ở bất cứ nơi nào có node, trên Linux, macOS hay Windows.",
+ "arch.dep.free.inst.l": "Không ràng buộc phiên bản",
+ "arch.dep.free.inst.d": "một tiến trình hay nhiều tiến trình sau một cơ sở dữ liệu dùng chung, với bầu chọn leader HA.",
+ "arch.dep.free.foot": "Cùng một binary, cùng các agent; chỉ cấu hình thay đổi."
 };

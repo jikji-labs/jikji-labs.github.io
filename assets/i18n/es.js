@@ -533,5 +533,16 @@ window.JIKJI_I18N["es"]={
  "onto.h.f1": "BD SQL",
  "onto.h.f2": "Caché SQL",
  "onto.h.flow": "Consulta una vez, reutiliza el resultado en caché y analízalo con el stack científico que proporcionas en el sandbox — jikji se desenvuelve igual de bien con los datos que con el chat.",
- "arch.dep.free": "<b>Libre en cada eje.</b> <b>Sin límites de escala</b> — del portátil al centro de datos. <b>Sin ataduras de ubicación</b> — desde la ejecución local hasta los nodos remotos. <b>Sin barreras de red</b> — un túnel de retransmisión TLS alcanza nodos a través de las redes, detrás de un NAT o un firewall, en local o en cualquier nube, de modo que entornos que de otro modo no podrían verse se unen en un mismo tejido. <b>Sin restricciones de región ni de SO</b> — las herramientas se ejecutan donde viva el nodo, en Linux, macOS o Windows. <b>Sin límites de instancia</b> — un proceso o muchos detrás de una base de datos compartida, con elección de líder en HA. El mismo binario, los mismos agentes; solo cambia la configuración."
+ "arch.dep.free.h": "Libre en todos los ejes.",
+ "arch.dep.free.scale.l": "Sin límite de escala",
+ "arch.dep.free.scale.d": "del portátil al centro de datos.",
+ "arch.dep.free.loc.l": "Sin atadura de ubicación",
+ "arch.dep.free.loc.d": "de la ejecución local hasta los nodos remotos.",
+ "arch.dep.free.net.l": "Sin barrera de red",
+ "arch.dep.free.net.d": "un túnel relé TLS llega a los nodos a través de las redes, detrás de un NAT o un firewall, on-premises o en cualquier nube — así, entornos que de otro modo no podrían verse se unen en una sola malla.",
+ "arch.dep.free.os.l": "Sin frontera de región &amp; SO",
+ "arch.dep.free.os.d": "las herramientas se ejecutan donde vive el nodo, en Linux, macOS o Windows.",
+ "arch.dep.free.inst.l": "Sin atadura de instancia",
+ "arch.dep.free.inst.d": "un proceso o muchos detrás de una base de datos compartida, con elección de líder en HA.",
+ "arch.dep.free.foot": "El mismo binario, los mismos agentes; solo cambia la configuración."
 };

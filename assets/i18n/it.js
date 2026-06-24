@@ -533,5 +533,16 @@ window.JIKJI_I18N["it"]={
  "onto.h.f1": "DB SQL",
  "onto.h.f2": "Cache SQL",
  "onto.h.flow": "Interroga una volta, riutilizza il risultato in cache e analizzalo con lo stack scientifico che fornisci nella sandbox — jikji è a suo agio con i dati quanto con la chat.",
- "arch.dep.free": "<b>Libero su ogni asse.</b> <b>Senza limiti di scala</b> — dal portatile al data center. <b>Senza vincoli di posizione</b> — dall'esecuzione locale fino ai nodi remoti. <b>Senza barriere di rete</b> — un tunnel relay TLS raggiunge i nodi attraverso le reti, dietro un NAT o un firewall, on-premise o in qualsiasi cloud, così ambienti che altrimenti non potrebbero vedersi confluiscono in un unico tessuto. <b>Senza vincoli di regione &amp; OS</b> — gli strumenti girano ovunque viva il nodo, su Linux, macOS o Windows. <b>Senza limiti di istanza</b> — un processo o molti dietro un database condiviso, con elezione del leader in HA. Stesso binario, stessi agenti; cambia solo la configurazione."
+ "arch.dep.free.h": "Libero su ogni asse.",
+ "arch.dep.free.scale.l": "Senza limiti di scala",
+ "arch.dep.free.scale.d": "dal laptop al data center.",
+ "arch.dep.free.loc.l": "Senza vincoli di posizione",
+ "arch.dep.free.loc.d": "dall'esecuzione locale fino ai nodi remoti.",
+ "arch.dep.free.net.l": "Senza barriere di rete",
+ "arch.dep.free.net.d": "un tunnel relay TLS raggiunge i nodi attraverso le reti, dietro un NAT o un firewall, on-premises o in qualsiasi cloud — così ambienti che altrimenti non potrebbero vedersi si uniscono in un unico tessuto.",
+ "arch.dep.free.os.l": "Senza confini di regione &amp; OS",
+ "arch.dep.free.os.d": "gli strumenti girano ovunque viva il nodo, su Linux, macOS o Windows.",
+ "arch.dep.free.inst.l": "Senza vincoli di istanza",
+ "arch.dep.free.inst.d": "un processo o molti dietro un database condiviso, con elezione del leader in HA.",
+ "arch.dep.free.foot": "Stesso binario, stessi agenti; cambia solo la configurazione."
 };

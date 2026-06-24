@@ -533,5 +533,16 @@ window.JIKJI_I18N["pt"]={
  "onto.h.f1": "Banco SQL",
  "onto.h.f2": "Cache SQL",
  "onto.h.flow": "Consulte uma vez, reaproveite o resultado em cache e analise-o com a stack científica que você fornece no sandbox — o jikji se sai tão bem com dados quanto com chat.",
- "arch.dep.free": "<b>Livre em cada eixo.</b> <b>Sem limites de escala</b> — do notebook ao data center. <b>Sem amarras de localização</b> — da execução local até os nós remotos. <b>Sem barreiras de rede</b> — um túnel de retransmissão TLS alcança nós através das redes, atrás de um NAT ou firewall, on-premises ou em qualquer nuvem, de modo que ambientes que de outra forma não se enxergariam se unem em um mesmo tecido. <b>Sem restrições de região &amp; SO</b> — as ferramentas rodam onde o nó estiver, no Linux, macOS ou Windows. <b>Sem limites de instância</b> — um processo ou vários atrás de um banco de dados compartilhado, com eleição de líder em HA. O mesmo binário, os mesmos agentes; só a configuração muda."
+ "arch.dep.free.h": "Livre em todos os eixos.",
+ "arch.dep.free.scale.l": "Sem limite de escala",
+ "arch.dep.free.scale.d": "do laptop ao data center.",
+ "arch.dep.free.loc.l": "Sem amarras de local",
+ "arch.dep.free.loc.d": "da execução local até os nós remotos.",
+ "arch.dep.free.net.l": "Sem barreira de rede",
+ "arch.dep.free.net.d": "um túnel de relay TLS alcança os nós através das redes, atrás de um NAT ou firewall, on-premises ou em qualquer nuvem — assim, ambientes que de outra forma não se enxergariam se unem em uma única malha.",
+ "arch.dep.free.os.l": "Sem fronteira de região &amp; SO",
+ "arch.dep.free.os.d": "as ferramentas rodam onde o nó vive, no Linux, macOS ou Windows.",
+ "arch.dep.free.inst.l": "Sem amarras de instância",
+ "arch.dep.free.inst.d": "um processo ou vários atrás de um banco de dados compartilhado, com eleição de líder em HA.",
+ "arch.dep.free.foot": "Mesmo binário, mesmos agentes; só a configuração muda."
 };

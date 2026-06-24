@@ -533,5 +533,16 @@ window.JIKJI_I18N["fr"]={
  "onto.h.f1": "Base SQL",
  "onto.h.f2": "Cache SQL",
  "onto.h.flow": "Interrogez une fois, réutilisez le résultat mis en cache, puis analysez-le avec la pile scientifique que vous fournissez dans le bac à sable — jikji est aussi à l'aise avec le traitement des données qu'avec la conversation.",
- "arch.dep.free": "<b>Libre sur chaque axe.</b> <b>Sans limite d'échelle</b> — de l'ordinateur portable au centre de données. <b>Sans contrainte de lieu</b> — de l'exécution locale jusqu'aux nœuds distants. <b>Sans frontière réseau</b> — un tunnel relais TLS atteint les nœuds à travers les réseaux, derrière un NAT ou un pare-feu, sur site ou dans n'importe quel cloud, si bien que des environnements qui ne pouvaient pas se voir rejoignent un même tissu. <b>Sans contrainte de région ni d'OS</b> — les outils s'exécutent là où vit le nœud, sous Linux, macOS ou Windows. <b>Sans contrainte d'instance</b> — un seul processus ou plusieurs derrière une base de données partagée, avec élection de leader HA. Même binaire, mêmes agents ; seule la configuration change."
+ "arch.dep.free.h": "Libre sur chaque axe.",
+ "arch.dep.free.scale.l": "Sans limite d'échelle",
+ "arch.dep.free.scale.d": "de l'ordinateur portable au centre de données.",
+ "arch.dep.free.loc.l": "Sans contrainte de lieu",
+ "arch.dep.free.loc.d": "de l'exécution locale jusqu'aux nœuds distants.",
+ "arch.dep.free.net.l": "Sans barrière réseau",
+ "arch.dep.free.net.d": "un tunnel relais TLS atteint les nœuds à travers les réseaux, derrière un NAT ou un pare-feu, sur site ou dans n'importe quel cloud — ainsi des environnements qui ne pouvaient pas se voir rejoignent un même maillage.",
+ "arch.dep.free.os.l": "Sans frontière de région &amp; d'OS",
+ "arch.dep.free.os.d": "les outils s'exécutent là où vit le nœud, sous Linux, macOS ou Windows.",
+ "arch.dep.free.inst.l": "Sans contrainte d'instance",
+ "arch.dep.free.inst.d": "un seul processus ou plusieurs derrière une base de données partagée, avec élection de leader en HA.",
+ "arch.dep.free.foot": "Même binaire, mêmes agents ; seule la configuration change."
 };

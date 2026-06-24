@@ -533,5 +533,16 @@ window.JIKJI_I18N["zh-tw"]={
  "onto.h.f1": "SQL 資料庫",
  "onto.h.f2": "SQL 快取",
  "onto.h.flow": "查詢一次，重複使用快取結果，再用你在沙箱中提供的科學運算堆疊進行分析 —— jikji 處理資料和聊天一樣得心應手。",
- "arch.dep.free": "<b>每個維度都自由。</b> <b>規模自由</b> — 從筆電到資料中心。 <b>位置自由</b> — 從本地執行延伸到遠端節點。 <b>網路自由</b> — TLS 中繼隧道可跨網路抵達節點，無論在 NAT 或防火牆之後、地端部署還是任何雲端，讓原本互不可見的環境匯入同一張網路。 <b>區域 &amp; 系統自由</b> — 工具可在節點所在的任何地方運行，無論 Linux、macOS 還是 Windows。 <b>實例自由</b> — 單一程序，或在共享資料庫之後透過 HA 主節點選舉運行多個程序。 同樣的二進位檔，同樣的代理，改變的只有設定。"
+ "arch.dep.free.h": "在每一個維度上都自由。",
+ "arch.dep.free.scale.l": "規模無界",
+ "arch.dep.free.scale.d": "從筆電到資料中心。",
+ "arch.dep.free.loc.l": "位置無界",
+ "arch.dep.free.loc.d": "從本機執行到遠端節點。",
+ "arch.dep.free.net.l": "網路無界",
+ "arch.dep.free.net.d": "TLS 中繼隧道可跨越網路抵達節點，無論是在 NAT 或防火牆之後、本地部署還是任何雲端 — 讓原本彼此看不見的環境匯入同一張網路。",
+ "arch.dep.free.os.l": "區域 &amp; 系統無界",
+ "arch.dep.free.os.d": "工具在節點所在之處即可執行，無論 Linux、macOS 還是 Windows。",
+ "arch.dep.free.inst.l": "執行個體無界",
+ "arch.dep.free.inst.d": "在共用資料庫後端執行單一或多個處理程序，並支援 HA 主節點選舉。",
+ "arch.dep.free.foot": "相同的二進位檔，相同的代理程式；改變的只有設定。"
 };

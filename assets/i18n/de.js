@@ -533,5 +533,16 @@ window.JIKJI_I18N["de"]={
  "onto.h.f1": "SQL-DB",
  "onto.h.f2": "SQL-Cache",
  "onto.h.flow": "Einmal abfragen, das gecachte Ergebnis wiederverwenden und es mit dem wissenschaftlichen Stack analysieren, den du in der Sandbox bereitstellst — jikji ist mit Datenarbeit ebenso zu Hause wie mit dem Chat.",
- "arch.dep.free": "<b>Frei auf jeder Achse.</b> <b>Skalierungsfrei</b> — vom Laptop bis zum Rechenzentrum. <b>Standortfrei</b> — von der lokalen Ausführung bis zu entfernten Knoten. <b>Netzwerkfrei</b> — ein TLS-Relay-Tunnel erreicht Knoten über Netzwerke hinweg, hinter NAT oder Firewall, on-premises oder in jeder Cloud, sodass Umgebungen, die sich sonst nicht sehen könnten, zu einem einzigen Gewebe zusammenfinden. <b>Regions- &amp; OS-frei</b> — Tools laufen, wo der Knoten lebt, unter Linux, macOS oder Windows. <b>Instanzfrei</b> — ein Prozess oder viele hinter einer gemeinsamen Datenbank, mit HA-Leader-Wahl. Gleiches Binary, gleiche Agenten; nur die Konfiguration ändert sich."
+ "arch.dep.free.h": "Frei auf jeder Achse.",
+ "arch.dep.free.scale.l": "Skalierungsfrei",
+ "arch.dep.free.scale.d": "vom Laptop bis zum Rechenzentrum.",
+ "arch.dep.free.loc.l": "Standortfrei",
+ "arch.dep.free.loc.d": "von der lokalen Ausführung bis zu entfernten Nodes.",
+ "arch.dep.free.net.l": "Netzwerkfrei",
+ "arch.dep.free.net.d": "ein TLS-Relay-Tunnel erreicht Nodes über Netzwerke hinweg, hinter NAT oder Firewall, on-premises oder in jeder Cloud — so verbinden sich Umgebungen, die sich sonst nicht sehen könnten, zu einem einzigen Fabric.",
+ "arch.dep.free.os.l": "Region- &amp; OS-frei",
+ "arch.dep.free.os.d": "Tools laufen dort, wo die Node lebt, unter Linux, macOS oder Windows.",
+ "arch.dep.free.inst.l": "Instanzfrei",
+ "arch.dep.free.inst.d": "ein Prozess oder viele hinter einer gemeinsamen Datenbank, mit HA-Leader-Wahl.",
+ "arch.dep.free.foot": "Dasselbe Binary, dieselben Agents; nur die Konfiguration ändert sich."
 };

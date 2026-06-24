@@ -146,7 +146,17 @@
     <span class="k">balanced</span>:
       <span class="k">providers</span>: [ollama-cloud, glm-5.1]
       <span class="k">strategy</span>: round_robin   <span class="c"># round_robin · first_available · failover</span></pre>
-    <div class="callout" style="margin-top:26px" data-i18n="arch.dep.free"><b>Free along every axis.</b> <b>Scale-free</b> — laptop to data center. <b>Location-free</b> — local execution out to remote nodes. <b>Network-free</b> — a TLS relay tunnel reaches nodes across networks, behind NAT or a firewall, on-prem or in any cloud, so environments that couldn't otherwise see each other join one fabric. <b>Region- &amp; OS-free</b> — tools run wherever the node lives, on Linux, macOS, or Windows. <b>Instance-free</b> — one process or many behind a shared database, with HA leader election. Same binary, same agents; only the configuration changes.</div>
+    <div class="callout" style="margin-top:26px">
+      <b data-i18n="arch.dep.free.h">Free along every axis.</b>
+      <ul class="freelist">
+        <li><b data-i18n="arch.dep.free.scale.l">Scale-free</b> — <span data-i18n="arch.dep.free.scale.d">laptop to data center.</span></li>
+        <li><b data-i18n="arch.dep.free.loc.l">Location-free</b> — <span data-i18n="arch.dep.free.loc.d">local execution out to remote nodes.</span></li>
+        <li><b data-i18n="arch.dep.free.net.l">Network-free</b> — <span data-i18n="arch.dep.free.net.d">a TLS relay tunnel reaches nodes across networks, behind NAT or a firewall, on-prem or in any cloud — so environments that couldn't otherwise see each other join one fabric.</span></li>
+        <li><b data-i18n="arch.dep.free.os.l">Region- &amp; OS-free</b> — <span data-i18n="arch.dep.free.os.d">tools run wherever the node lives, on Linux, macOS, or Windows.</span></li>
+        <li><b data-i18n="arch.dep.free.inst.l">Instance-free</b> — <span data-i18n="arch.dep.free.inst.d">one process or many behind a shared database, with HA leader election.</span></li>
+      </ul>
+      <p style="margin-top:10px;color:var(--ink-faint)" data-i18n="arch.dep.free.foot">Same binary, same agents; only the configuration changes.</p>
+    </div>
   </div>
 </section>
 

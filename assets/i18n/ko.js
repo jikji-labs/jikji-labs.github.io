@@ -533,5 +533,16 @@ window.JIKJI_I18N["ko"]={
  "onto.h.f1": "SQL DB",
  "onto.h.f2": "SQL 캐시",
  "onto.h.flow": "한 번 쿼리하고, 캐시된 결과를 재사용한 뒤, 샌드박스에 직접 제공한 과학 스택으로 분석하세요 — jikji는 채팅만큼이나 데이터 작업에도 능숙합니다.",
- "arch.dep.free": "<b>모든 축에서 자유롭게.</b> <b>규모 자유</b> — 노트북부터 데이터 센터까지. <b>위치 자유</b> — 로컬 실행에서 원격 노드까지. <b>네트워크 자유</b> — TLS 릴레이 터널이 네트워크를 가로질러, NAT나 방화벽 뒤, 온프레미스나 모든 클라우드의 노드에 닿아, 서로 볼 수 없던 환경들이 하나의 패브릭으로 묶입니다. <b>지역 &amp; OS 자유</b> — 도구는 노드가 있는 곳이라면 Linux, macOS, Windows 어디서든 실행됩니다. <b>인스턴스 자유</b> — 단일 프로세스든, 공유 데이터베이스 뒤에 HA 리더 선출을 둔 여러 프로세스든. 같은 바이너리, 같은 에이전트, 바뀌는 건 설정뿐입니다."
+ "arch.dep.free.h": "모든 축에서 자유롭게.",
+ "arch.dep.free.scale.l": "규모 제약 없음",
+ "arch.dep.free.scale.d": "노트북부터 데이터센터까지.",
+ "arch.dep.free.loc.l": "위치 제약 없음",
+ "arch.dep.free.loc.d": "로컬 실행에서 원격 노드까지.",
+ "arch.dep.free.net.l": "네트워크 제약 없음",
+ "arch.dep.free.net.d": "TLS 릴레이 터널이 NAT나 방화벽 뒤, 온프레미스 또는 어떤 클라우드든 네트워크를 가로질러 노드에 연결됩니다 — 서로 볼 수 없던 환경들이 하나의 패브릭으로 묶입니다.",
+ "arch.dep.free.os.l": "리전 &amp; OS 제약 없음",
+ "arch.dep.free.os.d": "도구는 노드가 있는 곳이라면 Linux, macOS, Windows 어디서든 실행됩니다.",
+ "arch.dep.free.inst.l": "인스턴스 제약 없음",
+ "arch.dep.free.inst.d": "공유 데이터베이스 뒤에서 단일 프로세스 또는 다수로, HA 리더 선출과 함께.",
+ "arch.dep.free.foot": "같은 바이너리, 같은 에이전트, 바뀌는 건 설정뿐입니다."
 };
