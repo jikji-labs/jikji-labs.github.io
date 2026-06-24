@@ -490,7 +490,7 @@ window.JIKJI_I18N["de"]={
  "ent.mt.1.h": "Ein Mandant ist eine Dienstgrenze",
  "ent.mt.1.p": "Jeder Mandant hat eigene Schlüssel, Daten, Speicher und Richtlinien. Stellen Sie einen Dienst pro Mandant bereit — oder pro Team, Kunde oder Umgebung — alle auf demselben Cluster, vollständig voneinander isoliert.",
  "ent.mt.2.h": "Jeder Nutzer ist ein Principal mit definiertem Geltungsbereich",
- "ent.mt.2.p": "Endnutzer erreichen einen Dienst über Client-Schlüssel mit eingeschränktem Geltungsbereich. Jeder Principal trägt seinen Mandanten, eine Akteursidentität und seine eigenen Geltungsbereiche — so wird pro Anfrage und nicht pro Deployment entschieden, was ein bestimmter Nutzer tun darf.",
+ "ent.mt.2.p": "Nutzer greifen als Principals mit Scopes auf einen Dienst zu, und ein einziger Service-Key kann viele von ihnen tragen. Eine actor-Identität in jeder Anfrage unterscheidet einen Endnutzer vom anderen, sodass sie getrennt bleiben, ohne dass pro Person ein eigener Key nötig ist; die Scopes entscheiden weiterhin pro Anfrage, was jeder tun darf.",
  "ent.mt.3.h": "Speicher pro Nutzer isoliert",
  "ent.mt.3.p": "Abruf und Aufnahme sind nach Mandant <em>und</em> Akteur partitioniert und werden vom Principal auf jeden Lauf geprägt — so sieht ein Nutzer niemals den Speicher eines anderen, selbst innerhalb desselben Dienstes.",
  "ent.mt.4.h": "Hyperpersonalisierte Antworten",
@@ -544,5 +544,6 @@ window.JIKJI_I18N["de"]={
  "arch.dep.free.os.d": "Tools laufen dort, wo die Node lebt, unter Linux, macOS oder Windows.",
  "arch.dep.free.inst.l": "Instanzfrei",
  "arch.dep.free.inst.d": "ein Prozess oder viele hinter einer gemeinsamen Datenbank, mit HA-Leader-Wahl.",
- "arch.dep.free.foot": "Dasselbe Binary, dieselben Agents; nur die Konfiguration ändert sich."
+ "arch.dep.free.foot": "Dasselbe Binary, dieselben Agents; nur die Konfiguration ändert sich.",
+ "ent.mt.eg": "<b>Ein Dienst, ein Key, viele Kunden.</b> Kunde A und Kunde B greifen beide über denselben Key auf den Dienst <span class=\"mono\">asdf</span> zu, doch jede Anfrage trägt ihre eigene actor-Identität – so bleiben Speicher, Kontext und Personalisierung getrennt, und jeder erhält ein privates Erlebnis, das allein für ihn gestaltet ist."
 };

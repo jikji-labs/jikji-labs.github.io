@@ -490,7 +490,7 @@ window.JIKJI_I18N["vi"]={
  "ent.mt.1.h": "Tenant là ranh giới dịch vụ",
  "ent.mt.1.p": "Mỗi tenant có khóa, dữ liệu, bộ nhớ và chính sách riêng. Dựng một dịch vụ cho mỗi tenant — hoặc cho mỗi nhóm, khách hàng, môi trường — tất cả trên cùng một cụm, cô lập hoàn toàn với nhau.",
  "ent.mt.2.h": "Mỗi người dùng là một principal có phạm vi giới hạn",
- "ent.mt.2.p": "Người dùng cuối truy cập dịch vụ qua khóa client có phạm vi giới hạn. Mỗi principal mang theo tenant của mình, một danh tính actor và các phạm vi riêng — nên việc một người dùng cụ thể được phép làm gì sẽ được quyết định theo từng yêu cầu, chứ không theo từng bản triển khai.",
+ "ent.mt.2.p": "Người dùng truy cập dịch vụ với tư cách principal có scope, và một khóa dịch vụ duy nhất có thể mang theo nhiều người dùng. Mỗi yêu cầu mang theo một danh tính actor để phân biệt người dùng cuối này với người dùng cuối khác, nhờ vậy họ vẫn tách biệt mà không cần một khóa riêng cho từng người; scope vẫn quyết định mỗi người được làm gì, theo từng yêu cầu.",
  "ent.mt.3.h": "Bộ nhớ cô lập theo từng người dùng",
  "ent.mt.3.p": "Việc truy hồi và nạp dữ liệu được phân vùng theo tenant <em>và</em> actor, rồi được đóng dấu lên mỗi lần chạy từ principal — nên một người dùng không bao giờ thấy bộ nhớ của người khác, ngay cả trong cùng một dịch vụ.",
  "ent.mt.4.h": "Phản hồi siêu cá nhân hóa",
@@ -544,5 +544,6 @@ window.JIKJI_I18N["vi"]={
  "arch.dep.free.os.d": "công cụ chạy ở bất cứ nơi nào có node, trên Linux, macOS hay Windows.",
  "arch.dep.free.inst.l": "Không ràng buộc phiên bản",
  "arch.dep.free.inst.d": "một tiến trình hay nhiều tiến trình sau một cơ sở dữ liệu dùng chung, với bầu chọn leader HA.",
- "arch.dep.free.foot": "Cùng một binary, cùng các agent; chỉ cấu hình thay đổi."
+ "arch.dep.free.foot": "Cùng một binary, cùng các agent; chỉ cấu hình thay đổi.",
+ "ent.mt.eg": "<b>Một dịch vụ, một khóa, nhiều khách hàng.</b> Khách hàng A và khách hàng B đều truy cập dịch vụ <span class=\"mono\">asdf</span> qua cùng một khóa, nhưng mỗi yêu cầu mang theo danh tính actor riêng — nhờ đó bộ nhớ, ngữ cảnh và cá nhân hóa của họ vẫn tách biệt, và mỗi người có một trải nghiệm riêng tư được tạo riêng cho mình."
 };

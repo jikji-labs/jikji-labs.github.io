@@ -89,7 +89,7 @@
       </div>
       <div class="card">
         <h3 data-i18n="ent.mt.2.h">Every user is a scoped principal</h3>
-        <p data-i18n="ent.mt.2.p">End-users reach a service through scoped client keys. Each principal carries its tenant, an actor identity, and its own scopes — so what a given user may do is decided per request, not per deployment.</p>
+        <p data-i18n="ent.mt.2.p">Users reach a service as scoped principals — and a single service key can carry many of them. An actor identity on each request tells one end-user from another, so they stay separate without a key per person; scopes still decide what each may do, per request.</p>
       </div>
       <div class="card">
         <h3 data-i18n="ent.mt.3.h">Memory isolated per user</h3>
@@ -100,6 +100,7 @@
         <p data-i18n="ent.mt.4.p">Each user's own facts and personal ontology shape how the agent answers them — a personalized context injected per principal, not one shared prompt for everyone.</p>
       </div>
     </div>
+    <div class="callout" style="margin-top:24px" data-i18n="ent.mt.eg"><b>One service, one key, many customers.</b> Customer A and customer B both reach service <span class="mono">asdf</span> through the same key, but each request carries its own actor identity — so their memory, context, and personalization stay separate, and each sees a private experience built only for them.</div>
   </div>
 </section>
 

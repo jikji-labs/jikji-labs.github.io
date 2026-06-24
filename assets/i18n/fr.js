@@ -490,7 +490,7 @@ window.JIKJI_I18N["fr"]={
  "ent.mt.1.h": "Un tenant est une frontière de service",
  "ent.mt.1.p": "Chaque tenant possède ses propres clés, données, mémoire et politiques. Déployez un service par tenant — ou par équipe, client ou environnement — tous sur le même cluster, totalement isolés les uns des autres.",
  "ent.mt.2.h": "Chaque utilisateur est un principal à portée définie",
- "ent.mt.2.p": "Les utilisateurs finaux accèdent à un service via des clés client à portée restreinte. Chaque principal porte son tenant, une identité d'acteur et ses propres portées — de sorte que ce qu'un utilisateur donné peut faire se décide à chaque requête, et non par déploiement.",
+ "ent.mt.2.p": "Les utilisateurs accèdent à un service en tant que principals dotés de scopes, et une seule clé de service peut en porter de nombreux. Une identité actor sur chaque requête distingue un utilisateur final d'un autre, de sorte qu'ils restent séparés sans qu'il faille une clé par personne ; les scopes décident toujours, à chaque requête, de ce que chacun peut faire.",
  "ent.mt.3.h": "Une mémoire isolée par utilisateur",
  "ent.mt.3.p": "Le rappel et l'ingestion sont partitionnés par tenant <em>et</em> par acteur, et estampillés sur chaque exécution depuis le principal — ainsi un utilisateur ne voit jamais la mémoire d'un autre, même au sein du même service.",
  "ent.mt.4.h": "Des réponses hyper-personnalisées",
@@ -544,5 +544,6 @@ window.JIKJI_I18N["fr"]={
  "arch.dep.free.os.d": "les outils s'exécutent là où vit le nœud, sous Linux, macOS ou Windows.",
  "arch.dep.free.inst.l": "Sans contrainte d'instance",
  "arch.dep.free.inst.d": "un seul processus ou plusieurs derrière une base de données partagée, avec élection de leader en HA.",
- "arch.dep.free.foot": "Même binaire, mêmes agents ; seule la configuration change."
+ "arch.dep.free.foot": "Même binaire, mêmes agents ; seule la configuration change.",
+ "ent.mt.eg": "<b>Un service, une clé, de nombreux clients.</b> Le client A et le client B accèdent tous deux au service <span class=\"mono\">asdf</span> via la même clé, mais chaque requête porte sa propre identité actor : leur mémoire, leur contexte et leur personnalisation restent ainsi séparés, et chacun bénéficie d'une expérience privée conçue rien que pour lui."
 };

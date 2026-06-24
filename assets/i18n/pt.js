@@ -490,7 +490,7 @@ window.JIKJI_I18N["pt"]={
  "ent.mt.1.h": "Um tenant é uma fronteira de serviço",
  "ent.mt.1.p": "Cada tenant tem suas próprias chaves, dados, memória e políticas. Suba um serviço por tenant — ou por equipe, cliente ou ambiente — todos no mesmo cluster, totalmente isolados uns dos outros.",
  "ent.mt.2.h": "Cada usuário é um principal com escopo definido",
- "ent.mt.2.p": "Os usuários finais acessam um serviço por meio de chaves de cliente com escopo definido. Cada principal carrega o seu tenant, uma identidade de ator e os seus próprios escopos — de modo que o que um determinado usuário pode fazer é decidido por requisição, não por deployment.",
+ "ent.mt.2.p": "Os usuários acessam um serviço como principals com scopes, e uma única chave de serviço pode comportar muitos deles. Uma identidade actor em cada requisição distingue um usuário final do outro, de modo que permanecem separados sem precisar de uma chave por pessoa; os scopes continuam a decidir, a cada requisição, o que cada um pode fazer.",
  "ent.mt.3.h": "Memória isolada por usuário",
  "ent.mt.3.p": "A recuperação e a ingestão são particionadas por tenant <em>e</em> ator, e carimbadas em cada execução a partir do principal — assim um usuário nunca vê a memória de outro, mesmo dentro do mesmo serviço.",
  "ent.mt.4.h": "Respostas hiperpersonalizadas",
@@ -544,5 +544,6 @@ window.JIKJI_I18N["pt"]={
  "arch.dep.free.os.d": "as ferramentas rodam onde o nó vive, no Linux, macOS ou Windows.",
  "arch.dep.free.inst.l": "Sem amarras de instância",
  "arch.dep.free.inst.d": "um processo ou vários atrás de um banco de dados compartilhado, com eleição de líder em HA.",
- "arch.dep.free.foot": "Mesmo binário, mesmos agentes; só a configuração muda."
+ "arch.dep.free.foot": "Mesmo binário, mesmos agentes; só a configuração muda.",
+ "ent.mt.eg": "<b>Um serviço, uma chave, muitos clientes.</b> O cliente A e o cliente B acessam o serviço <span class=\"mono\">asdf</span> pela mesma chave, mas cada requisição carrega sua própria identidade actor — assim, a memória, o contexto e a personalização de cada um permanecem separados, e cada um tem uma experiência privada feita só para ele."
 };

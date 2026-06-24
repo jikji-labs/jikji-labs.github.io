@@ -490,7 +490,7 @@ window.JIKJI_I18N["id"]={
  "ent.mt.1.h": "Tenant adalah batas layanan",
  "ent.mt.1.p": "Setiap tenant punya kunci, data, memori, dan kebijakannya sendiri. Jalankan satu layanan per tenant — atau per tim, pelanggan, atau lingkungan — semuanya di kluster yang sama, terisolasi sepenuhnya satu sama lain.",
  "ent.mt.2.h": "Setiap pengguna adalah principal ber-scope",
- "ent.mt.2.p": "Pengguna akhir mengakses layanan lewat kunci klien ber-scope. Setiap principal membawa tenant-nya, identitas actor, dan scope-nya sendiri — sehingga apa yang boleh dilakukan seorang pengguna ditentukan per permintaan, bukan per deployment.",
+ "ent.mt.2.p": "Pengguna mengakses layanan sebagai principal dengan scope, dan satu kunci layanan dapat menampung banyak di antaranya. Identitas actor pada setiap permintaan membedakan satu pengguna akhir dari yang lain, sehingga mereka tetap terpisah tanpa perlu kunci per orang; scope tetap menentukan apa yang boleh dilakukan masing-masing, per permintaan.",
  "ent.mt.3.h": "Memori terisolasi per pengguna",
  "ent.mt.3.p": "Pemanggilan ulang dan penyerapan dipartisi berdasarkan tenant <em>dan</em> actor, lalu dicapkan ke setiap proses dari principal — sehingga seorang pengguna tidak pernah melihat memori pengguna lain, bahkan di dalam layanan yang sama.",
  "ent.mt.4.h": "Respons yang sangat dipersonalisasi",
@@ -544,5 +544,6 @@ window.JIKJI_I18N["id"]={
  "arch.dep.free.os.d": "tools berjalan di mana pun node berada, di Linux, macOS, atau Windows.",
  "arch.dep.free.inst.l": "Tanpa batas instance",
  "arch.dep.free.inst.d": "satu proses atau banyak di balik basis data bersama, dengan pemilihan leader HA.",
- "arch.dep.free.foot": "Biner yang sama, agen yang sama; hanya konfigurasinya yang berubah."
+ "arch.dep.free.foot": "Biner yang sama, agen yang sama; hanya konfigurasinya yang berubah.",
+ "ent.mt.eg": "<b>Satu layanan, satu kunci, banyak pelanggan.</b> Pelanggan A dan pelanggan B sama-sama mengakses layanan <span class=\"mono\">asdf</span> melalui kunci yang sama, tetapi setiap permintaan membawa identitas actor-nya sendiri — sehingga memori, konteks, dan personalisasi mereka tetap terpisah, dan masing-masing mendapatkan pengalaman privat yang dibuat khusus untuknya."
 };

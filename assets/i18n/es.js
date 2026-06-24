@@ -490,7 +490,7 @@ window.JIKJI_I18N["es"]={
  "ent.mt.1.h": "Un inquilino es una frontera de servicio",
  "ent.mt.1.p": "Cada inquilino tiene sus propias claves, datos, memoria y políticas. Levanta un servicio por inquilino — o por equipo, cliente o entorno — todos en el mismo clúster y completamente aislados entre sí.",
  "ent.mt.2.h": "Cada usuario es un principal con alcance acotado",
- "ent.mt.2.p": "Los usuarios finales acceden a un servicio mediante claves de cliente con alcance acotado. Cada principal lleva su inquilino, una identidad de actor y sus propios alcances — de modo que lo que un usuario determinado puede hacer se decide por petición, no por despliegue.",
+ "ent.mt.2.p": "Los usuarios acceden a un servicio como principals con scopes, y una sola clave de servicio puede albergar a muchos de ellos. Una identidad actor en cada solicitud distingue a un usuario final de otro, de modo que permanecen separados sin necesidad de una clave por persona; los scopes siguen decidiendo, en cada solicitud, qué puede hacer cada uno.",
  "ent.mt.3.h": "Memoria aislada por usuario",
  "ent.mt.3.p": "La recuperación y la ingesta se particionan por inquilino <em>y</em> actor, y se sellan en cada ejecución a partir del principal — así un usuario nunca ve la memoria de otro, ni siquiera dentro del mismo servicio.",
  "ent.mt.4.h": "Respuestas hiperpersonalizadas",
@@ -544,5 +544,6 @@ window.JIKJI_I18N["es"]={
  "arch.dep.free.os.d": "las herramientas se ejecutan donde vive el nodo, en Linux, macOS o Windows.",
  "arch.dep.free.inst.l": "Sin atadura de instancia",
  "arch.dep.free.inst.d": "un proceso o muchos detrás de una base de datos compartida, con elección de líder en HA.",
- "arch.dep.free.foot": "El mismo binario, los mismos agentes; solo cambia la configuración."
+ "arch.dep.free.foot": "El mismo binario, los mismos agentes; solo cambia la configuración.",
+ "ent.mt.eg": "<b>Un servicio, una clave, muchos clientes.</b> El cliente A y el cliente B acceden al servicio <span class=\"mono\">asdf</span> a través de la misma clave, pero cada solicitud lleva su propia identidad actor: así, su memoria, su contexto y su personalización se mantienen separados, y cada uno disfruta de una experiencia privada creada solo para él."
 };

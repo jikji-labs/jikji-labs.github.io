@@ -490,7 +490,7 @@ window.JIKJI_I18N["it"]={
  "ent.mt.1.h": "Un tenant è un confine di servizio",
  "ent.mt.1.p": "Ogni tenant ha le proprie chiavi, dati, memoria e policy. Attiva un servizio per tenant — o per team, cliente o ambiente — tutti sullo stesso cluster, completamente isolati l'uno dall'altro.",
  "ent.mt.2.h": "Ogni utente è un principal con ambito definito",
- "ent.mt.2.p": "Gli utenti finali raggiungono un servizio tramite chiavi client con ambito definito. Ogni principal porta con sé il proprio tenant, un'identità di attore e i propri ambiti — così ciò che un determinato utente può fare viene deciso per richiesta, non per deployment.",
+ "ent.mt.2.p": "Gli utenti accedono a un servizio come principal dotati di scope, e una sola chiave di servizio può contenerne molti. Un'identità actor su ogni richiesta distingue un utente finale dall'altro, così restano separati senza bisogno di una chiave per persona; gli scope continuano a decidere, a ogni richiesta, cosa ciascuno può fare.",
  "ent.mt.3.h": "Memoria isolata per utente",
  "ent.mt.3.p": "Il richiamo e l'acquisizione sono partizionati per tenant <em>e</em> attore, e impressi su ogni esecuzione a partire dal principal — così un utente non vede mai la memoria di un altro, nemmeno all'interno dello stesso servizio.",
  "ent.mt.4.h": "Risposte iper-personalizzate",
@@ -544,5 +544,6 @@ window.JIKJI_I18N["it"]={
  "arch.dep.free.os.d": "gli strumenti girano ovunque viva il nodo, su Linux, macOS o Windows.",
  "arch.dep.free.inst.l": "Senza vincoli di istanza",
  "arch.dep.free.inst.d": "un processo o molti dietro un database condiviso, con elezione del leader in HA.",
- "arch.dep.free.foot": "Stesso binario, stessi agenti; cambia solo la configurazione."
+ "arch.dep.free.foot": "Stesso binario, stessi agenti; cambia solo la configurazione.",
+ "ent.mt.eg": "<b>Un servizio, una chiave, molti clienti.</b> Il cliente A e il cliente B accedono entrambi al servizio <span class=\"mono\">asdf</span> tramite la stessa chiave, ma ogni richiesta porta con sé la propria identità actor: così la loro memoria, il contesto e la personalizzazione restano separati, e ciascuno vive un'esperienza privata creata solo per lui."
 };
