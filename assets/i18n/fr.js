@@ -122,8 +122,8 @@ window.JIKJI_I18N["fr"]={
  "m.foundry": "Amorçage, configuration, diagnostics et pilotage de l'orchestration.",
  "arch.mods.note": "Quelques modules supplémentaires complètent la plateforme — <span class=\"mono\">screen</span> (la chaîne de filtres de politique dynamique), <span class=\"mono\">relay</span> (tunnels TLS vers les nœuds d'outils distants), <span class=\"mono\">usagelimit</span> et <span class=\"mono\">observability</span> — détaillés sur la page Entreprise.",
  "arch.dep.tag": "Formes de déploiement",
- "arch.dep.h2": "Sans contrainte d'échelle : un processus → des services → une grille",
- "arch.dep.p": "Le même binaire change de forme par configuration. Démarrez tout dans un seul processus, scindez les plans en services, puis déportez l'exécution des outils sur des nœuds distants — sans toucher à vos agents.",
+ "arch.dep.h2": "Indépendant de l'échelle — du portable au centre de données, du local au distant, d'un à plusieurs",
+ "arch.dep.p": "Le même binaire change de forme par simple configuration — à travers l'échelle, l'emplacement et le nombre d'instances. Lancez tout dans un seul processus, séparez les plans en services, déportez l'exécution des outils vers des nœuds distants, puis faites tourner de nombreuses instances derrière une base de données partagée — le tout sans rien changer à vos agents.",
  "arch.dep.1.h": "Un processus, priorité au local",
  "arch.dep.1.p": "Un binaire unique avec SQLite embarqué pour un état durable. Aucun service externe requis — toute la plateforme démarre à partir d'un seul fichier de configuration, sur un portable ou un boîtier en périphérie.",
  "arch.dep.2.h": "Scindé en services",
@@ -532,5 +532,6 @@ window.JIKJI_I18N["fr"]={
  "onto.h.5.p": "Récupérez des lignes via du SQL gouverné, réutilisez-les depuis le cache, puis transmettez-les à un outil Python exécutant pandas, NumPy ou scikit-learn — l'analyse et la modélisation se déroulent au sein d'une même exécution de l'agent, pas à l'écart dans un notebook séparé.",
  "onto.h.f1": "Base SQL",
  "onto.h.f2": "Cache SQL",
- "onto.h.flow": "Interrogez une fois, réutilisez le résultat mis en cache, puis analysez-le avec la pile scientifique que vous fournissez dans le bac à sable — jikji est aussi à l'aise avec le traitement des données qu'avec la conversation."
+ "onto.h.flow": "Interrogez une fois, réutilisez le résultat mis en cache, puis analysez-le avec la pile scientifique que vous fournissez dans le bac à sable — jikji est aussi à l'aise avec le traitement des données qu'avec la conversation.",
+ "arch.dep.free": "<b>Libre sur chaque axe.</b> <b>Indépendant de l'échelle</b> — du portable au centre de données. <b>Indépendant de l'emplacement</b> — de l'exécution locale jusqu'aux nœuds distants via un relais. <b>Indépendant de la région &amp; de l'OS</b> — les outils s'exécutent là où se trouve le nœud, sous Linux, macOS ou Windows. <b>Indépendant des instances</b> — un seul processus ou plusieurs derrière une base de données partagée, avec élection de leader en HA. Même binaire, mêmes agents ; seule la configuration change."
 };

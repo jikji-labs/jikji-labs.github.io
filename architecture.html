@@ -112,8 +112,8 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="tag" data-i18n="arch.dep.tag">Deployment Shapes</span>
-      <h2 data-i18n="arch.dep.h2">Scale-free: one process → services → grid</h2>
-      <p data-i18n="arch.dep.p">The same binary changes shape by configuration. Start everything in one process, split the planes into services, then push tool execution onto remote nodes — without changing your agents.</p>
+      <h2 data-i18n="arch.dep.h2">Scale-free — laptop to data center, local to remote, one to many</h2>
+      <p data-i18n="arch.dep.p">The same binary changes shape by configuration — across scale, location, and instance count. Start everything in one process, split the planes into services, push tool execution onto remote nodes, then run many instances behind a shared database — all without changing your agents.</p>
     </div>
     <div class="grid cols3">
       <div class="card">
@@ -146,6 +146,7 @@
     <span class="k">balanced</span>:
       <span class="k">providers</span>: [ollama-cloud, glm-5.1]
       <span class="k">strategy</span>: round_robin   <span class="c"># round_robin · first_available · failover</span></pre>
+    <div class="callout" style="margin-top:26px" data-i18n="arch.dep.free"><b>Free along every axis.</b> <b>Scale-free</b> — laptop to data center. <b>Location-free</b> — local execution out to remote nodes over a relay. <b>Region- &amp; OS-free</b> — tools run wherever the node lives, on Linux, macOS, or Windows. <b>Instance-free</b> — one process or many behind a shared database, with HA leader election. Same binary, same agents; only the configuration changes.</div>
   </div>
 </section>
 

@@ -122,8 +122,8 @@ window.JIKJI_I18N["id"]={
  "m.foundry": "Bootstrap, konfigurasi, pemeriksaan doctor, dan kendali orkestrasi.",
  "arch.mods.note": "Beberapa modul lain melengkapi platform ini — <span class=\"mono\">screen</span> (rantai filter kebijakan dinamis), <span class=\"mono\">relay</span> (terowongan TLS ke node tool jarak jauh), <span class=\"mono\">usagelimit</span>, dan <span class=\"mono\">observability</span> — dibahas di halaman Enterprise.",
  "arch.dep.tag": "Bentuk Deployment",
- "arch.dep.h2": "Bebas skala: satu proses → layanan → grid",
- "arch.dep.p": "Binary yang sama berganti wujud lewat konfigurasi. Mulai dengan menjalankan semuanya dalam satu proses, pecah setiap bidang menjadi layanan, lalu pindahkan eksekusi tool ke node jarak jauh — tanpa mengubah agent Anda.",
+ "arch.dep.h2": "Bebas skala — dari laptop hingga pusat data, dari lokal hingga jarak jauh, dari satu hingga banyak",
+ "arch.dep.p": "Biner yang sama berubah bentuk hanya melalui konfigurasi — di seluruh skala, lokasi, dan jumlah instance. Jalankan semuanya dalam satu proses, pisahkan tiap plane menjadi layanan, dorong eksekusi tool ke node jarak jauh, lalu jalankan banyak instance di balik basis data bersama — semua tanpa mengubah agent Anda.",
  "arch.dep.1.h": "Satu proses, local-first",
  "arch.dep.1.p": "Satu binary dengan SQLite tertanam untuk state yang tahan lama. Tanpa perlu layanan eksternal — seluruh platform menyala dari satu file konfigurasi di laptop atau perangkat edge.",
  "arch.dep.2.h": "Dipecah jadi layanan",
@@ -532,5 +532,6 @@ window.JIKJI_I18N["id"]={
  "onto.h.5.p": "Tarik baris dengan SQL yang terkelola, gunakan ulang dari cache, lalu serahkan ke tool Python yang menjalankan pandas, NumPy, atau scikit-learn — analisis dan pemodelan terjadi dalam satu kali eksekusi agent, bukan terpisah di notebook lain.",
  "onto.h.f1": "DB SQL",
  "onto.h.f2": "Cache SQL",
- "onto.h.flow": "Kueri sekali, gunakan ulang hasil yang tersimpan di cache, lalu analisis dengan stack ilmiah yang kamu sediakan di sandbox — jikji sama cakapnya dalam mengolah data seperti halnya mengobrol."
+ "onto.h.flow": "Kueri sekali, gunakan ulang hasil yang tersimpan di cache, lalu analisis dengan stack ilmiah yang kamu sediakan di sandbox — jikji sama cakapnya dalam mengolah data seperti halnya mengobrol.",
+ "arch.dep.free": "<b>Bebas di setiap sumbu.</b> <b>Bebas skala</b> — dari laptop hingga pusat data. <b>Bebas lokasi</b> — dari eksekusi lokal hingga node jarak jauh melalui relay. <b>Bebas wilayah &amp; OS</b> — tool berjalan di mana pun node berada, di Linux, macOS, atau Windows. <b>Bebas instance</b> — satu proses atau banyak di balik basis data bersama, dengan pemilihan leader HA. Biner yang sama, agent yang sama; hanya konfigurasinya yang berubah."
 };

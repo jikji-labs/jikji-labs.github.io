@@ -122,8 +122,8 @@ window.JIKJI_I18N["de"]={
  "m.foundry": "Bootstrap, Konfiguration, Doctor-Prüfungen und Orchestrierungssteuerung.",
  "arch.mods.note": "Ein paar weitere Module runden die Plattform ab — <span class=\"mono\">screen</span> (die dynamische Filterkette für Richtlinien), <span class=\"mono\">relay</span> (TLS-Tunnel zu entfernten Werkzeug-Knoten), <span class=\"mono\">usagelimit</span> und <span class=\"mono\">observability</span> — beschrieben auf der Enterprise-Seite.",
  "arch.dep.tag": "Bereitstellungsformen",
- "arch.dep.h2": "Beliebig skalierbar: ein Prozess → Dienste → Cluster",
- "arch.dep.p": "Dasselbe Binary nimmt je nach Konfiguration eine andere Form an. Starte zunächst alles in einem Prozess, teile die Ebenen in Dienste auf und verlagere dann die Werkzeug-Ausführung auf entfernte Knoten — ohne deine Agenten anzufassen.",
+ "arch.dep.h2": "Skalierungsfrei — vom Laptop bis zum Rechenzentrum, von lokal bis remote, von einem bis zu vielen",
+ "arch.dep.p": "Dasselbe Binary ändert seine Gestalt allein über die Konfiguration — über Skalierung, Standort und Instanzanzahl hinweg. Starte alles in einem einzigen Prozess, teile die Ebenen in Dienste auf, verlagere die Tool-Ausführung auf entfernte Knoten und betreibe dann viele Instanzen hinter einer gemeinsamen Datenbank — ganz ohne Änderungen an deinen Agenten.",
  "arch.dep.1.h": "Ein Prozess, lokal zuerst",
  "arch.dep.1.p": "Ein einzelnes Binary mit eingebettetem SQLite für dauerhaften Zustand. Keine externen Dienste nötig — die gesamte Plattform startet aus einer einzigen Konfigurationsdatei auf einem Laptop oder einer Edge-Box.",
  "arch.dep.2.h": "In Dienste aufteilen",
@@ -532,5 +532,6 @@ window.JIKJI_I18N["de"]={
  "onto.h.5.p": "Hole Zeilen über kontrolliertes SQL ab, verwende sie aus dem Cache wieder und reiche sie an ein Python-Tool weiter, das pandas, NumPy oder scikit-learn ausführt — Analyse und Modellierung geschehen innerhalb eines einzigen Agent-Laufs, nicht abseits in einem separaten Notebook.",
  "onto.h.f1": "SQL-DB",
  "onto.h.f2": "SQL-Cache",
- "onto.h.flow": "Einmal abfragen, das gecachte Ergebnis wiederverwenden und es mit dem wissenschaftlichen Stack analysieren, den du in der Sandbox bereitstellst — jikji ist mit Datenarbeit ebenso zu Hause wie mit dem Chat."
+ "onto.h.flow": "Einmal abfragen, das gecachte Ergebnis wiederverwenden und es mit dem wissenschaftlichen Stack analysieren, den du in der Sandbox bereitstellst — jikji ist mit Datenarbeit ebenso zu Hause wie mit dem Chat.",
+ "arch.dep.free": "<b>Frei entlang jeder Achse.</b> <b>Skalierungsfrei</b> — vom Laptop bis zum Rechenzentrum. <b>Standortfrei</b> — von der lokalen Ausführung bis zu entfernten Knoten über ein Relais. <b>Regions- &amp; OS-frei</b> — Tools laufen dort, wo der Knoten liegt, unter Linux, macOS oder Windows. <b>Instanzfrei</b> — ein Prozess oder viele hinter einer gemeinsamen Datenbank, mit HA-Leader-Wahl. Gleiches Binary, gleiche Agenten; nur die Konfiguration ändert sich."
 };

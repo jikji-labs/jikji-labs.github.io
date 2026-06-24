@@ -122,8 +122,8 @@ window.JIKJI_I18N["vi"]={
  "m.foundry": "Khởi tạo, cấu hình, kiểm tra chẩn đoán (doctor), và điều khiển điều phối.",
  "arch.mods.note": "Vài mô-đun khác hoàn thiện nền tảng — <span class=\"mono\">screen</span> (chuỗi bộ lọc chính sách động), <span class=\"mono\">relay</span> (đường hầm TLS tới các node công cụ từ xa), <span class=\"mono\">usagelimit</span>, và <span class=\"mono\">observability</span> — được trình bày ở trang Doanh nghiệp.",
  "arch.dep.tag": "Hình hài triển khai",
- "arch.dep.h2": "Co giãn tự do: một tiến trình → các dịch vụ → lưới máy",
- "arch.dep.p": "Cùng một binary đổi hình hài chỉ bằng cấu hình. Khởi đầu chạy tất cả trong một tiến trình, tách các lớp thành dịch vụ, rồi đẩy việc thực thi công cụ ra các node từ xa — mà không cần đụng tới agent của bạn.",
+ "arch.dep.h2": "Không phụ thuộc quy mô — từ laptop đến trung tâm dữ liệu, từ cục bộ đến từ xa, từ một đến nhiều",
+ "arch.dep.p": "Cùng một tệp nhị phân thay đổi hình thái chỉ qua cấu hình — xuyên suốt quy mô, vị trí và số lượng phiên bản. Khởi động mọi thứ trong một tiến trình, tách các mặt phẳng thành dịch vụ, đẩy việc thực thi công cụ ra các nút từ xa, rồi chạy nhiều phiên bản phía sau một cơ sở dữ liệu dùng chung — tất cả mà không cần thay đổi các agent của bạn.",
  "arch.dep.1.h": "Một tiến trình, ưu tiên cục bộ",
  "arch.dep.1.p": "Một binary duy nhất với SQLite nhúng để giữ trạng thái không mất. Không cần dịch vụ bên ngoài — cả nền tảng khởi động từ một file cấu hình trên laptop hay một thiết bị biên.",
  "arch.dep.2.h": "Tách thành các dịch vụ",
@@ -532,5 +532,6 @@ window.JIKJI_I18N["vi"]={
  "onto.h.5.p": "Lấy các hàng bằng SQL được quản trị, tái sử dụng chúng từ cache, rồi chuyển cho một công cụ Python chạy pandas, NumPy hay scikit-learn — phân tích và mô hình hóa diễn ra trong cùng một lượt chạy của agent, chứ không tách rời ở một notebook riêng.",
  "onto.h.f1": "CSDL SQL",
  "onto.h.f2": "Cache SQL",
- "onto.h.flow": "Truy vấn một lần, tái sử dụng kết quả đã cache, rồi phân tích bằng bộ công cụ khoa học mà bạn cung cấp trong sandbox — jikji thành thạo việc xử lý dữ liệu chẳng kém gì trò chuyện."
+ "onto.h.flow": "Truy vấn một lần, tái sử dụng kết quả đã cache, rồi phân tích bằng bộ công cụ khoa học mà bạn cung cấp trong sandbox — jikji thành thạo việc xử lý dữ liệu chẳng kém gì trò chuyện.",
+ "arch.dep.free": "<b>Tự do trên mọi trục.</b> <b>Không phụ thuộc quy mô</b> — từ laptop đến trung tâm dữ liệu. <b>Không phụ thuộc vị trí</b> — từ thực thi cục bộ ra đến các nút từ xa qua một relay. <b>Không phụ thuộc khu vực &amp; hệ điều hành</b> — công cụ chạy ở bất cứ nơi nào có nút, trên Linux, macOS hay Windows. <b>Không phụ thuộc phiên bản</b> — một tiến trình hoặc nhiều tiến trình phía sau một cơ sở dữ liệu dùng chung, với bầu chọn leader theo HA. Cùng một tệp nhị phân, cùng các agent; chỉ cấu hình thay đổi."
 };

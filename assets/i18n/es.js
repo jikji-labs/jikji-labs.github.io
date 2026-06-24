@@ -122,8 +122,8 @@ window.JIKJI_I18N["es"]={
  "m.foundry": "Arranque, configuración, diagnósticos y control de la orquestación.",
  "arch.mods.note": "Algunos módulos más completan la plataforma — <span class=\"mono\">screen</span> (la cadena dinámica de filtros de políticas), <span class=\"mono\">relay</span> (túneles TLS hacia nodos de herramientas remotos), <span class=\"mono\">usagelimit</span> y <span class=\"mono\">observability</span> — y se tratan en la página de Empresa.",
  "arch.dep.tag": "Formas de despliegue",
- "arch.dep.h2": "Sin escala fija: un proceso → servicios → malla",
- "arch.dep.p": "El mismo binario cambia de forma según la configuración. Arranca todo en un solo proceso, separa los planos en servicios y luego mueve la ejecución de herramientas a nodos remotos, sin tocar tus agentes.",
+ "arch.dep.h2": "Independiente de la escala — del portátil al centro de datos, de local a remoto, de uno a muchos",
+ "arch.dep.p": "El mismo binario cambia de forma solo con la configuración — a través de la escala, la ubicación y el número de instancias. Arranca todo en un solo proceso, separa los planos en servicios, traslada la ejecución de herramientas a nodos remotos y luego ejecuta muchas instancias detrás de una base de datos compartida — todo sin tocar tus agentes.",
  "arch.dep.1.h": "Un proceso, local primero",
  "arch.dep.1.p": "Un único binario con SQLite embebido para el estado persistente. No hace falta ningún servicio externo: toda la plataforma arranca desde un solo archivo de configuración en un portátil o en un equipo en el borde.",
  "arch.dep.2.h": "Repartido en servicios",
@@ -532,5 +532,6 @@ window.JIKJI_I18N["es"]={
  "onto.h.5.p": "Extrae filas con SQL gobernado, reutilízalas desde la caché y pásalas a una herramienta de Python que ejecuta pandas, NumPy o scikit-learn — el análisis y el modelado ocurren dentro de una misma ejecución del agente, no aparte en un notebook separado.",
  "onto.h.f1": "BD SQL",
  "onto.h.f2": "Caché SQL",
- "onto.h.flow": "Consulta una vez, reutiliza el resultado en caché y analízalo con el stack científico que proporcionas en el sandbox — jikji se desenvuelve igual de bien con los datos que con el chat."
+ "onto.h.flow": "Consulta una vez, reutiliza el resultado en caché y analízalo con el stack científico que proporcionas en el sandbox — jikji se desenvuelve igual de bien con los datos que con el chat.",
+ "arch.dep.free": "<b>Libre en cada eje.</b> <b>Independiente de la escala</b> — del portátil al centro de datos. <b>Independiente de la ubicación</b> — de la ejecución local hasta nodos remotos a través de un relay. <b>Independiente de la región y el SO</b> — las herramientas se ejecutan dondequiera que esté el nodo, en Linux, macOS o Windows. <b>Independiente de las instancias</b> — un proceso o muchos detrás de una base de datos compartida, con elección de líder en HA. Mismo binario, mismos agentes; solo cambia la configuración."
 };
