@@ -89,8 +89,8 @@
         <p data-i18n="mem.ctx.3.p">A bounded in-process memo caches hot recomputation, a tenant-namespaced cache serves cross-request results, and provider-native prompt caching (cache-control, cache keys) is used where available.</p>
       </div>
       <div class="card">
-        <h3 data-i18n="mem.ctx.4.h">Dedicated embeddings</h3>
-        <p data-i18n="mem.ctx.4.p">A dedicated embedding path routes recall and re-ranking through purpose-built embedding models (Jina), kept distinct from the chat provider so retrieval quality is tuned on its own.</p>
+        <h3 data-i18n="mem.ctx.4.h">A separate embedding path</h3>
+        <p data-i18n="mem.ctx.4.p">Recall and re-ranking run on their own embedding path — pick the model you want (Jina, OpenAI, or Ollama), kept independent from the chat provider so retrieval is tuned on its own. It's opt-in: with no embedding provider set, the system runs graph- and keyword-only.</p>
       </div>
     </div>
     <p class="code-cap" style="margin-top:30px" data-i18n="mem.ctx.cap">Semantic response caching reuses answers by meaning, not exact text:</p>
