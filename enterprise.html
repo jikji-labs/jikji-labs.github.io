@@ -51,17 +51,22 @@
       <div class="card">
         <span class="num">imprimatur</span>
         <h3 data-i18n="ent.perm.1.h">Tenancy &amp; RBAC</h3>
-        <p data-i18n="ent.perm.1.p">Multi-tenant principals from scoped API keys, with <code>resource:action</code> scopes and hierarchical wildcards. Auth fails closed — anonymous principals never receive full access, and new keys require explicit scopes.</p>
+        <p data-i18n="ent.perm.1.p">Multi-tenant principals from scoped API keys, with <code>resource:action</code> scopes and hierarchical wildcards — plus IAM-style resource/action policies (allow/deny) you can attach to a key. Auth fails closed: anonymous principals never receive full access, and new keys require explicit scopes.</p>
       </div>
       <div class="card">
         <span class="num">rubric</span>
         <h3 data-i18n="ent.perm.2.h">Decision plane</h3>
-        <p data-i18n="ent.perm.2.p">A dedicated authorization plane evaluates tenant, principal, action, and tool context into <code>allow</code>, <code>deny</code>, or <code>ask</code> — every decision recorded to a structured audit trail.</p>
+        <p data-i18n="ent.perm.2.p">A dedicated authorization plane evaluates tenant, principal, action, and tool context into <code>allow</code>, <code>deny</code>, or <code>ask</code> — and records every decision, with a reason on both allow and deny, to a structured audit trail.</p>
       </div>
       <div class="card">
         <span class="num">screen</span>
         <h3 data-i18n="ent.perm.3.h">Dynamic filter chain</h3>
-        <p data-i18n="ent.perm.3.p">Composable request filters with conditional <code>when</code> predicates (time, environment, request attributes), human-in-the-loop approval gates, external policy calls, and permission modes <code>auto</code> / <code>ask</code> / <code>deny</code>.</p>
+        <p data-i18n="ent.perm.3.p">Composable request filters with conditional <code>when</code> predicates (time, environment, request attributes), approval gates, external policy calls with a circuit breaker, and permission modes <code>auto</code> / <code>ask</code> / <code>deny</code> — snapshot the live chain and roll it back to a known-good version at runtime.</p>
+      </div>
+      <div class="card">
+        <span class="num">service plane</span>
+        <h3 data-i18n="ent.perm.4.h">Approve what agents expose</h3>
+        <p data-i18n="ent.perm.4.p">Agents can define their own UI and API surfaces; operators list, approve, or revoke each one from the service plane — via API, <code>jikjictl service</code>, or the dashboard — governed by the same policy path as every other action.</p>
       </div>
     </div>
     <p class="code-cap" style="margin-top:30px" data-i18n="ent.perm.cap">Policy is data — rules evaluate to allow, ask, or deny, and fail closed by default:</p>
@@ -138,7 +143,7 @@
     <div class="sec-head">
       <span class="tag" data-i18n="ent.pii.tag">proof — PII &amp; Secrets</span>
       <h2 data-i18n="ent.pii.h2">Leakage stopped at the source</h2>
-      <p data-i18n="ent.pii.p">PII and secrets are masked <b>before</b> a request ever leaves for a model, a tool, or a log — and the real values are restored on the way back, so the person on the other end sees intact output. Nothing is broken for the user; nothing leaks to a third party.</p>
+      <p data-i18n="ent.pii.p">PII and secrets are masked <b>before</b> a request ever leaves for a model, a tool, or a log — and the real values are restored on the way back, so the person on the other end sees intact output. Nothing is broken for the user; nothing leaks to a third party. When a value must never return, a one-way <b>drop</b> mode keeps the placeholder and skips the restore entirely.</p>
     </div>
     <div class="loop-dia">
       <div class="node"><div class="t" data-i18n="ent.pii.d1">your data</div></div>
