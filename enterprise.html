@@ -51,7 +51,7 @@
       <div class="card">
         <span class="num">imprimatur</span>
         <h3 data-i18n="ent.perm.1.h">Tenancy &amp; RBAC</h3>
-        <p data-i18n="ent.perm.1.p">Multi-tenant principals from scoped API keys, with <code>resource:action</code> scopes and hierarchical wildcards — plus IAM-style resource/action policies (allow/deny) you can attach to a key. Auth fails closed: anonymous principals never receive full access, and new keys require explicit scopes.</p>
+        <p data-i18n="ent.perm.1.p">Multi-tenant principals from scoped API keys, with <code>resource:action</code> scopes and hierarchical wildcards — plus IAM-style resource/action policies (allow/deny, down to a single tool) you can attach to a key and override at runtime with no restart. A policy simulator lets you validate and test a change before it goes live. Auth fails closed: anonymous principals never receive full access, and new keys require explicit scopes.</p>
       </div>
       <div class="card">
         <span class="num">rubric</span>
@@ -190,7 +190,11 @@
       </div>
       <div class="card">
         <h3 data-i18n="ent.obs.3.h">Usage limits &amp; quotas</h3>
-        <p data-i18n="ent.obs.3.p">Track external provider quotas (rolling and weekly windows) and enforce internal per-tenant quotas, with admin endpoints, gauges, dashboard panels, and <code>jikjictl provider usage</code>.</p>
+        <p data-i18n="ent.obs.3.p">Track external provider quotas (rolling and weekly windows) and enforce internal per-tenant quotas, with admin endpoints, gauges, dashboard panels, and <code>jikjictl provider usage</code>. When a provider's window is hit (a 5-hour or 429 limit), dispatch durably retries after it clears instead of failing the work.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="ent.obs.5.h">Cost guard</h3>
+        <p data-i18n="ent.obs.5.p">Set per-model cost tiers and budgets that back a cost guard — it also caps the multi-model <code>trinity</code> panels so an ensemble can't overspend. Manage tiers and budgets with <code>jikjictl cost</code>.</p>
       </div>
       <div class="card">
         <h3 data-i18n="ent.obs.4.h">Live, attachable debugging</h3>

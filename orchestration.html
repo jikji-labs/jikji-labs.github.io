@@ -106,6 +106,12 @@
         <p data-i18n="orch.tr.ens.p">Coordination composes with the loop's verify-revise gate and ensemble synthesis, so multiple models contribute and a verifier holds the bar before an answer is returned.</p>
       </div>
     </div>
+    <div class="frow">
+      <div class="flabel" data-i18n="orch.tr.oracle.label">Drift check<span class="mono">oracle</span></div>
+      <div class="fbody">
+        <p data-i18n="orch.tr.oracle.p">A <code>trinity.oracle</code> tool runs a drift-consistency check — auditing whether a run stayed consistent with its goal, plan, and evidence. It's a self-audit any agent can invoke to catch a run that has quietly wandered off task.</p>
+      </div>
+    </div>
     <p class="code-cap" style="margin-top:26px" data-i18n="orch.tr.cap">Routing strategies are configurable per model group:</p>
 <pre class="code-block"><span class="k">typebackbone</span>:
   <span class="k">model_groups</span>:
@@ -124,7 +130,7 @@
     <div class="grid cols2">
       <div class="card">
         <h3 data-i18n="orch.del.1.h">Delegate to sub-agents</h3>
-        <p data-i18n="orch.del.1.p">A <code>delegate</code> action hands a bounded sub-task to a child agent. A supervisor tracks children, harvests their results back into the parent's trace as observations, and a scorecard audits delegation outcomes.</p>
+        <p data-i18n="orch.del.1.p">A <code>delegate</code> action hands a bounded sub-task to a child agent. Spawns are idempotent — keyed by <code>(parent, request_key)</code> so a retry never double-spawns — and carry a task-scoped role. A supervisor tracks children, harvests their results back into the parent's trace, and a scorecard audits the outcomes.</p>
       </div>
       <div class="card">
         <h3 data-i18n="orch.del.2.h">A2A federation</h3>
