@@ -424,8 +424,8 @@ window.JIKJI_I18N["fr"]={
  "loop.self.1.p": "Après une exécution conséquente, un réviseur post-exécution borné distille ce que l'agent a découvert en une <b>compétence</b> durable — pour que la prochaine exécution démarre avec une longueur d'avance. Les compétences se chargent à la demande via <code>skill.load</code> et s'attachent à un profil ou correspondent à l'objectif par mot-clé.",
  "loop.self.2.h": "Remodeler la boucle avec Lua",
  "loop.self.2.p": "Des hooks Lua de confiance placés sur <code>plan</code>, <code>before_tool</code> et <code>after_tool</code> vous permettent — à vous comme à l'agent lui-même — de modifier à l'exécution la façon dont la boucle planifie et appelle les outils, le tout dans un budget strict de temps et d'instructions.",
- "loop.self.3.h": "Recherche automatique, intégrée",
- "loop.self.3.p": "Un mécanisme de recherche planifie une investigation, rassemble des sources et lance une recherche web — pour qu'un agent puisse aller chercher ce dont il a besoin au lieu de s'arrêter aux limites de son contexte.",
+ "loop.self.3.h": "Une recherche aux affirmations vérifiées",
+ "loop.self.3.p": "Le mécanisme de recherche planifie une investigation, rassemble des sources et lance une recherche web — et soumet ses propres conclusions à une exigence scientifique : la prédiction est <b>préenregistrée</b> avant toute preuve, le protocole expérimental est gelé, et l'affirmation n'est confirmée qu'à partir d'exécutions réelles, répétées et analysées par la machine. Des métriques de qualité mécaniques (aucun LLM ne se juge lui-même) pilotent ensuite une boucle de révision bornée. Le même mécanisme soutient les portes de déploiement et les garde-fous anti-régression, pas seulement des publications.",
  "loop.self.4.h": "Extensible par conception",
  "loop.self.4.p": "Les compétences, les hooks Lua, les outils MCP et les installations signées depuis la marketplace étendent tous la même boucle. Toute nouvelle capacité s'ajoute autour du moteur, jamais en le réécrivant.",
  "hero.note": "Ce site est rédigé à partir du code en cours d'implémentation aujourd'hui — Jikji est en développement actif, et les détails peuvent changer avant la première version.",
@@ -554,5 +554,7 @@ window.JIKJI_I18N["fr"]={
  "orch.tr.oracle.label": "Contrôle de dérive<span class=\"mono\">oracle</span>",
  "orch.tr.oracle.p": "Un outil <code>trinity.oracle</code> exécute un contrôle de cohérence de dérive — il audite si une exécution est restée cohérente avec son objectif, son plan et ses preuves. C'est un auto-audit que n'importe quel agent peut invoquer pour détecter une exécution qui a discrètement dévié de sa tâche.",
  "ent.obs.5.h": "Garde-fou de coût",
- "ent.obs.5.p": "Définissez des paliers de coût et des budgets par modèle qui alimentent un garde-fou de coût — il plafonne aussi les panneaux multi-modèles <code>trinity</code> afin qu'un ensemble ne puisse pas dépasser le budget. Gérez les paliers et les budgets avec <code>jikjictl cost</code>."
+ "ent.obs.5.p": "Définissez des paliers de coût et des budgets par modèle qui alimentent un garde-fou de coût — il plafonne aussi les panneaux multi-modèles <code>trinity</code> afin qu'un ensemble ne puisse pas dépasser le budget. Gérez les paliers et les budgets avec <code>jikjictl cost</code>.",
+ "onto.h.6.h": "L'ontologie audite le système",
+ "onto.h.6.p": "Modélisez votre propre système comme une ontologie : les composants sont des nœuds et <b>les invariants, des prédicats vérifiables</b> sur des observations en direct. Confronter mécaniquement une observation à son invariant produit une violation, matérialisée dans le graphe — si bien que « le système est sain » est une affirmation à prouver sur la base de zéro violation constatée, jamais autodéclarée."
 };

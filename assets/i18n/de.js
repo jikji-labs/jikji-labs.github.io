@@ -424,8 +424,8 @@ window.JIKJI_I18N["de"]={
  "loop.self.1.p": "Nach einem umfangreichen Lauf destilliert ein begrenzter Post-Run-Reviser das, was der Agent herausgefunden hat, in einen dauerhaften <b>Skill</b> — damit der nächste Lauf einen Schritt voraus startet. Skills werden bei Bedarf mit <code>skill.load</code> geladen und an ein Profil gebunden oder per Schlüsselwort dem Ziel zugeordnet.",
  "loop.self.2.h": "Die Schleife mit Lua umformen",
  "loop.self.2.p": "Vertrauenswürdige Lua-Hooks an <code>plan</code>, <code>before_tool</code> und <code>after_tool</code> erlauben es Ihnen — und dem Agenten selbst —, zur Laufzeit zu ändern, wie die Schleife plant und Werkzeuge aufruft, alles innerhalb eines strikten Zeit- und Anweisungsbudgets.",
- "loop.self.3.h": "Auto-Recherche, von Haus aus",
- "loop.self.3.p": "Ein Recherche-Mechanismus plant eine Untersuchung, zieht Quellen heran und führt eine Websuche durch — damit ein Agent sich holen kann, was er braucht, statt am Rand seines Kontexts haltzumachen.",
+ "loop.self.3.h": "Recherche mit verifizierten Behauptungen",
+ "loop.self.3.p": "Der Recherche-Mechanismus plant eine Untersuchung, zieht Quellen heran und führt eine Websuche durch — und legt an die eigenen Befunde einen wissenschaftlichen Maßstab an: Eine Vorhersage wird <b>präregistriert</b>, bevor es irgendeinen Beleg gibt, das Versuchsprotokoll wird eingefroren, und bestätigt wird die Behauptung nur aus echten, wiederholten, maschinell geparsten Läufen. Mechanische Qualitätsmetriken (kein LLM, das über sich selbst urteilt) treiben anschließend eine begrenzte Überarbeitungsschleife an. Derselbe Mechanismus trägt auch Deployment-Gates und Regressionswächter, nicht nur Papers.",
  "loop.self.4.h": "Erweiterbar von Grund auf",
  "loop.self.4.p": "Skills, Lua-Hooks, MCP-Werkzeuge und signierte Marketplace-Installationen erweitern alle dieselbe Schleife. Neue Fähigkeiten kommen rund um die Engine hinzu, niemals durch deren Neuschreiben.",
  "hero.note": "Diese Website basiert auf dem Code, der derzeit implementiert wird — Jikji befindet sich in aktiver Entwicklung, und Details können sich vor der ersten Veröffentlichung ändern.",
@@ -554,5 +554,7 @@ window.JIKJI_I18N["de"]={
  "orch.tr.oracle.label": "Drift-Prüfung<span class=\"mono\">oracle</span>",
  "orch.tr.oracle.p": "Ein <code>trinity.oracle</code>-Tool führt eine Drift-Konsistenzprüfung durch — es prüft, ob ein Lauf konsistent mit seinem Ziel, seinem Plan und seinen Nachweisen geblieben ist. Es ist ein Selbst-Audit, das jeder Agent aufrufen kann, um einen Lauf zu erkennen, der still von der Aufgabe abgekommen ist.",
  "ent.obs.5.h": "Kostenwächter",
- "ent.obs.5.p": "Legen Sie Kostenstufen und Budgets pro Modell fest, die einen Kostenwächter untermauern — er deckelt auch die Multi-Modell-<code>trinity</code>-Panels, damit ein Ensemble nicht zu viel ausgeben kann. Verwalten Sie Stufen und Budgets mit <code>jikjictl cost</code>."
+ "ent.obs.5.p": "Legen Sie Kostenstufen und Budgets pro Modell fest, die einen Kostenwächter untermauern — er deckelt auch die Multi-Modell-<code>trinity</code>-Panels, damit ein Ensemble nicht zu viel ausgeben kann. Verwalten Sie Stufen und Budgets mit <code>jikjictl cost</code>.",
+ "onto.h.6.h": "Die Ontologie auditiert das System",
+ "onto.h.6.p": "Modellieren Sie Ihr eigenes System als Ontologie: Komponenten sind Knoten, und <b>Invarianten sind prüfbare Prädikate</b> über Live-Beobachtungen. Wird eine Beobachtung mechanisch gegen ihre Invariante geprüft, ergibt sich eine Verletzung, die im Graphen materialisiert wird — „das System ist gesund“ ist damit eine Behauptung, die aus dem Beleg von null Verletzungen bewiesen werden muss, niemals eine Selbstauskunft."
 };

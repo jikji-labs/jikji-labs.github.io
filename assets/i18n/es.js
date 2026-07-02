@@ -424,8 +424,8 @@ window.JIKJI_I18N["es"]={
  "loop.self.1.p": "Tras una ejecución sustancial, un revisor posterior acotado destila lo que el agente averiguó en una <b>habilidad</b> duradera — para que la siguiente ejecución arranque con ventaja. Las habilidades se cargan bajo demanda con <code>skill.load</code> y se asocian a un perfil o coinciden con el objetivo por palabra clave.",
  "loop.self.2.h": "Remodela el bucle con Lua",
  "loop.self.2.p": "Unos hooks de Lua de confianza en <code>plan</code>, <code>before_tool</code> y <code>after_tool</code> te permiten — a ti y al propio agente — cambiar en tiempo de ejecución cómo planifica el bucle y cómo invoca las herramientas, todo dentro de un estricto presupuesto de tiempo e instrucciones.",
- "loop.self.3.h": "Investigación automática, integrada",
- "loop.self.3.p": "Un mecanismo de investigación planifica una indagación, recopila fuentes y ejecuta una búsqueda web — para que un agente pueda ir a buscar lo que necesita en lugar de detenerse en el límite de su contexto.",
+ "loop.self.3.h": "Investigación con afirmaciones verificadas",
+ "loop.self.3.p": "El mecanismo de investigación planifica una indagación, recopila fuentes y ejecuta búsquedas web — y somete sus propios hallazgos a un listón científico: la predicción se <b>prerregistra</b> antes de que exista evidencia alguna, el protocolo experimental se congela y la afirmación solo se confirma a partir de ejecuciones reales, repetidas y parseadas por máquina. Después, métricas de calidad mecánicas (ningún LLM se juzga a sí mismo) impulsan un bucle de revisión acotado. El mismo mecanismo respalda las puertas de despliegue y las salvaguardas de regresión, no solo papers.",
  "loop.self.4.h": "Extensible por diseño",
  "loop.self.4.p": "Las habilidades, los hooks de Lua, las herramientas MCP y las instalaciones firmadas desde el marketplace amplían todas el mismo bucle. Cada nueva capacidad se añade en torno al motor, nunca reescribiéndolo.",
  "hero.note": "Este sitio está redactado a partir del código que se está implementando actualmente — Jikji está en desarrollo activo y los detalles pueden cambiar antes de la primera versión.",
@@ -554,5 +554,7 @@ window.JIKJI_I18N["es"]={
  "orch.tr.oracle.label": "Comprobación de deriva<span class=\"mono\">oracle</span>",
  "orch.tr.oracle.p": "Una herramienta <code>trinity.oracle</code> ejecuta una comprobación de coherencia de deriva — audita si una ejecución se mantuvo coherente con su objetivo, su plan y su evidencia. Es una autoauditoría que cualquier agente puede invocar para detectar una ejecución que se ha desviado silenciosamente de su tarea.",
  "ent.obs.5.h": "Guardián de costes",
- "ent.obs.5.p": "Define niveles de coste por modelo y presupuestos que respaldan un guardián de costes — también limita los paneles multimodelo de <code>trinity</code> para que un conjunto no pueda gastar de más. Gestiona los niveles y los presupuestos con <code>jikjictl cost</code>."
+ "ent.obs.5.p": "Define niveles de coste por modelo y presupuestos que respaldan un guardián de costes — también limita los paneles multimodelo de <code>trinity</code> para que un conjunto no pueda gastar de más. Gestiona los niveles y los presupuestos con <code>jikjictl cost</code>.",
+ "onto.h.6.h": "La ontología audita el sistema",
+ "onto.h.6.p": "Modela tu propio sistema como una ontología: los componentes son nodos y <b>los invariantes son predicados comprobables</b> sobre observaciones en vivo. Contrastar mecánicamente una observación con su invariante produce una violación, que se materializa en el grafo — así que «el sistema está sano» es una afirmación que debe demostrarse con evidencia de cero violaciones, nunca autoinformada."
 };

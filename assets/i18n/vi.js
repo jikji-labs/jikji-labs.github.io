@@ -424,8 +424,8 @@ window.JIKJI_I18N["vi"]={
  "loop.self.1.p": "Sau một lần chạy đáng kể, một bộ chỉnh sửa hậu kỳ có giới hạn chắt lọc những gì agent đã tìm ra thành một <b>kỹ năng</b> bền vững — để lần chạy kế tiếp khởi đầu sẵn lợi thế. Kỹ năng được nạp theo nhu cầu bằng <code>skill.load</code> và gắn vào một hồ sơ hoặc khớp với mục tiêu theo từ khóa.",
  "loop.self.2.h": "Định hình lại vòng lặp bằng Lua",
  "loop.self.2.p": "Các hook Lua đáng tin cậy tại <code>plan</code>, <code>before_tool</code> và <code>after_tool</code> cho phép bạn — và cả chính agent — thay đổi cách vòng lặp lập kế hoạch và gọi công cụ ngay lúc chạy, tất cả trong một ngân sách thời gian và chỉ thị nghiêm ngặt.",
- "loop.self.3.h": "Tự nghiên cứu, tích hợp sẵn",
- "loop.self.3.p": "Một cơ chế nghiên cứu lên kế hoạch điều tra, thu thập nguồn và chạy tìm kiếm web — để một agent có thể tự đi tìm thứ nó cần thay vì dừng lại ở ranh giới ngữ cảnh của mình.",
+ "loop.self.3.h": "Nghiên cứu với luận điểm đã kiểm chứng",
+ "loop.self.3.p": "Cơ chế nghiên cứu lên kế hoạch điều tra, thu thập nguồn và chạy tìm kiếm web — đồng thời áp chuẩn mực khoa học lên chính phát hiện của mình: dự đoán được <b>đăng ký trước</b> khi chưa có bất kỳ bằng chứng nào, giao thức thí nghiệm bị đóng băng, và luận điểm chỉ được xác nhận từ các lần chạy thật, lặp lại, do máy phân tích. Sau đó, các chỉ số chất lượng cơ học (không để LLM tự chấm điểm mình) dẫn dắt một vòng sửa đổi có giới hạn. Cùng cơ chế này còn chống lưng cho cổng triển khai và lá chắn hồi quy, chứ không chỉ cho các bài báo khoa học.",
  "loop.self.4.h": "Mở rộng được ngay từ thiết kế",
  "loop.self.4.p": "Kỹ năng, hook Lua, công cụ MCP và các bản cài đặt có chữ ký từ marketplace đều mở rộng cùng một vòng lặp. Năng lực mới được thêm vào quanh engine, không bao giờ bằng cách viết lại nó.",
  "hero.note": "Trang này được viết dựa trên mã nguồn đang được triển khai hiện nay — Jikji đang được phát triển tích cực, và các chi tiết có thể thay đổi trước bản phát hành đầu tiên.",
@@ -554,5 +554,7 @@ window.JIKJI_I18N["vi"]={
  "orch.tr.oracle.label": "Kiểm tra trôi dạt<span class=\"mono\">oracle</span>",
  "orch.tr.oracle.p": "Công cụ <code>trinity.oracle</code> chạy một bài kiểm tra tính nhất quán về trôi dạt — đánh giá xem một lượt chạy có duy trì nhất quán với mục tiêu, kế hoạch và bằng chứng của nó hay không. Đây là một cuộc tự đánh giá mà bất kỳ tác nhân nào cũng có thể gọi để bắt được một lượt chạy đã âm thầm đi chệch nhiệm vụ.",
  "ent.obs.5.h": "Bộ bảo vệ chi phí",
- "ent.obs.5.p": "Thiết lập các bậc chi phí và ngân sách theo từng mô hình để hậu thuẫn một bộ bảo vệ chi phí — nó cũng đặt trần cho các bảng <code>trinity</code> đa mô hình để một tập hợp không thể chi tiêu quá mức. Quản lý các bậc và ngân sách bằng <code>jikjictl cost</code>."
+ "ent.obs.5.p": "Thiết lập các bậc chi phí và ngân sách theo từng mô hình để hậu thuẫn một bộ bảo vệ chi phí — nó cũng đặt trần cho các bảng <code>trinity</code> đa mô hình để một tập hợp không thể chi tiêu quá mức. Quản lý các bậc và ngân sách bằng <code>jikjictl cost</code>.",
+ "onto.h.6.h": "Bản thể học kiểm toán hệ thống",
+ "onto.h.6.p": "Hãy mô hình hóa chính hệ thống của bạn thành một bản thể học: các thành phần là nút, còn <b>bất biến là những vị từ kiểm tra được</b> trên quan sát trực tiếp. Đối chiếu một quan sát với bất biến của nó một cách máy móc sẽ sinh ra vi phạm, được vật chất hóa vào đồ thị — vì vậy \"hệ thống đang khỏe mạnh\" là một luận điểm phải được chứng minh bằng bằng chứng không có vi phạm nào, chứ không bao giờ là tự báo cáo."
 };

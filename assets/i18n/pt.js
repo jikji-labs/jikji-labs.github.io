@@ -424,8 +424,8 @@ window.JIKJI_I18N["pt"]={
  "loop.self.1.p": "Depois de uma execução substancial, um revisor pós-execução limitado destila o que o agente descobriu em uma <b>habilidade</b> duradoura — para que a próxima execução comece na frente. As habilidades carregam sob demanda com <code>skill.load</code> e se conectam a um perfil ou correspondem ao objetivo por palavra-chave.",
  "loop.self.2.h": "Remodele o loop com Lua",
  "loop.self.2.p": "Hooks Lua confiáveis em <code>plan</code>, <code>before_tool</code> e <code>after_tool</code> permitem que você — e o próprio agente — mude em tempo de execução como o loop planeja e chama ferramentas, tudo dentro de um rígido orçamento de tempo e de instruções.",
- "loop.self.3.h": "Pesquisa automática, embutida",
- "loop.self.3.p": "Um mecanismo de pesquisa planeja uma investigação, reúne fontes e roda busca na web — para que um agente possa ir atrás do que precisa em vez de parar na borda do seu contexto.",
+ "loop.self.3.h": "Pesquisa com afirmações verificadas",
+ "loop.self.3.p": "O mecanismo de pesquisa planeja uma investigação, reúne fontes e roda busca na web — e submete os próprios achados a uma régua científica: a previsão é <b>pré-registrada</b> antes de existir qualquer evidência, o protocolo do experimento é congelado, e a afirmação só é confirmada a partir de execuções reais, repetidas e parseadas por máquina. Em seguida, métricas de qualidade mecânicas (nenhum LLM julgando a si mesmo) conduzem um laço de revisão limitado. O mesmo mecanismo sustenta gates de deploy e guardas de regressão, não só papers.",
  "loop.self.4.h": "Extensível por design",
  "loop.self.4.p": "Habilidades, hooks Lua, ferramentas MCP e instalações assinadas do marketplace estendem todos o mesmo loop. Cada nova capacidade é adicionada ao redor do motor, nunca reescrevendo-o.",
  "hero.note": "Este site foi escrito a partir do código que está sendo implementado hoje — o Jikji está em desenvolvimento ativo, e os detalhes podem mudar antes da primeira versão.",
@@ -554,5 +554,7 @@ window.JIKJI_I18N["pt"]={
  "orch.tr.oracle.label": "Verificação de desvio<span class=\"mono\">oracle</span>",
  "orch.tr.oracle.p": "Uma ferramenta <code>trinity.oracle</code> executa uma verificação de consistência de desvio — auditando se uma execução permaneceu consistente com sua meta, seu plano e suas evidências. É uma autoauditoria que qualquer agente pode invocar para flagrar uma execução que se desviou silenciosamente da tarefa.",
  "ent.obs.5.h": "Guarda de custos",
- "ent.obs.5.p": "Defina camadas de custo por modelo e orçamentos que sustentam uma guarda de custos — ela também limita os painéis multimodelo do <code>trinity</code> para que um conjunto não possa gastar demais. Gerencie camadas e orçamentos com <code>jikjictl cost</code>."
+ "ent.obs.5.p": "Defina camadas de custo por modelo e orçamentos que sustentam uma guarda de custos — ela também limita os painéis multimodelo do <code>trinity</code> para que um conjunto não possa gastar demais. Gerencie camadas e orçamentos com <code>jikjictl cost</code>.",
+ "onto.h.6.h": "A ontologia audita o sistema",
+ "onto.h.6.p": "Modele o seu próprio sistema como uma ontologia: componentes são nós e <b>invariantes são predicados verificáveis</b> sobre observações ao vivo. Checar uma observação contra o seu invariante produz, mecanicamente, uma violação, materializada no grafo — então \"o sistema está saudável\" é uma afirmação que precisa ser provada com evidência de zero violações, nunca autodeclarada."
 };

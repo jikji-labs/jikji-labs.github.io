@@ -424,8 +424,8 @@ window.JIKJI_I18N["id"]={
  "loop.self.1.p": "Setelah sebuah eksekusi yang signifikan, sebuah reviser pascaeksekusi yang terbatas menyuling apa yang ditemukan agen menjadi sebuah <b>skill</b> yang tahan lama — sehingga eksekusi berikutnya mulai selangkah lebih maju. Skill dimuat sesuai permintaan dengan <code>skill.load</code> dan terpasang ke sebuah profil atau cocok dengan tujuan berdasarkan kata kunci.",
  "loop.self.2.h": "Bentuk ulang loop dengan Lua",
  "loop.self.2.p": "Hook Lua tepercaya di <code>plan</code>, <code>before_tool</code>, dan <code>after_tool</code> memungkinkan Anda — dan agen itu sendiri — mengubah cara loop merencanakan dan memanggil alat saat runtime, semuanya dalam anggaran waktu dan instruksi yang ketat.",
- "loop.self.3.h": "Riset otomatis, sudah tertanam",
- "loop.self.3.p": "Sebuah mekanisme riset merencanakan investigasi, menarik sumber, dan menjalankan pencarian web — sehingga agen bisa pergi mencari apa yang dibutuhkannya alih-alih berhenti di batas konteksnya.",
+ "loop.self.3.h": "Riset dengan klaim terverifikasi",
+ "loop.self.3.p": "Mekanisme riset merencanakan investigasi, menarik sumber, dan menjalankan pencarian web — sekaligus menahan temuannya sendiri pada standar ilmiah: prediksi <b>dipraregistrasi</b> sebelum bukti apa pun ada, protokol eksperimen dibekukan, dan klaim hanya dikonfirmasi dari eksekusi nyata yang berulang dan diparse oleh mesin. Metrik kualitas mekanis (tanpa LLM yang menilai dirinya sendiri) lalu menggerakkan loop revisi yang dibatasi. Mekanisme yang sama menopang gerbang deployment dan penjaga regresi, bukan cuma makalah.",
  "loop.self.4.h": "Dapat diperluas sejak desain",
  "loop.self.4.p": "Skill, hook Lua, alat MCP, dan instalasi marketplace bertanda tangan semuanya memperluas loop yang sama. Kemampuan baru ditambahkan di sekitar mesin, tidak pernah dengan menulis ulangnya.",
  "hero.note": "Situs ini ditulis berdasarkan kode yang sedang diimplementasikan saat ini — Jikji sedang dalam pengembangan aktif, dan detailnya dapat berubah sebelum rilis pertama.",
@@ -554,5 +554,7 @@ window.JIKJI_I18N["id"]={
  "orch.tr.oracle.label": "Pemeriksaan drift<span class=\"mono\">oracle</span>",
  "orch.tr.oracle.p": "Alat <code>trinity.oracle</code> menjalankan pemeriksaan konsistensi drift — mengaudit apakah sebuah proses berjalan tetap konsisten dengan sasaran, rencana, dan buktinya. Ini adalah audit mandiri yang dapat dipanggil agen mana pun untuk menangkap proses berjalan yang diam-diam menyimpang dari tugasnya.",
  "ent.obs.5.h": "Penjaga biaya",
- "ent.obs.5.p": "Tetapkan tingkatan biaya per model dan anggaran yang menopang penjaga biaya — ia juga membatasi panel <code>trinity</code> multi-model sehingga sebuah ensembel tidak dapat menghabiskan biaya berlebih. Kelola tingkatan dan anggaran dengan <code>jikjictl cost</code>."
+ "ent.obs.5.p": "Tetapkan tingkatan biaya per model dan anggaran yang menopang penjaga biaya — ia juga membatasi panel <code>trinity</code> multi-model sehingga sebuah ensembel tidak dapat menghabiskan biaya berlebih. Kelola tingkatan dan anggaran dengan <code>jikjictl cost</code>.",
+ "onto.h.6.h": "Ontologi mengaudit sistem",
+ "onto.h.6.p": "Modelkan sistem Anda sendiri sebagai ontologi: komponen adalah simpul dan <b>invarian adalah predikat yang bisa diperiksa</b> atas observasi langsung. Memeriksa sebuah observasi terhadap invariannya secara mekanis menghasilkan pelanggaran, yang dimaterialisasikan ke dalam graf — sehingga \"sistem ini sehat\" adalah klaim yang harus dibuktikan dari bukti nol pelanggaran, bukan laporan diri."
 };
