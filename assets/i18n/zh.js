@@ -335,7 +335,6 @@ window.JIKJI_I18N["zh"]={
  "ent.rob.6.h": "运维工具",
  "ent.rob.6.p": "<code>jikjictl</code> 管理凭据、RBAC、策略、过滤器、审计、追踪、用量和市场——另有一个服务端绝不留存密钥的 Web 控制台。",
  "ent.cli.cap": "这一切都能从运维命令行来驱动：",
- "pn.start": "总览与开始使用",
  "nav.ontology": "本体",
  "exp.onto.h": "本体引擎",
  "exp.onto.p": "一个原生引擎，从语料库构建知识图谱，并以进程内 SPARQL 直接对外提供——在你的数据之上叠加一层本体，无需任何外部三元组存储。",

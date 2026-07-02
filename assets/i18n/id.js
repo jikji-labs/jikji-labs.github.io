@@ -335,7 +335,6 @@ window.JIKJI_I18N["id"]={
  "ent.rob.6.h": "Perkakas operator",
  "ent.rob.6.p": "<code>jikjictl</code> untuk kredensial, RBAC, kebijakan, filter, audit, tracing, penggunaan, dan marketplace — plus dashboard web yang tidak pernah menyimpan key di sisi server.",
  "ent.cli.cap": "Kendalikan semuanya dari CLI operator:",
- "pn.start": "Ikhtisar &amp; Mulai",
  "nav.ontology": "Ontologi",
  "exp.onto.h": "Mesin ontologi",
  "exp.onto.p": "Mesin native yang membangun graf pengetahuan dari sebuah korpus dan menyajikannya lewat SPARQL dalam proses — sebuah ontologi di atas data Anda, tanpa triple store eksternal apa pun.",

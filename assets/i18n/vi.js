@@ -335,7 +335,6 @@ window.JIKJI_I18N["vi"]={
  "ent.rob.6.h": "Công cụ cho người vận hành",
  "ent.rob.6.p": "<code>jikjictl</code> cho thông tin xác thực, RBAC, chính sách, bộ lọc, kiểm toán, truy vết, mức sử dụng, và marketplace — cùng một dashboard web không bao giờ lưu khóa ở phía máy chủ.",
  "ent.cli.cap": "Điều khiển tất cả từ CLI của người vận hành:",
- "pn.start": "Tổng quan &amp; bắt đầu",
  "nav.ontology": "Bản thể học",
  "exp.onto.h": "Engine bản thể học",
  "exp.onto.p": "Một engine gốc dựng đồ thị tri thức từ kho ngữ liệu và phục vụ ngay bằng SPARQL trong tiến trình — một lớp bản thể học phủ lên dữ liệu của bạn, không cần triple store bên ngoài.",

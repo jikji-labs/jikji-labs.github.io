@@ -335,7 +335,6 @@ window.JIKJI_I18N["fr"]={
  "ent.rob.6.h": "Outils d'exploitation",
  "ent.rob.6.p": "<code>jikjictl</code> pour les identifiants, le RBAC, la politique, les filtres, l'audit, le traçage, l'usage et la place de marché — auquel s'ajoute un tableau de bord web qui ne stocke jamais de clés côté serveur.",
  "ent.cli.cap": "Pilotez l'ensemble depuis la CLI d'exploitation :",
- "pn.start": "Vue d'ensemble &amp; démarrage",
  "nav.ontology": "Ontologie",
  "exp.onto.h": "Moteur d'ontologie",
  "exp.onto.p": "Un moteur natif qui construit des graphes de connaissances à partir d'un corpus et les sert via SPARQL en mémoire — une ontologie posée sur vos données, sans aucun triple store externe.",

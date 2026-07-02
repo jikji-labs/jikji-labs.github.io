@@ -335,7 +335,6 @@ window.JIKJI_I18N["zh-tw"]={
  "ent.rob.6.h": "維運工具",
  "ent.rob.6.p": "<code>jikjictl</code> 掌管憑證、RBAC、政策、過濾器、稽核、追蹤、用量與市集——另有一個伺服端從不保存金鑰的網頁儀表板。",
  "ent.cli.cap": "從維運 CLI 一手掌控全局：",
- "pn.start": "總覽與開始使用",
  "nav.ontology": "本體",
  "exp.onto.h": "本體引擎",
  "exp.onto.p": "一個原生引擎，從語料庫建構知識圖譜，並以行程內 SPARQL 直接對外提供——在你的資料之上疊加一層本體，無需任何外部三元組儲存。",

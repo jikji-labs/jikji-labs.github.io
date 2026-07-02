@@ -503,7 +503,6 @@ window.JIKJI_I18N["en"]={
  "ent.upd.2.p": "Export and reload runtime config over API, CLI, or dashboard without a restart — change providers, filters, and policy live, with deterministic, validated parsing.",
  "ent.upd.3.h": "Rolling updates via HA",
  "ent.upd.3.p": "With HA enabled, controllers share one database and elect a single leader for the singleton schedulers while every node serves traffic — so you update nodes one at a time and the cluster keeps running.",
- "pn.start": "Overview &amp; Get Started",
  "tools.kicker": "sorts — the tool runtime",
  "tools.title": "The <span class=\"accent\">sorts</span> the loop sets",
  "tools.sub": "Tools are the movable type Jikji sets into place — a broad built-in catalog plus anything you install, each one run behind a policy gate and a sandbox, locally or on a remote node.",
