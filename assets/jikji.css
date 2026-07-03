@@ -256,7 +256,7 @@ pre.code-block .p{color:#c98a6a}
 .loop-back .mono{color:var(--vermilion-deep)}
 
 /* stat band */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:center}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px 16px}
 .stat .n{font-family:'Noto Serif KR',serif;font-size:34px;font-weight:700;color:var(--vermilion);line-height:1}
 .stat .l{font-size:13px;color:var(--ink-soft);margin-top:8px}

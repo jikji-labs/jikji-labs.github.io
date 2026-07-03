@@ -563,5 +563,7 @@ window.JIKJI_I18N["vi"]={
  "orch.svc.6.p": "Một agent có thể xuất bản UI trực tiếp bằng <code>ui.render</code> — bảng hoặc biểu đồ khai báo được phục vụ ngay lập tức (kết xuất phía máy chủ, không chạy bất kỳ script nào của agent) — hoặc một API tại <code>/svc/{tenant}/{name}</code> bằng <code>service.publish</code>: nội dung tĩnh, trình xử lý Lua chạy trong sandbox, hoặc một mẫu mục tiêu trong đó <b>mỗi yêu cầu kích hoạt một lượt chạy agent bền vững</b>. Bất cứ thứ gì thực thi mã đều được xuất bản ở trạng thái chờ duyệt và chỉ được phục vụ sau khi người vận hành phê duyệt.",
  "mem.db.note": "<b>Phiên là dữ liệu hạng nhất.</b> Thư viện phiên cho phép liệt kê, tiếp tục, đổi tên và xóa các cuộc hội thoại — và <b>phân nhánh</b> một cuộc hội thoại tại bất kỳ tin nhắn nào thành một nhánh mới, với chế độ xem đầy đủ cây phân nhánh, để bạn khám phá các phương án khác mà không mất mạch trò chuyện ban đầu.",
  "tools.cat.8.k": "Mục tiêu &amp; lịch trình",
- "tools.cat.9.k": "Xuất bản"
+ "tools.cat.9.k": "Xuất bản",
+ "st.5": "dòng mã Go",
+ "st.6": "là mã kiểm thử"
 };

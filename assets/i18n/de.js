@@ -563,5 +563,7 @@ window.JIKJI_I18N["de"]={
  "orch.svc.6.p": "Ein Agent kann mit <code>ui.render</code> eine Live-UI veröffentlichen — eine deklarative Tabelle oder ein Diagramm wird sofort ausgeliefert (serverseitig gerendert, es läuft kein Agentenskript) — oder mit <code>service.publish</code> eine API unter <code>/svc/{tenant}/{name}</code>: ein statischer Body, ein sandboxter Lua-Handler oder eine Ziel-Vorlage, bei der <b>jede Anfrage einen persistenten Agentenlauf antreibt</b>. Alles, was Code ausführt, wird als ausstehend veröffentlicht und erst ausgeliefert, nachdem ein Operator es freigegeben hat.",
  "mem.db.note": "<b>Sitzungen sind Daten erster Klasse.</b> Die Sitzungsbibliothek listet, setzt fort, benennt um und löscht Unterhaltungen — und <b>forkt</b> eine an einer beliebigen Nachricht in einen neuen Zweig, mit vollständigen Fork-Baum-Ansichten, sodass Sie Alternativen erkunden können, ohne den ursprünglichen Faden zu verlieren.",
  "tools.cat.8.k": "Ziele &amp; Zeitplan",
- "tools.cat.9.k": "Veröffentlichen"
+ "tools.cat.9.k": "Veröffentlichen",
+ "st.5": "Zeilen Go",
+ "st.6": "davon Tests"
 };

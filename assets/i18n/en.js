@@ -66,6 +66,8 @@ window.JIKJI_I18N["en"]={
  "st.1": "static Go binary",
  "st.2": "composable modules",
  "st.3": "agent protocols",
+ "st.5": "lines of Go",
+ "st.6": "of it is tests",
  "st.4": "the default port, and the year",
  "proto.tag": "Interoperability",
  "proto.h2": "Speaks every protocol that matters",

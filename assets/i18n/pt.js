@@ -563,5 +563,7 @@ window.JIKJI_I18N["pt"]={
  "orch.svc.6.p": "Um agente pode publicar uma UI ao vivo com <code>ui.render</code> — uma tabela ou um gráfico declarativos são servidos imediatamente (renderização no servidor, nenhum script do agente é executado) — ou uma API em <code>/svc/{tenant}/{name}</code> com <code>service.publish</code>: um corpo estático, um handler Lua em sandbox, ou um template de objetivo em que <b>cada requisição dispara uma execução durável do agente</b>. Tudo que executa código é publicado como pendente e só é servido depois que um operador aprova.",
  "mem.db.note": "<b>Sessões são dados de primeira classe.</b> A biblioteca de sessões lista, continua, renomeia e exclui conversas — e faz <b>fork</b> de uma em qualquer mensagem para um novo ramo, com visualizações completas da árvore de forks, para você explorar alternativas sem perder o fio original.",
  "tools.cat.8.k": "Metas &amp; agendamento",
- "tools.cat.9.k": "Publicar"
+ "tools.cat.9.k": "Publicar",
+ "st.5": "linhas de Go",
+ "st.6": "são testes"
 };

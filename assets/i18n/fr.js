@@ -563,5 +563,7 @@ window.JIKJI_I18N["fr"]={
  "orch.svc.6.p": "Un agent peut publier une UI en direct avec <code>ui.render</code> — un tableau ou un graphique déclaratif est servi immédiatement (rendu côté serveur, aucun script d'agent ne s'exécute) — ou une API sur <code>/svc/{tenant}/{name}</code> avec <code>service.publish</code> : un corps statique, un handler Lua sandboxé, ou un modèle d'objectif où <b>chaque requête déclenche une exécution d'agent durable</b>. Tout ce qui exécute du code est publié en attente et n'est servi qu'après approbation d'un opérateur.",
  "mem.db.note": "<b>Les sessions sont des données de premier ordre.</b> La bibliothèque de sessions liste, reprend, renomme et supprime les conversations — et en <b>forke</b> une à n'importe quel message vers une nouvelle branche, avec des vues complètes de l'arbre de forks, pour explorer des alternatives sans perdre le fil d'origine.",
  "tools.cat.8.k": "Objectifs &amp; planification",
- "tools.cat.9.k": "Publication"
+ "tools.cat.9.k": "Publication",
+ "st.5": "lignes de Go",
+ "st.6": "de tests"
 };

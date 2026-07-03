@@ -563,5 +563,7 @@ window.JIKJI_I18N["id"]={
  "orch.svc.6.p": "Agen dapat menerbitkan UI langsung dengan <code>ui.render</code> — tabel atau grafik deklaratif langsung tersaji (dirender di server, tanpa menjalankan skrip agen) — atau API di <code>/svc/{tenant}/{name}</code> dengan <code>service.publish</code>: body statis, handler Lua dalam sandbox, atau templat goal di mana <b>setiap permintaan menggerakkan satu run agen yang durable</b>. Apa pun yang menjalankan kode diterbitkan dalam status tertunda dan baru tersaji setelah disetujui operator.",
  "mem.db.note": "<b>Sesi adalah data kelas satu.</b> Pustaka sesi dapat menampilkan, melanjutkan, mengganti nama, dan menghapus percakapan — serta <b>mencabangkan</b> percakapan di pesan mana pun menjadi cabang baru, dengan tampilan pohon percabangan yang lengkap, sehingga Anda bisa menjelajahi alternatif tanpa kehilangan alur aslinya.",
  "tools.cat.8.k": "Tujuan &amp; jadwal",
- "tools.cat.9.k": "Terbitkan"
+ "tools.cat.9.k": "Terbitkan",
+ "st.5": "baris kode Go",
+ "st.6": "berupa pengujian"
 };
