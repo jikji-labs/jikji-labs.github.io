@@ -333,7 +333,7 @@ window.JIKJI_I18N["es"]={
  "ent.rob.5.h": "Configuración y recarga",
  "ent.rob.5.p": "Exportación de configuración para operadores y recarga en caliente por API, CLI y panel, con un análisis de configuración determinista, validado y cubierto por pruebas.",
  "ent.rob.6.h": "Herramientas para operadores",
- "ent.rob.6.p": "<code>jikjictl</code> para credenciales, RBAC, políticas, filtros, auditoría, trazas, uso y marketplace, además de un panel web que nunca guarda claves en el servidor.",
+ "ent.rob.6.p": "<code>jikjictl</code> para credenciales, RBAC, políticas, filtros, auditoría, trazabilidad, uso y marketplace — más un panel web que nunca almacena claves en el servidor: un playground con instantáneas, rollback y aprobación de inquiries en el momento; vistas de filtros con insignias de circuit breaker; políticas IAM con el simulador; superficies del plano de servicio; paneles de uso; y gestión del vault.",
  "ent.cli.cap": "Maneja todo desde la CLI del operador:",
  "nav.ontology": "Ontología",
  "exp.onto.h": "Motor de ontología",
@@ -556,5 +556,12 @@ window.JIKJI_I18N["es"]={
  "ent.obs.5.h": "Guardián de costes",
  "ent.obs.5.p": "Define niveles de coste por modelo y presupuestos que respaldan un guardián de costes — también limita los paneles multimodelo de <code>trinity</code> para que un conjunto no pueda gastar de más. Gestiona los niveles y los presupuestos con <code>jikjictl cost</code>.",
  "onto.h.6.h": "La ontología audita el sistema",
- "onto.h.6.p": "Modela tu propio sistema como una ontología: los componentes son nodos y <b>los invariantes son predicados comprobables</b> sobre observaciones en vivo. Contrastar mecánicamente una observación con su invariante produce una violación, que se materializa en el grafo — así que «el sistema está sano» es una afirmación que debe demostrarse con evidencia de cero violaciones, nunca autoinformada."
+ "onto.h.6.p": "Modela tu propio sistema como una ontología: los componentes son nodos y <b>los invariantes son predicados comprobables</b> sobre observaciones en vivo. Contrastar mecánicamente una observación con su invariante produce una violación, que se materializa en el grafo — así que «el sistema está sano» es una afirmación que debe demostrarse con evidencia de cero violaciones, nunca autoinformada.",
+ "orch.del.5.h": "Planes como grafos de dependencias",
+ "orch.del.5.p": "<code>taskgraph.run</code> ejecuta un plan completo: las tareas con aristas <code>depends_on</code> se ejecutan cada una como un subagente durable una vez completadas sus dependencias. Las tareas de la misma oleada se ejecutan en paralelo — salvo que toquen el mismo archivo, en cuyo caso se serializan — y el grafo se valida de antemano, así que un ciclo se rechaza antes de que arranque nada.",
+ "orch.svc.6.h": "Los agentes publican sus propias superficies",
+ "orch.svc.6.p": "Un agente puede publicar una UI en vivo con <code>ui.render</code> — una tabla o un gráfico declarativos se sirven de inmediato (renderizado en el servidor, sin ejecutar ningún script del agente) — o una API en <code>/svc/{tenant}/{name}</code> con <code>service.publish</code>: un cuerpo estático, un handler Lua aislado en sandbox, o una plantilla de objetivo donde <b>cada petición impulsa una ejecución durable del agente</b>. Todo lo que ejecuta código se publica como pendiente y solo se sirve cuando un operador lo aprueba.",
+ "mem.db.note": "<b>Las sesiones son datos de primera clase.</b> La biblioteca de sesiones lista, continúa, renombra y elimina conversaciones — y <b>bifurca</b> una en cualquier mensaje hacia una nueva rama, con vistas completas del árbol de bifurcaciones, para explorar alternativas sin perder el hilo original.",
+ "tools.cat.8.k": "Objetivos &amp; programación",
+ "tools.cat.9.k": "Publicar"
 };

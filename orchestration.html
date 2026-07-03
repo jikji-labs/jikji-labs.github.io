@@ -144,6 +144,10 @@
         <h3 data-i18n="orch.del.4.h">Open agent protocols</h3>
         <p data-i18n="orch.del.4.p">Beyond A2A, Jikji speaks MCP and ACP over stdio for local peers, and coordinates multi-node dispatch over gRPC — so orchestration is never locked to one runtime.</p>
       </div>
+      <div class="card">
+        <h3 data-i18n="orch.del.5.h">Plans as dependency graphs</h3>
+        <p data-i18n="orch.del.5.p"><code>taskgraph.run</code> executes a whole plan: tasks with <code>depends_on</code> edges each run as a durable sub-agent once their dependencies complete. Tasks in the same wave run concurrently — unless they touch the same file, in which case they are serialized — and the graph is validated up front, so a cycle is rejected before anything spawns.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -176,6 +180,10 @@
       <div class="card">
         <h3 data-i18n="orch.svc.5.h">Meet users on their channels</h3>
         <p data-i18n="orch.svc.5.p">Serve the same agent over messaging channels: an inbound message becomes a run and the reply goes back out, with per-chat tool scopes, persistent per-chat memory, allowlists, and rate limits. A Telegram adapter ships today, and the adapter interface is built for more — Slack and beyond — alongside signed inbound webhooks.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="orch.svc.6.h">Agents publish their own surfaces</h3>
+        <p data-i18n="orch.svc.6.p">An agent can publish a live UI with <code>ui.render</code> — a declarative table or chart serves immediately (server-rendered, no agent script runs) — or an API at <code>/svc/{tenant}/{name}</code> with <code>service.publish</code>: a static body, a sandboxed Lua handler, or a goal template where <b>each request drives a durable agent run</b>. Anything that runs code is published pending and serves only after an operator approves it.</p>
       </div>
     </div>
   </div>

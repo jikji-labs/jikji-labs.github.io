@@ -333,7 +333,7 @@ window.JIKJI_I18N["id"]={
  "ent.rob.5.h": "Konfigurasi &amp; reload",
  "ent.rob.5.p": "Ekspor konfigurasi operator dan hot reload lewat API, CLI, dan dashboard, dengan parsing konfigurasi yang deterministik, tervalidasi, dan teruji.",
  "ent.rob.6.h": "Perkakas operator",
- "ent.rob.6.p": "<code>jikjictl</code> untuk kredensial, RBAC, kebijakan, filter, audit, tracing, penggunaan, dan marketplace — plus dashboard web yang tidak pernah menyimpan key di sisi server.",
+ "ent.rob.6.p": "<code>jikjictl</code> untuk kredensial, RBAC, kebijakan, filter, audit, tracing, penggunaan, dan marketplace — plus dasbor web yang tidak pernah menyimpan kunci di sisi server: playground dengan snapshot, rollback, dan persetujuan inquiry di tempat; tampilan filter dengan lencana circuit breaker; kebijakan IAM dengan simulator; permukaan service plane; panel penggunaan; dan pengelolaan vault.",
  "ent.cli.cap": "Kendalikan semuanya dari CLI operator:",
  "nav.ontology": "Ontologi",
  "exp.onto.h": "Mesin ontologi",
@@ -556,5 +556,12 @@ window.JIKJI_I18N["id"]={
  "ent.obs.5.h": "Penjaga biaya",
  "ent.obs.5.p": "Tetapkan tingkatan biaya per model dan anggaran yang menopang penjaga biaya — ia juga membatasi panel <code>trinity</code> multi-model sehingga sebuah ensembel tidak dapat menghabiskan biaya berlebih. Kelola tingkatan dan anggaran dengan <code>jikjictl cost</code>.",
  "onto.h.6.h": "Ontologi mengaudit sistem",
- "onto.h.6.p": "Modelkan sistem Anda sendiri sebagai ontologi: komponen adalah simpul dan <b>invarian adalah predikat yang bisa diperiksa</b> atas observasi langsung. Memeriksa sebuah observasi terhadap invariannya secara mekanis menghasilkan pelanggaran, yang dimaterialisasikan ke dalam graf — sehingga \"sistem ini sehat\" adalah klaim yang harus dibuktikan dari bukti nol pelanggaran, bukan laporan diri."
+ "onto.h.6.p": "Modelkan sistem Anda sendiri sebagai ontologi: komponen adalah simpul dan <b>invarian adalah predikat yang bisa diperiksa</b> atas observasi langsung. Memeriksa sebuah observasi terhadap invariannya secara mekanis menghasilkan pelanggaran, yang dimaterialisasikan ke dalam graf — sehingga \"sistem ini sehat\" adalah klaim yang harus dibuktikan dari bukti nol pelanggaran, bukan laporan diri.",
+ "orch.del.5.h": "Rencana sebagai graf dependensi",
+ "orch.del.5.p": "<code>taskgraph.run</code> mengeksekusi seluruh rencana: tugas-tugas dengan sisi <code>depends_on</code> masing-masing berjalan sebagai sub-agen durable begitu dependensinya selesai. Tugas dalam gelombang yang sama berjalan bersamaan — kecuali menyentuh berkas yang sama, dalam hal ini dijalankan berurutan — dan grafnya divalidasi di awal, sehingga siklus ditolak sebelum apa pun dijalankan.",
+ "orch.svc.6.h": "Agen menerbitkan permukaannya sendiri",
+ "orch.svc.6.p": "Agen dapat menerbitkan UI langsung dengan <code>ui.render</code> — tabel atau grafik deklaratif langsung tersaji (dirender di server, tanpa menjalankan skrip agen) — atau API di <code>/svc/{tenant}/{name}</code> dengan <code>service.publish</code>: body statis, handler Lua dalam sandbox, atau templat goal di mana <b>setiap permintaan menggerakkan satu run agen yang durable</b>. Apa pun yang menjalankan kode diterbitkan dalam status tertunda dan baru tersaji setelah disetujui operator.",
+ "mem.db.note": "<b>Sesi adalah data kelas satu.</b> Pustaka sesi dapat menampilkan, melanjutkan, mengganti nama, dan menghapus percakapan — serta <b>mencabangkan</b> percakapan di pesan mana pun menjadi cabang baru, dengan tampilan pohon percabangan yang lengkap, sehingga Anda bisa menjelajahi alternatif tanpa kehilangan alur aslinya.",
+ "tools.cat.8.k": "Tujuan &amp; jadwal",
+ "tools.cat.9.k": "Terbitkan"
 };

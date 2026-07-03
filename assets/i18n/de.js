@@ -333,7 +333,7 @@ window.JIKJI_I18N["de"]={
  "ent.rob.5.h": "Konfiguration &amp; Reload",
  "ent.rob.5.p": "Export der Betreiber-Konfiguration und Hot-Reload über API, CLI und Dashboard, mit deterministischem, validiertem und durch Tests abgedecktem Parsen der Konfiguration.",
  "ent.rob.6.h": "Werkzeuge für den Betrieb",
- "ent.rob.6.p": "<code>jikjictl</code> für Zugangsdaten, RBAC, Richtlinien, Filter, Audit, Tracing, Nutzung und Marktplatz — dazu ein Web-Dashboard, das niemals Schlüssel auf dem Server ablegt.",
+ "ent.rob.6.p": "<code>jikjictl</code> für Zugangsdaten, RBAC, Richtlinien, Filter, Audit, Tracing, Nutzung und Marketplace — plus ein Web-Dashboard, das Schlüssel nie serverseitig speichert: ein Playground mit Snapshots, Rollback und Inquiry-Freigabe direkt an Ort und Stelle; Filteransichten mit Circuit-Breaker-Badges; IAM-Richtlinien mit dem Simulator; Service-Plane-Oberflächen; Nutzungs-Panels; und Vault-Verwaltung.",
  "ent.cli.cap": "Steuere alles aus der Betreiber-CLI:",
  "nav.ontology": "Ontologie",
  "exp.onto.h": "Ontologie-Engine",
@@ -556,5 +556,12 @@ window.JIKJI_I18N["de"]={
  "ent.obs.5.h": "Kostenwächter",
  "ent.obs.5.p": "Legen Sie Kostenstufen und Budgets pro Modell fest, die einen Kostenwächter untermauern — er deckelt auch die Multi-Modell-<code>trinity</code>-Panels, damit ein Ensemble nicht zu viel ausgeben kann. Verwalten Sie Stufen und Budgets mit <code>jikjictl cost</code>.",
  "onto.h.6.h": "Die Ontologie auditiert das System",
- "onto.h.6.p": "Modellieren Sie Ihr eigenes System als Ontologie: Komponenten sind Knoten, und <b>Invarianten sind prüfbare Prädikate</b> über Live-Beobachtungen. Wird eine Beobachtung mechanisch gegen ihre Invariante geprüft, ergibt sich eine Verletzung, die im Graphen materialisiert wird — „das System ist gesund“ ist damit eine Behauptung, die aus dem Beleg von null Verletzungen bewiesen werden muss, niemals eine Selbstauskunft."
+ "onto.h.6.p": "Modellieren Sie Ihr eigenes System als Ontologie: Komponenten sind Knoten, und <b>Invarianten sind prüfbare Prädikate</b> über Live-Beobachtungen. Wird eine Beobachtung mechanisch gegen ihre Invariante geprüft, ergibt sich eine Verletzung, die im Graphen materialisiert wird — „das System ist gesund“ ist damit eine Behauptung, die aus dem Beleg von null Verletzungen bewiesen werden muss, niemals eine Selbstauskunft.",
+ "orch.del.5.h": "Pläne als Abhängigkeitsgraphen",
+ "orch.del.5.p": "<code>taskgraph.run</code> führt einen ganzen Plan aus: Aufgaben mit <code>depends_on</code>-Kanten laufen jeweils als persistenter Sub-Agent, sobald ihre Abhängigkeiten abgeschlossen sind. Aufgaben derselben Welle laufen parallel — es sei denn, sie berühren dieselbe Datei, dann werden sie serialisiert — und der Graph wird vorab validiert: Ein Zyklus wird abgelehnt, bevor irgendetwas gestartet wird.",
+ "orch.svc.6.h": "Agenten veröffentlichen ihre eigenen Oberflächen",
+ "orch.svc.6.p": "Ein Agent kann mit <code>ui.render</code> eine Live-UI veröffentlichen — eine deklarative Tabelle oder ein Diagramm wird sofort ausgeliefert (serverseitig gerendert, es läuft kein Agentenskript) — oder mit <code>service.publish</code> eine API unter <code>/svc/{tenant}/{name}</code>: ein statischer Body, ein sandboxter Lua-Handler oder eine Ziel-Vorlage, bei der <b>jede Anfrage einen persistenten Agentenlauf antreibt</b>. Alles, was Code ausführt, wird als ausstehend veröffentlicht und erst ausgeliefert, nachdem ein Operator es freigegeben hat.",
+ "mem.db.note": "<b>Sitzungen sind Daten erster Klasse.</b> Die Sitzungsbibliothek listet, setzt fort, benennt um und löscht Unterhaltungen — und <b>forkt</b> eine an einer beliebigen Nachricht in einen neuen Zweig, mit vollständigen Fork-Baum-Ansichten, sodass Sie Alternativen erkunden können, ohne den ursprünglichen Faden zu verlieren.",
+ "tools.cat.8.k": "Ziele &amp; Zeitplan",
+ "tools.cat.9.k": "Veröffentlichen"
 };

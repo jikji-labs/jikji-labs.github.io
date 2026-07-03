@@ -333,7 +333,7 @@ window.JIKJI_I18N["pt"]={
  "ent.rob.5.h": "Configuração &amp; recarga",
  "ent.rob.5.p": "Exportação da configuração do operador e recarga a quente por API, CLI e dashboard, com parsing de configuração determinístico, validado e coberto por testes.",
  "ent.rob.6.h": "Ferramentas para operadores",
- "ent.rob.6.p": "O <code>jikjictl</code> para credenciais, RBAC, política, filtros, auditoria, tracing, uso e marketplace — além de um dashboard web que nunca guarda chaves no servidor.",
+ "ent.rob.6.p": "<code>jikjictl</code> para credenciais, RBAC, políticas, filtros, auditoria, tracing, uso e marketplace — mais um dashboard web que nunca armazena chaves no servidor: um playground com snapshots, rollback e aprovação de inquiries na hora; visões de filtros com selos de circuit breaker; políticas IAM com o simulador; superfícies do plano de serviço; painéis de uso; e gestão do vault.",
  "ent.cli.cap": "Comande tudo a partir da CLI do operador:",
  "nav.ontology": "Ontologia",
  "exp.onto.h": "Motor de ontologia",
@@ -556,5 +556,12 @@ window.JIKJI_I18N["pt"]={
  "ent.obs.5.h": "Guarda de custos",
  "ent.obs.5.p": "Defina camadas de custo por modelo e orçamentos que sustentam uma guarda de custos — ela também limita os painéis multimodelo do <code>trinity</code> para que um conjunto não possa gastar demais. Gerencie camadas e orçamentos com <code>jikjictl cost</code>.",
  "onto.h.6.h": "A ontologia audita o sistema",
- "onto.h.6.p": "Modele o seu próprio sistema como uma ontologia: componentes são nós e <b>invariantes são predicados verificáveis</b> sobre observações ao vivo. Checar uma observação contra o seu invariante produz, mecanicamente, uma violação, materializada no grafo — então \"o sistema está saudável\" é uma afirmação que precisa ser provada com evidência de zero violações, nunca autodeclarada."
+ "onto.h.6.p": "Modele o seu próprio sistema como uma ontologia: componentes são nós e <b>invariantes são predicados verificáveis</b> sobre observações ao vivo. Checar uma observação contra o seu invariante produz, mecanicamente, uma violação, materializada no grafo — então \"o sistema está saudável\" é uma afirmação que precisa ser provada com evidência de zero violações, nunca autodeclarada.",
+ "orch.del.5.h": "Planos como grafos de dependências",
+ "orch.del.5.p": "<code>taskgraph.run</code> executa um plano inteiro: tarefas com arestas <code>depends_on</code> rodam cada uma como um subagente durável assim que suas dependências são concluídas. Tarefas da mesma leva rodam em paralelo — a menos que toquem o mesmo arquivo, caso em que são serializadas — e o grafo é validado de antemão, então um ciclo é rejeitado antes que qualquer coisa seja iniciada.",
+ "orch.svc.6.h": "Agentes publicam suas próprias superfícies",
+ "orch.svc.6.p": "Um agente pode publicar uma UI ao vivo com <code>ui.render</code> — uma tabela ou um gráfico declarativos são servidos imediatamente (renderização no servidor, nenhum script do agente é executado) — ou uma API em <code>/svc/{tenant}/{name}</code> com <code>service.publish</code>: um corpo estático, um handler Lua em sandbox, ou um template de objetivo em que <b>cada requisição dispara uma execução durável do agente</b>. Tudo que executa código é publicado como pendente e só é servido depois que um operador aprova.",
+ "mem.db.note": "<b>Sessões são dados de primeira classe.</b> A biblioteca de sessões lista, continua, renomeia e exclui conversas — e faz <b>fork</b> de uma em qualquer mensagem para um novo ramo, com visualizações completas da árvore de forks, para você explorar alternativas sem perder o fio original.",
+ "tools.cat.8.k": "Metas &amp; agendamento",
+ "tools.cat.9.k": "Publicar"
 };

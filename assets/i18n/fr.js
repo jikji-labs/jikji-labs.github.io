@@ -333,7 +333,7 @@ window.JIKJI_I18N["fr"]={
  "ent.rob.5.h": "Configuration &amp; rechargement",
  "ent.rob.5.p": "Export de la configuration par l'opérateur et rechargement à chaud via API, CLI et tableau de bord, avec une analyse de configuration déterministe, validée et couverte par des tests.",
  "ent.rob.6.h": "Outils d'exploitation",
- "ent.rob.6.p": "<code>jikjictl</code> pour les identifiants, le RBAC, la politique, les filtres, l'audit, le traçage, l'usage et la place de marché — auquel s'ajoute un tableau de bord web qui ne stocke jamais de clés côté serveur.",
+ "ent.rob.6.p": "<code>jikjictl</code> pour les identifiants, le RBAC, les politiques, les filtres, l'audit, le traçage, l'usage et la marketplace — plus un tableau de bord web qui ne stocke jamais les clés côté serveur : un playground avec instantanés, rollback et approbation d'inquiry sur place ; des vues de filtres avec badges de circuit breaker ; des politiques IAM avec le simulateur ; les surfaces du plan de service ; des panneaux d'usage ; et la gestion du coffre-fort.",
  "ent.cli.cap": "Pilotez l'ensemble depuis la CLI d'exploitation :",
  "nav.ontology": "Ontologie",
  "exp.onto.h": "Moteur d'ontologie",
@@ -556,5 +556,12 @@ window.JIKJI_I18N["fr"]={
  "ent.obs.5.h": "Garde-fou de coût",
  "ent.obs.5.p": "Définissez des paliers de coût et des budgets par modèle qui alimentent un garde-fou de coût — il plafonne aussi les panneaux multi-modèles <code>trinity</code> afin qu'un ensemble ne puisse pas dépasser le budget. Gérez les paliers et les budgets avec <code>jikjictl cost</code>.",
  "onto.h.6.h": "L'ontologie audite le système",
- "onto.h.6.p": "Modélisez votre propre système comme une ontologie : les composants sont des nœuds et <b>les invariants, des prédicats vérifiables</b> sur des observations en direct. Confronter mécaniquement une observation à son invariant produit une violation, matérialisée dans le graphe — si bien que « le système est sain » est une affirmation à prouver sur la base de zéro violation constatée, jamais autodéclarée."
+ "onto.h.6.p": "Modélisez votre propre système comme une ontologie : les composants sont des nœuds et <b>les invariants, des prédicats vérifiables</b> sur des observations en direct. Confronter mécaniquement une observation à son invariant produit une violation, matérialisée dans le graphe — si bien que « le système est sain » est une affirmation à prouver sur la base de zéro violation constatée, jamais autodéclarée.",
+ "orch.del.5.h": "Des plans sous forme de graphes de dépendances",
+ "orch.del.5.p": "<code>taskgraph.run</code> exécute un plan entier : les tâches reliées par des arêtes <code>depends_on</code> s'exécutent chacune comme un sous-agent durable une fois leurs dépendances terminées. Les tâches d'une même vague s'exécutent en parallèle — sauf si elles touchent le même fichier, auquel cas elles sont sérialisées — et le graphe est validé en amont : un cycle est rejeté avant que quoi que ce soit ne démarre.",
+ "orch.svc.6.h": "Les agents publient leurs propres surfaces",
+ "orch.svc.6.p": "Un agent peut publier une UI en direct avec <code>ui.render</code> — un tableau ou un graphique déclaratif est servi immédiatement (rendu côté serveur, aucun script d'agent ne s'exécute) — ou une API sur <code>/svc/{tenant}/{name}</code> avec <code>service.publish</code> : un corps statique, un handler Lua sandboxé, ou un modèle d'objectif où <b>chaque requête déclenche une exécution d'agent durable</b>. Tout ce qui exécute du code est publié en attente et n'est servi qu'après approbation d'un opérateur.",
+ "mem.db.note": "<b>Les sessions sont des données de premier ordre.</b> La bibliothèque de sessions liste, reprend, renomme et supprime les conversations — et en <b>forke</b> une à n'importe quel message vers une nouvelle branche, avec des vues complètes de l'arbre de forks, pour explorer des alternatives sans perdre le fil d'origine.",
+ "tools.cat.8.k": "Objectifs &amp; planification",
+ "tools.cat.9.k": "Publication"
 };

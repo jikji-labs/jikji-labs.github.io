@@ -333,7 +333,7 @@ window.JIKJI_I18N["vi"]={
  "ent.rob.5.h": "Cấu hình &amp; nạp lại",
  "ent.rob.5.p": "Xuất cấu hình và nạp lại nóng cho người vận hành qua API, CLI, và dashboard, với việc đọc cấu hình tất định, có kiểm tra hợp lệ, và được phủ kín bằng kiểm thử.",
  "ent.rob.6.h": "Công cụ cho người vận hành",
- "ent.rob.6.p": "<code>jikjictl</code> cho thông tin xác thực, RBAC, chính sách, bộ lọc, kiểm toán, truy vết, mức sử dụng, và marketplace — cùng một dashboard web không bao giờ lưu khóa ở phía máy chủ.",
+ "ent.rob.6.p": "<code>jikjictl</code> cho thông tin xác thực, RBAC, chính sách, bộ lọc, kiểm toán, truy vết, mức sử dụng và marketplace — cộng thêm một bảng điều khiển web không bao giờ lưu khóa phía máy chủ: playground với snapshot, rollback và phê duyệt inquiry tại chỗ; các khung nhìn bộ lọc với huy hiệu circuit breaker; chính sách IAM kèm trình mô phỏng; các bề mặt service plane; bảng theo dõi mức sử dụng; và quản lý vault.",
  "ent.cli.cap": "Điều khiển tất cả từ CLI của người vận hành:",
  "nav.ontology": "Bản thể học",
  "exp.onto.h": "Engine bản thể học",
@@ -556,5 +556,12 @@ window.JIKJI_I18N["vi"]={
  "ent.obs.5.h": "Bộ bảo vệ chi phí",
  "ent.obs.5.p": "Thiết lập các bậc chi phí và ngân sách theo từng mô hình để hậu thuẫn một bộ bảo vệ chi phí — nó cũng đặt trần cho các bảng <code>trinity</code> đa mô hình để một tập hợp không thể chi tiêu quá mức. Quản lý các bậc và ngân sách bằng <code>jikjictl cost</code>.",
  "onto.h.6.h": "Bản thể học kiểm toán hệ thống",
- "onto.h.6.p": "Hãy mô hình hóa chính hệ thống của bạn thành một bản thể học: các thành phần là nút, còn <b>bất biến là những vị từ kiểm tra được</b> trên quan sát trực tiếp. Đối chiếu một quan sát với bất biến của nó một cách máy móc sẽ sinh ra vi phạm, được vật chất hóa vào đồ thị — vì vậy \"hệ thống đang khỏe mạnh\" là một luận điểm phải được chứng minh bằng bằng chứng không có vi phạm nào, chứ không bao giờ là tự báo cáo."
+ "onto.h.6.p": "Hãy mô hình hóa chính hệ thống của bạn thành một bản thể học: các thành phần là nút, còn <b>bất biến là những vị từ kiểm tra được</b> trên quan sát trực tiếp. Đối chiếu một quan sát với bất biến của nó một cách máy móc sẽ sinh ra vi phạm, được vật chất hóa vào đồ thị — vì vậy \"hệ thống đang khỏe mạnh\" là một luận điểm phải được chứng minh bằng bằng chứng không có vi phạm nào, chứ không bao giờ là tự báo cáo.",
+ "orch.del.5.h": "Kế hoạch dưới dạng đồ thị phụ thuộc",
+ "orch.del.5.p": "<code>taskgraph.run</code> thực thi cả một kế hoạch: các tác vụ với cạnh <code>depends_on</code>, mỗi tác vụ chạy như một sub-agent bền vững khi các phụ thuộc của nó hoàn tất. Các tác vụ cùng một đợt chạy song song — trừ khi chúng chạm vào cùng một tệp, khi đó chúng được tuần tự hóa — và đồ thị được kiểm chứng từ trước, nên chu trình sẽ bị từ chối trước khi bất cứ thứ gì được khởi chạy.",
+ "orch.svc.6.h": "Agent tự xuất bản các bề mặt của mình",
+ "orch.svc.6.p": "Một agent có thể xuất bản UI trực tiếp bằng <code>ui.render</code> — bảng hoặc biểu đồ khai báo được phục vụ ngay lập tức (kết xuất phía máy chủ, không chạy bất kỳ script nào của agent) — hoặc một API tại <code>/svc/{tenant}/{name}</code> bằng <code>service.publish</code>: nội dung tĩnh, trình xử lý Lua chạy trong sandbox, hoặc một mẫu mục tiêu trong đó <b>mỗi yêu cầu kích hoạt một lượt chạy agent bền vững</b>. Bất cứ thứ gì thực thi mã đều được xuất bản ở trạng thái chờ duyệt và chỉ được phục vụ sau khi người vận hành phê duyệt.",
+ "mem.db.note": "<b>Phiên là dữ liệu hạng nhất.</b> Thư viện phiên cho phép liệt kê, tiếp tục, đổi tên và xóa các cuộc hội thoại — và <b>phân nhánh</b> một cuộc hội thoại tại bất kỳ tin nhắn nào thành một nhánh mới, với chế độ xem đầy đủ cây phân nhánh, để bạn khám phá các phương án khác mà không mất mạch trò chuyện ban đầu.",
+ "tools.cat.8.k": "Mục tiêu &amp; lịch trình",
+ "tools.cat.9.k": "Xuất bản"
 };
