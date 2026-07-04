@@ -640,5 +640,7 @@ window.JIKJI_I18N["en"]={
  "uc.perm.p": "Require scopes per tool, deny by default, and roll authorization out safely with a staged <code>observe → warn → enforce</code> path plus preflight — tighten without breaking traffic.",
  "uc.market.h": "Publish &amp; install packages",
  "uc.market.p": "Package a registered tool or agent, publish it to the marketplace, and install it on another tenant — signed, versioned, one command to adopt.",
- "uc.close.p": "<b>Each example is one movable piece.</b> The real leverage is stacking them — a goal hierarchy that drives a dispatch queue, worked by a verifier-gated council, citing web sources and gated by a mechanical review. Pull the ones you need, set them precisely, and press."
+ "uc.close.p": "<b>Each example is one movable piece.</b> The real leverage is stacking them — a goal hierarchy that drives a dispatch queue, worked by a verifier-gated council, citing web sources and gated by a mechanical review. Pull the ones you need, set them precisely, and press.",
+ "uc.ratelimit.h": "Wait out a rate limit",
+ "uc.ratelimit.p": "Hit a provider rate limit or overload (429/529) mid-run? An interactive run can wait out the window — honoring the provider's <code>Retry-After</code>, bounded by <code>--max-wait</code> (6h default) — then retry automatically instead of failing. Ctrl-C stops the wait."
 };

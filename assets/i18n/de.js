@@ -640,5 +640,7 @@ window.JIKJI_I18N["de"]={
  "uc.perm.p": "Fordern Sie Scopes pro Werkzeug, verweigern Sie standardmäßig und rollen Sie die Autorisierung sicher über einen gestuften Pfad <code>observe → warn → enforce</code> samt Preflight aus — verschärfen, ohne den Verkehr zu unterbrechen.",
  "uc.market.h": "Pakete veröffentlichen &amp; installieren",
  "uc.market.p": "Schnüren Sie ein registriertes Werkzeug oder einen Agenten zum Paket, veröffentlichen Sie es auf dem Marktplatz und installieren Sie es bei einem anderen Mandanten — signiert, versioniert, ein Befehl zur Übernahme.",
- "uc.close.p": "<b>Jedes Beispiel ist ein bewegliches Stück.</b> Der wahre Hebel liegt im Stapeln — eine Zielhierarchie, die eine Dispatch-Warteschlange antreibt, bearbeitet von einem prüfergesteuerten Rat, der Web-Quellen zitiert und durch eine mechanische Prüfung kontrolliert wird. Greifen Sie die heraus, die Sie brauchen, setzen Sie sie präzise, und drucken Sie."
+ "uc.close.p": "<b>Jedes Beispiel ist ein bewegliches Stück.</b> Der wahre Hebel liegt im Stapeln — eine Zielhierarchie, die eine Dispatch-Warteschlange antreibt, bearbeitet von einem prüfergesteuerten Rat, der Web-Quellen zitiert und durch eine mechanische Prüfung kontrolliert wird. Greifen Sie die heraus, die Sie brauchen, setzen Sie sie präzise, und drucken Sie.",
+ "uc.ratelimit.h": "Ratenlimit einfach aussitzen",
+ "uc.ratelimit.p": "Mitten im Lauf auf ein Ratenlimit oder eine Überlastung des Anbieters (429/529) gestoßen? Ein interaktiver Lauf kann das Zeitfenster aussitzen — er respektiert den <code>Retry-After</code> des Anbieters, begrenzt durch <code>--max-wait</code> (Standard 6h) — und wiederholt dann automatisch, statt abzubrechen. Mit Ctrl-C beenden Sie das Warten."
 };

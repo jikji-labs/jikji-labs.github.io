@@ -640,5 +640,7 @@ window.JIKJI_I18N["fr"]={
  "uc.perm.p": "Exigez des portées par outil, refusez par défaut et déployez l'autorisation en toute sûreté via un parcours par étapes <code>observe → warn → enforce</code> avec préflight — resserrez sans casser le trafic.",
  "uc.market.h": "Publier &amp; installer des paquets",
  "uc.market.p": "Empaquetez un outil ou un agent enregistré, publiez-le sur la place de marché et installez-le sur un autre tenant — signé, versionné, une seule commande pour l'adopter.",
- "uc.close.p": "<b>Chaque exemple est une pièce mobile.</b> Le vrai levier, c'est de les assembler — une hiérarchie d'objectifs qui pilote une file de répartition, traitée par un conseil sous contrôle de vérificateur, citant des sources web et contrôlée par une revue mécanique. Prélevez celles dont vous avez besoin, réglez-les au plus juste, et imprimez."
+ "uc.close.p": "<b>Chaque exemple est une pièce mobile.</b> Le vrai levier, c'est de les assembler — une hiérarchie d'objectifs qui pilote une file de répartition, traitée par un conseil sous contrôle de vérificateur, citant des sources web et contrôlée par une revue mécanique. Prélevez celles dont vous avez besoin, réglez-les au plus juste, et imprimez.",
+ "uc.ratelimit.h": "Attendez que la limite de débit se libère",
+ "uc.ratelimit.p": "Une limite de débit ou une surcharge du fournisseur (429/529) en pleine exécution ? Une exécution interactive sait patienter le temps qu'il faut — en respectant le <code>Retry-After</code> du fournisseur, plafonné par <code>--max-wait</code> (6h par défaut) — puis réessaie automatiquement au lieu d'échouer. Ctrl-C interrompt l'attente."
 };

@@ -640,5 +640,7 @@ window.JIKJI_I18N["pt"]={
  "uc.perm.p": "Exija escopos por ferramenta, negue por padrão e implante a autorização com segurança por um caminho escalonado de <code>observe → warn → enforce</code> mais preflight — endureça sem quebrar o tráfego.",
  "uc.market.h": "Publique &amp; instale pacotes",
  "uc.market.p": "Empacote uma ferramenta ou agente registrado, publique-o no marketplace e instale-o em outro inquilino — assinado, versionado, um comando para adotar.",
- "uc.close.p": "<b>Cada exemplo é uma peça móvel.</b> A verdadeira alavancagem está em empilhá-las — uma hierarquia de objetivos que aciona uma fila de despacho, trabalhada por um conselho com verificador no caminho, citando fontes da web e passando por um portão de revisão mecânica. Extraia as que você precisa, ajuste-as com precisão, e imprima."
+ "uc.close.p": "<b>Cada exemplo é uma peça móvel.</b> A verdadeira alavancagem está em empilhá-las — uma hierarquia de objetivos que aciona uma fila de despacho, trabalhada por um conselho com verificador no caminho, citando fontes da web e passando por um portão de revisão mecânica. Extraia as que você precisa, ajuste-as com precisão, e imprima.",
+ "uc.ratelimit.h": "Espere o limite de requisições passar",
+ "uc.ratelimit.p": "Esbarrou num limite de requisições ou sobrecarga do provedor (429/529) no meio da execução? Uma execução interativa sabe aguardar a janela passar — respeitando o <code>Retry-After</code> do provedor e limitada por <code>--max-wait</code> (6h por padrão) — e então tenta de novo automaticamente, em vez de falhar. Ctrl-C interrompe a espera."
 };

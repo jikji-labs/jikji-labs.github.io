@@ -640,5 +640,7 @@ window.JIKJI_I18N["it"]={
  "uc.perm.p": "Richiedi ambiti per strumento, nega in modo predefinito e distribuisci l'autorizzazione in sicurezza con un percorso a fasi <code>observe → warn → enforce</code> più preflight — irrigidisci senza interrompere il traffico.",
  "uc.market.h": "Pubblicare &amp; installare pacchetti",
  "uc.market.p": "Impacchetta uno strumento o un agente registrato, pubblicalo sul marketplace e installalo su un altro tenant — firmato, versionato, un solo comando per adottarlo.",
- "uc.close.p": "<b>Ogni esempio è un pezzo mobile.</b> La vera leva è impilarli — una gerarchia di obiettivi che pilota una coda di dispatch, lavorata da un consiglio vincolato a un verificatore, che cita fonti web e viene controllata da una revisione meccanica. Preleva quelli che ti servono, regolali con precisione, e stampa."
+ "uc.close.p": "<b>Ogni esempio è un pezzo mobile.</b> La vera leva è impilarli — una gerarchia di obiettivi che pilota una coda di dispatch, lavorata da un consiglio vincolato a un verificatore, che cita fonti web e viene controllata da una revisione meccanica. Preleva quelli che ti servono, regolali con precisione, e stampa.",
+ "uc.ratelimit.h": "Aspetta che il rate limit si liberi",
+ "uc.ratelimit.p": "Un rate limit o un sovraccarico del provider (429/529) a metà esecuzione? Un'esecuzione interattiva sa aspettare che la finestra si apra — rispettando il <code>Retry-After</code> del provider, con il limite di <code>--max-wait</code> (6h di default) — e poi riprova in automatico invece di fallire. Ctrl-C interrompe l'attesa."
 };

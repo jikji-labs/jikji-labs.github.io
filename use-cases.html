@@ -146,6 +146,11 @@
         <h3 data-i18n="uc.runners.h">Many execution surfaces, one gate</h3>
         <p data-i18n="uc.runners.p">Route tools across named surfaces — local shell, python, browser, remote tool-nodes with docker or ssh sandboxes — all under one gate chain, from laptop to cluster.</p>
       </div>
+      <div class="card">
+        <span class="num">run --wait-on-rate-limit</span>
+        <h3 data-i18n="uc.ratelimit.h">Wait out a rate limit</h3>
+        <p data-i18n="uc.ratelimit.p">Hit a provider rate limit or overload (429/529) mid-run? An interactive run can wait out the window — honoring the provider's <code>Retry-After</code>, bounded by <code>--max-wait</code> (6h default) — then retry automatically instead of failing. Ctrl-C stops the wait.</p>
+      </div>
     </div>
   </div>
 </section>

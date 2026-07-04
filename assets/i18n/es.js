@@ -640,5 +640,7 @@ window.JIKJI_I18N["es"]={
  "uc.perm.p": "Exige alcances por herramienta, deniega por defecto y despliega la autorización de forma segura con una ruta escalonada de <code>observe → warn → enforce</code> más preflight — endurece sin romper el tráfico.",
  "uc.market.h": "Publica &amp; instala paquetes",
  "uc.market.p": "Empaqueta una herramienta o agente registrado, publícalo en el marketplace e instálalo en otro inquilino — firmado, versionado, un comando para adoptarlo.",
- "uc.close.p": "<b>Cada ejemplo es una pieza móvil.</b> La verdadera ventaja está en apilarlas — una jerarquía de objetivos que impulsa una cola de despacho, trabajada por un consejo con verificador de por medio, que cita fuentes web y pasa por una puerta de revisión mecánica. Extrae las que necesites, ajústalas con precisión, y a imprimir."
+ "uc.close.p": "<b>Cada ejemplo es una pieza móvil.</b> La verdadera ventaja está en apilarlas — una jerarquía de objetivos que impulsa una cola de despacho, trabajada por un consejo con verificador de por medio, que cita fuentes web y pasa por una puerta de revisión mecánica. Extrae las que necesites, ajústalas con precisión, y a imprimir.",
+ "uc.ratelimit.h": "Espera a que pase el límite de peticiones",
+ "uc.ratelimit.p": "¿Un límite de peticiones o una sobrecarga del proveedor (429/529) a mitad de la ejecución? Una ejecución interactiva sabe esperar a que se abra la ventana — respetando el <code>Retry-After</code> del proveedor y con el tope de <code>--max-wait</code> (6h por defecto) — y luego reintenta automáticamente en lugar de fallar. Ctrl-C detiene la espera."
 };
