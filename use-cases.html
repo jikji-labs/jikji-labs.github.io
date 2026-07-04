@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jikji — Use Cases &amp; Examples</title>
+<meta name="description" content="A pattern book of runnable Jikji use cases — OpenAI-compatible chat, goal-driven agents, multi-model orchestration, governed SQL and Python analysis, web research, ontology review, MCP/ACP/A2A interop, and multi-tenant governance. Each is grounded in the real API and CLI.">
+<meta property="og:title" content="Jikji — Use Cases &amp; Examples">
+<meta property="og:description" content="A pattern book of runnable, test-verified use cases you pull and stack.">
+<meta property="og:url" content="https://www.jikji-labs.com/use-cases.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/jikji.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
+    <nav class="nav-links">
+      <a href="use-cases.html" class="active" data-i18n="nav.usecases">Use Cases</a>
+      <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
+      <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
+      <a href="tools.html" data-i18n="nav.tools">Tools</a>
+      <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
+      <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+      <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
+      <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+    </nav>
+  </div>
+</header>
+
+<div class="hero compact">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> · <span data-i18n="nav.usecases">Use Cases</span></div>
+    <span class="kicker" data-i18n="uc.kicker">examples — a runnable pattern book</span>
+    <h1 data-i18n="uc.title">What you can <span class="accent">build</span> with Jikji</h1>
+    <p class="sub" data-i18n="uc.sub">Every use case below is a runnable, copy-paste example grounded in the real API and CLI — not a slide. Each is one composable mechanism you pull and stack: a goal hierarchy, a dispatch queue, a verifier-gated council, a governed SQL-and-Python pipeline. The core mechanisms are covered by deterministic integration tests, so a pattern is verified, not just described.</p>
+  </div>
+</div>
+
+<!-- FOUNDATIONS -->
+<section class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="uc.g1.tag">Build an agent</span>
+      <h2 data-i18n="uc.g1.h2">From a chat call to a goal-driven run</h2>
+      <p data-i18n="uc.g1.p">Start where you are — a drop-in OpenAI-compatible endpoint — then grow into goal-driven runs and multi-model reasoning without changing stacks.</p>
+    </div>
+    <div class="grid cols2">
+      <div class="card">
+        <span class="num">/v1/chat/completions</span>
+        <h3 data-i18n="uc.chat.h">OpenAI-compatible chat</h3>
+        <p data-i18n="uc.chat.p">Point an existing OpenAI client at Jikji: <code>POST /v1/chat/completions</code>, non-streaming or SSE stream. Swap the base URL and keep your code.</p>
+      </div>
+      <div class="card">
+        <span class="num">jikjictl run · /v1/runs</span>
+        <h3 data-i18n="uc.run.h">Goal-driven agent runs</h3>
+        <p data-i18n="uc.run.p">Turn a goal into a checkpointed, replayable run with <code>jikjictl run</code> and <code>POST /v1/runs</code>, streamed step by step — the deterministic <code>forme</code> loop, not an opaque chain.</p>
+      </div>
+      <div class="card">
+        <span class="num">/v1/agent/…</span>
+        <h3 data-i18n="uc.multi.h">Multi-model reasoning</h3>
+        <p data-i18n="uc.multi.p">Run a swarm debate, a compare-with-judge, or an agent loop across several models at once — pick the strongest answer, or have a panel verify it.</p>
+      </div>
+      <div class="card">
+        <span class="num">tools list · /v1/tools/call</span>
+        <h3 data-i18n="uc.tools.h">Discover &amp; call tools</h3>
+        <p data-i18n="uc.tools.p">List the agent's tool catalog and invoke any of them directly with <code>POST /v1/tools/call</code> — the same tools the loop uses, available over the API.</p>
+      </div>
+      <div class="card">
+        <span class="num">extension.register</span>
+        <h3 data-i18n="uc.lua.h">Custom Lua &amp; Python tools</h3>
+        <p data-i18n="uc.lua.p">Register your own tool as a Lua script or a Python <code>run(input)</code> function and it joins the catalog — no rebuild, gated like any built-in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS & DATA -->
+<section class="alt tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="uc.g2.tag">Tools, data &amp; analysis</span>
+      <h2 data-i18n="uc.g2.h2">Read, query, and compute — under a policy gate</h2>
+      <p data-i18n="uc.g2.p">Give an agent real capability without giving up control: every file, query, and shell call runs behind a per-tenant policy and a sandbox.</p>
+    </div>
+    <div class="grid cols2">
+      <div class="card">
+        <span class="num">file.read / search / write</span>
+        <h3 data-i18n="uc.file.h">Workspace file tools</h3>
+        <p data-i18n="uc.file.p">Scope an agent to a set of roots and let it read, search, write, and list files — path-guarded so it never escapes the workspace you grant.</p>
+      </div>
+      <div class="card">
+        <span class="num">sql (sqlguard)</span>
+        <h3 data-i18n="uc.sql.h">Governed SQL access</h3>
+        <p data-i18n="uc.sql.p">Expose a SELECT-only SQL tool with a layered, per-tenant access policy — the agent queries data it is allowed to, and nothing else.</p>
+      </div>
+      <div class="card">
+        <span class="num">ontology + sql + python</span>
+        <h3 data-i18n="uc.data.h">Palantir-style data pipeline</h3>
+        <p data-i18n="uc.data.p">Combine an ontology, a SELECT-only SQL query, an intermediate cache, and <code>extension.python</code> (numpy/pandas) analysis into one KPI-gated pipeline — data, cache, and analysis in a single loop.</p>
+      </div>
+      <div class="card">
+        <span class="num">file.edit · code.check</span>
+        <h3 data-i18n="uc.code.h">Type-aware coding &amp; debugging</h3>
+        <p data-i18n="uc.code.p">Hash-checked anchor edits, a compiler-grade <code>code.check</code> gate, symbol rename, and shell tests — a coding agent held to a measurable acceptance KPI, not vibes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS & ORCHESTRATION -->
+<section class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="uc.g3.tag">Goals &amp; orchestration</span>
+      <h2 data-i18n="uc.g3.h2">Long-horizon work that survives a crash</h2>
+      <p data-i18n="uc.g3.p">Structure ambitious work as measurable goals and durable queues, then stack primitives on one recoverable harness.</p>
+    </div>
+    <div class="grid cols2">
+      <div class="card">
+        <span class="num">goal.define / evidence / status</span>
+        <h3 data-i18n="uc.goal.h">Goal hierarchy with real KPIs</h3>
+        <p data-i18n="uc.goal.p">Build a nested goal tree with measurable KPIs (the "paperclip" pattern): mechanical acceptance, evidence, and an observedGeneration staleness gate so a tightened target can't be falsely satisfied.</p>
+      </div>
+      <div class="card">
+        <span class="num">goals + queue + trinity</span>
+        <h3 data-i18n="uc.compose.h">Composable mechanisms</h3>
+        <p data-i18n="uc.compose.p">Stack the primitives: goals + a dispatch queue + <code>trinity.ensemble</code> (verifier-gated multi-model) + <code>trinity.oracle</code> (drift check), all on one durable harness.</p>
+      </div>
+      <div class="card">
+        <span class="num">dispatch queue · worker</span>
+        <h3 data-i18n="uc.queue.h">Queue-driven autonomous work</h3>
+        <p data-i18n="uc.queue.p">Enqueue work items and run a worker loop that drains and exits — or waits forever with <code>--keep-waiting</code>. Durable, claim-safe, restartable.</p>
+      </div>
+      <div class="card">
+        <span class="num">almanac.schedule</span>
+        <h3 data-i18n="uc.almanac.h">Scheduled autonomous jobs</h3>
+        <p data-i18n="uc.almanac.p">Cron and interval jobs that emit orchestrator commands, tools, queued work, or notifications — at-most-once and crash-safe across restarts.</p>
+      </div>
+      <div class="card">
+        <span class="num">tool.Runner</span>
+        <h3 data-i18n="uc.runners.h">Many execution surfaces, one gate</h3>
+        <p data-i18n="uc.runners.p">Route tools across named surfaces — local shell, python, browser, remote tool-nodes with docker or ssh sandboxes — all under one gate chain, from laptop to cluster.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH & KNOWLEDGE -->
+<section class="alt tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="uc.g4.tag">Research &amp; knowledge</span>
+      <h2 data-i18n="uc.g4.h2">Grounded, cited, adversarially verified</h2>
+      <p data-i18n="uc.g4.p">Make an agent cite captured pages and derive violations from evidence — answers you can check, not confident guesses.</p>
+    </div>
+    <div class="grid cols2">
+      <div class="card">
+        <span class="num">browser.search / read · research.source</span>
+        <h3 data-i18n="uc.web.h">Grounded web research</h3>
+        <p data-i18n="uc.web.p">Search, open, read, and save sources, then tie every claim to a captured page with <code>research.source</code> — cited to real pages, not training data.</p>
+      </div>
+      <div class="card">
+        <span class="num">system.review</span>
+        <h3 data-i18n="uc.onto.h">Mechanical invariant review</h3>
+        <p data-i18n="uc.onto.p">Assert predicates, supply measured observations, and <b>derive</b> violations fail-closed — materializing a contradiction graph instead of asking a model to "check."</p>
+      </div>
+      <div class="card">
+        <span class="num">claims-are-KPIs</span>
+        <h3 data-i18n="uc.paper.h">Adversarially verified writing</h3>
+        <p data-i18n="uc.paper.p">Write an engineering paper where every claim is a KPI: an ambiguity gate, goal claims, web sources, <code>system.review</code>, and a <code>trinity</code> ensemble/oracle pass before it stands.</p>
+      </div>
+      <div class="card">
+        <span class="num">lexicon · ontology.search</span>
+        <h3 data-i18n="uc.kg.h">Native ontology &amp; knowledge graph</h3>
+        <p data-i18n="uc.kg.p">Build and serve ontologies natively — TTL, SPARQL via <code>lexicon.query</code>, and semantic <code>ontology.search</code> — a knowledge layer the loop reasons over directly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATE -->
+<section class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="uc.g5.tag">Integrate &amp; interoperate</span>
+      <h2 data-i18n="uc.g5.h2">Speak every agent protocol</h2>
+      <p data-i18n="uc.g5.p">Expose Jikji as a server other systems already know how to call — MCP, ACP, A2A — and connect the channels your users live in.</p>
+    </div>
+    <div class="grid cols2">
+      <div class="card">
+        <span class="num">jikji mcp · /v1/mcp</span>
+        <h3 data-i18n="uc.mcp.h">MCP server</h3>
+        <p data-i18n="uc.mcp.p">Expose Jikji's tools as a Model Context Protocol server over stdio or HTTP — any MCP client drives them directly.</p>
+      </div>
+      <div class="card">
+        <span class="num">jikjictl acp</span>
+        <h3 data-i18n="uc.acp.h">ACP over HTTP or gRPC</h3>
+        <p data-i18n="uc.acp.p">Publish an Agent Control Protocol manifest, list tools, and invoke over HTTP or gRPC — a typed control surface for other agents.</p>
+      </div>
+      <div class="card">
+        <span class="num">jikjictl a2a</span>
+        <h3 data-i18n="uc.a2a.h">Agent-to-agent registry</h3>
+        <p data-i18n="uc.a2a.p">Discover and watch agents in the A2A registry over gRPC — the substrate for agents that find and call each other.</p>
+      </div>
+      <div class="card">
+        <span class="num">channel (Telegram)</span>
+        <h3 data-i18n="uc.tg.h">Telegram bot → agent runs</h3>
+        <p data-i18n="uc.tg.p">Run a Telegram bot that turns every message into an agent run — streamed replies, slash commands, right where your users already are.</p>
+      </div>
+      <div class="card">
+        <span class="num">codex-responses · OAuth</span>
+        <h3 data-i18n="uc.codex.h">gpt-5.5 on a ChatGPT subscription</h3>
+        <p data-i18n="uc.codex.p">Drive gpt-5.5 through a ChatGPT subscription with <code>codex-responses</code> and device OAuth — subscription quota, no separate API bill.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERN -->
+<section class="alt tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="uc.g6.tag">Govern &amp; multi-tenant</span>
+      <h2 data-i18n="uc.g6.h2">Run it as a service, for many users</h2>
+      <p data-i18n="uc.g6.p">Serve isolated tenants from one deployment: per-key scopes, deny-by-default tool boundaries, and a marketplace to distribute what you build.</p>
+    </div>
+    <div class="grid cols2">
+      <div class="card">
+        <span class="num">jikjictl rbac</span>
+        <h3 data-i18n="uc.rbac.h">Per-tenant keys &amp; scopes</h3>
+        <p data-i18n="uc.rbac.p">Issue per-tenant API keys, scopes, and role bindings with <code>jikjictl rbac</code> — one deployment, many isolated users, each with their own reach.</p>
+      </div>
+      <div class="card">
+        <span class="num">observe → warn → enforce</span>
+        <h3 data-i18n="uc.perm.h">Tool-boundary RBAC</h3>
+        <p data-i18n="uc.perm.p">Require scopes per tool, deny by default, and roll authorization out safely with a staged <code>observe → warn → enforce</code> path plus preflight — tighten without breaking traffic.</p>
+      </div>
+      <div class="card">
+        <span class="num">bookstore · marketplace</span>
+        <h3 data-i18n="uc.market.h">Publish &amp; install packages</h3>
+        <p data-i18n="uc.market.p">Package a registered tool or agent, publish it to the marketplace, and install it on another tenant — signed, versioned, one command to adopt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="tight">
+  <div class="wrap">
+    <div class="callout">
+      <p data-i18n="uc.close.p"><b>Each example is one movable piece.</b> The real leverage is stacking them — a goal hierarchy that drives a dispatch queue, worked by a verifier-gated council, citing web sources and gated by a mechanical review. Pull the ones you need, set them precisely, and press.</p>
+    </div>
+    <div class="dev-note" data-i18n="devnote">⚠ Jikji is under active development and the source code is not yet public — it will be open-sourced soon. APIs and module boundaries may change before the first stable release. This page describes what exists in the codebase today.</div>
+
+    <div class="pagenav">
+      <a href="index.html"><div class="dir" data-i18n="pn.back">← Back</div><div class="lbl" data-i18n="crumb.home">Home</div></a>
+      <a href="architecture.html" style="text-align:right"><div class="dir" data-i18n="pn.next">Next →</div><div class="lbl" data-i18n="nav.arch">Architecture</div></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="seal">直</span><b>Jikji Labs</b></div>
+        <div class="small" data-i18n="foot.tagline">Movable type for the age of agents.</div>
+        <div class="small" style="margin-top:6px" data-i18n="foot.author">Built by Jioh L. Jung.</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4 data-i18n="foot.explore">Explore</h4>
+          <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
+          <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
+          <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
+          <a href="tools.html" data-i18n="nav.tools">Tools</a>
+          <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
+          <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+          <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
+          <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
+        </div>
+        <div class="foot-col">
+          <h4 data-i18n="foot.project">Project</h4>
+          <a href="#" style="opacity:.6" data-i18n="foot.github">GitHub (coming soon)</a>
+          <a href="index.html#why" data-i18n="nav.why">Why Jikji</a>
+          <a href="index.html#start" data-i18n="nav.start">Get Started</a>
+          <a href="contact.html" data-i18n="nav.about">About &amp; Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/i18n.js" defer></script>
+</body>
+</html>
