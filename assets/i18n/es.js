@@ -641,6 +641,6 @@ window.JIKJI_I18N["es"]={
  "uc.market.h": "Publica &amp; instala paquetes",
  "uc.market.p": "Empaqueta una herramienta o agente registrado, publícalo en el marketplace e instálalo en otro inquilino — firmado, versionado, un comando para adoptarlo.",
  "uc.close.p": "<b>Cada ejemplo es una pieza móvil.</b> La verdadera ventaja está en apilarlas — una jerarquía de objetivos que impulsa una cola de despacho, trabajada por un consejo con verificador de por medio, que cita fuentes web y pasa por una puerta de revisión mecánica. Extrae las que necesites, ajústalas con precisión, y a imprimir.",
- "uc.ratelimit.h": "Espera a que pase el límite de peticiones",
- "uc.ratelimit.p": "¿Un límite de peticiones o una sobrecarga del proveedor (429/529) a mitad de la ejecución? Una ejecución interactiva sabe esperar a que se abra la ventana — respetando el <code>Retry-After</code> del proveedor y con el tope de <code>--max-wait</code> (6h por defecto) — y luego reintenta automáticamente en lugar de fallar. Ctrl-C detiene la espera."
+ "uc.ratelimit.h": "Supera un límite de uso sin detenerte",
+ "uc.ratelimit.p": "¿Alcanzaste el límite de uso de un proveedor o de una suscripción de ChatGPT (429/529)? Jikji lee la ventana de reinicio real —incluidas las ventanas 5-hour y semanal de codex— y reanuda en lugar de fallar. Una ejecución interactiva espera con <code>--wait-on-rate-limit</code> (limitada por <code>--max-wait</code>, 6h por defecto); los agentes despachados y las ejecuciones de plan se reanudan sin supervisión desde su último punto de control cuando la ventana se reinicia (<code>rate_limit_resume: park</code>) — ningún cliente necesita permanecer conectado."
 };

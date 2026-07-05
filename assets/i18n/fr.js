@@ -641,6 +641,6 @@ window.JIKJI_I18N["fr"]={
  "uc.market.h": "Publier &amp; installer des paquets",
  "uc.market.p": "Empaquetez un outil ou un agent enregistré, publiez-le sur la place de marché et installez-le sur un autre tenant — signé, versionné, une seule commande pour l'adopter.",
  "uc.close.p": "<b>Chaque exemple est une pièce mobile.</b> Le vrai levier, c'est de les assembler — une hiérarchie d'objectifs qui pilote une file de répartition, traitée par un conseil sous contrôle de vérificateur, citant des sources web et contrôlée par une revue mécanique. Prélevez celles dont vous avez besoin, réglez-les au plus juste, et imprimez.",
- "uc.ratelimit.h": "Attendez que la limite de débit se libère",
- "uc.ratelimit.p": "Une limite de débit ou une surcharge du fournisseur (429/529) en pleine exécution ? Une exécution interactive sait patienter le temps qu'il faut — en respectant le <code>Retry-After</code> du fournisseur, plafonné par <code>--max-wait</code> (6h par défaut) — puis réessaie automatiquement au lieu d'échouer. Ctrl-C interrompt l'attente."
+ "uc.ratelimit.h": "Franchissez la limite d'usage sans broncher",
+ "uc.ratelimit.p": "Vous atteignez la limite d'usage d'un fournisseur ou d'un abonnement ChatGPT (429/529) ? Jikji lit la véritable fenêtre de réinitialisation — y compris les fenêtres 5-hour et hebdomadaire de codex — et reprend au lieu d'échouer. Une exécution interactive patiente avec <code>--wait-on-rate-limit</code> (plafonnée par <code>--max-wait</code>, 6h par défaut) ; les agents dispatchés et les exécutions de plan reprennent sans surveillance depuis leur dernier point de contrôle dès que la fenêtre se réinitialise (<code>rate_limit_resume: park</code>) — aucun client n'a besoin de rester connecté."
 };

@@ -641,6 +641,6 @@ window.JIKJI_I18N["it"]={
  "uc.market.h": "Pubblicare &amp; installare pacchetti",
  "uc.market.p": "Impacchetta uno strumento o un agente registrato, pubblicalo sul marketplace e installalo su un altro tenant — firmato, versionato, un solo comando per adottarlo.",
  "uc.close.p": "<b>Ogni esempio è un pezzo mobile.</b> La vera leva è impilarli — una gerarchia di obiettivi che pilota una coda di dispatch, lavorata da un consiglio vincolato a un verificatore, che cita fonti web e viene controllata da una revisione meccanica. Preleva quelli che ti servono, regolali con precisione, e stampa.",
- "uc.ratelimit.h": "Aspetta che il rate limit si liberi",
- "uc.ratelimit.p": "Un rate limit o un sovraccarico del provider (429/529) a metà esecuzione? Un'esecuzione interattiva sa aspettare che la finestra si apra — rispettando il <code>Retry-After</code> del provider, con il limite di <code>--max-wait</code> (6h di default) — e poi riprova in automatico invece di fallire. Ctrl-C interrompe l'attesa."
+ "uc.ratelimit.h": "Supera un limite d'uso senza fermarti",
+ "uc.ratelimit.p": "Hai raggiunto il limite d'uso di un provider o di un abbonamento ChatGPT (429/529)? Jikji legge la vera finestra di reset — comprese le finestre 5-hour e settimanale di codex — e riprende invece di fallire. Un'esecuzione interattiva attende con <code>--wait-on-rate-limit</code> (limitata da <code>--max-wait</code>, 6h di default); gli agenti dispatchati e le esecuzioni di piano riprendono in autonomia dall'ultimo checkpoint quando la finestra si azzera (<code>rate_limit_resume: park</code>) — nessun client deve restare connesso."
 };

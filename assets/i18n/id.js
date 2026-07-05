@@ -641,6 +641,6 @@ window.JIKJI_I18N["id"]={
  "uc.market.h": "Terbitkan &amp; pasang paket",
  "uc.market.p": "Kemas tool atau agen yang terdaftar, terbitkan ke marketplace, dan pasang di tenant lain — tertanda tangan, terversi, satu perintah untuk mengadopsinya.",
  "uc.close.p": "<b>Setiap contoh adalah satu keping yang bisa dipindahkan.</b> Daya ungkit yang sebenarnya ada pada penumpukannya — hierarki tujuan yang menggerakkan antrean dispatch, dikerjakan oleh dewan berpagar verifikator, mengutip sumber web dan dipagari tinjauan mekanis. Tarik yang kamu butuhkan, atur dengan presisi, lalu cetak.",
- "uc.ratelimit.h": "Tunggu hingga batas laju berlalu",
- "uc.ratelimit.p": "Terkena batas laju atau kelebihan beban penyedia (429/529) di tengah proses? Proses interaktif bisa menunggu hingga jendelanya berlalu — mematuhi <code>Retry-After</code> dari penyedia, dibatasi oleh <code>--max-wait</code> (bawaan 6h) — lalu otomatis mencoba lagi alih-alih gagal. Ctrl-C menghentikan penungguan."
+ "uc.ratelimit.h": "Lewati batas penggunaan tanpa terhenti",
+ "uc.ratelimit.p": "Terbentur batas penggunaan penyedia atau langganan ChatGPT (429/529)? Jikji membaca jendela reset yang sebenarnya — termasuk jendela 5-hour dan mingguan milik codex — lalu melanjutkan alih-alih gagal. Sesi interaktif akan menunggu dengan <code>--wait-on-rate-limit</code> (dibatasi oleh <code>--max-wait</code>, bawaan 6h); agen yang di-dispatch dan sesi rencana melanjutkan secara mandiri dari checkpoint terakhirnya begitu jendela di-reset (<code>rate_limit_resume: park</code>) — tidak ada klien yang perlu tetap terhubung."
 };

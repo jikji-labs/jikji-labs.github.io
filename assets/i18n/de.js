@@ -641,6 +641,6 @@ window.JIKJI_I18N["de"]={
  "uc.market.h": "Pakete veröffentlichen &amp; installieren",
  "uc.market.p": "Schnüren Sie ein registriertes Werkzeug oder einen Agenten zum Paket, veröffentlichen Sie es auf dem Marktplatz und installieren Sie es bei einem anderen Mandanten — signiert, versioniert, ein Befehl zur Übernahme.",
  "uc.close.p": "<b>Jedes Beispiel ist ein bewegliches Stück.</b> Der wahre Hebel liegt im Stapeln — eine Zielhierarchie, die eine Dispatch-Warteschlange antreibt, bearbeitet von einem prüfergesteuerten Rat, der Web-Quellen zitiert und durch eine mechanische Prüfung kontrolliert wird. Greifen Sie die heraus, die Sie brauchen, setzen Sie sie präzise, und drucken Sie.",
- "uc.ratelimit.h": "Ratenlimit einfach aussitzen",
- "uc.ratelimit.p": "Mitten im Lauf auf ein Ratenlimit oder eine Überlastung des Anbieters (429/529) gestoßen? Ein interaktiver Lauf kann das Zeitfenster aussitzen — er respektiert den <code>Retry-After</code> des Anbieters, begrenzt durch <code>--max-wait</code> (Standard 6h) — und wiederholt dann automatisch, statt abzubrechen. Mit Ctrl-C beenden Sie das Warten."
+ "uc.ratelimit.h": "Nutzungslimits einfach aussitzen",
+ "uc.ratelimit.p": "Ein Nutzungslimit eines Anbieters oder ChatGPT-Abonnements erreicht (429/529)? Jikji liest das echte Reset-Fenster aus — einschließlich der 5-hour- und wöchentlichen Fenster von codex — und setzt fort, statt zu scheitern. Ein interaktiver Lauf wartet mit <code>--wait-on-rate-limit</code> ab (begrenzt durch <code>--max-wait</code>, standardmäßig 6h); dispatchte Agenten- und Plan-Läufe nehmen unbeaufsichtigt am letzten Checkpoint wieder auf, sobald sich das Fenster zurücksetzt (<code>rate_limit_resume: park</code>) — kein Client muss verbunden bleiben."
 };

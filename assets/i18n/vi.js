@@ -641,6 +641,6 @@ window.JIKJI_I18N["vi"]={
  "uc.market.h": "Xuất bản &amp; cài đặt gói",
  "uc.market.p": "Đóng gói một công cụ hay agent đã đăng ký, xuất bản nó lên chợ, và cài nó trên một tenant khác — có chữ ký, có phiên bản, một lệnh là dùng.",
  "uc.close.p": "<b>Mỗi ví dụ là một con chữ rời.</b> Đòn bẩy thật nằm ở việc xếp chồng chúng — một cây phân cấp mục tiêu dẫn dắt một hàng đợi điều phối, được xử lý bởi một hội đồng có cổng kiểm chứng, trích dẫn nguồn web và được canh giữ bởi một cuộc rà soát cơ học. Rút ra những phần bạn cần, sắp chúng thật chuẩn, và in.",
- "uc.ratelimit.h": "Chờ hết giới hạn tần suất",
- "uc.ratelimit.p": "Gặp giới hạn tần suất hoặc quá tải từ nhà cung cấp (429/529) giữa chừng? Một lượt chạy tương tác có thể chờ hết khoảng thời gian đó — tuân theo <code>Retry-After</code> của nhà cung cấp, giới hạn bởi <code>--max-wait</code> (mặc định 6h) — rồi tự động thử lại thay vì thất bại. Nhấn Ctrl-C để dừng chờ."
+ "uc.ratelimit.h": "Vượt qua giới hạn sử dụng mà không gián đoạn",
+ "uc.ratelimit.p": "Gặp giới hạn sử dụng của nhà cung cấp hoặc gói đăng ký ChatGPT (429/529)? Jikji đọc đúng khung thời gian đặt lại — bao gồm cả khung 5-hour và hằng tuần của codex — rồi tiếp tục thay vì báo lỗi. Một phiên chạy tương tác sẽ chờ đợi bằng <code>--wait-on-rate-limit</code> (giới hạn bởi <code>--max-wait</code>, mặc định 6h); các tác nhân được điều phối và các phiên chạy kế hoạch tự động tiếp tục từ điểm kiểm tra gần nhất khi khung thời gian đặt lại (<code>rate_limit_resume: park</code>) — không cần client nào phải duy trì kết nối."
 };

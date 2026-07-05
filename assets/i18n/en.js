@@ -641,6 +641,6 @@ window.JIKJI_I18N["en"]={
  "uc.market.h": "Publish &amp; install packages",
  "uc.market.p": "Package a registered tool or agent, publish it to the marketplace, and install it on another tenant — signed, versioned, one command to adopt.",
  "uc.close.p": "<b>Each example is one movable piece.</b> The real leverage is stacking them — a goal hierarchy that drives a dispatch queue, worked by a verifier-gated council, citing web sources and gated by a mechanical review. Pull the ones you need, set them precisely, and press.",
- "uc.ratelimit.h": "Wait out a rate limit",
- "uc.ratelimit.p": "Hit a provider rate limit or overload (429/529) mid-run? An interactive run can wait out the window — honoring the provider's <code>Retry-After</code>, bounded by <code>--max-wait</code> (6h default) — then retry automatically instead of failing. Ctrl-C stops the wait."
+ "uc.ratelimit.h": "Ride out a usage limit",
+ "uc.ratelimit.p": "Hit a provider or ChatGPT-subscription usage limit (429/529)? Jikji reads the real reset window — including codex's 5-hour and weekly windows — and resumes instead of failing. An interactive run waits it out with <code>--wait-on-rate-limit</code> (bounded by <code>--max-wait</code>, 6h default); dispatched agent and plan runs resume unattended from their last checkpoint when the window resets (<code>rate_limit_resume: park</code>) — no client needs to stay connected."
 };
