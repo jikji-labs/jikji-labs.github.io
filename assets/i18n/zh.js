@@ -644,5 +644,7 @@ window.JIKJI_I18N["zh"]={
  "uc.ratelimit.h": "从容跨越使用上限",
  "uc.ratelimit.p": "撞上了提供商或ChatGPT订阅的使用上限（429/529）？Jikji会读取真实的重置窗口——包括codex的5-hour和每周窗口——并选择继续运行而非直接失败。交互式运行会通过<code>--wait-on-rate-limit</code>耐心等待窗口开启（以<code>--max-wait</code>设定上限，默认6h）；已派发的智能体与计划任务则在窗口重置时，从最近的检查点无人值守地自动续跑（<code>rate_limit_resume: park</code>）——无需客户端保持连接。",
  "uc.backbone.h": "为你的应用打造的智能中枢",
- "uc.backbone.p": "将 Jikji 作为独立应用的专属推理中枢来运行：你的应用掌握自己的数据与只读工具，把确定性场景 POST 到 <code>/v1/runs</code>，而 Jikji 则通过在 <code>sorts.mcp_servers</code> 下声明的 MCP 子进程回调这些工具——每一次调用都受控且可审计。你的应用无需导入 Jikji，也不必内嵌任何智能体框架，始终只是一个纯粹的 HTTP 客户端。"
+ "uc.backbone.p": "将 Jikji 作为独立应用的专属推理中枢来运行：你的应用掌握自己的数据与只读工具，把确定性场景 POST 到 <code>/v1/runs</code>，而 Jikji 则通过在 <code>sorts.mcp_servers</code> 下声明的 MCP 子进程回调这些工具——每一次调用都受控且可审计。你的应用无需导入 Jikji，也不必内嵌任何智能体框架，始终只是一个纯粹的 HTTP 客户端。",
+ "uc.council.h": "编码智能体的编排中枢",
+ "uc.council.p": "编码 CLI（Claude Code、Codex）通过 <code>/v1/mcp</code> 将运行中的 Jikji 挂载为 MCP 服务器，把繁重的多智能体工作 —— 由验证器把关的模型议会（<code>trinity.ensemble</code>）、漂移检查（<code>trinity.oracle</code>）、并行子智能体（<code>agent.spawn</code>）—— 交给 Jikji 持久且带门控的引擎，而不必临时自行编排。CLI 仍是轻薄的驱动层，真正的工作由 Jikji 来跑。"
 };

@@ -227,6 +227,11 @@
         <h3 data-i18n="uc.backbone.h">Intelligence backbone for your app</h3>
         <p data-i18n="uc.backbone.p">Run Jikji as a dedicated reasoning backbone for a separate application: your app owns its data and read-only tools, POSTs a deterministic scenario to <code>/v1/runs</code>, and Jikji calls back into those tools over an MCP subprocess declared under <code>sorts.mcp_servers</code> — every call gated and audited. Your app never imports Jikji or embeds an agent framework; it stays a plain HTTP client.</p>
       </div>
+      <div class="card">
+        <span class="num">/v1/mcp &middot; trinity.ensemble</span>
+        <h3 data-i18n="uc.council.h">Orchestration backbone for a coding agent</h3>
+        <p data-i18n="uc.council.p">A coding CLI (Claude Code, Codex) attaches a running Jikji as an MCP server over <code>/v1/mcp</code> and offloads its heavy multi-agent work — a verifier-gated model council (<code>trinity.ensemble</code>), a drift check (<code>trinity.oracle</code>), parallel sub-agents (<code>agent.spawn</code>) — to Jikji's durable, gated engine instead of orchestrating them ad hoc. The CLI stays the thin driver; Jikji runs the workers.</p>
+      </div>
     </div>
   </div>
 </section>

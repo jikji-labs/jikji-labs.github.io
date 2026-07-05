@@ -644,5 +644,7 @@ window.JIKJI_I18N["zh-tw"]={
  "uc.ratelimit.h": "從容跨越使用上限",
  "uc.ratelimit.p": "撞上了供應商或ChatGPT訂閱的使用上限（429/529）？Jikji會讀取真實的重置窗口——包括codex的5-hour與每週窗口——並選擇繼續執行而非直接失敗。互動式執行會透過<code>--wait-on-rate-limit</code>耐心等候窗口開啟（以<code>--max-wait</code>設定上限，預設6h）；已派發的代理與計畫任務則在窗口重置時，從最近的檢查點無人值守地自動續跑（<code>rate_limit_resume: park</code>）——無需用戶端保持連線。",
  "uc.backbone.h": "為你的應用打造的智慧中樞",
- "uc.backbone.p": "將 Jikji 作為獨立應用的專屬推理中樞來運行：你的應用掌握自己的資料與唯讀工具，把確定性情境 POST 到 <code>/v1/runs</code>，而 Jikji 則透過在 <code>sorts.mcp_servers</code> 下宣告的 MCP 子行程回呼這些工具——每一次呼叫都受控且可稽核。你的應用無需匯入 Jikji，也不必內嵌任何代理框架，始終只是一個純粹的 HTTP 用戶端。"
+ "uc.backbone.p": "將 Jikji 作為獨立應用的專屬推理中樞來運行：你的應用掌握自己的資料與唯讀工具，把確定性情境 POST 到 <code>/v1/runs</code>，而 Jikji 則透過在 <code>sorts.mcp_servers</code> 下宣告的 MCP 子行程回呼這些工具——每一次呼叫都受控且可稽核。你的應用無需匯入 Jikji，也不必內嵌任何代理框架，始終只是一個純粹的 HTTP 用戶端。",
+ "uc.council.h": "編碼代理的編排中樞",
+ "uc.council.p": "編碼 CLI（Claude Code、Codex）透過 <code>/v1/mcp</code> 將執行中的 Jikji 掛載為 MCP 伺服器，把繁重的多代理工作 —— 由驗證器把關的模型議會（<code>trinity.ensemble</code>）、漂移檢查（<code>trinity.oracle</code>）、平行子代理（<code>agent.spawn</code>）—— 交給 Jikji 持久且帶門控的引擎，而不必臨時自行編排。CLI 仍是輕薄的驅動層，真正的工作由 Jikji 來跑。"
 };
