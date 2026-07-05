@@ -645,6 +645,6 @@ window.JIKJI_I18N["ko"]={
  "uc.ratelimit.p": "프로바이더나 ChatGPT 구독의 사용 한도(429/529)에 걸리셨나요? Jikji는 codex의 5-hour 및 주간 창을 포함해 실제 초기화 시점을 읽어내어, 실패하는 대신 작업을 이어갑니다. 대화형 실행은 <code>--wait-on-rate-limit</code>로 창이 열릴 때까지 기다리며(<code>--max-wait</code>로 상한 설정, 기본 6h), 디스패치된 에이전트와 플랜 실행은 창이 초기화되면 마지막 체크포인트에서 무인으로 재개됩니다(<code>rate_limit_resume: park</code>) — 클라이언트가 계속 연결되어 있을 필요가 없습니다.",
  "uc.backbone.h": "당신의 앱을 위한 지능 백본",
  "uc.backbone.p": "Jikji를 별도 애플리케이션의 전용 추론 백본으로 운영하세요. 당신의 앱은 데이터와 읽기 전용 도구를 소유하고, 결정론적 시나리오를 <code>/v1/runs</code>로 POST하며, Jikji는 <code>sorts.mcp_servers</code> 아래 선언된 MCP 서브프로세스를 통해 그 도구들을 다시 호출합니다. 모든 호출은 통제되고 감사됩니다. 당신의 앱은 Jikji를 임포트하거나 에이전트 프레임워크를 내장하지 않으며, 순수한 HTTP 클라이언트로 남습니다.",
- "uc.council.h": "코딩 에이전트를 위한 오케스트레이션 백본",
- "uc.council.p": "코딩 CLI(Claude Code, Codex)는 실행 중인 Jikji를 <code>/v1/mcp</code>를 통해 MCP 서버로 연결하고, 무거운 멀티 에이전트 작업 — 검증자로 게이팅되는 모델 카운슬(<code>trinity.ensemble</code>), 드리프트 점검(<code>trinity.oracle</code>), 병렬 서브 에이전트(<code>agent.spawn</code>) — 을 즉석에서 직접 조율하는 대신 Jikji의 견고하고 게이팅된 엔진에 넘깁니다. CLI는 얇은 드라이버로 남고, 워커는 Jikji가 돌립니다."
+ "uc.council.h": "코딩 CLI 혼자서는 소집할 수 없는 교차 벤더 카운슬",
+ "uc.council.p": "코딩 CLI(Claude Code, Codex)에도 자체 서브 에이전트가 있지만, 결국 모두 한 벤더입니다. 보안 감사나 아키텍처 선택처럼 판돈이 큰 결정 앞에서는 실행 중인 Jikji를 <code>/v1/mcp</code>로 연결해, 교차 벤더·정책 게이팅·감사·검증자 투표를 거치는 카운슬(<code>trinity.ensemble</code>)에 질문을 넘깁니다. 서로 다른 벤더의 모델이 답하고, 패널이 ACCEPT/REVISE로 표결하며, 신서사이저가 살아남은 답들을 융합합니다. <code>trinity.oracle</code>(드리프트 점검)와 <code>agent.spawn</code>도 함께 씁니다. MCP 한 번의 홉은 결과가 중대한 결정에서만 값어치가 있으며, 일상적인 코딩에는 필요 없습니다."
 };

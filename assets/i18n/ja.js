@@ -645,6 +645,6 @@ window.JIKJI_I18N["ja"]={
  "uc.ratelimit.p": "プロバイダーやChatGPTサブスクリプションの利用上限（429/529）に達しましたか？ Jikjiはcodexの5-hourおよび週次ウィンドウを含む実際のリセット時刻を読み取り、失敗させる代わりに処理を再開します。対話型の実行は<code>--wait-on-rate-limit</code>でウィンドウが開くまで待機し（<code>--max-wait</code>で上限を設定、既定は6h）、ディスパッチされたエージェントやプランの実行は、ウィンドウがリセットされると最後のチェックポイントから無人で再開します（<code>rate_limit_resume: park</code>）——クライアントを接続し続ける必要はありません。",
  "uc.backbone.h": "あなたのアプリのための知能バックボーン",
  "uc.backbone.p": "Jikji を別のアプリケーション専用の推論バックボーンとして運用しましょう。あなたのアプリはデータと読み取り専用ツールを保有し、決定論的なシナリオを <code>/v1/runs</code> へ POST します。そして Jikji は <code>sorts.mcp_servers</code> の下で宣言された MCP サブプロセスを介して、それらのツールを呼び戻します。すべての呼び出しは制御され、監査されます。あなたのアプリが Jikji をインポートしたりエージェントフレームワークを組み込んだりすることはなく、純粋な HTTP クライアントのままです。",
- "uc.council.h": "コーディングエージェントのためのオーケストレーション基盤",
- "uc.council.p": "コーディングCLI（Claude Code、Codex）は、稼働中のJikjiを<code>/v1/mcp</code>経由でMCPサーバーとして接続し、重厚なマルチエージェント処理 — 検証ゲート付きのモデルカウンシル（<code>trinity.ensemble</code>）、ドリフト検査（<code>trinity.oracle</code>）、並列サブエージェント（<code>agent.spawn</code>） — をその場限りで自前に組み立てる代わりに、Jikjiの堅牢でゲート付きのエンジンへ委ねます。CLIは薄いドライバーに徹し、ワーカーはJikjiが動かします。"
+ "uc.council.h": "コーディングCLI単体では開けない、ベンダー横断の合議",
+ "uc.council.p": "コーディングCLI（Claude Code、Codex）にも独自のサブエージェントがありますが、しょせんは同一ベンダーです。セキュリティ監査やアーキテクチャの選択といった重大な判断では、稼働中のJikjiを<code>/v1/mcp</code>で接続し、ベンダー横断・ポリシーゲート・監査済み・検証者投票による合議（<code>trinity.ensemble</code>）に問いを委ねます。異なるベンダーのモデルが回答し、パネルがACCEPT/REVISEで採決し、シンセサイザーが生き残った案を統合します。<code>trinity.oracle</code>（ドリフト検査）と<code>agent.spawn</code>も用います。MCPの一手間は結果の重い判断にこそ値し、日常のコーディングには不要です。"
 };

@@ -229,8 +229,8 @@
       </div>
       <div class="card">
         <span class="num">/v1/mcp &middot; trinity.ensemble</span>
-        <h3 data-i18n="uc.council.h">Orchestration backbone for a coding agent</h3>
-        <p data-i18n="uc.council.p">A coding CLI (Claude Code, Codex) attaches a running Jikji as an MCP server over <code>/v1/mcp</code> and offloads its heavy multi-agent work — a verifier-gated model council (<code>trinity.ensemble</code>), a drift check (<code>trinity.oracle</code>), parallel sub-agents (<code>agent.spawn</code>) — to Jikji's durable, gated engine instead of orchestrating them ad hoc. The CLI stays the thin driver; Jikji runs the workers.</p>
+        <h3 data-i18n="uc.council.h">A cross-vendor council your coding CLI can't run</h3>
+        <p data-i18n="uc.council.p">A coding CLI (Claude Code, Codex) has its own sub-agents — but they are all one vendor. For a high-stakes call — a security audit, an architecture choice — it attaches a running Jikji over <code>/v1/mcp</code> and puts the question to a cross-vendor, policy-gated, audited, verifier-voted council (<code>trinity.ensemble</code>): distinct-vendor models answer, a panel votes ACCEPT/REVISE, a synthesizer fuses the survivors. Also <code>trinity.oracle</code> (drift check) and <code>agent.spawn</code>. Worth the MCP hop for consequential decisions, not routine coding.</p>
       </div>
     </div>
   </div>
