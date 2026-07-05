@@ -642,5 +642,7 @@ window.JIKJI_I18N["zh-tw"]={
  "uc.market.p": "把一個已註冊的工具或代理打包，發布到市集，並安裝到另一個租戶上 — 有簽章、有版本，一條命令即可採用。",
  "uc.close.p": "<b>每個實例都是一枚可活動的字塊。</b> 真正的槓桿在於將它們排版組合 — 一套目標階層驅動一條派工佇列，由驗證者把關的合議來處理，引證網路來源，並受機械式審查把關。抽取你所需的那些，將它們精確排定，然後付印。",
  "uc.ratelimit.h": "從容跨越使用上限",
- "uc.ratelimit.p": "撞上了供應商或ChatGPT訂閱的使用上限（429/529）？Jikji會讀取真實的重置窗口——包括codex的5-hour與每週窗口——並選擇繼續執行而非直接失敗。互動式執行會透過<code>--wait-on-rate-limit</code>耐心等候窗口開啟（以<code>--max-wait</code>設定上限，預設6h）；已派發的代理與計畫任務則在窗口重置時，從最近的檢查點無人值守地自動續跑（<code>rate_limit_resume: park</code>）——無需用戶端保持連線。"
+ "uc.ratelimit.p": "撞上了供應商或ChatGPT訂閱的使用上限（429/529）？Jikji會讀取真實的重置窗口——包括codex的5-hour與每週窗口——並選擇繼續執行而非直接失敗。互動式執行會透過<code>--wait-on-rate-limit</code>耐心等候窗口開啟（以<code>--max-wait</code>設定上限，預設6h）；已派發的代理與計畫任務則在窗口重置時，從最近的檢查點無人值守地自動續跑（<code>rate_limit_resume: park</code>）——無需用戶端保持連線。",
+ "uc.backbone.h": "為你的應用打造的智慧中樞",
+ "uc.backbone.p": "將 Jikji 作為獨立應用的專屬推理中樞來運行：你的應用掌握自己的資料與唯讀工具，把確定性情境 POST 到 <code>/v1/runs</code>，而 Jikji 則透過在 <code>sorts.mcp_servers</code> 下宣告的 MCP 子行程回呼這些工具——每一次呼叫都受控且可稽核。你的應用無需匯入 Jikji，也不必內嵌任何代理框架，始終只是一個純粹的 HTTP 用戶端。"
 };

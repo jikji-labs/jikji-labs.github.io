@@ -642,5 +642,7 @@ window.JIKJI_I18N["zh"]={
  "uc.market.p": "把一个已注册的工具或智能体打包，发布到市场，并安装到另一个租户上 — 有签名、有版本，一条命令即可采用。",
  "uc.close.p": "<b>每个实例都是一枚可活动的字块。</b> 真正的杠杆在于将它们排版组合 — 一套目标层级驱动一条派发队列，由验证者把关的合议来处理，引证网络来源，并受机械式审查把关。抽取你所需的那些，将它们精确排定，然后付印。",
  "uc.ratelimit.h": "从容跨越使用上限",
- "uc.ratelimit.p": "撞上了提供商或ChatGPT订阅的使用上限（429/529）？Jikji会读取真实的重置窗口——包括codex的5-hour和每周窗口——并选择继续运行而非直接失败。交互式运行会通过<code>--wait-on-rate-limit</code>耐心等待窗口开启（以<code>--max-wait</code>设定上限，默认6h）；已派发的智能体与计划任务则在窗口重置时，从最近的检查点无人值守地自动续跑（<code>rate_limit_resume: park</code>）——无需客户端保持连接。"
+ "uc.ratelimit.p": "撞上了提供商或ChatGPT订阅的使用上限（429/529）？Jikji会读取真实的重置窗口——包括codex的5-hour和每周窗口——并选择继续运行而非直接失败。交互式运行会通过<code>--wait-on-rate-limit</code>耐心等待窗口开启（以<code>--max-wait</code>设定上限，默认6h）；已派发的智能体与计划任务则在窗口重置时，从最近的检查点无人值守地自动续跑（<code>rate_limit_resume: park</code>）——无需客户端保持连接。",
+ "uc.backbone.h": "为你的应用打造的智能中枢",
+ "uc.backbone.p": "将 Jikji 作为独立应用的专属推理中枢来运行：你的应用掌握自己的数据与只读工具，把确定性场景 POST 到 <code>/v1/runs</code>，而 Jikji 则通过在 <code>sorts.mcp_servers</code> 下声明的 MCP 子进程回调这些工具——每一次调用都受控且可审计。你的应用无需导入 Jikji，也不必内嵌任何智能体框架，始终只是一个纯粹的 HTTP 客户端。"
 };
