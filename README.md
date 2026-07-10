@@ -2,7 +2,7 @@
 
 This repository publishes the English canonical product documentation for
 [Jikji](https://github.com/jikji-labs/jikji) at
-<https://www.jikji-labs.com>.
+<https://jikji-labs.com>.
 
 ## Content Contract
 
