@@ -677,7 +677,7 @@ window.JIKJI_I18N["id"]={
  "ledger.foresight.scope": "Latihan persona berbasis ontologi dengan gerbang provenans dan verifikator; eksplorasi terstruktur, tidak pernah prediksi.",
  "ledger.foresight.tier": "Mekanisme langsung parsial · demo penuh mencapai batas throughput yang didokumentasikan",
  "ledger.relay.scope": "Gabungan yang ditandatangani Ed25519, kredensial bootstrap terbatas satu kali, sewa yang dapat diperbarui, dan sambungan ulang kunci stabil untuk node alat jarak jauh.",
- "ledger.relay.tier": "Uji command E2E/race, restart/multi-handle durable Galley, dan operator grant/revoke/rotation/HTTPS/penyewa filter lulus · adaptor bearer mandiri; audit principal/policy dan integrasi rate-limit masih dalam kualifikasi",
+ "ledger.relay.tier": "Uji E2E/race, restart durable/multi-controller, siklus hidup operator, HTTPS, kebijakan/rate-limit tenant, audit Galley fail-closed, dan failover seed eksplisit",
  "img.arch.alt": "Toko cetak modular terukir menunjukkan stasiun ingress, kebijakan, model, alat, dan status tahan lama yang terhubung",
  "plate.arch.title": "JALUR PERMINTAAN",
  "plate.arch.meta": "PROSES PERTAMA · HTTP / gRPC SIAP",

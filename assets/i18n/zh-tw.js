@@ -677,7 +677,7 @@ window.JIKJI_I18N["zh-tw"]={
  "ledger.foresight.scope": "基於本體論的角色排練，附有出處與驗證者關卡；結構化探索，絕非預測。",
  "ledger.foresight.tier": "部分即時機制 · 完整示範觸及已記錄的吞吐量限制",
  "ledger.relay.scope": "Ed25519 簽署的加入、一次性範圍引導憑證、可續約租約，以及遠端工具節點的穩定金鑰重連。",
- "ledger.relay.tier": "命令 E2E/race、重啟/多句柄 durable Galley、操作員 grant/revoke/rotation/HTTPS/租戶過濾測試通過 · 獨立 bearer 配接器；主體/政策稽核與速率限制整合仍在驗證中",
+ "ledger.relay.tier": "命令 E2E/race、持久化重啟/多控制器、操作員生命週期、HTTPS、租戶政策/速率限制、失敗關閉的 Galley 稽核及明確種子容錯移轉測試",
  "img.arch.alt": "雕刻模組化印刷廠，顯示連接的入口、政策、模型、工具和持久狀態站",
  "plate.arch.title": "請求路徑",
  "plate.arch.meta": "處理中優先 · HTTP / gRPC 就緒",

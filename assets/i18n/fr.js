@@ -677,7 +677,7 @@ window.JIKJI_I18N["fr"]={
  "ledger.foresight.scope": "Répétition de persona ancrée dans l'ontologie avec provenance et portes de vérificateur ; exploration structurée, jamais prédiction.",
  "ledger.foresight.tier": "Mécanisme en direct partiel · la démo complète a atteint une limite de débit documentée",
  "ledger.relay.scope": "Adhésion signée Ed25519, identifiants d'amorçage à usage unique et limités, baux renouvelables et reconnexion par clé stable pour les nœuds d'outils distants.",
- "ledger.relay.tier": "Tests de commande E2E/race, redémarrage/multi-handle durable Galley, et opérateur grant/revoke/rotation/HTTPS/filtrage locataire réussis · adaptateur bearer autonome ; audit principal/politique et intégration de la limitation de débit encore en qualification",
+ "ledger.relay.tier": "Tests E2E/race, redémarrage durable/multi-contrôleur, cycle de vie opérateur, HTTPS, politique/limitation par locataire, audit Galley à sécurité par défaut et bascule explicite entre seeds",
  "img.arch.alt": "Atelier modulaire gravé montrant les stations d'entrée, politique, modèle, outil et état durable connectées",
  "plate.arch.title": "CHEMIN DE REQUÊTE",
  "plate.arch.meta": "EN PROCESSUS D'ABORD · HTTP / gRPC PRÊT",

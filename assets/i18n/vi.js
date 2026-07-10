@@ -677,7 +677,7 @@ window.JIKJI_I18N["vi"]={
  "ledger.foresight.scope": "Diễn tập persona dựa trên ontology với nguồn gốc và cổng xác minh; khám phá có cấu trúc, không bao giờ dự đoán.",
  "ledger.foresight.tier": "Cơ chế trực tiếp một phần · bản demo đầy đủ đạt giới hạn thông lượng đã được ghi lại",
  "ledger.relay.scope": "Tham gia ký Ed25519, thông tin xác thực bootstrap có phạm vi một lần, các lease gia hạn được, và kết nối lại khóa ổn định cho các nút công cụ từ xa.",
- "ledger.relay.tier": "Các bài kiểm tra lệnh E2E/race, khởi động lại/đa xử lý bền vững Galley, và cấp/thu hồi/xoay vòng/HTTPS/lọc đối tượng thuê của operator đã vượt qua · bộ chuyển đổi bearer độc lập; kiểm tra principal/policy và tích hợp giới hạn tốc độ vẫn đang được đánh giá",
+ "ledger.relay.tier": "Kiểm thử E2E/race, khởi động lại bền vững/đa controller, vòng đời operator, HTTPS, policy/rate-limit theo tenant, audit Galley fail-closed và failover seed tường minh",
  "img.arch.alt": "Xưởng in mô-đun khắc hiển thị các trạm ingress, policy, model, tool và durable-state được kết nối",
  "plate.arch.title": "ĐƯỜNG DẪN YÊU CẦU",
  "plate.arch.meta": "TRONG TIẾN TRÌNH TRƯỚC · HTTP / gRPC SẴN SÀNG",

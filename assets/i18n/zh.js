@@ -677,7 +677,7 @@ window.JIKJI_I18N["zh"]={
  "ledger.foresight.scope": "基于本体的人物角色排练，带有来源和验证者门禁；结构化探索，从不预测。",
  "ledger.foresight.tier": "部分实时机制 · 完整演示达到文档化的吞吐量限制",
  "ledger.relay.scope": "Ed25519签名的加入、一次性范围引导凭证、可续租约和远程工具节点的稳定密钥重连。",
- "ledger.relay.tier": "命令 E2E/race、重启/多句柄 durable Galley、操作员 grant/revoke/rotation/HTTPS/租户过滤测试通过 · 独立 bearer 适配器；主体/策略审计和速率限制集成仍在验证中",
+ "ledger.relay.tier": "命令 E2E/race、持久化重启/多控制器、操作员生命周期、HTTPS、租户策略/速率限制、失败关闭的 Galley 审计及显式种子故障转移测试",
  "img.arch.alt": "雕刻的模块化打印车间，展示连接的入口、策略、模型、工具和持久化状态站",
  "plate.arch.title": "请求路径",
  "plate.arch.meta": "进程内优先 · HTTP / gRPC 就绪",

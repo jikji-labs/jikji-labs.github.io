@@ -677,7 +677,7 @@ window.JIKJI_I18N["en"]={
  "ledger.foresight.scope": "Ontology-grounded persona rehearsal with provenance and verifier gates; structured exploration, never prediction.",
  "ledger.foresight.tier": "Partial live mechanism · full demo hit a documented throughput limit",
  "ledger.relay.scope": "Ed25519-signed join, one-time scoped bootstrap credentials, renewable leases, and stable-key reconnect for remote tool nodes.",
- "ledger.relay.tier": "Command E2E/race, restart/multi-handle durable Galley, and operator grant/revoke/rotation/HTTPS/tenant-filter tests · standalone bearer adapter; principal/policy audit and rate-limit integration still qualifying",
+ "ledger.relay.tier": "Command E2E/race, durable restart/multi-controller, operator lifecycle, HTTPS, tenant policy/rate-limit, fail-closed Galley audit, and explicit seed failover tests",
  "img.arch.alt": "Engraved modular print shop showing connected ingress, policy, model, tool, and durable-state stations",
  "plate.arch.title": "REQUEST PATH",
  "plate.arch.meta": "IN-PROCESS FIRST · HTTP / gRPC READY",

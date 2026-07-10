@@ -677,7 +677,7 @@ window.JIKJI_I18N["ja"]={
  "ledger.foresight.scope": "オントロジーに基づくペルソナリハーサル（出所と検証者ゲート付き）; 構造化された探索、決して予測ではありません。",
  "ledger.foresight.tier": "部分的なライブメカニズム · フルデモが文書化されたスループット制限に達しました",
  "ledger.relay.scope": "Ed25519署名付き参加、一回限りのスコープ付きブートストラップ資格情報、更新可能なリース、およびリモートツールノードの安定キー再接続。",
- "ledger.relay.tier": "コマンドE2E/race、再起動/マルチハンドル durable Galley、オペレーター grant/revoke/rotation/HTTPS/テナントフィルターテスト合格 · スタンドアロン bearer アダプター、プリンシパル/ポリシー監査とレート制限統合は引き続き検証中",
+ "ledger.relay.tier": "コマンドE2E/race、durable 再起動/マルチコントローラー、オペレーターライフサイクル、HTTPS、テナントポリシー/レート制限、fail-closed Galley監査、明示的シードフェイルオーバーのテスト",
  "img.arch.alt": "彫刻されたモジュラー印刷工房: 接続されたイングレス、ポリシー、モデル、ツール、永続状態ステーション",
  "plate.arch.title": "リクエストパス",
  "plate.arch.meta": "インプロセス優先 · HTTP/gRPC対応",

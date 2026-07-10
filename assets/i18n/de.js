@@ -677,7 +677,7 @@ window.JIKJI_I18N["de"]={
  "ledger.foresight.scope": "Ontologie-basierte Persona-Probe mit Herkunft und Prüfer-Gates; strukturierte Erkundung, niemals Vorhersage.",
  "ledger.foresight.tier": "Teilweiser Live-Mechanismus · vollständige Demo erreichte ein dokumentiertes Durchsatzlimit",
  "ledger.relay.scope": "Ed25519-signierter Beitritt, einmalige bereichsbezogene Bootstrap-Anmeldeinformationen, erneuerbare Leases und Stable-Key-Wiederverbindung für entfernte Tool-Knoten.",
- "ledger.relay.tier": "Befehls-E2E/race, Neustart/Multi-Handle durable Galley, Operator grant/revoke/rotation/HTTPS/Mandantenfilter-Tests bestanden · eigenständiger Bearer-Adapter; Principal/Policy-Audit und Ratenbegrenzungsintegration noch in Qualifizierung",
+ "ledger.relay.tier": "Befehls-E2E/race, dauerhafter Neustart/mehrere Controller, Operator-Lebenszyklus, HTTPS, Mandantenrichtlinie/Ratenbegrenzung, fehlersicheres Galley-Audit und expliziter Seed-Failover getestet",
  "img.arch.alt": "Gravierte modulare Druckwerkstatt, die verbundene Ingress-, Policy-, Modell-, Tool- und Durable-State-Stationen zeigt",
  "plate.arch.title": "ANFRAGEPFAD",
  "plate.arch.meta": "IN-PROCESS ZUERST · HTTP / gRPC BEREIT",

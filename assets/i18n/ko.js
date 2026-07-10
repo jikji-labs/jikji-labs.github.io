@@ -677,7 +677,7 @@ window.JIKJI_I18N["ko"]={
  "ledger.foresight.scope": "온톨로지 기반 페르소나 리허설(출처 및 검증자 게이트 포함); 구조화된 탐색, 예측 절대 아님.",
  "ledger.foresight.tier": "부분 라이브 증거 · 전체 데모가 문서화된 처리량 한계에 도달함",
  "ledger.relay.scope": "Ed25519 서명 조인, 일회성 범위 부트스트랩 자격 증명, 갱신 가능한 임대 및 원격 도구 노드용 안정 키 재연결.",
- "ledger.relay.tier": "명령 E2E/race, 재시작/멀티 핸들 durable Galley, 운영자 grant/revoke/rotation/HTTPS/테넌트 필터 테스트 통과 · 독립형 bearer 어댑터; 주체/정책 감사 및 속도 제한 통합은 아직 검증 중",
+ "ledger.relay.tier": "명령 E2E/race, durable 재시작/멀티 컨트롤러, 운영자 수명주기, HTTPS, 테넌트 정책/속도 제한, 실패 폐쇄형 Galley 감사 및 명시적 시드 장애조치 테스트",
  "img.arch.alt": "연결된 인그레스, 정책, 모델, 도구 및 내구성 상태 스테이션을 보여주는 조각된 모듈식 인쇄소",
  "plate.arch.title": "요청 경로",
  "plate.arch.meta": "인프로세스 우선 · HTTP / gRPC 준비",

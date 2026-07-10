@@ -677,7 +677,7 @@ window.JIKJI_I18N["pt"]={
  "ledger.foresight.scope": "Ensaio de persona fundamentado em ontologia com proveniência e portões de verificador; exploração estruturada, nunca previsão.",
  "ledger.foresight.tier": "Mecanismo ao vivo parcial · demonstração completa atingiu um limite de throughput documentado",
  "ledger.relay.scope": "Ingresso assinado por Ed25519, credenciais de bootstrap com escopo único, concessões renováveis e reconexão de chave estável para nós de ferramenta remotos.",
- "ledger.relay.tier": "Testes de comando E2E/race, reinício/multi-manipulador durável Galley, e operador grant/revoke/rotation/HTTPS/filtragem de locatários aprovados · adaptador bearer autônomo; auditoria de principal/política e integração de limitação de taxa ainda em qualificação",
+ "ledger.relay.tier": "Testes E2E/race, reinício durável/múltiplos controladores, ciclo de vida do operador, HTTPS, política/limite por locatário, auditoria Galley fail-closed e failover explícito de seeds",
  "img.arch.alt": "Oficina de impressão modular gravada mostrando estações de ingresso, política, modelo, ferramenta e estado durável conectadas",
  "plate.arch.title": "CAMINHO DA REQUISIÇÃO",
  "plate.arch.meta": "PRIMEIRO EM PROCESSO · HTTP / gRPC PRONTO",
