@@ -27,25 +27,22 @@
       <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
       <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
       <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
-      <select class="lang-sel" id="langSel" aria-label="Language"></select>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero home-hero">
   <div class="wrap">
-    <span class="kicker" data-i18n="hero.kicker">Agent Platform · Single Go Binary · Open Source Coming Soon</span>
-    <h1 data-i18n="hero.title">The agent platform,<br><span class="accent">set in metal type.</span></h1>
+    <span class="kicker">Enterprise agent runtime · Static Go release · GPL default</span>
+    <h1>Jikji</h1>
+    <p class="hero-offer">The enterprise agent platform, set in metal type.</p>
     <p class="sub" data-i18n="hero.sub">Jikji is a modular agent framework that runs as one static Go binary — a deterministic agent loop, durable orchestration state, adaptive multi-model coordination, and built-in governance. Built for long-horizon agentic workflows, from a laptop to enterprise clusters.</p>
     <div class="cta">
       <a class="btn btn-primary" href="#start" data-i18n="cta.start">Get Started</a>
-      <span class="btn btn-ghost" style="cursor:default;opacity:.65" data-i18n="cta.github">GitHub — Coming Soon</span>
+      <a class="btn btn-ghost" href="https://github.com/jikji-labs">Jikji Labs on GitHub</a>
+      <a class="btn btn-ghost" href="licensing.html">Licensing</a>
     </div>
-    <div class="typebar">
-      <span>foundry</span><span>press</span><span>type</span><span>sorts</span><span>dispatch</span><span>compositor</span><span>forme</span><span>trinity</span><span>galley</span><span>plate</span><span>lexicon</span><span>imprimatur</span><span>rubric</span><span>proof</span>
-    </div>
-    <p class="topnote" data-i18n="hero.note">This site is written from the code as it is being implemented today — Jikji is under active development, and details may change before the first release.</p>
   </div>
 </div>
 
@@ -170,10 +167,10 @@
   <div class="wrap">
     <div class="stats">
       <div class="stat"><div class="n">1</div><div class="l" data-i18n="st.1">static Go binary</div></div>
-      <div class="stat"><div class="n">16</div><div class="l" data-i18n="st.2">composable modules</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">primary server binary</div></div>
       <div class="stat"><div class="n">4</div><div class="l" data-i18n="st.3">agent protocols</div></div>
-      <div class="stat"><div class="n">1.8M+</div><div class="l" data-i18n="st.5">lines of Go</div></div>
-      <div class="stat"><div class="n">82%</div><div class="l" data-i18n="st.6">of it is tests</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">SQL backends</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">verification layers</div></div>
       <div class="stat"><div class="n mono" style="font-size:30px">1377</div><div class="l" data-i18n="st.4">the default port, and the year</div></div>
     </div>
   </div>
@@ -233,7 +230,7 @@
 <div style="padding-left:2ch">-d '{"model":"jikji-echo","messages":[{"role":"user","content":"hello"}]}'</div>
     </div>
 
-    <div class="dev-note" data-i18n="devnote">⚠ Jikji is under active development and the source code is not yet public — it will be open-sourced soon. APIs and module boundaries may change before the first stable release. This page describes what exists in the codebase today.</div>
+    <div class="dev-note">Jikji is under active pre-1.0 development. APIs and module boundaries may change. Review the repository's release evidence, security policy, and known limitations before production use.</div>
   </div>
 </section>
 
@@ -259,7 +256,8 @@
         </div>
         <div class="foot-col">
           <h4 data-i18n="foot.project">Project</h4>
-          <a href="#" style="opacity:.6" data-i18n="foot.github">GitHub (coming soon)</a>
+          <a href="https://github.com/jikji-labs">GitHub</a>
+          <a href="licensing.html">Licensing</a>
           <a href="#why" data-i18n="nav.why">Why Jikji</a>
           <a href="#start" data-i18n="nav.start">Get Started</a>
           <a href="contact.html" data-i18n="nav.about">About &amp; Contact</a>
@@ -269,6 +267,5 @@
   </div>
 </footer>
 
-<script src="assets/i18n.js" defer></script>
 </body>
 </html>
