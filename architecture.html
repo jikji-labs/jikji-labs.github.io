@@ -45,15 +45,19 @@
   </div>
 </div>
 
+<figure class="detail-hero-media">
+  <img src="assets/detail/architecture.webp" width="1600" height="666" loading="eager" decoding="async" fetchpriority="high" data-i18n-alt="img.arch.alt" alt="Engraved modular print shop showing connected ingress, policy, model, tool, and durable-state stations">
+</figure>
+
 <section class="tight rule" aria-label="Architecture flow"><div class="wrap"><div class="process-plate">
-  <div class="plate-title"><span>REQUEST PATH</span><span>IN-PROCESS FIRST · HTTP / gRPC READY</span></div>
-  <div class="process-flow">
-    <div class="process-step"><b>press + imprimatur</b><span>Ingress authenticates the tenant and constructs a scoped principal.</span></div>
-    <div class="process-step"><b>rubric + compositor</b><span>Policy decides; the session and durable run are assembled.</span></div>
-    <div class="process-step"><b>typebackbone + sorts</b><span>Models and governed tools execute behind stable interfaces.</span></div>
-    <div class="process-step"><b>galley + proof</b><span>State, links, audit-safe payloads, and evidence persist.</span></div>
+  <div class="plate-title"><span data-i18n="plate.arch.title">REQUEST PATH</span><span data-i18n="plate.arch.meta">IN-PROCESS FIRST · HTTP / gRPC READY</span></div>
+  <div class="process-flow" data-cardinality="4" data-cardinality-class="process-step">
+    <div class="process-step"><b data-i18n="plate.arch.s1h">press + imprimatur</b><span data-i18n="plate.arch.s1p">Ingress authenticates the tenant and constructs a scoped principal.</span></div>
+    <div class="process-step"><b data-i18n="plate.arch.s2h">rubric + compositor</b><span data-i18n="plate.arch.s2p">Policy decides; the session and durable run are assembled.</span></div>
+    <div class="process-step"><b data-i18n="plate.arch.s3h">typebackbone + sorts</b><span data-i18n="plate.arch.s3p">Models and governed tools execute behind stable interfaces.</span></div>
+    <div class="process-step"><b data-i18n="plate.arch.s4h">galley + proof</b><span data-i18n="plate.arch.s4p">State, links, audit-safe payloads, and evidence persist.</span></div>
   </div>
-  <p class="plate-caption">Each boundary is usable as an in-process Go API first and designed to move behind a standard service protocol without rewriting the business rule.</p>
+  <p class="plate-caption" data-i18n="plate.arch.cap">Each boundary is usable as an in-process Go API first and designed to move behind a standard service protocol without rewriting the business rule.</p>
 </div></div></section>
 
 <!-- MODULES -->
@@ -187,7 +191,7 @@
     <div class="prose" style="max-width:none">
       <p data-i18n="arch.store.p"><b>galley</b> is the shared collaboration workspace — a single schema, with explicit migrations, that backs memory, dispatch records, the marketplace, A2A tasks, credentials, and audit logs. It runs on embedded SQLite by default and on PostgreSQL or MySQL for multi-node deployments, with dialect-aware DDL and a distributed lease manager for task recovery.</p>
     </div>
-    <table class="spec">
+    <table class="spec" data-cardinality="5" data-cardinality-tag="tr">
       <tr><th data-i18n="arch.bin.1.k">jikji</th><td data-i18n="arch.bin.1.v">The main runtime server — agent loop, OpenAI-compatible API, dispatch, channels, and the dashboard, selected by profile.</td></tr>
       <tr><th data-i18n="arch.bin.2.k">jikjictl</th><td data-i18n="arch.bin.2.v">The operator CLI — health, models, credentials and vault, RBAC, policy, filters, provider OAuth, usage, audit, and marketplace.</td></tr>
       <tr><th data-i18n="arch.bin.3.k">jikjicode</th><td data-i18n="arch.bin.3.v">A standalone coding CLI that drives local sandboxed tools against a remote OpenAI-compatible model server.</td></tr>
@@ -205,7 +209,7 @@
       <h2 data-i18n="arch.proto.h2">Open protocol surfaces</h2>
       <p data-i18n="arch.proto.p">Jikji is built to fit into what you already run — point existing OpenAI clients at it, bridge MCP tools both ways, or federate agents over A2A.</p>
     </div>
-    <div class="protos">
+    <div class="protos" data-cardinality="4" data-cardinality-class="proto">
       <div class="proto"><div class="p-name">OpenAI-compatible</div><p data-i18n="arch.proto.openai"><span class="mono">/v1/chat/completions</span>, <span class="mono">/v1/models</span>, <span class="mono">/v1/embeddings</span>, plus native agent runs and sessions.</p></div>
       <div class="proto"><div class="p-name">MCP</div><p data-i18n="arch.proto.mcp">Model Context Protocol server and client over stdio — consume MCP tools or expose Jikji as one.</p></div>
       <div class="proto"><div class="p-name">ACP</div><p data-i18n="arch.proto.acp">Agent Communication Protocol over stdio for local process-based agent peers.</p></div>

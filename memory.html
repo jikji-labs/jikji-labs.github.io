@@ -45,15 +45,19 @@
   </div>
 </div>
 
+<figure class="detail-hero-media">
+  <img src="assets/detail/memory.webp" width="1600" height="666" loading="eager" decoding="async" fetchpriority="high" data-i18n-alt="img.memory.alt" alt="Engraved archival memory system persisting, linking, consolidating, and retrieving a compact bundle of records">
+</figure>
+
 <section class="tight rule" aria-label="Memory persistence and recall flow"><div class="wrap"><div class="process-plate">
-  <div class="plate-title"><span>DURABLE MEMORY</span><span>TENANT-SCOPED · GALLEY-BACKED</span></div>
-  <div class="process-flow">
-    <div class="process-step"><b>Observe</b><span>The forme loop emits typed events, facts, links, and explicit memory actions.</span></div>
-    <div class="process-step"><b>Persist in Galley</b><span>SQLite or a shared SQL backend records durable state with migrations.</span></div>
-    <div class="process-step"><b>Consolidate in Plate</b><span>Extraction, deduplication, graph links, and background consolidation refine recall.</span></div>
-    <div class="process-step"><b>Retrieve + compact</b><span>Hybrid search selects relevant memory while compaction respects the token window.</span></div>
+  <div class="plate-title"><span data-i18n="plate.memory.title">DURABLE MEMORY</span><span data-i18n="plate.memory.meta">TENANT-SCOPED · GALLEY-BACKED</span></div>
+  <div class="process-flow" data-cardinality="4" data-cardinality-class="process-step">
+    <div class="process-step"><b data-i18n="plate.memory.s1h">Observe</b><span data-i18n="plate.memory.s1p">The forme loop emits typed events, facts, links, and explicit memory actions.</span></div>
+    <div class="process-step"><b data-i18n="plate.memory.s2h">Persist in Galley</b><span data-i18n="plate.memory.s2p">SQLite or a shared SQL backend records durable state with migrations.</span></div>
+    <div class="process-step"><b data-i18n="plate.memory.s3h">Consolidate in Plate</b><span data-i18n="plate.memory.s3p">Extraction, deduplication, graph links, and background consolidation refine recall.</span></div>
+    <div class="process-step"><b data-i18n="plate.memory.s4h">Retrieve + compact</b><span data-i18n="plate.memory.s4p">Hybrid search selects relevant memory while compaction respects the token window.</span></div>
   </div>
-  <p class="plate-caption">Durability is mechanical; extraction and ranking quality remain model- and embedding-dependent and should be evaluated on your corpus.</p>
+  <p class="plate-caption" data-i18n="plate.memory.cap">Durability is mechanical; extraction and ranking quality remain model- and embedding-dependent and should be evaluated on your corpus.</p>
 </div></div></section>
 
 <!-- COGNITIVE MEMORY -->

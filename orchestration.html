@@ -45,15 +45,19 @@
   </div>
 </div>
 
+<figure class="detail-hero-media">
+  <img src="assets/detail/orchestration.webp" width="1600" height="666" loading="eager" decoding="async" fetchpriority="high" data-i18n-alt="img.orch.alt" alt="Engraved independent candidate presses converging on synthesis, verifier gauges, and a final release press">
+</figure>
+
 <section class="tight rule" aria-label="Trinity ensemble flow"><div class="wrap"><div class="process-plate">
-  <div class="plate-title"><span>TRINITY ENSEMBLE</span><span>DIVERSE ANSWERS · ADVERSARIAL GATE</span></div>
-  <div class="process-flow">
-    <div class="process-step"><b>Independent candidates</b><span>Distinct configured models answer without seeing one another.</span></div>
-    <div class="process-step"><b>Synthesis</b><span>A synthesizer reconciles evidence, disagreements, and viable alternatives.</span></div>
-    <div class="process-step"><b>Verifier panel</b><span>Separate judges vote ACCEPT or REVISE against the goal and rubric.</span></div>
-    <div class="process-step"><b>Release or revise</b><span>The gate accepts or starts another bounded revision; Oracle checks trajectory drift separately.</span></div>
+  <div class="plate-title"><span data-i18n="plate.orch.title">TRINITY ENSEMBLE</span><span data-i18n="plate.orch.meta">DIVERSE ANSWERS · ADVERSARIAL GATE</span></div>
+  <div class="process-flow" data-cardinality="4" data-cardinality-class="process-step">
+    <div class="process-step"><b data-i18n="plate.orch.s1h">Independent candidates</b><span data-i18n="plate.orch.s1p">Distinct configured models answer without seeing one another.</span></div>
+    <div class="process-step"><b data-i18n="plate.orch.s2h">Synthesis</b><span data-i18n="plate.orch.s2p">A synthesizer reconciles evidence, disagreements, and viable alternatives.</span></div>
+    <div class="process-step"><b data-i18n="plate.orch.s3h">Verifier panel</b><span data-i18n="plate.orch.s3p">Separate judges vote ACCEPT or REVISE against the goal and rubric.</span></div>
+    <div class="process-step"><b data-i18n="plate.orch.s4h">Release or revise</b><span data-i18n="plate.orch.s4p">The gate accepts or starts another bounded revision; Oracle checks trajectory drift separately.</span></div>
   </div>
-  <p class="plate-caption">Provider diversity is configuration, not a guarantee: a meaningful council requires genuinely distinct model families and valid credentials.</p>
+  <p class="plate-caption" data-i18n="plate.orch.cap">Provider diversity is configuration, not a guarantee: a meaningful council requires genuinely distinct model families and valid credentials.</p>
 </div></div></section>
 
 <!-- SWARM -->
@@ -137,6 +141,21 @@
   </div>
 </section>
 
+<section class="tight" id="harness-evidence">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="orch.evidence.tag">Harness evidence</span>
+      <h2 data-i18n="orch.evidence.h2">Orchestration policy can evolve; quality still has to be measured</h2>
+      <p data-i18n="orch.evidence.p">The coordinator, verifier, and RHO-inspired optimizer are separate mechanisms. A proposal that passes admission is safe to evaluate, not proven better.</p>
+    </div>
+    <div class="grid cols3">
+      <div class="card"><h3 data-i18n="orch.evidence.1h">Mechanical admission first</h3><p data-i18n="orch.evidence.1p">Dominated, drifted, or mechanically worse harness updates are rejected before a model preference can break a true tie.</p></div>
+      <div class="card"><h3 data-i18n="orch.evidence.2h">Human release gate</h3><p data-i18n="orch.evidence.2p">An admissible directive is filed as pending approval. An operator reviews it before additive, capped injection into later runs.</p></div>
+      <div class="card"><h3 data-i18n="orch.evidence.3h">Held-out comparison</h3><p data-i18n="orch.evidence.3p">Baseline and modified harnesses need the same task set, environment, scorer, and attributed metrics. Null or negative lift means reject the directive.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- DELEGATION + A2A -->
 <section>
   <div class="wrap">
@@ -151,7 +170,7 @@
       </div>
       <div class="card">
         <h3 data-i18n="orch.del.2.h">A2A federation</h3>
-        <p data-i18n="orch.del.2.p">The agent-to-agent protocol covers task create / send / get / cancel, an agent registry with heartbeat, and cross-tenant lookup — so agents on different nodes can dispatch work to each other.</p>
+        <p data-i18n="orch.del.2.p">The agent-to-agent protocol covers task create / send / get / cancel plus an agent registry with heartbeat. Use it for explicitly configured, tenant-scoped peers; cross-tenant federation is not presented as a supported security boundary.</p>
       </div>
       <div class="card">
         <h3 data-i18n="orch.del.3.h">Collaboration memory</h3>

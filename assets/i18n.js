@@ -33,11 +33,13 @@
 
   function cacheNodes() {
     nodes = [];
-    document.querySelectorAll("[data-i18n]").forEach(function (element) {
+    document.querySelectorAll("[data-i18n], [data-i18n-alt]").forEach(function (element) {
+      var attribute = element.hasAttribute("data-i18n-alt") ? "alt" : null;
       nodes.push({
         element: element,
-        key: element.getAttribute("data-i18n"),
-        english: element.innerHTML
+        key: element.getAttribute(attribute ? "data-i18n-alt" : "data-i18n"),
+        attribute: attribute,
+        english: attribute ? element.getAttribute(attribute) : element.innerHTML
       });
     });
   }
@@ -55,9 +57,11 @@
     nodes.forEach(function (node) {
       if (translations && translations[node.key] !== undefined &&
           translationIsCurrent(node, canonicalEnglish)) {
-        node.element.innerHTML = translations[node.key];
+        if (node.attribute) node.element.setAttribute(node.attribute, translations[node.key]);
+        else node.element.innerHTML = translations[node.key];
       } else {
-        node.element.innerHTML = node.english;
+        if (node.attribute) node.element.setAttribute(node.attribute, node.english);
+        else node.element.innerHTML = node.english;
       }
     });
 
@@ -65,6 +69,9 @@
     document.documentElement.dir = "ltr";
     var selector = document.getElementById("langSel");
     if (selector) selector.value = lang;
+    document.querySelectorAll("[data-english-notice]").forEach(function (notice) {
+      notice.hidden = lang === "en";
+    });
     try { localStorage.setItem("jikji-lang", lang); } catch (_) {}
   }
 

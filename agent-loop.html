@@ -45,6 +45,10 @@
   </div>
 </div>
 
+<figure class="detail-hero-media">
+  <img src="assets/detail/agent-loop.webp" width="1600" height="666" loading="eager" decoding="async" fetchpriority="high" data-i18n-alt="img.loop.alt" alt="Engraved circular agent harness moving durable state through plan, action, observation, and checkpoint stations">
+</figure>
+
 <!-- THE LOOP -->
 <section class="tight">
   <div class="wrap">
@@ -201,8 +205,24 @@
   </div>
 </section>
 
+<section class="alt tight" id="harness-research">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="loop.research.tag">Harness research</span>
+      <h2 data-i18n="loop.research.h2">Several bounded loops, measured separately</h2>
+      <p data-i18n="loop.research.p">Jikji maps research ideas onto existing durable primitives instead of treating “self-improvement” as one magic loop. Every mechanism has a separate evidence boundary.</p>
+    </div>
+    <div class="grid cols3">
+      <div class="card"><h3 data-i18n="loop.research.stack.h">Stacked control loops</h3><p data-i18n="loop.research.stack.p">Agent, verification, event-driven, hill-climbing, and human-approval loops can compose, while the Go core and Lua hooks keep their enforcement roles explicit.</p></div>
+      <div class="card"><h3 data-i18n="loop.research.rho.h">RHO-inspired proposals</h3><p data-i18n="loop.research.rho.p">Past traces can propose a harness directive, but mechanical Pareto, quality, Oracle, evidence, and operator-approval gates decide whether it may be tried. It never auto-applies.</p></div>
+      <div class="card"><h3 data-i18n="loop.research.limit.h">Measured limit, not a promise</h3><p data-i18n="loop.research.limit.p">The controlled self-improving research example did not beat baseline and was underpowered. Better future models may make the mechanism more useful, but only a held-out A/B measurement can establish lift.</p></div>
+    </div>
+    <div class="dev-note" data-i18n="loop.research.note">Evidence tier: deterministic gate tests plus research artifacts. Live model rollouts remain provider-dependent; the current pass-rate objective includes an Oracle-coherence proxy and must not be described as measured task resolution.</div>
+  </div>
+</section>
+
 <!-- LONG HORIZON -->
-<section class="alt">
+<section>
   <div class="wrap">
     <div class="sec-head">
       <span class="tag" data-i18n="loop.lh.tag">The Long Horizon</span>

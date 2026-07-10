@@ -45,15 +45,19 @@
   </div>
 </div>
 
+<figure class="detail-hero-media">
+  <img src="assets/detail/enterprise.webp" width="1600" height="666" loading="eager" decoding="async" fetchpriority="high" data-i18n-alt="img.enterprise.alt" alt="Engraved enterprise control line moving a scoped identity through policy, proofing, denial, and audit stages">
+</figure>
+
 <section class="tight rule" aria-label="Enterprise request control flow"><div class="wrap"><div class="process-plate">
-  <div class="plate-title"><span>CONTROL PATH</span><span>FAIL CLOSED BY LAYER</span></div>
-  <div class="process-flow">
-    <div class="process-step"><b>Identity</b><span>Imprimatur resolves tenant, actor, scopes, and credentials into a principal.</span></div>
-    <div class="process-step"><b>Authorization</b><span>Rubric evaluates principal, action, tool, arguments, and environment.</span></div>
-    <div class="process-step"><b>Proofing</b><span>PII, secrets, and unsafe payloads are detected or redacted before outbound execution.</span></div>
-    <div class="process-step"><b>Audit + telemetry</b><span>Decisions and outcomes become tenant-aware evidence without raw secrets.</span></div>
+  <div class="plate-title"><span data-i18n="plate.enterprise.title">CONTROL PATH</span><span data-i18n="plate.enterprise.meta">FAIL CLOSED BY LAYER</span></div>
+  <div class="process-flow" data-cardinality="4" data-cardinality-class="process-step">
+    <div class="process-step"><b data-i18n="plate.enterprise.s1h">Identity</b><span data-i18n="plate.enterprise.s1p">Imprimatur resolves tenant, actor, scopes, and credentials into a principal.</span></div>
+    <div class="process-step"><b data-i18n="plate.enterprise.s2h">Authorization</b><span data-i18n="plate.enterprise.s2p">Rubric evaluates principal, action, tool, arguments, and environment.</span></div>
+    <div class="process-step"><b data-i18n="plate.enterprise.s3h">Proofing</b><span data-i18n="plate.enterprise.s3p">PII, secrets, and unsafe payloads are detected or redacted before outbound execution.</span></div>
+    <div class="process-step"><b data-i18n="plate.enterprise.s4h">Audit + telemetry</b><span data-i18n="plate.enterprise.s4p">Decisions and outcomes become tenant-aware evidence without raw secrets.</span></div>
   </div>
-  <p class="plate-caption">Production readiness depends on explicit configuration: TLS termination, external secret storage, backup keys, database HA, and alert routing are operator responsibilities.</p>
+  <p class="plate-caption" data-i18n="plate.enterprise.cap">Production readiness depends on explicit configuration: TLS termination, external secret storage, backup keys, database HA, and alert routing are operator responsibilities.</p>
 </div></div></section>
 
 <!-- PERMISSIONS -->
@@ -62,9 +66,9 @@
     <div class="sec-head">
       <span class="tag" data-i18n="ent.perm.tag">imprimatur · rubric · screen</span>
       <h2 data-i18n="ent.perm.h2">Identity, authorization, and a policy plane</h2>
-      <p data-i18n="ent.perm.p">Who is acting, what they may do, and under which conditions — three separate concerns behind three modules.</p>
+      <p data-i18n="ent.perm.p" data-cardinality-word="4">Identity, authorization decisions, dynamic policy filtering, and service publication are four separate concerns behind four boundaries.</p>
     </div>
-    <div class="grid cols3">
+    <div class="grid cols3" data-cardinality="4" data-cardinality-class="card">
       <div class="card">
         <span class="num">imprimatur</span>
         <h3 data-i18n="ent.perm.1.h">Tenancy &amp; RBAC</h3>

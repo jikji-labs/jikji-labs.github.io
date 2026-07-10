@@ -157,10 +157,10 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="tag" data-i18n="exp.tag">Explore the platform</span>
-      <h2 data-i18n="exp.h2">Six planes, one press</h2>
+      <h2 data-i18n="exp.h2" data-cardinality-word="7">Seven planes, one press</h2>
       <p data-i18n="exp.p">Each plane owns one concern behind a strict boundary. Follow any of them into the detail.</p>
     </div>
-    <div class="grid cols3">
+    <div class="grid cols3" data-cardinality="7" data-cardinality-class="card">
       <div class="card">
         <h3 data-i18n="exp.arch.h">Architecture</h3>
         <p data-i18n="exp.arch.p">A print shop of composable modules, deployment shapes from one process to a grid, galley-backed storage, and the binaries that run it.</p>
@@ -203,7 +203,7 @@
 <!-- STATS -->
 <section class="tight">
   <div class="wrap">
-    <div class="stats">
+    <div class="stats" data-cardinality="6" data-cardinality-class="stat">
       <div class="stat"><div class="n">1</div><div class="l" data-i18n="st.1">static Go binary</div></div>
       <div class="stat"><div class="n">1</div><div class="l">primary server binary</div></div>
       <div class="stat"><div class="n">4</div><div class="l" data-i18n="st.3">open protocol surfaces</div></div>
@@ -221,7 +221,7 @@
       <span class="tag" data-i18n="proto.tag">Interoperability</span>
       <h2 data-i18n="proto.h2">Speaks every protocol that matters</h2>
     </div>
-    <div class="protos">
+    <div class="protos" data-cardinality="4" data-cardinality-class="proto">
       <div class="proto"><div class="p-name">OpenAI-compatible API</div><p data-i18n="proto.openai">Drop-in <span class="mono">/v1/chat/completions</span>, models, embeddings, runs, and sessions — point existing clients at Jikji.</p></div>
       <div class="proto"><div class="p-name">MCP</div><p data-i18n="proto.mcp">Model Context Protocol server and client over stdio — consume MCP tools or expose Jikji as one.</p></div>
       <div class="proto"><div class="p-name">ACP</div><p data-i18n="proto.acp">Agent Communication Protocol over stdio for local process-based agent peers.</p></div>

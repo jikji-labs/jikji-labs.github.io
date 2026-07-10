@@ -45,15 +45,19 @@
   </div>
 </div>
 
+<figure class="detail-hero-media">
+  <img src="assets/detail/tools.webp" width="1600" height="666" loading="eager" decoding="async" fetchpriority="high" data-i18n-alt="img.tools.alt" alt="Engraved tool catalog passing through a policy gate into local, browser, container, and remote runners">
+</figure>
+
 <section class="tight rule" aria-label="Tool execution flow"><div class="wrap"><div class="process-plate">
-  <div class="plate-title"><span>TOOL EXECUTION</span><span>ONE POLICY PATH, MANY RUNNERS</span></div>
-  <div class="process-flow">
-    <div class="process-step"><b>Catalog</b><span>Built-ins, MCP tools, and installed extensions expose typed schemas.</span></div>
-    <div class="process-step"><b>Policy gate</b><span>Tenant, principal, action, arguments, and environment produce allow, deny, or ask.</span></div>
-    <div class="process-step"><b>Runner + sandbox</b><span>Local, Lua, Python, browser, container, SSH, or remote-node execution stays bounded.</span></div>
-    <div class="process-step"><b>Proof + audit</b><span>Outputs are sanitized, attributed, metered, and folded into the run as observations.</span></div>
+  <div class="plate-title"><span data-i18n="plate.tools.title">TOOL EXECUTION</span><span data-i18n="plate.tools.meta">ONE POLICY PATH, MANY RUNNERS</span></div>
+  <div class="process-flow" data-cardinality="4" data-cardinality-class="process-step">
+    <div class="process-step"><b data-i18n="plate.tools.s1h">Catalog</b><span data-i18n="plate.tools.s1p">Built-ins, MCP tools, and installed extensions expose typed schemas.</span></div>
+    <div class="process-step"><b data-i18n="plate.tools.s2h">Policy gate</b><span data-i18n="plate.tools.s2p">Tenant, principal, action, arguments, and environment produce allow, deny, or ask.</span></div>
+    <div class="process-step"><b data-i18n="plate.tools.s3h">Runner + sandbox</b><span data-i18n="plate.tools.s3p">Local, Lua, Python, browser, container, SSH, or remote-node execution stays bounded.</span></div>
+    <div class="process-step"><b data-i18n="plate.tools.s4h">Proof + audit</b><span data-i18n="plate.tools.s4p">Outputs are sanitized, attributed, metered, and folded into the run as observations.</span></div>
   </div>
-  <p class="plate-caption">The execution surface can change without bypassing authorization, redaction, timeout, or audit controls.</p>
+  <p class="plate-caption" data-i18n="plate.tools.cap">The execution surface can change without bypassing authorization, redaction, timeout, or audit controls.</p>
 </div></div></section>
 
 <!-- CATALOG -->

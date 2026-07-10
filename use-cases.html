@@ -46,22 +46,31 @@
   </div>
 </div>
 
+<figure class="detail-hero-media">
+  <img src="assets/detail/use-cases.webp" width="1600" height="666" loading="eager" decoding="async" fetchpriority="high" data-i18n-alt="img.usecases.alt" alt="Open pattern book surrounded by verifier artifacts, a durable queue, task graph, deployment topology, and command output">
+</figure>
+
 <section class="tight rule" id="ledger">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag">Selected evidence</span>
-      <h2>Start from a worked path, not an empty framework</h2>
-      <p>These entry points cover the paths teams usually need first. Every link opens the corresponding repository example, including its prerequisites and limitations.</p>
+      <span class="tag" data-i18n="ledger.tag">Selected evidence</span>
+      <h2 data-i18n="ledger.h2">Start from a worked path, not an empty framework</h2>
+      <p data-i18n="ledger.p">This curated catalog separates supported integration paths, worked mechanisms, operator references, and research evidence. Every link opens the exact repository example with its prerequisites and limitations.</p>
     </div>
     <table class="example-ledger">
-      <thead><tr><th>Example</th><th>What it proves</th><th>Evidence class</th></tr></thead>
-      <tbody>
-        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/agent-cli-backbone">agent-cli-backbone ↗</a></td><td>HTTP MCP from a coding CLI into <code>trinity.ensemble</code>, <code>trinity.oracle</code>, and durable child runs.</td><td>Live, five-vendor worked run</td></tr>
-        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/trinity-council">trinity-council ↗</a></td><td>Candidate fan-out, synthesis, verifier voting, and a preserved answer artifact.</td><td>Live worked artifact</td></tr>
-        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/taskgraph-orchestration">taskgraph-orchestration ↗</a></td><td>Dependency-aware durable sub-agents, concurrent waves, and file-conflict serialization.</td><td>Deterministic worked artifact</td></tr>
-        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/dispatch-queue-worker">dispatch-queue-worker ↗</a></td><td>Durable queue claims, leases, completion, and worker restart behavior.</td><td>Deterministic worked artifact</td></tr>
-        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/production-hardening">production-hardening ↗</a></td><td>Fail-closed auth, TLS, policy, audit, redaction, recovery, and telemetry controls.</td><td>Operator checklist + config</td></tr>
-        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/ha-multi-node">ha-multi-node ↗</a></td><td>Shared PostgreSQL, leader election, readiness, draining, and multi-node topology.</td><td>Deployment reference</td></tr>
+      <thead><tr><th data-i18n="ledger.th.example">Example</th><th data-i18n="ledger.th.scope">What the evidence covers</th><th data-i18n="ledger.th.tier">Evidence · support tier</th></tr></thead>
+      <tbody data-cardinality="11" data-cardinality-tag="tr">
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/agent-cli-backbone">agent-cli-backbone ↗</a></td><td data-i18n="ledger.cli.scope">HTTP MCP from a coding CLI into a five-vendor <code>trinity.ensemble</code>, Oracle, and durable child runs.</td><td data-i18n="ledger.cli.tier">Live worked run · integration path</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/trinity-council">trinity-council ↗</a></td><td data-i18n="ledger.trinity.scope">Candidate fan-out, synthesis, verifier voting, and the accepted answer preserved for inspection.</td><td data-i18n="ledger.trinity.tier">Live worked artifact · mechanism</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/taskgraph-orchestration">taskgraph-orchestration ↗</a></td><td data-i18n="ledger.taskgraph.scope">Dependency-aware durable sub-agents, concurrent waves, and file-conflict serialization.</td><td data-i18n="ledger.taskgraph.tier">Deterministic worked artifact · mechanism</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/dispatch-queue-worker">dispatch-queue-worker ↗</a></td><td data-i18n="ledger.queue.scope">Durable queue claims, leases, completion, and worker restart behavior.</td><td data-i18n="ledger.queue.tier">Deterministic worked artifact · mechanism</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/production-hardening">production-hardening ↗</a></td><td data-i18n="ledger.prod.scope">Fail-closed auth, TLS, policy, audit, redaction, recovery, and telemetry controls to qualify in your environment.</td><td data-i18n="ledger.prod.tier">Checklist + config · operator reference</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/ha-multi-node">ha-multi-node ↗</a></td><td data-i18n="ledger.ha.scope">Shared PostgreSQL, leader election, readiness, draining, and a multi-node topology.</td><td data-i18n="ledger.ha.tier">Config + procedure · deployment reference</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/rho-harness-optimizer">rho-harness-optimizer ↗</a></td><td data-i18n="ledger.rho.scope">RHO-inspired retrospective harness proposals admitted by mechanical Pareto, quality, Oracle, evidence, and operator-approval gates.</td><td data-i18n="ledger.rho.tier">Unit-tested gate · experimental adapter; lift unproven</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/harness-quality-eval">harness-quality-eval ↗</a></td><td data-i18n="ledger.eval.scope">A controlled rig that attributes task, model, harness, environment, scorer, failures, and comparable metrics.</td><td data-i18n="ledger.eval.tier">Method + worked tasks · not a benchmark result</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/self-improving-research-loop">self-improving-research-loop ↗</a></td><td data-i18n="ledger.self.scope">A bounded held-out experiment that falsified its promising probe: generic directives and auto-research did not beat baseline.</td><td data-i18n="ledger.self.tier">Controlled, underpowered negative result · research</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/foresight-sandbox">foresight-sandbox ↗</a></td><td data-i18n="ledger.foresight.scope">Ontology-grounded persona rehearsal with provenance and verifier gates; structured exploration, never prediction.</td><td data-i18n="ledger.foresight.tier">Partial live mechanism · full demo hit a documented throughput limit</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/relay-secure-cluster">relay-secure-cluster ↗</a></td><td data-i18n="ledger.relay.scope">Ed25519-signed join, one-time scoped bootstrap credentials, renewable leases, and stable-key reconnect for remote tool nodes.</td><td data-i18n="ledger.relay.tier">Command E2E/race, restart/multi-handle durable Galley, and operator grant/revoke/rotation/HTTPS/tenant-filter tests · standalone bearer adapter; principal/policy audit and rate-limit integration still qualifying</td></tr>
       </tbody>
     </table>
   </div>

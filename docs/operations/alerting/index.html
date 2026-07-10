@@ -46,11 +46,13 @@
   </div>
 </div>
 
+<div class="english-notice" data-english-notice data-i18n="notice.english.ops" hidden>This page remains authoritative in English. The selected locale applies to shared navigation; follow the English runbook during an incident.</div>
+
 <section class="tight rule">
   <div class="wrap">
     <div class="process-plate">
       <div class="plate-title"><span>FIRST RESPONSE</span><span>MEASURE · CONTAIN · RECOVER · PROVE</span></div>
-      <div class="process-flow">
+      <div class="process-flow" data-cardinality="4" data-cardinality-class="process-step">
         <div class="process-step"><b>Confirm</b><span>Correlate the alert with an external synthetic check and the current rollout.</span></div>
         <div class="process-step"><b>Scope</b><span>Identify tenant-safe route, provider, component, pod, and database signals.</span></div>
         <div class="process-step"><b>Contain</b><span>Stop a harmful rollout or use a reviewed fallback without widening privileges.</span></div>
@@ -68,7 +70,7 @@
       <h2>Protect the metrics plane</h2>
       <p>The <code>/metrics</code> endpoint is intentionally unauthenticated and tenant labels are scrubbed by default. Restrict it to the telemetry network and keep <code>press.expose_tenant_metrics: false</code> unless the scrape path has an independent authentication boundary.</p>
     </div>
-    <nav class="runbook-index" aria-label="Alert runbooks">
+    <nav class="runbook-index" aria-label="Alert runbooks" data-cardinality="8" data-cardinality-tag="a">
       <a href="#jikjitargetdown">Target down</a>
       <a href="#jikjihttperrorbudgetburn">HTTP error budget</a>
       <a href="#jikjirunadmissionshedding">Admission shedding</a>
@@ -81,7 +83,7 @@
   </div>
 </section>
 
-<main class="wrap runbooks">
+<main class="wrap runbooks" data-cardinality="8" data-cardinality-class="runbook-entry">
   <article class="runbook-entry" id="jikjitargetdown">
     <div><span class="runbook-severity">availability</span><h2>JikjiTargetDown</h2></div>
     <div><p>Confirm the external <code>/health</code> check and Kubernetes liveness state. Inspect the termination reason, restart count, OOM state, node pressure, and previous log.</p><p>If <code>/health</code> works but scraping fails, inspect the Service, NetworkPolicy, Prometheus selector, and TLS or proxy path before restarting the workload.</p></div>
