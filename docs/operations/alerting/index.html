@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jikji Operations — Alerting &amp; Incident Triage</title>
+<meta name="description" content="Stable Jikji alert runbooks for target health, error-budget burn, run admission shedding, Galley, providers, circuit breakers, components, and memory pressure.">
+<meta property="og:title" content="Jikji Operations — Alerting &amp; Incident Triage">
+<meta property="og:description" content="Operator runbooks for the Prometheus alerts shipped with Jikji.">
+<meta property="og:url" content="https://jikji-labs.com/docs/operations/alerting">
+<link rel="canonical" href="https://jikji-labs.com/docs/operations/alerting">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/jikji.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../../../index.html"><span class="seal">直</span><b>Jikji</b></a>
+    <nav class="nav-links" id="site-nav">
+      <a href="../../../use-cases.html" data-i18n="nav.usecases">Use Cases</a>
+      <a href="../../../architecture.html" data-i18n="nav.arch">Architecture</a>
+      <a href="../../../agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
+      <a href="../../../tools.html" data-i18n="nav.tools">Tools</a>
+      <a href="../../../orchestration.html" data-i18n="nav.orch">Orchestration</a>
+      <a href="../../../memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+      <a href="../../../ontology.html" data-i18n="nav.ontology">Ontology</a>
+      <a href="../../../enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
+    </nav>
+    <div class="nav-actions">
+      <label class="lang-label" for="langSel"><span aria-hidden="true">文</span><span class="sr-only">Language</span></label>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="hero compact">
+  <div class="wrap">
+    <div class="crumb"><a href="../../../index.html" data-i18n="crumb.home">Home</a> · Operations · Alerting</div>
+    <span class="kicker">Operations runbook</span>
+    <h1>Alerting &amp; <span class="accent">incident triage</span></h1>
+    <p class="sub">Stable response procedures for the optional Prometheus Operator rules shipped with Jikji. Treat the example thresholds as starting points, then tune them from load tests and observed production traffic.</p>
+  </div>
+</div>
+
+<section class="tight rule">
+  <div class="wrap">
+    <div class="process-plate">
+      <div class="plate-title"><span>FIRST RESPONSE</span><span>MEASURE · CONTAIN · RECOVER · PROVE</span></div>
+      <div class="process-flow">
+        <div class="process-step"><b>Confirm</b><span>Correlate the alert with an external synthetic check and the current rollout.</span></div>
+        <div class="process-step"><b>Scope</b><span>Identify tenant-safe route, provider, component, pod, and database signals.</span></div>
+        <div class="process-step"><b>Contain</b><span>Stop a harmful rollout or use a reviewed fallback without widening privileges.</span></div>
+        <div class="process-step"><b>Record</b><span>Preserve timeline, evidence, action, owner, and recovery verification.</span></div>
+      </div>
+      <p class="plate-caption">Install the rules only after the scrape target, external check, notification route, and service ownership labels are configured.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Telemetry boundary</span>
+      <h2>Protect the metrics plane</h2>
+      <p>The <code>/metrics</code> endpoint is intentionally unauthenticated and tenant labels are scrubbed by default. Restrict it to the telemetry network and keep <code>press.expose_tenant_metrics: false</code> unless the scrape path has an independent authentication boundary.</p>
+    </div>
+    <nav class="runbook-index" aria-label="Alert runbooks">
+      <a href="#jikjitargetdown">Target down</a>
+      <a href="#jikjihttperrorbudgetburn">HTTP error budget</a>
+      <a href="#jikjirunadmissionshedding">Admission shedding</a>
+      <a href="#jikjigalleyerrors">Galley errors</a>
+      <a href="#jikjiproviderfailureratio">Provider failures</a>
+      <a href="#jikjicircuitbreakerrejecting">Circuit breaker</a>
+      <a href="#jikjicomponentunhealthy">Component unhealthy</a>
+      <a href="#jikjimemorynearlimit">Memory near limit</a>
+    </nav>
+  </div>
+</section>
+
+<main class="wrap runbooks">
+  <article class="runbook-entry" id="jikjitargetdown">
+    <div><span class="runbook-severity">availability</span><h2>JikjiTargetDown</h2></div>
+    <div><p>Confirm the external <code>/health</code> check and Kubernetes liveness state. Inspect the termination reason, restart count, OOM state, node pressure, and previous log.</p><p>If <code>/health</code> works but scraping fails, inspect the Service, NetworkPolicy, Prometheus selector, and TLS or proxy path before restarting the workload.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjihttperrorbudgetburn">
+    <div><span class="runbook-severity">service level</span><h2>JikjiHTTPErrorBudgetBurn</h2></div>
+    <div><p>Break down <code>jikji_http_route_responses_total</code> by normalized route and status, then correlate the first failure with Galley, provider, and deployment events.</p><p>Stop an active rollout when the new ReplicaSet owns the increase. Preserve the failing request class without logging credentials or tenant payloads.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjirunadmissionshedding">
+    <div><span class="runbook-severity">capacity</span><h2>JikjiRunAdmissionShedding</h2></div>
+    <div><p>Shedding is a protection mechanism, not a reason to immediately raise limits. Check run duration, provider latency, Galley latency, queue depth, and per-pod CPU and memory.</p><p>Scale only an HA deployment backed by shared PostgreSQL or MySQL. On a single SQLite node, adding replicas does not create a supported shared-state topology.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjigalleyerrors">
+    <div><span class="runbook-severity">durable state</span><h2>JikjiGalleyErrors</h2></div>
+    <div><p>Check <code>/ready</code>; it must return 503 while Galley cannot be pinged. Confirm database connectivity, TLS validity, pool exhaustion, storage capacity, migration state, and failover status.</p><p>Do not repeatedly restart all controllers during a database incident. Keep one evidence-producing path alive and coordinate recovery with the database owner.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjiproviderfailureratio">
+    <div><span class="runbook-severity">dependency</span><h2>JikjiProviderFailureRatio</h2></div>
+    <div><p>Identify the affected provider and model, then inspect upstream status, credential expiry, rate-limit windows, request size, and breaker state.</p><p>Use a reviewed fallback only if data residency, price, context window, tool-use behavior, and tenant policy remain valid. Record the routing change and its rollback condition.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjicircuitbreakerrejecting">
+    <div><span class="runbook-severity">dependency</span><h2>JikjiCircuitBreakerRejecting</h2></div>
+    <div><p>Treat the breaker as evidence of an upstream failure. Verify recovery attempts and upstream health before manually resetting it.</p><p>Repeated resets can amplify an otherwise bounded dependency outage. Prefer the configured half-open recovery path and watch success and latency after it admits probes.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjicomponentunhealthy">
+    <div><span class="runbook-severity">component</span><h2>JikjiComponentUnhealthy</h2></div>
+    <div><p>Use the <code>component</code> and <code>module</code> labels to select the owning runbook, logs, and dashboard. Confirm the matching <code>/ready</code> dependency check.</p><p>Do not silence a persistent degraded value without an accepted incident or maintenance record, a named owner, and an expiry.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjimemorynearlimit">
+    <div><span class="runbook-severity">capacity</span><h2>JikjiMemoryNearLimit</h2></div>
+    <div><p>Compare resident memory, Go heap, active streams, in-flight requests, queue depth, and recent configuration changes. Capture a bounded profile before restart when policy allows.</p><p>Raise a limit only when the pod and node both retain capacity. Otherwise drain the pod, reduce admitted work, or correct the growth source.</p></div>
+  </article>
+</main>
+
+<section class="alt tight" id="recovery-evidence">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Recovery evidence</span>
+      <h2>A green metric does not prove a recoverable backup</h2>
+      <p>Jikji does not currently emit a durable latest-verified-backup timestamp. Monitor the database platform's backup and point-in-time recovery system independently.</p>
+    </div>
+    <div class="callout"><b>Retain after every restore exercise:</b> artifact digest, source release, schema version, restore target, start and finish timestamps, result, measured RPO, measured RTO, and the operator who verified application readiness.</div>
+    <div class="dev-note">These procedures accompany the current pre-1.0 build. Alert names and anchors are stable contracts for shipped Prometheus annotations; thresholds and operational ownership remain deployment-specific.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><div class="foot">
+    <div><div class="brand"><span class="seal">直</span><b>Jikji Labs</b></div><div class="small" data-i18n="foot.tagline">Movable type for the age of agents.</div></div>
+    <div class="foot-cols"><div class="foot-col"><h4>Operations</h4><a href="./">Alerting &amp; incident triage</a><a href="../../../enterprise.html">Enterprise &amp; security</a><a href="../../../use-cases.html#ledger">Example evidence</a></div><div class="foot-col"><h4 data-i18n="foot.project">Project</h4><a href="https://github.com/jikji-labs">GitHub</a><a href="../../../licensing.html">Licensing</a><a href="../../../contact.html" data-i18n="nav.about">About &amp; Contact</a></div></div>
+  </div></div>
+</footer>
+
+<script src="../../../assets/i18n/en.js" defer></script>
+<script src="../../../assets/i18n.js" defer></script>
+</body>
+</html>

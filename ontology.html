@@ -7,6 +7,7 @@
 <meta name="description" content="Jikji's native ontology engine: build knowledge graphs from a corpus with emergent schema, grounding, and incremental refresh — then serve them through an in-process, pure-Go SPARQL 1.1 engine. No external triple store.">
 <meta property="og:title" content="Ontology Engine — Jikji">
 <meta property="og:url" content="https://jikji-labs.com/ontology.html">
+<link rel="canonical" href="https://jikji-labs.com/ontology.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="site-nav">
       <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
       <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
@@ -27,6 +28,11 @@
       <a href="ontology.html" class="active" data-i18n="nav.ontology">Ontology</a>
       <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
     </nav>
+    <div class="nav-actions">
+      <label class="lang-label" for="langSel"><span aria-hidden="true">文</span><span class="sr-only">Language</span></label>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -38,6 +44,17 @@
     <p class="sub" data-i18n="onto.sub">Most stacks bolt a separate graph database onto the side. Jikji builds and serves knowledge graphs <b>inside the binary</b> — a pure-Go engine that derives an ontology from your documents and answers SPARQL 1.1 over it, with no external triple store to run.</p>
   </div>
 </div>
+
+<section class="tight rule" aria-label="Ontology build and query flow"><div class="wrap"><div class="process-plate">
+  <div class="plate-title"><span>KNOWLEDGE PATH</span><span>CORPUS TO CHECKABLE GRAPH</span></div>
+  <div class="process-flow">
+    <div class="process-step"><b>Corpus + observations</b><span>Documents, relational data, and measured system facts enter through governed tools.</span></div>
+    <div class="process-step"><b>Lexicon graph</b><span>Entities, relations, situations, predicates, and provenance become tenant-scoped records.</span></div>
+    <div class="process-step"><b>SPARQL + search</b><span>Structured graph queries and semantic retrieval expose complementary views.</span></div>
+    <div class="process-step"><b>Review + action</b><span>Invariant evaluation materializes violations for the agent to reason over and remediate.</span></div>
+  </div>
+  <p class="plate-caption">The graph records provenance and supports mechanical predicates; generated entity extraction still needs corpus-specific quality evaluation.</p>
+</div></div></section>
 
 <!-- BUILD -->
 <section class="tight">
@@ -198,6 +215,7 @@
           <h4 data-i18n="foot.project">Project</h4>
           <a href="https://github.com/jikji-labs">GitHub</a>
           <a href="licensing.html">Licensing</a>
+          <a href="docs/operations/alerting">Operations</a>
           <a href="index.html#why" data-i18n="nav.why">Why Jikji</a>
           <a href="index.html#start" data-i18n="nav.start">Get Started</a>
           <a href="contact.html" data-i18n="nav.about">About &amp; Contact</a>
@@ -207,5 +225,7 @@
   </div>
 </footer>
 
+<script src="assets/i18n/en.js" defer></script>
+<script src="assets/i18n.js" defer></script>
 </body>
 </html>

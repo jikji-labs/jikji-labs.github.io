@@ -7,6 +7,7 @@
 <meta name="description" content="Jikji's architecture: a print shop of composable modules behind strict boundaries, deployment shapes from one process to a multi-node grid, galley-backed storage, and open protocol surfaces.">
 <meta property="og:title" content="Architecture — Jikji">
 <meta property="og:url" content="https://jikji-labs.com/architecture.html">
+<link rel="canonical" href="https://jikji-labs.com/architecture.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="site-nav">
       <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
       <a href="architecture.html" class="active" data-i18n="nav.arch">Architecture</a>
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
@@ -27,6 +28,11 @@
       <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
       <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
     </nav>
+    <div class="nav-actions">
+      <label class="lang-label" for="langSel"><span aria-hidden="true">文</span><span class="sr-only">Language</span></label>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -38,6 +44,17 @@
     <p class="sub" data-i18n="arch.sub">Each module owns one concern behind a strict boundary, usable in-process first and designed to move behind HTTP or gRPC without rewriting business logic. Together they compose into a full agent platform.</p>
   </div>
 </div>
+
+<section class="tight rule" aria-label="Architecture flow"><div class="wrap"><div class="process-plate">
+  <div class="plate-title"><span>REQUEST PATH</span><span>IN-PROCESS FIRST · HTTP / gRPC READY</span></div>
+  <div class="process-flow">
+    <div class="process-step"><b>press + imprimatur</b><span>Ingress authenticates the tenant and constructs a scoped principal.</span></div>
+    <div class="process-step"><b>rubric + compositor</b><span>Policy decides; the session and durable run are assembled.</span></div>
+    <div class="process-step"><b>typebackbone + sorts</b><span>Models and governed tools execute behind stable interfaces.</span></div>
+    <div class="process-step"><b>galley + proof</b><span>State, links, audit-safe payloads, and evidence persist.</span></div>
+  </div>
+  <p class="plate-caption">Each boundary is usable as an in-process Go API first and designed to move behind a standard service protocol without rewriting the business rule.</p>
+</div></div></section>
 
 <!-- MODULES -->
 <section class="tight">
@@ -262,6 +279,7 @@
           <h4 data-i18n="foot.project">Project</h4>
           <a href="https://github.com/jikji-labs">GitHub</a>
           <a href="licensing.html">Licensing</a>
+          <a href="docs/operations/alerting">Operations</a>
           <a href="index.html#why" data-i18n="nav.why">Why Jikji</a>
           <a href="index.html#start" data-i18n="nav.start">Get Started</a>
           <a href="contact.html" data-i18n="nav.about">About &amp; Contact</a>
@@ -271,5 +289,7 @@
   </div>
 </footer>
 
+<script src="assets/i18n/en.js" defer></script>
+<script src="assets/i18n.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Jikji Documentation Site
 
-This repository publishes the English canonical product documentation for
+This repository publishes the English-canonical, internationalized product documentation for
 [Jikji](https://github.com/jikji-labs/jikji) at
 <https://jikji-labs.com>.
 
@@ -10,8 +10,12 @@ This repository publishes the English canonical product documentation for
 - Pre-1.0 or unverified behavior must be labeled explicitly.
 - Release, security, and licensing statements must link to their controlling
   repository documents.
-- English is the canonical language. Translations may return after they can be
-  generated and checked against a specific canonical content revision.
+- English is embedded in every page and remains the canonical source. The site
+  includes 13 locales with automatic browser detection and a persistent manual
+  selector. Missing keys fall back to English.
+- A translation is applied only while its recorded English source still matches
+  the current page. Changed copy therefore falls back to current English instead
+  of silently publishing an obsolete translation.
 - Do not publish credential values, private live-provider output, customer
   data, or internal test implementation.
 
@@ -23,5 +27,14 @@ Run the static-site gate before every commit:
 python3 scripts/verify_site.py
 ```
 
-The gate checks local links and assets, required release/legal references, and
-known stale claims. GitHub Actions runs the same command on every change.
+The gate checks local links and fragments, canonical URLs, metadata, locale
+assets, translation key coverage, fallback runtime contracts, required
+release/legal references, and known stale claims. GitHub Actions runs the same
+command on every change.
+
+For local browser review, serve the repository root rather than opening files
+directly so lazy-loaded locale assets use normal HTTP semantics:
+
+```sh
+python3 -m http.server 4173 --bind 0.0.0.0
+```

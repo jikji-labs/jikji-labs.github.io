@@ -8,6 +8,7 @@
 <meta property="og:title" content="Jikji — Use Cases &amp; Examples">
 <meta property="og:description" content="A pattern book of runnable, test-verified use cases you pull and stack.">
 <meta property="og:url" content="https://jikji-labs.com/use-cases.html">
+<link rel="canonical" href="https://jikji-labs.com/use-cases.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="site-nav">
       <a href="use-cases.html" class="active" data-i18n="nav.usecases">Use Cases</a>
       <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
@@ -28,6 +29,11 @@
       <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
       <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
     </nav>
+    <div class="nav-actions">
+      <label class="lang-label" for="langSel"><span aria-hidden="true">文</span><span class="sr-only">Language</span></label>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -36,9 +42,30 @@
     <div class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> · <span data-i18n="nav.usecases">Use Cases</span></div>
     <span class="kicker" data-i18n="uc.kicker">examples — a runnable pattern book</span>
     <h1 data-i18n="uc.title">What you can <span class="accent">build</span> with Jikji</h1>
-    <p class="sub" data-i18n="uc.sub">Every use case below is a runnable, copy-paste example grounded in the real API and CLI — not a slide. Each is one composable mechanism you pull and stack: a goal hierarchy, a dispatch queue, a verifier-gated council, a governed SQL-and-Python pipeline. The core mechanisms are covered by deterministic integration tests, so a pattern is verified, not just described.</p>
+    <p class="sub" data-i18n="uc.sub">Each pattern maps to checked-in configuration, commands, or evidence in the repository. Deterministic mechanisms are separated from provider-dependent live runs, so you can see exactly what was exercised and what still depends on your environment.</p>
   </div>
 </div>
+
+<section class="tight rule" id="ledger">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Selected evidence</span>
+      <h2>Start from a worked path, not an empty framework</h2>
+      <p>These entry points cover the paths teams usually need first. Every link opens the corresponding repository example, including its prerequisites and limitations.</p>
+    </div>
+    <table class="example-ledger">
+      <thead><tr><th>Example</th><th>What it proves</th><th>Evidence class</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/agent-cli-backbone">agent-cli-backbone ↗</a></td><td>HTTP MCP from a coding CLI into <code>trinity.ensemble</code>, <code>trinity.oracle</code>, and durable child runs.</td><td>Live, five-vendor worked run</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/trinity-council">trinity-council ↗</a></td><td>Candidate fan-out, synthesis, verifier voting, and a preserved answer artifact.</td><td>Live worked artifact</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/taskgraph-orchestration">taskgraph-orchestration ↗</a></td><td>Dependency-aware durable sub-agents, concurrent waves, and file-conflict serialization.</td><td>Deterministic worked artifact</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/dispatch-queue-worker">dispatch-queue-worker ↗</a></td><td>Durable queue claims, leases, completion, and worker restart behavior.</td><td>Deterministic worked artifact</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/production-hardening">production-hardening ↗</a></td><td>Fail-closed auth, TLS, policy, audit, redaction, recovery, and telemetry controls.</td><td>Operator checklist + config</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/ha-multi-node">ha-multi-node ↗</a></td><td>Shared PostgreSQL, leader election, readiness, draining, and multi-node topology.</td><td>Deployment reference</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <!-- FOUNDATIONS -->
 <section class="tight">
@@ -302,6 +329,7 @@
           <h4 data-i18n="foot.project">Project</h4>
           <a href="https://github.com/jikji-labs">GitHub</a>
           <a href="licensing.html">Licensing</a>
+          <a href="docs/operations/alerting">Operations</a>
           <a href="index.html#why" data-i18n="nav.why">Why Jikji</a>
           <a href="index.html#start" data-i18n="nav.start">Get Started</a>
           <a href="contact.html" data-i18n="nav.about">About &amp; Contact</a>
@@ -311,5 +339,7 @@
   </div>
 </footer>
 
+<script src="assets/i18n/en.js" defer></script>
+<script src="assets/i18n.js" defer></script>
 </body>
 </html>

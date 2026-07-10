@@ -7,6 +7,7 @@
 <meta name="description" content="Jikji memory and data: the plate cognitive memory plane with dreaming and hybrid recall, context and token optimization, a lexicon knowledge graph, SPARQL ontology queries, and SQLite/PostgreSQL/MySQL backends.">
 <meta property="og:title" content="Memory &amp; Data — Jikji">
 <meta property="og:url" content="https://jikji-labs.com/memory.html">
+<link rel="canonical" href="https://jikji-labs.com/memory.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="site-nav">
       <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
       <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
@@ -27,6 +28,11 @@
       <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
       <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
     </nav>
+    <div class="nav-actions">
+      <label class="lang-label" for="langSel"><span aria-hidden="true">文</span><span class="sr-only">Language</span></label>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -38,6 +44,17 @@
     <p class="sub" data-i18n="mem.sub">The <span class="mono">plate</span> memory plane extracts facts, consolidates them while idle, and serves hybrid recall — while context compaction and a promotion ladder keep long runs inside the window. Knowledge lives in a graph you can query with SPARQL, on the database you already run.</p>
   </div>
 </div>
+
+<section class="tight rule" aria-label="Memory persistence and recall flow"><div class="wrap"><div class="process-plate">
+  <div class="plate-title"><span>DURABLE MEMORY</span><span>TENANT-SCOPED · GALLEY-BACKED</span></div>
+  <div class="process-flow">
+    <div class="process-step"><b>Observe</b><span>The forme loop emits typed events, facts, links, and explicit memory actions.</span></div>
+    <div class="process-step"><b>Persist in Galley</b><span>SQLite or a shared SQL backend records durable state with migrations.</span></div>
+    <div class="process-step"><b>Consolidate in Plate</b><span>Extraction, deduplication, graph links, and background consolidation refine recall.</span></div>
+    <div class="process-step"><b>Retrieve + compact</b><span>Hybrid search selects relevant memory while compaction respects the token window.</span></div>
+  </div>
+  <p class="plate-caption">Durability is mechanical; extraction and ranking quality remain model- and embedding-dependent and should be evaluated on your corpus.</p>
+</div></div></section>
 
 <!-- COGNITIVE MEMORY -->
 <section class="tight">
@@ -190,6 +207,7 @@
           <h4 data-i18n="foot.project">Project</h4>
           <a href="https://github.com/jikji-labs">GitHub</a>
           <a href="licensing.html">Licensing</a>
+          <a href="docs/operations/alerting">Operations</a>
           <a href="index.html#why" data-i18n="nav.why">Why Jikji</a>
           <a href="index.html#start" data-i18n="nav.start">Get Started</a>
           <a href="contact.html" data-i18n="nav.about">About &amp; Contact</a>
@@ -199,5 +217,7 @@
   </div>
 </footer>
 
+<script src="assets/i18n/en.js" defer></script>
+<script src="assets/i18n.js" defer></script>
 </body>
 </html>

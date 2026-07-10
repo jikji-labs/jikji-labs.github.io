@@ -8,6 +8,7 @@
 <meta property="og:title" content="Jikji — The Agent Platform, Set in Metal Type">
 <meta property="og:description" content="A modular agent platform in a single Go binary. Deterministic, durable, governed.">
 <meta property="og:url" content="https://jikji-labs.com">
+<link rel="canonical" href="https://jikji-labs.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="site-nav">
       <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
       <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
@@ -28,15 +29,20 @@
       <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
       <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
     </nav>
+    <div class="nav-actions">
+      <label class="lang-label" for="langSel"><span aria-hidden="true">文</span><span class="sr-only">Language</span></label>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
 <!-- HERO -->
-<div class="hero home-hero">
+<div class="hero home-hero" role="img" aria-label="Jikji movable-type printing blocks beside a modern computer">
   <div class="wrap">
-    <span class="kicker">Enterprise agent runtime · Static Go release · GPL default</span>
+    <span class="kicker" data-i18n="hero.kicker.current">Enterprise agent runtime · Static Go release · GPL default</span>
     <h1>Jikji</h1>
-    <p class="hero-offer">The enterprise agent platform, set in metal type.</p>
+    <p class="hero-offer" data-i18n="hero.offer.current">The enterprise agent platform, set in metal type.</p>
     <p class="sub" data-i18n="hero.sub">Jikji is a modular agent framework that runs as one static Go binary — a deterministic agent loop, durable orchestration state, adaptive multi-model coordination, and built-in governance. Built for long-horizon agentic workflows, from a laptop to enterprise clusters.</p>
     <div class="cta">
       <a class="btn btn-primary" href="#start" data-i18n="cta.start">Get Started</a>
@@ -61,6 +67,38 @@
       <div class="big">直指</div>
       <div class="year">EST. 1377</div>
       <div class="cap" data-i18n="story.cap">Jikjisimcheyojeol — the oldest extant book printed with movable metal type. UNESCO Memory of the World.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE -->
+<section class="rule" id="evidence">
+  <div class="wrap">
+    <div class="proof-grid">
+      <div class="proof-lead">
+        <span class="tag" data-i18n="proof.tag">Proof, not a product slide</span>
+        <h3 data-i18n="proof.h">The examples are executable contracts for how Jikji behaves.</h3>
+        <p data-i18n="proof.p">The repository ships runnable scenarios, production configuration, worked artifacts, and guarded live-provider checks. They document the path from a local echo run to a five-vendor council, a durable worker, or a hardened multi-tenant deployment. Claims that depend on a provider or environment are labelled as such.</p>
+        <a class="btn btn-ghost proof-cta" href="use-cases.html" data-i18n="proof.cta">Open the example ledger</a>
+      </div>
+      <div class="evidence-list" role="list" aria-label="Selected verified examples">
+        <div class="evidence-item" role="listitem">
+          <span class="status" data-i18n="proof.live">Live evidence</span>
+          <div><h4>agent-cli-backbone</h4><p data-i18n="proof.cli">A coding CLI calls a cross-vendor council over HTTP MCP; the checked-in run records five candidates and five verifier votes.</p></div>
+        </div>
+        <div class="evidence-item" role="listitem">
+          <span class="status" data-i18n="proof.worked">Worked artifact</span>
+          <div><h4>trinity-council</h4><p data-i18n="proof.trinity">Independent answers, synthesis, and an adversarial ACCEPT/REVISE panel with the result preserved for inspection.</p></div>
+        </div>
+        <div class="evidence-item" role="listitem">
+          <span class="status" data-i18n="proof.deterministic">Deterministic</span>
+          <div><h4>dispatch-queue-worker</h4><p data-i18n="proof.queue">Durable claim, lease, completion, and restart behavior demonstrated without relying on a model's opinion.</p></div>
+        </div>
+        <div class="evidence-item" role="listitem">
+          <span class="status" data-i18n="proof.operator">Operator path</span>
+          <div><h4>production-hardening</h4><p data-i18n="proof.ops">Auth, TLS, policy, audit, redaction, backups, readiness, and observability assembled as a fail-closed deployment checklist.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -168,9 +206,9 @@
     <div class="stats">
       <div class="stat"><div class="n">1</div><div class="l" data-i18n="st.1">static Go binary</div></div>
       <div class="stat"><div class="n">1</div><div class="l">primary server binary</div></div>
-      <div class="stat"><div class="n">4</div><div class="l" data-i18n="st.3">agent protocols</div></div>
+      <div class="stat"><div class="n">4</div><div class="l" data-i18n="st.3">open protocol surfaces</div></div>
       <div class="stat"><div class="n">3</div><div class="l">SQL backends</div></div>
-      <div class="stat"><div class="n">5</div><div class="l">verification layers</div></div>
+      <div class="stat"><div class="n">13</div><div class="l">site locales with English fallback</div></div>
       <div class="stat"><div class="n mono" style="font-size:30px">1377</div><div class="l" data-i18n="st.4">the default port, and the year</div></div>
     </div>
   </div>
@@ -258,6 +296,7 @@
           <h4 data-i18n="foot.project">Project</h4>
           <a href="https://github.com/jikji-labs">GitHub</a>
           <a href="licensing.html">Licensing</a>
+          <a href="docs/operations/alerting">Operations</a>
           <a href="#why" data-i18n="nav.why">Why Jikji</a>
           <a href="#start" data-i18n="nav.start">Get Started</a>
           <a href="contact.html" data-i18n="nav.about">About &amp; Contact</a>
@@ -267,5 +306,7 @@
   </div>
 </footer>
 
+<script src="assets/i18n/en.js" defer></script>
+<script src="assets/i18n.js" defer></script>
 </body>
 </html>

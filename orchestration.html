@@ -7,6 +7,7 @@
 <meta name="description" content="Jikji multi-agent orchestration: model swarms that debate and revise, the evolved trinity coordinator with adaptive routing, delegation to sub-agents, and A2A federation across peers.">
 <meta property="og:title" content="Orchestration — Jikji">
 <meta property="og:url" content="https://jikji-labs.com/orchestration.html">
+<link rel="canonical" href="https://jikji-labs.com/orchestration.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="site-nav">
       <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
       <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
@@ -27,6 +28,11 @@
       <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
       <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
     </nav>
+    <div class="nav-actions">
+      <label class="lang-label" for="langSel"><span aria-hidden="true">文</span><span class="sr-only">Language</span></label>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -38,6 +44,17 @@
     <p class="sub" data-i18n="orch.sub">One model is a single sort; orchestration is the composed page. Jikji runs swarms that debate and revise, an evolved coordinator that learns which model to route each turn to, and delegation that fans work out to sub-agents and peers.</p>
   </div>
 </div>
+
+<section class="tight rule" aria-label="Trinity ensemble flow"><div class="wrap"><div class="process-plate">
+  <div class="plate-title"><span>TRINITY ENSEMBLE</span><span>DIVERSE ANSWERS · ADVERSARIAL GATE</span></div>
+  <div class="process-flow">
+    <div class="process-step"><b>Independent candidates</b><span>Distinct configured models answer without seeing one another.</span></div>
+    <div class="process-step"><b>Synthesis</b><span>A synthesizer reconciles evidence, disagreements, and viable alternatives.</span></div>
+    <div class="process-step"><b>Verifier panel</b><span>Separate judges vote ACCEPT or REVISE against the goal and rubric.</span></div>
+    <div class="process-step"><b>Release or revise</b><span>The gate accepts or starts another bounded revision; Oracle checks trajectory drift separately.</span></div>
+  </div>
+  <p class="plate-caption">Provider diversity is configuration, not a guarantee: a meaningful council requires genuinely distinct model families and valid credentials.</p>
+</div></div></section>
 
 <!-- SWARM -->
 <section class="tight">
@@ -234,6 +251,7 @@
           <h4 data-i18n="foot.project">Project</h4>
           <a href="https://github.com/jikji-labs">GitHub</a>
           <a href="licensing.html">Licensing</a>
+          <a href="docs/operations/alerting">Operations</a>
           <a href="index.html#why" data-i18n="nav.why">Why Jikji</a>
           <a href="index.html#start" data-i18n="nav.start">Get Started</a>
           <a href="contact.html" data-i18n="nav.about">About &amp; Contact</a>
@@ -243,5 +261,7 @@
   </div>
 </footer>
 
+<script src="assets/i18n/en.js" defer></script>
+<script src="assets/i18n.js" defer></script>
 </body>
 </html>
