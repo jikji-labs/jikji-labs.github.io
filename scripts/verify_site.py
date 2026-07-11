@@ -24,6 +24,7 @@ DETAIL_HEROES = {
     "tools.html": "tools.webp", "orchestration.html": "orchestration.webp",
     "memory.html": "memory.webp", "ontology.html": "ontology.webp",
     "enterprise.html": "enterprise.webp", "use-cases.html": "use-cases.webp",
+    "jikjicode.html": "jikjicode.webp",
 }
 CARDINALITY_TOKENS = {
     "exp.h2": {

@@ -60,17 +60,18 @@
     </div>
     <table class="example-ledger">
       <thead><tr><th data-i18n="ledger.th.example">Example</th><th data-i18n="ledger.th.scope">What the evidence covers</th><th data-i18n="ledger.th.tier">Evidence · support tier</th></tr></thead>
-      <tbody data-cardinality="11" data-cardinality-tag="tr">
+      <tbody data-cardinality="12" data-cardinality-tag="tr">
         <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/agent-cli-backbone">agent-cli-backbone ↗</a></td><td data-i18n="ledger.cli.scope">HTTP MCP from a coding CLI into a five-vendor <code>trinity.ensemble</code>, Oracle, and durable child runs.</td><td data-i18n="ledger.cli.tier">Live worked run · integration path</td></tr>
         <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/trinity-council">trinity-council ↗</a></td><td data-i18n="ledger.trinity.scope">Candidate fan-out, synthesis, verifier voting, and the accepted answer preserved for inspection.</td><td data-i18n="ledger.trinity.tier">Live worked artifact · mechanism</td></tr>
         <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/taskgraph-orchestration">taskgraph-orchestration ↗</a></td><td data-i18n="ledger.taskgraph.scope">Dependency-aware durable sub-agents, concurrent waves, and file-conflict serialization.</td><td data-i18n="ledger.taskgraph.tier">Deterministic worked artifact · mechanism</td></tr>
         <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/dispatch-queue-worker">dispatch-queue-worker ↗</a></td><td data-i18n="ledger.queue.scope">Durable queue claims, leases, completion, and worker restart behavior.</td><td data-i18n="ledger.queue.tier">Deterministic worked artifact · mechanism</td></tr>
         <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/production-hardening">production-hardening ↗</a></td><td data-i18n="ledger.prod.scope">Fail-closed auth, TLS, policy, audit, redaction, recovery, and telemetry controls to qualify in your environment.</td><td data-i18n="ledger.prod.tier">Checklist + config · operator reference</td></tr>
         <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/ha-multi-node">ha-multi-node ↗</a></td><td data-i18n="ledger.ha.scope">Shared PostgreSQL, leader election, readiness, draining, and a multi-node topology.</td><td data-i18n="ledger.ha.tier">Config + procedure · deployment reference</td></tr>
-        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/rho-harness-optimizer">rho-harness-optimizer ↗</a></td><td data-i18n="ledger.rho.scope">RHO-inspired retrospective harness proposals admitted by mechanical Pareto, quality, Oracle, evidence, and operator-approval gates.</td><td data-i18n="ledger.rho.tier">Unit-tested gate · experimental adapter; lift unproven</td></tr>
-        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/harness-quality-eval">harness-quality-eval ↗</a></td><td data-i18n="ledger.eval.scope">A controlled rig that attributes task, model, harness, environment, scorer, failures, and comparable metrics.</td><td data-i18n="ledger.eval.tier">Method + worked tasks · not a benchmark result</td></tr>
-        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/self-improving-research-loop">self-improving-research-loop ↗</a></td><td data-i18n="ledger.self.scope">A bounded held-out experiment that falsified its promising probe: generic directives and auto-research did not beat baseline.</td><td data-i18n="ledger.self.tier">Controlled, underpowered negative result · research</td></tr>
-        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/foresight-sandbox">foresight-sandbox ↗</a></td><td data-i18n="ledger.foresight.scope">Ontology-grounded persona rehearsal with provenance and verifier gates; structured exploration, never prediction.</td><td data-i18n="ledger.foresight.tier">Partial live mechanism · full demo hit a documented throughput limit</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/coding-debugging">coding-debugging ↗</a></td><td data-i18n="uc.code.p">Hash-checked anchor edits, a compiler-grade <code>code.check</code> gate, symbol rename, and shell tests — a coding agent held to a measurable acceptance KPI, not vibes.</td><td data-i18n="ledger.taskgraph.tier">Deterministic worked artifact · mechanism</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/observability-tracing">observability-tracing ↗</a></td><td data-i18n="ent.obs.1.p">OTLP traces over gRPC or HTTP with W3C trace-context propagation and head sampling, correlation IDs through the request path, and structured access logs.</td><td data-i18n="ledger.prod.tier">Checklist + config · operator reference</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/approval-gates">approval-gates ↗</a></td><td data-i18n="ent.perm.2.p">A dedicated authorization plane evaluates tenant, principal, action, and tool context into <code>allow</code>, <code>deny</code>, or <code>ask</code> — and records every decision, with a reason on both allow and deny, to a structured audit trail.</td><td data-i18n="ledger.taskgraph.tier">Deterministic worked artifact · mechanism</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/backup-restore">backup-restore ↗</a></td><td data-i18n="ent.rob.1.p">Per-step checkpoints and exactly-once resume, SQLITE_BUSY retry, and distributed lease managers that fail loudly rather than fabricating success.</td><td data-i18n="ledger.prod.tier">Checklist + config · operator reference</td></tr>
+        <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/audit-tamper-evidence">audit-tamper-evidence ↗</a></td><td data-i18n="ent.perm.2.p">A dedicated authorization plane evaluates tenant, principal, action, and tool context into <code>allow</code>, <code>deny</code>, or <code>ask</code> — and records every decision, with a reason on both allow and deny, to a structured audit trail.</td><td data-i18n="ledger.prod.tier">Checklist + config · operator reference</td></tr>
         <tr><td><a href="https://github.com/jikji-labs/jikji/tree/main/examples/relay-secure-cluster">relay-secure-cluster ↗</a></td><td data-i18n="ledger.relay.scope">Ed25519-signed join, one-time scoped bootstrap credentials, renewable leases, and stable-key reconnect for remote tool nodes.</td><td data-i18n="ledger.relay.tier">Command E2E/race, durable restart/multi-controller, operator lifecycle, HTTPS, tenant policy/rate-limit, fail-closed Galley audit, and explicit seed failover tests</td></tr>
       </tbody>
     </table>
@@ -141,7 +142,7 @@
       </div>
       <div class="card">
         <span class="num">file.edit · code.check</span>
-        <h3 data-i18n="uc.code.h">Type-aware coding &amp; debugging</h3>
+        <h3><a href="https://github.com/jikji-labs/jikji/tree/main/examples/coding-debugging" data-i18n="uc.code.h">Type-aware coding &amp; debugging</a></h3>
         <p data-i18n="uc.code.p">Hash-checked anchor edits, a compiler-grade <code>code.check</code> gate, symbol rename, and shell tests — a coding agent held to a measurable acceptance KPI, not vibes.</p>
       </div>
     </div>
@@ -179,7 +180,7 @@
       </div>
       <div class="card">
         <span class="num">tool.Runner</span>
-        <h3 data-i18n="uc.runners.h">Many execution surfaces, one gate</h3>
+        <h3><a href="https://github.com/jikji-labs/jikji/tree/main/examples/multi-runner-orchestration" data-i18n="uc.runners.h">Many execution surfaces, one gate</a></h3>
         <p data-i18n="uc.runners.p">Route tools across named surfaces — local shell, python, browser, remote tool-nodes with docker or ssh sandboxes — all under one gate chain, from laptop to cluster.</p>
       </div>
       <div class="card">
@@ -202,22 +203,22 @@
     <div class="grid cols2">
       <div class="card">
         <span class="num">browser.search / read · research.source</span>
-        <h3 data-i18n="uc.web.h">Grounded web research</h3>
+        <h3><a href="https://github.com/jikji-labs/jikji/tree/main/examples/web-research" data-i18n="uc.web.h">Grounded web research</a></h3>
         <p data-i18n="uc.web.p">Search, open, read, and save sources, then tie every claim to a captured page with <code>research.source</code> — cited to real pages, not training data.</p>
       </div>
       <div class="card">
         <span class="num">system.review</span>
-        <h3 data-i18n="uc.onto.h">Mechanical invariant review</h3>
+        <h3><a href="https://github.com/jikji-labs/jikji/tree/main/examples/ontology-builder" data-i18n="uc.onto.h">Mechanical invariant review</a></h3>
         <p data-i18n="uc.onto.p">Assert predicates, supply measured observations, and <b>derive</b> violations fail-closed — materializing a contradiction graph instead of asking a model to "check."</p>
       </div>
       <div class="card">
         <span class="num">claims-are-KPIs</span>
-        <h3 data-i18n="uc.paper.h">Adversarially verified writing</h3>
+        <h3><a href="https://github.com/jikji-labs/jikji/tree/main/examples/paper-writing" data-i18n="uc.paper.h">Adversarially verified writing</a></h3>
         <p data-i18n="uc.paper.p">Write an engineering paper where every claim is a KPI: an ambiguity gate, goal claims, web sources, <code>system.review</code>, and a <code>trinity</code> ensemble/oracle pass before it stands.</p>
       </div>
       <div class="card">
         <span class="num">lexicon · ontology.search</span>
-        <h3 data-i18n="uc.kg.h">Native ontology &amp; knowledge graph</h3>
+        <h3><a href="https://github.com/jikji-labs/jikji/tree/main/examples/ontology-rdf-engine" data-i18n="uc.kg.h">Native ontology &amp; knowledge graph</a></h3>
         <p data-i18n="uc.kg.p">Build and serve ontologies natively — TTL, SPARQL via <code>lexicon.query</code>, and semantic <code>ontology.search</code> — a knowledge layer the loop reasons over directly.</p>
       </div>
     </div>
@@ -235,7 +236,7 @@
     <div class="grid cols2">
       <div class="card">
         <span class="num">jikji mcp · /v1/mcp</span>
-        <h3 data-i18n="uc.mcp.h">MCP server</h3>
+        <h3><a href="https://github.com/jikji-labs/jikji/tree/main/examples/mcp-server" data-i18n="uc.mcp.h">MCP server</a></h3>
         <p data-i18n="uc.mcp.p">Expose Jikji's tools as a Model Context Protocol server over stdio or HTTP — any MCP client drives them directly.</p>
       </div>
       <div class="card">
@@ -306,8 +307,6 @@
     <div class="callout">
       <p data-i18n="uc.close.p"><b>Each example is one movable piece.</b> The real leverage is stacking them — a goal hierarchy that drives a dispatch queue, worked by a verifier-gated council, citing web sources and gated by a mechanical review. Pull the ones you need, set them precisely, and press.</p>
     </div>
-    <div class="dev-note">Jikji is pre-1.0. Treat each production use case as an architecture decision backed by the exact release's verification evidence and documented limitations.</div>
-
     <div class="pagenav">
       <a href="index.html"><div class="dir" data-i18n="pn.back">← Back</div><div class="lbl" data-i18n="crumb.home">Home</div></a>
       <a href="architecture.html" style="text-align:right"><div class="dir" data-i18n="pn.next">Next →</div><div class="lbl" data-i18n="nav.arch">Architecture</div></a>

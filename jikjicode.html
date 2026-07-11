@@ -46,6 +46,10 @@
   </div>
 </div>
 
+<figure class="detail-hero-media">
+  <img src="assets/detail/jikjicode.webp" width="1600" height="666" loading="eager" decoding="async" fetchpriority="high" data-i18n-alt="img.jikjicode.alt" alt="Engraved coding workshop connecting source structure, precision edits, verification, guarded tools, and a final press">
+</figure>
+
 <section class="tight rule" aria-label="Coding agent edit flow"><div class="wrap"><div class="process-plate">
   <div class="plate-title"><span data-i18n="plate.code.title">EDIT CYCLE</span><span data-i18n="plate.code.meta">ANCHORED, CHECKED, REVERSIBLE</span></div>
   <div class="process-flow" data-cardinality="4" data-cardinality-class="process-step">
@@ -61,7 +65,7 @@
 <section class="tight">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag" data-i18n="jc.cmd.tag">One Binary, Three Modes</span>
+      <span class="tag" data-i18n="jc.cmd.tag">One Binary, Every Workflow</span>
       <h2 data-i18n="jc.cmd.h2">Runs where you do</h2>
       <p data-i18n="jc.cmd.p">A single <span class="mono">jikjicode</span> binary. Point it at any OpenAI-compatible model and it runs the agent loop in-process on your workspace, or hand the whole run to a Jikji server and let its RBAC and sandbox bound it. Interactive on a terminal, scriptable everywhere else.</p>
     </div>
@@ -93,7 +97,7 @@
       </div>
       <div class="card">
         <h3 data-i18n="jc.edit.3.h">Auto-diagnose after each edit</h3>
-        <p data-i18n="jc.edit.3.p">A mutating Go edit is immediately type-checked; JSON and YAML are syntax-checked. The agent sees the breakage it just caused in the same turn, so it fixes forward instead of drifting.</p>
+        <p data-i18n="jc.edit.3.p">JSON and YAML edits are syntax-checked in-process. With explicit host execution enabled, Go package diagnostics can run after an edit and feed failures back into the same turn.</p>
       </div>
       <div class="card">
         <h3 data-i18n="jc.edit.4.h">Unicode-safe</h3>
@@ -109,16 +113,16 @@
     <div class="sec-head">
       <span class="tag" data-i18n="jc.ci.tag">Code Intelligence</span>
       <h2 data-i18n="jc.ci.h2">It reads code through the compiler</h2>
-      <p data-i18n="jc.ci.p">Not grep-and-hope. For Go, jikjicode uses the real type system natively; for a dozen more languages it drives a real language server (LSP) for symbols and a call graph; and every other language still gets a structural outline.</p>
+      <p data-i18n="jc.ci.p">Not grep-and-hope. Go type-aware tools use the real toolchain; structural outlines cover 200+ languages; and operator-trusted language-server manifests add multi-language symbols and call graphs when full host execution is explicitly enabled.</p>
     </div>
     <table class="spec">
       <tr><th data-i18n="jc.ci.1.k">Type-check</th><td><code>code.check</code> — <span data-i18n="jc.ci.1.v">compiler-grade diagnostics for Go (go/packages), so "it compiles" is verified, not assumed</span></td></tr>
       <tr><th data-i18n="jc.ci.2.k">Navigate</th><td><code>code.definition</code> · <code>code.references</code> · <code>code.callers</code> · <code>code.implementations</code> <span data-i18n="jc.ci.2.v">— type-aware for Go (go/types)</span></td></tr>
       <tr><th data-i18n="jc.ci.3.k">Rename</th><td><code>code.rename</code> — <span data-i18n="jc.ci.3.v">safe, cross-file, type-aware renaming for Go</span></td></tr>
       <tr><th data-i18n="jc.ci.4.k">Outline</th><td><code>file.outline</code> · <code>code.symbols</code> <span data-i18n="jc.ci.4.v">— full AST for Go, a lexer-based (ctags-like) definition scan for 200+ other languages</span></td></tr>
-      <tr><th data-i18n="jc.ci.5.k">Multi-language via LSP</th><td><code>code.intel</code> <span data-i18n="jc.ci.5.v">— symbols and a caller/callee call graph over a real language server, for Rust, Python, TypeScript/JavaScript, C/C++, Java, Ruby, Lua, Kotlin, PHP, C#, and Zig; the language pack activates lazily by file extension</span></td></tr>
+      <tr><th data-i18n="jc.ci.5.k">Multi-language via LSP</th><td><code>code.intel</code> <span data-i18n="jc.ci.5.v">— bounded symbols and caller/callee results from an operator-trusted language server, activated lazily by file extension under explicit full host access</span></td></tr>
     </table>
-    <div class="callout" style="margin-top:24px" data-i18n="jc.ci.note">Go gets native, in-process type intelligence with no server to install; every other language is served by its own LSP server, activated on demand the first time you touch a file of that type — and the symbol graph can feed Jikji's ontology.</div>
+    <div class="callout" style="margin-top:24px" data-i18n="jc.ci.note">Language-server processes are treated as trusted host code: manifests require an absolute operator-controlled path, frames and results are bounded, workspace symlink escapes are rejected, and provider credentials are removed from the child environment.</div>
   </div>
 </section>
 
@@ -137,11 +141,11 @@
       </div>
       <div class="card">
         <h3 data-i18n="jc.run.2.h">Risk-based sandbox</h3>
-        <p data-i18n="jc.run.2.p">A configurable policy — <code>read-only</code>, <code>workspace-write</code>, or <code>full-access</code> — bounds which tool risks are allowed. Local defaults to full access on your own machine; remote runs are bounded by the server's RBAC.</p>
+        <p data-i18n="jc.run.2.p">A configurable policy — <code>read-only</code>, <code>workspace-write</code>, or <code>danger-full-access</code> — bounds which tool risks are allowed. Local defaults to workspace-only writes; host commands, language servers, and network access require explicit opt-in. Remote runs are bounded by server policy.</p>
       </div>
       <div class="card">
         <h3 data-i18n="jc.run.3.h">Ask before it acts</h3>
-        <p data-i18n="jc.run.3.p">An optional approval layer (<code>--ask</code>) puts a human in the loop over a permissive sandbox, so a risky command pauses for a yes before it runs.</p>
+        <p data-i18n="jc.run.3.p">An optional approval layer (<code>--ask</code>) puts a human in the loop over actions the sandbox already permits. Missing or non-interactive approval fails closed; approval never overrides a sandbox denial.</p>
       </div>
       <div class="card">
         <h3 data-i18n="jc.run.4.h">Docs &amp; tasks in reach</h3>
@@ -196,6 +200,7 @@
   </div>
 </footer>
 
+<script src="assets/i18n/en.js" defer></script>
 <script src="assets/i18n.js" defer></script>
 </body>
 </html>

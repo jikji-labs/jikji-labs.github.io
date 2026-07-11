@@ -36,8 +36,9 @@ python3 scripts/verify_site.py
 The gate checks local links and fragments, canonical URLs, metadata, locale
 assets and dimensions, 100% current translation-key coverage, preserved HTML
 tokens, declared DOM cardinalities, numeric claims, fallback runtime contracts,
-required release/legal references, and known stale claims. GitHub Actions runs
-the same command on every change.
+required release/legal references, and known stale claims. This repository keeps
+the gate local so publication does not depend on paid CI runners or remote
+credentials.
 
 For local browser review, serve the repository root rather than opening files
 directly so lazy-loaded locale assets use normal HTTP semantics:
