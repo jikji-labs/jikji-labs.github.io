@@ -108,7 +108,7 @@
     <div class="sec-head">
       <span class="tag" data-i18n="orch.tr.tag">trinity — the coordinator</span>
       <h2 data-i18n="orch.tr.h2">A coordinator that learns the routing</h2>
-      <p data-i18n="orch.tr.p">Most "multi-agent" systems run a fixed script. The <span class="mono">trinity</span> coordinator runs a learned policy over the live state of a run — which model, in which role, on this turn.</p>
+      <p data-i18n="orch.tr.p">Most "multi-agent" systems run a fixed script. The <span class="mono">trinity</span> coordinator runs a learned policy over the live state of a run — which model, in which role, on this turn. It is a policy you evolve and enable; the ensemble's default is the diverse verifier-gated panel.</p>
     </div>
     <div class="frow">
       <div class="flabel" data-i18n="orch.tr.role.label">Tri-role loop<span class="mono">thinker · worker · verifier</span></div>
@@ -119,7 +119,7 @@
     <div class="frow">
       <div class="flabel" data-i18n="orch.tr.route.label">Adaptive routing<span class="mono">evolved policy</span></div>
       <div class="fbody">
-        <p data-i18n="orch.tr.route.p">The selection policy is engineered over observable features — turn index, whether a plan exists, the last verdict, revise count, and task signals — and trained with a separable CMA-ES evolution strategy. The result is adaptive routing, not a hard-coded schedule.</p>
+        <p data-i18n="orch.tr.route.p">The selection policy is engineered over observable features — turn index, whether a plan exists, the last verdict, revise count, and task signals — and trained with a separable CMA-ES evolution strategy, then saved and served when you enable it. The result is adaptive routing, not a hard-coded schedule.</p>
       </div>
     </div>
     <div class="frow">
