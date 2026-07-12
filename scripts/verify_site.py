@@ -14,7 +14,10 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL = "https://jikji-labs.com"
 LOCALES = ("en", "ko", "ja", "zh", "zh-tw", "fr", "de", "es", "pt", "it", "ru", "vi", "id")
-STALE = ("coming soon", "source is not yet public", "source code is not yet public", "1.8m+")
+STALE = (
+    "coming soon", "source is not yet public", "source code is not yet public", "1.8m+",
+    "nothing leaks to a third party", "raw pii and secrets never reach",
+)
 KEY_RE = re.compile(r'^\s*"([^"]+)"\s*:', re.MULTILINE)
 ENTRY_RE = re.compile(r'^\s*("(?:\\.|[^"])*")\s*:\s*("(?:\\.|[^"])*")\s*,?$', re.MULTILINE)
 HTML_TOKEN_RE = re.compile(r'</?[^>]+>')
@@ -59,6 +62,34 @@ NUMBER_TOKEN_GROUPS = {
         "it": ("tre", "un"), "ru": ("тремя", "одного"), "vi": ("ba", "một"),
         "id": ("tiga", "satu"),
     },
+}
+PROOF_KEYS = ("ent.pii.p", "ent.pii.flow", "ent.pii.1.p")
+PROOF_CONDITIONAL_TOKENS = {
+    "en": ("unmatched", "path"), "ko": ("일치하지", "경로"),
+    "ja": ("一致しない", "経路"), "zh": ("未匹配", "路径"),
+    "zh-tw": ("未匹配", "路徑"), "fr": ("non", "chemin"),
+    "de": ("nicht", "pfad"), "es": ("no", "ruta"),
+    "pt": ("não", "caminho"), "it": ("non", "percors"),
+    "ru": ("не", "пут"), "vi": ("không", "đường"),
+    "id": ("tidak", "jalur"),
+}
+PRIVATE_EXAMPLE_PREFIX = "https://github.com/jikji-labs/jikji/tree/main/examples/"
+ALERT_CONTRACTS = {
+    "jikjitargetdown": ("JikjiTargetDown", "/health"),
+    "jikjihttperrorbudgetburn": ("JikjiHTTPErrorBudgetBurn", "jikji_http_route_responses_total"),
+    "jikjirunadmissionshedding": ("JikjiRunAdmissionShedding", "queue depth"),
+    "jikjidispatchqueuebacklog": ("JikjiDispatchQueueBacklog", "jikji_dispatch_queue_depth", "jikji_dispatch_saturated_targets"),
+    "jikjigalleyerrors": ("JikjiGalleyErrors", "/ready"),
+    "jikjiproviderfailureratio": ("JikjiProviderFailureRatio", "provider"),
+    "jikjicircuitbreakerrejecting": ("JikjiCircuitBreakerRejecting", "breaker"),
+    "jikjirelayauthenticationfailures": ("JikjiRelayAuthenticationFailures", "jikji_relay_operations_total"),
+    "jikjirelayupstreamconnectfailures": ("JikjiRelayUpstreamConnectFailures", "jikji_relay_operations_total"),
+    "jikjitraceexporterfailures": (
+        "JikjiTraceExporterFailures", "jikji_trace_exporter_health",
+        "jikji_trace_exporter_consecutive_failures", "jikji_trace_exporter_exports_total",
+    ),
+    "jikjicomponentunhealthy": ("JikjiComponentUnhealthy", "component"),
+    "jikjimemorynearlimit": ("JikjiMemoryNearLimit", "resident memory"),
 }
 
 
@@ -278,6 +309,24 @@ def main() -> None:
             if not all(token.casefold() in value for token in locale_tokens[locale]):
                 errors.append(f"{locale}: {key} changes a required numeric bound")
 
+    for locale in LOCALES:
+        for key in PROOF_KEYS:
+            value = dictionaries[locale].get(key, "")
+            folded = value.casefold()
+            if "proof" not in folded or "regex" not in folded:
+                errors.append(f"{locale}: {key} must identify configured Proof regex coverage")
+            if not any(token.casefold() in folded for token in PROOF_CONDITIONAL_TOKENS[locale]):
+                errors.append(f"{locale}: {key} must describe conditional path or unmatched-value coverage")
+
+    enterprise = (ROOT / "enterprise.html").read_text(encoding="utf-8")
+    for key in PROOF_KEYS:
+        if english.get(key, "") not in enterprise:
+            errors.append(f"enterprise.html: fallback copy for {key} differs from canonical English")
+
+    for relative in ("use-cases.html", "memory.html"):
+        if PRIVATE_EXAMPLE_PREFIX in (ROOT / relative).read_text(encoding="utf-8"):
+            errors.append(f"{relative}: private GitHub example links are not public evidence")
+
     runtime = (ROOT / "assets" / "i18n.js").read_text(encoding="utf-8")
     for contract in ("translationIsCurrent", "localStorage.setItem", "assets/i18n/", "Escape"):
         if contract not in runtime:
@@ -293,17 +342,28 @@ def main() -> None:
             errors.append(f"licensing.html: missing required text {needle!r}")
 
     alerting = parsed_pages.get((ROOT / "docs" / "operations" / "alerting" / "index.html").resolve())
-    alert_anchors = {
-        "jikjitargetdown", "jikjihttperrorbudgetburn", "jikjirunadmissionshedding",
-        "jikjigalleyerrors", "jikjiproviderfailureratio", "jikjicircuitbreakerrejecting",
-        "jikjicomponentunhealthy", "jikjimemorynearlimit",
-    }
+    alert_anchors = set(ALERT_CONTRACTS)
     if alerting is None:
         errors.append("missing canonical operations alerting runbook")
     else:
         missing_anchors = sorted(alert_anchors - set(alerting.ids))
         if missing_anchors:
             errors.append("alerting runbook misses anchors: " + ", ".join(missing_anchors))
+        nav_targets = {urlsplit(ref).fragment for attr, ref in alerting.refs if attr == "href" and ref.startswith("#")}
+        missing_nav = sorted(alert_anchors - nav_targets)
+        if missing_nav:
+            errors.append("alerting runbook navigation misses: " + ", ".join(missing_nav))
+        alerting_text = (ROOT / "docs" / "operations" / "alerting" / "index.html").read_text(encoding="utf-8")
+        for anchor, requirements in ALERT_CONTRACTS.items():
+            match = re.search(
+                rf'<article[^>]+id="{re.escape(anchor)}"[^>]*>(.*?)</article>',
+                alerting_text, re.DOTALL,
+            )
+            if match is None:
+                continue
+            missing = [requirement for requirement in requirements if requirement not in match.group(1)]
+            if missing:
+                errors.append(f"alerting runbook {anchor} misses verifier evidence: {', '.join(missing)}")
 
     if errors:
         raise SystemExit("site verification failed:\n- " + "\n- ".join(errors))

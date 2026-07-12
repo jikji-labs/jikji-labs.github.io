@@ -165,7 +165,7 @@
     <div class="sec-head">
       <span class="tag" data-i18n="ent.pii.tag">proof — PII &amp; Secrets</span>
       <h2 data-i18n="ent.pii.h2">Leakage stopped at the source</h2>
-      <p data-i18n="ent.pii.p">PII and secrets are masked <b>before</b> a request ever leaves for a model, a tool, or a log — and the real values are restored on the way back, so the person on the other end sees intact output. Nothing is broken for the user; nothing leaks to a third party. When a value must never return, a one-way <b>drop</b> mode keeps the placeholder and skips the restore entirely.</p>
+      <p data-i18n="ent.pii.p">On runtime paths wired through <code>Proof</code>, values matching the enabled built-in, locale, or custom <code>regex</code> patterns can be masked before covered provider, tool, or log handling. Covered return paths can restore mapped values; drop mode intentionally skips restoration. Operators must configure patterns and verify each data path because unmatched formats and paths not wired through Proof remain outside this control.</p>
     </div>
     <div class="loop-dia">
       <div class="node"><div class="t" data-i18n="ent.pii.d1">your data</div></div>
@@ -176,11 +176,11 @@
       <div class="arr">→</div>
       <div class="node"><div class="t" data-i18n="ent.pii.d4">restore</div></div>
     </div>
-    <div class="loop-back" data-i18n="ent.pii.flow">The model, tool, and log only ever see a stable placeholder like <span class="mono">[PII_EMAIL_1]</span>; the caller gets the real value back.</div>
+    <div class="loop-back" data-i18n="ent.pii.flow">On a configured <code>Proof</code> path, a value matching an enabled <code>regex</code> can become a stable placeholder such as <span class="mono">[PII_EMAIL_1]</span>. Unmatched values and paths outside Proof pass unchanged.</div>
     <div class="grid cols3" style="margin-top:34px">
       <div class="card">
         <h3 data-i18n="ent.pii.1.h">Masked before it leaves</h3>
-        <p data-i18n="ent.pii.1.p">Inputs and tool outputs are redacted on the way out, so raw PII and secrets never reach a provider, a tool, or your logs — leakage is prevented at the source, not patched after the fact.</p>
+        <p data-i18n="ent.pii.1.p">For paths explicitly integrated with <code>Proof</code>, enabled <code>regex</code> patterns redact matching inputs or tool outputs before the covered outbound or persistence boundary. Treat this as defense in depth: test every configured path and minimize sensitive input because regexes do not detect every format.</p>
       </div>
       <div class="card">
         <h3 data-i18n="ent.pii.2.h">Unbroken for the real user</h3>

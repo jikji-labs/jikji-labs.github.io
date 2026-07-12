@@ -70,20 +70,24 @@
       <h2>Protect the metrics plane</h2>
       <p>The <code>/metrics</code> endpoint is intentionally unauthenticated and tenant labels are scrubbed by default. Restrict it to the telemetry network and keep <code>press.expose_tenant_metrics: false</code> unless the scrape path has an independent authentication boundary.</p>
     </div>
-    <nav class="runbook-index" aria-label="Alert runbooks" data-cardinality="8" data-cardinality-tag="a">
+    <nav class="runbook-index" aria-label="Alert runbooks" data-cardinality="12" data-cardinality-tag="a">
       <a href="#jikjitargetdown">Target down</a>
       <a href="#jikjihttperrorbudgetburn">HTTP error budget</a>
       <a href="#jikjirunadmissionshedding">Admission shedding</a>
+      <a href="#jikjidispatchqueuebacklog">Dispatch backlog</a>
       <a href="#jikjigalleyerrors">Galley errors</a>
       <a href="#jikjiproviderfailureratio">Provider failures</a>
       <a href="#jikjicircuitbreakerrejecting">Circuit breaker</a>
+      <a href="#jikjirelayauthenticationfailures">Relay authentication</a>
+      <a href="#jikjirelayupstreamconnectfailures">Relay upstream</a>
+      <a href="#jikjitraceexporterfailures">Trace exporter</a>
       <a href="#jikjicomponentunhealthy">Component unhealthy</a>
       <a href="#jikjimemorynearlimit">Memory near limit</a>
     </nav>
   </div>
 </section>
 
-<main class="wrap runbooks" data-cardinality="8" data-cardinality-class="runbook-entry">
+<main class="wrap runbooks" data-cardinality="12" data-cardinality-class="runbook-entry">
   <article class="runbook-entry" id="jikjitargetdown">
     <div><span class="runbook-severity">availability</span><h2>JikjiTargetDown</h2></div>
     <div><p>Confirm the external <code>/health</code> check and Kubernetes liveness state. Inspect the termination reason, restart count, OOM state, node pressure, and previous log.</p><p>If <code>/health</code> works but scraping fails, inspect the Service, NetworkPolicy, Prometheus selector, and TLS or proxy path before restarting the workload.</p></div>
@@ -99,6 +103,11 @@
     <div><p>Shedding is a protection mechanism, not a reason to immediately raise limits. Check run duration, provider latency, Galley latency, queue depth, and per-pod CPU and memory.</p><p>Scale only an HA deployment backed by shared PostgreSQL or MySQL. On a single SQLite node, adding replicas does not create a supported shared-state topology.</p></div>
   </article>
 
+  <article class="runbook-entry" id="jikjidispatchqueuebacklog">
+    <div><span class="runbook-severity">capacity</span><h2>JikjiDispatchQueueBacklog</h2></div>
+    <div><p>Confirm that both <code>jikji_dispatch_queue_depth</code> and <code>jikji_dispatch_saturated_targets</code> remain above zero. Use the authenticated <code>GET /v1/dispatch/queues</code> view to identify the provider and model target; per-target Prometheus labels exist only when tenant metrics are explicitly enabled on a trusted scrape path.</p><p>Check provider latency and errors before increasing concurrency. Raising queue capacity alone delays rejection when downstream capacity remains below arrival rate. Record the target, arrival rate, service rate, mitigation, and recovery evidence.</p></div>
+  </article>
+
   <article class="runbook-entry" id="jikjigalleyerrors">
     <div><span class="runbook-severity">durable state</span><h2>JikjiGalleyErrors</h2></div>
     <div><p>Check <code>/ready</code>; it must return 503 while Galley cannot be pinged. Confirm database connectivity, TLS validity, pool exhaustion, storage capacity, migration state, and failover status.</p><p>Do not repeatedly restart all controllers during a database incident. Keep one evidence-producing path alive and coordinate recovery with the database owner.</p></div>
@@ -112,6 +121,21 @@
   <article class="runbook-entry" id="jikjicircuitbreakerrejecting">
     <div><span class="runbook-severity">dependency</span><h2>JikjiCircuitBreakerRejecting</h2></div>
     <div><p>Treat the breaker as evidence of an upstream failure. Verify recovery attempts and upstream health before manually resetting it.</p><p>Repeated resets can amplify an otherwise bounded dependency outage. Prefer the configured half-open recovery path and watch success and latency after it admits probes.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjirelayauthenticationfailures">
+    <div><span class="runbook-severity">security</span><h2>JikjiRelayAuthenticationFailures</h2></div>
+    <div><p>Separate TLS handshake failures from certificate or peer authorization denials with the bounded <code>direction</code>, <code>operation</code>, and <code>status</code> labels on <code>jikji_relay_operations_total</code>. Check certificate validity, trust-bundle rollout, clock synchronization, and the configured peer allowlist.</p><p>The metric intentionally omits peer keys, node IDs, tenants, addresses, and certificates. Attribute failures with bounded relay audit events and trusted operator logs; never widen the allowlist or disable certificate verification as incident containment.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjirelayupstreamconnectfailures">
+    <div><span class="runbook-severity">dependency</span><h2>JikjiRelayUpstreamConnectFailures</h2></div>
+    <div><p>Inspect upstream connect outcomes in <code>jikji_relay_operations_total</code>, then check the selected service-node record, DNS, network policy, TLS server name, root CA rotation, and upstream listener health. Route-event evidence identifies a selected node only when tenant metrics are explicitly enabled on a protected scrape path.</p><p>Do not bypass TLS verification to restore connectivity. Prove recovery with successful upstream connection samples and a bounded relay request before resolving the incident.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjitraceexporterfailures">
+    <div><span class="runbook-severity">telemetry</span><h2>JikjiTraceExporterFailures</h2></div>
+    <div><p>Correlate <code>jikji_trace_exporter_health</code>, <code>jikji_trace_exporter_consecutive_failures</code>, and the success/failure series in <code>jikji_trace_exporter_exports_total</code>. Check collector reachability, OTLP protocol and endpoint, TLS trust, credentials, collector capacity, and recent configuration changes without exposing exporter secrets.</p><p>Serving health can remain green while telemetry delivery is degraded. Prove recovery with a new successful export, a reset consecutive-failure gauge, and a current <code>jikji_trace_exporter_last_success_timestamp_seconds</code>; do not treat application readiness alone as trace-delivery evidence.</p></div>
   </article>
 
   <article class="runbook-entry" id="jikjicomponentunhealthy">
