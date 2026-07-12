@@ -146,12 +146,12 @@
       <div class="card">
         <span class="num">SERVICES</span>
         <h3 data-i18n="arch.dep.2.h">Split into services</h3>
-        <p data-i18n="arch.dep.2.p">Run <code>press</code> ingress, the <code>dispatch</code> controller, and tool nodes as separate processes that talk over gRPC, with optional TLS. Tool execution moves to <code>jikji-tool-node</code> workers behind a <code>jikji-relay</code> tunnel.</p>
+        <p data-i18n="arch.dep.2.p">Run <code>press</code> ingress, the <code>dispatch</code> controller, and tool nodes as separate processes. gRPC connects the controller to remote tool nodes (with optional TLS), while the dispatch controller coordinates workers through the shared database. Tool execution moves to <code>jikji-tool-node</code> workers behind a <code>jikji-relay</code> tunnel.</p>
       </div>
       <div class="card">
         <span class="num">GRID</span>
         <h3 data-i18n="arch.dep.3.h">Multi-node cluster</h3>
-        <p data-i18n="arch.dep.3.p">Point <code>galley</code> at shared PostgreSQL or MySQL for multi-node HA, coordinate dispatch over gRPC with per-node circuit breakers and failover, and export traces and metrics to your stack.</p>
+        <p data-i18n="arch.dep.3.p">Point <code>galley</code> at shared PostgreSQL or MySQL for multi-node HA, coordinate dispatch through the shared database with distributed leases, per-node circuit breakers, and failover, and export traces and metrics to your stack.</p>
       </div>
     </div>
     <div class="callout" style="margin-top:24px" data-i18n="arch.dep.note"><b>Profiles</b> — bootstrap presets (<span class="mono">desktop</span>, <span class="mono">edge</span>, <span class="mono">controller</span>, <span class="mono">all</span>) select which planes a node runs, so the same image fills any role in the cluster.</div>
@@ -214,7 +214,7 @@
       <div class="proto"><div class="p-name">OpenAI-compatible</div><p data-i18n="arch.proto.openai"><span class="mono">/v1/chat/completions</span>, <span class="mono">/v1/models</span>, <span class="mono">/v1/embeddings</span>, plus native agent runs and sessions.</p></div>
       <div class="proto"><div class="p-name">MCP</div><p data-i18n="arch.proto.mcp">Model Context Protocol server and client over stdio — consume MCP tools or expose Jikji as one.</p></div>
       <div class="proto"><div class="p-name">ACP</div><p data-i18n="arch.proto.acp">Agent Communication Protocol over stdio for local process-based agent peers.</p></div>
-      <div class="proto"><div class="p-name">A2A &amp; gRPC</div><p data-i18n="arch.proto.a2a">Agent-to-agent task dispatch and registry, plus a gRPC dispatch controller for multi-node coordination.</p></div>
+      <div class="proto"><div class="p-name">A2A &amp; gRPC</div><p data-i18n="arch.proto.a2a">Agent-to-agent task dispatch and registry over gRPC, plus a gRPC channel to remote tool nodes. Multi-node work is coordinated through the shared galley database with distributed leases.</p></div>
     </div>
     <table class="spec" style="margin-top:30px">
       <tr><th data-i18n="arch.routes.1.k">Chat &amp; models</th><td><code>POST /v1/chat/completions</code> · <code>GET /v1/models</code> · <code>POST /v1/embeddings</code></td></tr>

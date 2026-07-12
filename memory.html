@@ -100,7 +100,7 @@
     <div class="grid cols2">
       <div class="card">
         <h3 data-i18n="mem.ctx.1.h">Context compaction</h3>
-        <p data-i18n="mem.ctx.1.p">Older turns are summarized into dense facts before they are dropped, so the thread keeps its meaning while the token count stays bounded — compaction is triggered as a run approaches its limit.</p>
+        <p data-i18n="mem.ctx.1.p">Older, low-importance turns are evicted by an importance score before the window overflows, so the thread keeps what matters while the token count stays bounded — compaction is triggered as a run approaches its limit.</p>
       </div>
       <div class="card">
         <h3 data-i18n="mem.ctx.2.h">Model-promotion ladder</h3>

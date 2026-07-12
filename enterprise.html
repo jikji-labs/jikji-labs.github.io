@@ -220,7 +220,7 @@
       </div>
       <div class="card">
         <h3 data-i18n="ent.obs.4.h">Live, attachable debugging</h3>
-        <p data-i18n="ent.obs.4.p">Attach to a running session over a WebSocket-backed interactive terminal (a PTY, on Unix and Windows) to watch and drive it live — every create, attach, detach, and close is audited. The JSONL step trace replays a run end to end, and <code>/debug/pprof</code> profiles the live process.</p>
+        <p data-i18n="ent.obs.4.p">Attach to a running session over a WebSocket-backed interactive terminal (a PTY, on Unix) to watch and drive it live. The JSONL step trace replays a run end to end, and <code>/debug/pprof</code> profiles the live process.</p>
       </div>
     </div>
   </div>
@@ -263,7 +263,7 @@
 <pre class="code-block">jikjictl health                       <span class="c"># controller + dependency health</span>
 jikjictl provider usage               <span class="c"># external provider quota windows</span>
 jikjictl config export                <span class="c"># redacted live config snapshot</span>
-jikjictl filter toggle pii            <span class="c"># enable/disable a runtime filter</span>
+jikjictl filter toggle --kind pii --enabled false   <span class="c"># toggle a runtime filter</span>
 jikjictl provider oauth reset codex   <span class="c"># clear a quarantined OAuth token</span></pre>
     <div class="dev-note">Pre-1.0 status is not a compliance certification. Validate the exact release against its SBOM, security scan, deployment profile, backup drill, and live-provider evidence before production approval.</div>
   </div>

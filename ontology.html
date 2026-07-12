@@ -84,7 +84,7 @@
     <div class="frow">
       <div class="flabel" data-i18n="onto.b.3.label">Grounding &amp; lint<span class="mono">stays clean</span></div>
       <div class="fbody">
-        <p data-i18n="onto.b.3.p">Grounding validates each delta of new triples against the existing graph before it is accepted, and native linting keeps the ontology internally consistent — so quality does not drift as the graph grows.</p>
+        <p data-i18n="onto.b.3.p">Grounding validates each new relation against its source text before it is accepted, dropping hallucinated triples, and native linting keeps the ontology internally consistent — so quality does not drift as the graph grows.</p>
       </div>
     </div>
     <div class="frow">
@@ -95,8 +95,8 @@
     </div>
     <p class="code-cap" style="margin-top:8px" data-i18n="onto.b.cap">Build or refresh from the CLI — ground new facts, deepen with insight rounds, grow an existing graph:</p>
 <pre class="code-block">jikjictl ontology build \
-  --corpus ./docs \
-  --ground \                <span class="c"># validate new triples against the graph</span>
+  --source ./doc.txt \
+  --ground \                <span class="c"># validate new triples against their source</span>
   --insight-rounds 2 \      <span class="c"># deepen the emergent schema</span>
   --seed-from prior.ttl \   <span class="c"># incremental: grow an existing ontology</span>
   --out knowledge.ttl</pre>
@@ -172,7 +172,7 @@
       </div>
       <div class="card">
         <h3 data-i18n="onto.h.2.h">Governed SQL access</h3>
-        <p data-i18n="onto.h.2.p">A SQL tool lets agents query data, but <code>sqlguard</code> enforces table-level CRUD permissions (SELECT / INSERT / UPDATE / DELETE) by role, tenant-scoped and layered on a statement allowlist — so analysis never steps outside policy.</p>
+        <p data-i18n="onto.h.2.p">A SQL tool lets agents query data, but <code>sqlguard</code> enforces a statement and table allowlist — read-only by default — and <code>galley</code> injects a tenant_id predicate so a query is scoped to its own tenant. Analysis never steps outside policy.</p>
       </div>
       <div class="card">
         <h3 data-i18n="onto.h.3.h">Pipelines &amp; caching</h3>
