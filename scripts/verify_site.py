@@ -80,9 +80,12 @@ PRIVATE_EXAMPLE_PREFIX = "https://github.com/jikji-labs/jikji/tree/main/examples
 ALERT_CONTRACTS = {
     "jikjitargetdown": ("JikjiTargetDown", "/health"),
     "jikjihttperrorbudgetburn": ("JikjiHTTPErrorBudgetBurn", "jikji_http_route_responses_total"),
+    "jikjihttpp99latency": ("JikjiHTTPP99Latency", "jikji_http_request_duration_seconds_bucket"),
     "jikjirunadmissionshedding": ("JikjiRunAdmissionShedding", "queue depth"),
     "jikjidispatchqueuebacklog": ("JikjiDispatchQueueBacklog", "jikji_dispatch_queue_depth", "jikji_dispatch_saturated_targets"),
     "jikjigalleyerrors": ("JikjiGalleyErrors", "/ready"),
+    "jikjibackupfailed": ("JikjiBackupFailed", "backup.error_class", "SQLite"),
+    "jikjibackupstale": ("JikjiBackupStale", "jikji_backup_last_success_timestamp_seconds", "RPO", "RTO"),
     "jikjiproviderfailureratio": ("JikjiProviderFailureRatio", "provider"),
     "jikjicircuitbreakerrejecting": ("JikjiCircuitBreakerRejecting", "breaker"),
     "jikjirelayauthenticationfailures": ("JikjiRelayAuthenticationFailures", "jikji_relay_operations_total"),
@@ -93,6 +96,9 @@ ALERT_CONTRACTS = {
     ),
     "jikjicomponentunhealthy": ("JikjiComponentUnhealthy", "component"),
     "jikjimemorynearlimit": ("JikjiMemoryNearLimit", "resident memory"),
+    "jikjimetriccardinalityoverflow": (
+        "JikjiMetricCardinalityOverflow", "jikji_metric_cardinality_overflow_total", "family", "other",
+    ),
 }
 
 

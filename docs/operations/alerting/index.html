@@ -70,12 +70,15 @@
       <h2>Protect the metrics plane</h2>
       <p>The <code>/metrics</code> endpoint is intentionally unauthenticated and tenant labels are scrubbed by default. Restrict it to the telemetry network and keep <code>press.expose_tenant_metrics: false</code> unless the scrape path has an independent authentication boundary.</p>
     </div>
-    <nav class="runbook-index" aria-label="Alert runbooks" data-cardinality="12" data-cardinality-tag="a">
+    <nav class="runbook-index" aria-label="Alert runbooks" data-cardinality="16" data-cardinality-tag="a">
       <a href="#jikjitargetdown">Target down</a>
       <a href="#jikjihttperrorbudgetburn">HTTP error budget</a>
+      <a href="#jikjihttpp99latency">HTTP p99 latency</a>
       <a href="#jikjirunadmissionshedding">Admission shedding</a>
       <a href="#jikjidispatchqueuebacklog">Dispatch backlog</a>
       <a href="#jikjigalleyerrors">Galley errors</a>
+      <a href="#jikjibackupfailed">Backup failed</a>
+      <a href="#jikjibackupstale">Backup stale</a>
       <a href="#jikjiproviderfailureratio">Provider failures</a>
       <a href="#jikjicircuitbreakerrejecting">Circuit breaker</a>
       <a href="#jikjirelayauthenticationfailures">Relay authentication</a>
@@ -83,11 +86,12 @@
       <a href="#jikjitraceexporterfailures">Trace exporter</a>
       <a href="#jikjicomponentunhealthy">Component unhealthy</a>
       <a href="#jikjimemorynearlimit">Memory near limit</a>
+      <a href="#jikjimetriccardinalityoverflow">Metric cardinality</a>
     </nav>
   </div>
 </section>
 
-<main class="wrap runbooks" data-cardinality="12" data-cardinality-class="runbook-entry">
+<main class="wrap runbooks" data-cardinality="16" data-cardinality-class="runbook-entry">
   <article class="runbook-entry" id="jikjitargetdown">
     <div><span class="runbook-severity">availability</span><h2>JikjiTargetDown</h2></div>
     <div><p>Confirm the external <code>/health</code> check and Kubernetes liveness state. Inspect the termination reason, restart count, OOM state, node pressure, and previous log.</p><p>If <code>/health</code> works but scraping fails, inspect the Service, NetworkPolicy, Prometheus selector, and TLS or proxy path before restarting the workload.</p></div>
@@ -96,6 +100,11 @@
   <article class="runbook-entry" id="jikjihttperrorbudgetburn">
     <div><span class="runbook-severity">service level</span><h2>JikjiHTTPErrorBudgetBurn</h2></div>
     <div><p>Break down <code>jikji_http_route_responses_total</code> by normalized route and status, then correlate the first failure with Galley, provider, and deployment events.</p><p>Stop an active rollout when the new ReplicaSet owns the increase. Preserve the failing request class without logging credentials or tenant payloads.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjihttpp99latency">
+    <div><span class="runbook-severity">service level</span><h2>JikjiHTTPP99Latency</h2></div>
+    <div><p>Confirm the global p99 increase in <code>jikji_http_request_duration_seconds_bucket</code> against request rate, in-flight work, provider latency, Galley latency, and dispatch saturation. Use normalized route response counters and traces for attribution; the latency histogram deliberately omits tenant and route labels.</p><p>The shipped five-second threshold is a starting point, not a contractual SLO. Tune it from deployment load tests and production evidence, and prove recovery with a sustained p99 below the reviewed threshold.</p></div>
   </article>
 
   <article class="runbook-entry" id="jikjirunadmissionshedding">
@@ -111,6 +120,16 @@
   <article class="runbook-entry" id="jikjigalleyerrors">
     <div><span class="runbook-severity">durable state</span><h2>JikjiGalleyErrors</h2></div>
     <div><p>Check <code>/ready</code>; it must return 503 while Galley cannot be pinged. Confirm database connectivity, TLS validity, pool exhaustion, storage capacity, migration state, and failover status.</p><p>Do not repeatedly restart all controllers during a database incident. Keep one evidence-producing path alive and coordinate recovery with the database owner.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjibackupfailed">
+    <div><span class="runbook-severity">recovery</span><h2>JikjiBackupFailed</h2></div>
+    <div><p>Inspect the authenticated operator status <code>backup.error_class</code>, storage capacity, encryption-key availability, and restore-verification dependencies. Do not delete older artifacts until a new restore-verified backup lands.</p><p>This alert covers the built-in SQLite scheduler. PostgreSQL and MySQL require database-native backup, PITR, age, and restore-evidence monitoring.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjibackupstale">
+    <div><span class="runbook-severity">recovery</span><h2>JikjiBackupStale</h2></div>
+    <div><p>Compare <code>jikji_backup_last_success_timestamp_seconds</code> with the configured interval and confirm the acting node is leader. Inspect bounded attempt state, artifact publication, and restore verification before changing the interval.</p><p>Resolve only after a new verified artifact is present and its digest, schema version, measured RPO, and measured RTO are retained outside the workload.</p></div>
   </article>
 
   <article class="runbook-entry" id="jikjiproviderfailureratio">
@@ -146,6 +165,11 @@
   <article class="runbook-entry" id="jikjimemorynearlimit">
     <div><span class="runbook-severity">capacity</span><h2>JikjiMemoryNearLimit</h2></div>
     <div><p>Compare resident memory, Go heap, active streams, in-flight requests, queue depth, and recent configuration changes. Capture a bounded profile before restart when policy allows.</p><p>Raise a limit only when the pod and node both retain capacity. Otherwise drain the pod, reduce admitted work, or correct the growth source.</p></div>
+  </article>
+
+  <article class="runbook-entry" id="jikjimetriccardinalityoverflow">
+    <div><span class="runbook-severity">telemetry</span><h2>JikjiMetricCardinalityOverflow</h2></div>
+    <div><p>Break down <code>jikji_metric_cardinality_overflow_total</code> by bounded <code>family</code>. A sustained increase means observations are being folded into the <code>other</code> series, so registry memory remains bounded but diagnostic precision is being lost.</p><p>Check for unnormalized paths, uncontrolled provider, model, or status values, tenant churn, and probing before raising a cap. Prove recovery with the overflow rate returning to zero.</p></div>
   </article>
 </main>
 
