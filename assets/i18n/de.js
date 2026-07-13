@@ -214,7 +214,7 @@ window.JIKJI_I18N["de"]={
  "loop.act.3": "<code>respond</code> / <code>stop</code> — die finale Antwort ausgeben und den Lauf beenden.",
  "loop.act.4": "<code>delegate</code> — eine Teilaufgabe an einen Unter-Agenten geben und dessen Ergebnis einsammeln.",
  "loop.act.5": "<code>wait</code> — den Lauf pausieren, bis ein externes Ereignis oder ein Timeout ihn weckt.",
- "loop.act.note": "Ein maximales Schritt-Budget (Standard 16, harte Obergrenze 128) garantiert, dass die Loop immer terminiert.",
+ "loop.act.note": "Das Schrittbudget pro Durchlauf folgt der deklarierten Obergrenze des gewählten Modells (lokaler Standard 1024, absolute Sicherungsgrenze 4096; Remote-Grenze 1024), sodass jede Schleife endet, ohne allen Modellen denselben festen Horizont aufzuzwingen.",
  "loop.obs.label": "Beobachtungen<span class=\"mono\">categorized</span>",
  "loop.obs.p": "Ergebnisse werden als typisierte Beobachtungen zurück eingearbeitet, sodass die Spur maschinenlesbar ist und nicht aus Freitext besteht:",
  "loop.obs.1": "Beobachtungen zu Gedanken, Werkzeug-Ergebnissen und Fehlern",

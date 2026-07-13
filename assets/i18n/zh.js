@@ -214,7 +214,7 @@ window.JIKJI_I18N["zh"]={
  "loop.act.3": "<code>respond</code> / <code>stop</code>——给出最终答案并结束运行。",
  "loop.act.4": "<code>delegate</code>——把子任务交给子智能体，并收回其结果。",
  "loop.act.5": "<code>wait</code>——挂起运行，直到外部事件或超时将其唤醒。",
- "loop.act.note": "步数上限预算（默认 16，硬上限 128）保证循环总会终止。",
+ "loop.act.note": "每轮步数预算遵循所选模型声明的上限（本地默认 1024、绝对后备上限 4096；远程上限 1024），既保证每个循环终止，也不会为所有模型强制同一个固定长度。",
  "loop.obs.label": "观察<span class=\"mono\">categorized</span>",
  "loop.obs.p": "结果以带类型的观察归并回来，因此整条轨迹是机器可读的，而非自由文本：",
  "loop.obs.1": "思考、工具结果和错误等观察",

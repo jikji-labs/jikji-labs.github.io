@@ -46,6 +46,9 @@ CARDINALITY_TOKENS = {
     },
 }
 NUMBER_TOKEN_GROUPS = {
+    "loop.act.note": {
+        locale: ("1024", "4096") for locale in LOCALES
+    },
     "onto.foresight.2p": {
         "en": ("four", "six", "one", "two"), "ko": ("4", "6", "1", "2"),
         "ja": ("4", "6", "1", "2"), "zh": ("四", "六", "一", "两"),

@@ -81,7 +81,7 @@
           <li data-i18n="loop.act.4"><code>delegate</code> — hand a sub-task to a child agent and harvest its result.</li>
           <li data-i18n="loop.act.5"><code>wait</code> — park the run until an external event or timeout wakes it.</li>
         </ul>
-        <p data-i18n="loop.act.note">A max-step budget (default 16, hard cap 128) guarantees the loop always terminates.</p>
+        <p data-i18n="loop.act.note">The per-turn step budget follows the selected model's declared ceiling (local default 1024, absolute backstop 4096; remote ceiling 1024), so every loop terminates without forcing one fixed horizon on every model.</p>
       </div>
     </div>
 

@@ -214,7 +214,7 @@ window.JIKJI_I18N["zh-tw"]={
  "loop.act.3": "<code>respond</code> / <code>stop</code>——送出最終答案並結束本次執行。",
  "loop.act.4": "<code>delegate</code>——把子任務交給子代理，再收回其結果。",
  "loop.act.5": "<code>wait</code>——暫停本次執行，待外部事件或逾時將其喚醒。",
- "loop.act.note": "最大步驟預算（預設 16，硬上限 128）確保迴圈必定終止。",
+ "loop.act.note": "每輪步驟預算遵循所選模型宣告的上限（本機預設 1024、絕對後備上限 4096；遠端上限 1024），既確保每個迴圈終止，也不會為所有模型強制同一個固定長度。",
  "loop.obs.label": "觀察結果<span class=\"mono\">已分類</span>",
  "loop.obs.p": "結果以帶型別的觀察形式收攏回去，因此軌跡是機器可讀的，而非自由文字：",
  "loop.obs.1": "想法、工具結果與錯誤等觀察結果",

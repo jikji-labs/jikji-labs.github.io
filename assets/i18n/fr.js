@@ -214,7 +214,7 @@ window.JIKJI_I18N["fr"]={
  "loop.act.3": "<code>respond</code> / <code>stop</code> — émettre la réponse finale et terminer l'exécution.",
  "loop.act.4": "<code>delegate</code> — confier une sous-tâche à un agent enfant et en récupérer le résultat.",
  "loop.act.5": "<code>wait</code> — mettre l'exécution en pause jusqu'à un événement externe ou un délai d'expiration.",
- "loop.act.note": "Un budget d'étapes maximal (16 par défaut, plafond strict à 128) garantit que la boucle se termine toujours.",
+ "loop.act.note": "Le budget d'étapes par tour suit le plafond déclaré par le modèle choisi (1024 par défaut en local, garde-fou absolu à 4096 ; plafond distant à 1024), afin que chaque boucle se termine sans imposer le même horizon fixe à tous les modèles.",
  "loop.obs.label": "Observations<span class=\"mono\">categorized</span>",
  "loop.obs.p": "Les résultats sont réintégrés sous forme d'observations typées, pour une trace lisible par machine plutôt qu'en texte libre :",
  "loop.obs.1": "observations de pensée, de résultat d'outil et d'erreur",

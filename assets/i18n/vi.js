@@ -214,7 +214,7 @@ window.JIKJI_I18N["vi"]={
  "loop.act.3": "<code>respond</code> / <code>stop</code> — đưa ra câu trả lời cuối và kết thúc lần chạy.",
  "loop.act.4": "<code>delegate</code> — giao một tác vụ con cho agent con rồi thu lại kết quả.",
  "loop.act.5": "<code>wait</code> — tạm dừng lần chạy cho tới khi một sự kiện bên ngoài hoặc hết thời gian đánh thức nó.",
- "loop.act.note": "Một hạn mức số bước tối đa (mặc định 16, trần cứng 128) đảm bảo vòng lặp luôn dừng lại.",
+ "loop.act.note": "Ngân sách bước cho mỗi lượt tuân theo mức trần do mô hình đã chọn khai báo (mặc định cục bộ 1024, chốt chặn tuyệt đối 4096; mức trần từ xa 1024), nên mọi vòng lặp đều kết thúc mà không ép mọi mô hình vào cùng một chân trời cố định.",
  "loop.obs.label": "Quan sát<span class=\"mono\">đã phân loại</span>",
  "loop.obs.p": "Kết quả được gộp trở lại dưới dạng các quan sát có kiểu, nhờ vậy dấu vết máy đọc được, không phải văn bản tự do:",
  "loop.obs.1": "quan sát về suy nghĩ, kết quả công cụ, và lỗi",

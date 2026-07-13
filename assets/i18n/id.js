@@ -214,7 +214,7 @@ window.JIKJI_I18N["id"]={
  "loop.act.3": "<code>respond</code> / <code>stop</code> — memancarkan jawaban akhir dan mengakhiri eksekusi.",
  "loop.act.4": "<code>delegate</code> — menyerahkan subtugas ke agent anak dan memanen hasilnya.",
  "loop.act.5": "<code>wait</code> — memparkir eksekusi sampai event eksternal atau timeout membangunkannya.",
- "loop.act.note": "Anggaran langkah maksimum (default 16, batas keras 128) menjamin loop selalu berhenti.",
+ "loop.act.note": "Anggaran langkah per giliran mengikuti batas yang dinyatakan model terpilih (default lokal 1024, pengaman absolut 4096; batas remote 1024), sehingga setiap loop berakhir tanpa memaksakan satu horizon tetap pada semua model.",
  "loop.obs.label": "Observasi<span class=\"mono\">terkategori</span>",
  "loop.obs.p": "Hasil dilipat kembali sebagai observasi bertipe, sehingga jejaknya bisa dibaca mesin, bukan sekadar teks bebas:",
  "loop.obs.1": "observasi pemikiran, hasil tool, dan error",

@@ -214,7 +214,7 @@ window.JIKJI_I18N["en"]={
  "loop.act.3": "<code>respond</code> / <code>stop</code> — emit the final answer and end the run.",
  "loop.act.4": "<code>delegate</code> — hand a sub-task to a child agent and harvest its result.",
  "loop.act.5": "<code>wait</code> — park the run until an external event or timeout wakes it.",
- "loop.act.note": "A max-step budget (default 16, hard cap 128) guarantees the loop always terminates.",
+ "loop.act.note": "The per-turn step budget follows the selected model's declared ceiling (local default 1024, absolute backstop 4096; remote ceiling 1024), so every loop terminates without forcing one fixed horizon on every model.",
  "loop.obs.label": "Observations<span class=\"mono\">categorized</span>",
  "loop.obs.p": "Results are folded back as typed observations, so the trace is machine-readable, not free text:",
  "loop.obs.1": "thought, tool result, and error observations",

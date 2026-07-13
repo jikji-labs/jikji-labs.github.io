@@ -214,7 +214,7 @@ window.JIKJI_I18N["pt"]={
  "loop.act.3": "<code>respond</code> / <code>stop</code> — emite a resposta final e encerra a execução.",
  "loop.act.4": "<code>delegate</code> — passa uma subtarefa a um agente filho e colhe o resultado.",
  "loop.act.5": "<code>wait</code> — pausa a execução até um evento externo ou um timeout acordá-la.",
- "loop.act.note": "Um orçamento máximo de passos (padrão 16, teto rígido 128) garante que o loop sempre termina.",
+ "loop.act.note": "O orçamento de passos por turno segue o limite declarado pelo modelo selecionado (padrão local 1024, proteção absoluta 4096; limite remoto 1024), para que todo loop termine sem impor o mesmo horizonte fixo a todos os modelos.",
  "loop.obs.label": "Observações<span class=\"mono\">categorizadas</span>",
  "loop.obs.p": "Os resultados são integrados de volta como observações tipadas, então o trace é legível por máquina, não texto livre:",
  "loop.obs.1": "observações de pensamento, resultado de ferramenta e erro",
