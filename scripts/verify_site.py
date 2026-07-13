@@ -330,6 +330,10 @@ def main() -> None:
         if PRIVATE_EXAMPLE_PREFIX in (ROOT / relative).read_text(encoding="utf-8"):
             errors.append(f"{relative}: private GitHub example links are not public evidence")
 
+    architecture = (ROOT / "architecture.html").read_text(encoding="utf-8")
+    if architecture.count('<div class="name">typebackbone ') != 1:
+        errors.append("architecture.html: typebackbone must be the single canonical model-plane module name")
+
     runtime = (ROOT / "assets" / "i18n.js").read_text(encoding="utf-8")
     for contract in ("translationIsCurrent", "localStorage.setItem", "assets/i18n/", "Escape"):
         if contract not in runtime:
