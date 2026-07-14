@@ -375,6 +375,13 @@ def main() -> None:
             if resolved is None:
                 continue
             target, fragment = resolved
+            try:
+                target.relative_to(ROOT)
+            except ValueError:
+                errors.append(f"{page.name}: local {attr} escapes the published site: {ref!r}")
+                continue
+            if target.is_dir():
+                target = target / "index.html"
             if not target.exists() or (target.is_file() and target.stat().st_size == 0):
                 errors.append(f"{page.name}: broken {attr}={ref!r}")
                 continue
