@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import struct
+from collections import Counter, defaultdict
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -21,7 +22,15 @@ STALE = (
 KEY_RE = re.compile(r'^\s*"([^"]+)"\s*:', re.MULTILINE)
 ENTRY_RE = re.compile(r'^\s*("(?:\\.|[^"])*")\s*:\s*("(?:\\.|[^"])*")\s*,?$', re.MULTILINE)
 HTML_TOKEN_RE = re.compile(r'</?[^>]+>')
+NUMBER_RE = re.compile(r'(?<![A-Za-z0-9_.])\d+(?:[.,]\d+)*(?![A-Za-z0-9_.])')
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+NAVIGATION = (
+    ("use-cases.html", "nav.usecases"), ("architecture.html", "nav.arch"),
+    ("agent-loop.html", "nav.loop"), ("jikjicode.html", "nav.code"),
+    ("tools.html", "nav.tools"), ("orchestration.html", "nav.orch"),
+    ("memory.html", "nav.memory"), ("ontology.html", "nav.ontology"),
+    ("enterprise.html", "nav.enterprise"),
+)
 DETAIL_HEROES = {
     "architecture.html": "architecture.webp", "agent-loop.html": "agent-loop.webp",
     "tools.html": "tools.webp", "orchestration.html": "orchestration.webp",
@@ -103,8 +112,11 @@ ALERT_CONTRACTS = {
 
 
 class PageParser(HTMLParser):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, source: str = "") -> None:
+        super().__init__(convert_charrefs=False)
+        self.source = source
+        self._line_offsets = [0]
+        self._line_offsets.extend(match.end() for match in re.finditer("\n", source))
         self.ids: list[str] = []
         self.refs: list[tuple[str, str]] = []
         self.i18n_keys: set[str] = set()
@@ -112,16 +124,34 @@ class PageParser(HTMLParser):
         self.canonicals: list[str] = []
         self.images_without_alt: list[str] = []
         self.images: list[dict[str, str]] = []
+        self.fallbacks: dict[str, list[str]] = defaultdict(list)
+        self.navigation: list[tuple[str, str]] = []
+        self.detail_hero_positions: list[int] = []
+        self.section_positions: list[int] = []
         self.cardinality_results: list[tuple[int, int, str]] = []
         self._cardinality_stack: list[dict[str, object]] = []
+        self._i18n_stack: list[dict[str, object]] = []
+        self._site_nav_depth: int | None = None
+        self._detail_hero_depth: int | None = None
         self._depth = 0
+        self._position = 0
         self.english_notice_count = 0
         self.title_count = 0
         self.description_count = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self._position += 1
         values = dict(attrs)
         classes = set((values.get("class") or "").split())
+        if values.get("id") == "site-nav":
+            self._site_nav_depth = self._depth
+        if self._site_nav_depth is not None and tag == "a":
+            self.navigation.append((values.get("href") or "", values.get("data-i18n") or ""))
+        if tag == "figure" and "detail-hero-media" in classes:
+            self.detail_hero_positions.append(self._position)
+            self._detail_hero_depth = self._depth
+        if tag == "section":
+            self.section_positions.append(self._position)
         for frame in self._cardinality_stack:
             if values.get("data-cardinality"):
                 continue
@@ -133,8 +163,14 @@ class PageParser(HTMLParser):
             self.ids.append(values["id"] or "")
         if values.get("data-i18n"):
             self.i18n_keys.add(values["data-i18n"] or "")
+            if tag not in VOID_TAGS:
+                self._i18n_stack.append({
+                    "key": values["data-i18n"] or "", "tag": tag, "depth": self._depth,
+                    "start": self._absolute_position() + len(self.get_starttag_text()),
+                })
         if values.get("data-i18n-alt"):
             self.i18n_keys.add(values["data-i18n-alt"] or "")
+            self.fallbacks[values["data-i18n-alt"] or ""].append(values.get("alt") or "")
         if "data-english-notice" in values:
             self.english_notice_count += 1
         for attr in ("href", "src"):
@@ -145,7 +181,9 @@ class PageParser(HTMLParser):
         if tag == "link" and values.get("rel") == "canonical":
             self.canonicals.append(values.get("href") or "")
         if tag == "img":
-            self.images.append({key: value or "" for key, value in values.items()})
+            image = {key: value or "" for key, value in values.items()}
+            image["in_detail_hero"] = str(self._detail_hero_depth is not None).lower()
+            self.images.append(image)
             if not (values.get("alt") or "").strip():
                 self.images_without_alt.append(values.get("src") or "<inline>")
         if tag == "title":
@@ -165,11 +203,28 @@ class PageParser(HTMLParser):
     def handle_endtag(self, tag: str) -> None:
         if tag not in VOID_TAGS:
             self._depth = max(0, self._depth - 1)
+        for frame in list(reversed(self._i18n_stack)):
+            if frame["tag"] == tag and frame["depth"] == self._depth:
+                self.fallbacks[str(frame["key"])].append(
+                    self.source[int(frame["start"]):self._absolute_position()]
+                )
+                self._i18n_stack.remove(frame)
+                break
         for frame in list(reversed(self._cardinality_stack)):
             if frame["tag"] == tag and frame["depth"] == self._depth:
                 self.cardinality_results.append((int(frame["expected"]), int(frame["count"]), str(frame["label"])))
                 self._cardinality_stack.remove(frame)
                 break
+        if self._site_nav_depth == self._depth and tag == "nav":
+            self._site_nav_depth = None
+        if self._detail_hero_depth == self._depth and tag == "figure":
+            self._detail_hero_depth = None
+
+    def _absolute_position(self) -> int:
+        line, column = self.getpos()
+        if not self.source or line > len(self._line_offsets):
+            return 0
+        return self._line_offsets[line - 1] + column
 
 
 def local_target(page: Path, ref: str) -> tuple[Path, str] | None:
@@ -178,6 +233,16 @@ def local_target(page: Path, ref: str) -> tuple[Path, str] | None:
         return None
     target = page if not parsed.path else (page.parent / parsed.path).resolve()
     return target, parsed.fragment
+
+
+def normalized_markup(value: str) -> str:
+    """Mirror the browser runtime's stale-translation comparison."""
+    value = re.sub(r"<br\s*/?\s*>", "<br>", value, flags=re.IGNORECASE)
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def numeric_literals(value: str) -> Counter[str]:
+    return Counter(NUMBER_RE.findall(HTML_TOKEN_RE.sub(" ", value)))
 
 
 def expected_canonical(page: Path) -> str:
@@ -237,7 +302,7 @@ def main() -> None:
         if "jikji-labs.github.io" in lower or "http://jikji-labs.com" in lower:
             errors.append(f"{page.name}: non-canonical domain or insecure canonical link")
 
-        parser = PageParser()
+        parser = PageParser(text)
         parser.feed(text)
         parsed_pages[page.resolve()] = parser
         site_keys.update(parser.i18n_keys)
@@ -255,6 +320,15 @@ def main() -> None:
         for required_id in ("site-nav", "langSel"):
             if parser.ids.count(required_id) != 1:
                 errors.append(f"{page.name}: requires one #{required_id}")
+        expected_navigation = [
+            ((ROOT / href).resolve(), key) for href, key in NAVIGATION
+        ]
+        actual_navigation = [
+            (((page.parent / urlsplit(href).path).resolve()), key)
+            for href, key in parser.navigation
+        ]
+        if actual_navigation != expected_navigation:
+            errors.append(f"{page.name}: primary navigation differs from the canonical page/key order")
         if parser.images_without_alt:
             errors.append(f"{page.name}: images without alt: {', '.join(parser.images_without_alt)}")
         for expected, actual, label in parser.cardinality_results:
@@ -268,16 +342,35 @@ def main() -> None:
                 errors.append(f"{page.name}: requires one detail hero {expected_src}")
             else:
                 image = matches[0]
-                if image.get("width") != "1600" or image.get("height") != "666" or not image.get("data-i18n-alt"):
-                    errors.append(f"{page.name}: detail hero requires 1600x666 dimensions and translated alt")
+                if (image.get("width") != "1600" or image.get("height") != "666"
+                        or not image.get("data-i18n-alt") or image.get("in_detail_hero") != "true"
+                        or image.get("loading") != "eager" or image.get("fetchpriority") != "high"
+                        or image.get("decoding") != "async"):
+                    errors.append(
+                        f"{page.name}: detail hero requires top-band placement, 1600x666 dimensions, "
+                        "translated alt, and eager high-priority async loading"
+                    )
                 asset = ROOT / expected_src
                 if not asset.is_file() or asset.stat().st_size < 50_000 or webp_dimensions(asset) != (1600, 666):
                     errors.append(f"{page.name}: invalid or blank-sized detail hero {expected_src}")
+            if (len(parser.detail_hero_positions) != 1 or not parser.section_positions
+                    or parser.detail_hero_positions[0] > parser.section_positions[0]):
+                errors.append(f"{page.name}: detail hero must be the first content band before sections")
         if relative_name in {"licensing.html", "contact.html", "docs/operations/alerting/index.html"} and parser.english_notice_count != 1:
             errors.append(f"{page.name}: requires one authoritative-English locale notice")
 
     for page, parser in list(parsed_pages.items()):
         for attr, ref in parser.refs:
+            scheme = urlsplit(ref).scheme.casefold()
+            allowed_schemes = {"https"}
+            if attr == "href":
+                allowed_schemes.update({"mailto", "tel"})
+            if scheme and scheme not in allowed_schemes:
+                errors.append(f"{page.name}: unsupported or insecure {attr} scheme in {ref!r}")
+                continue
+            if ref.startswith("//"):
+                errors.append(f"{page.name}: protocol-relative {attr} is not allowed: {ref!r}")
+                continue
             resolved = local_target(page, ref)
             if resolved is None:
                 continue
@@ -303,12 +396,17 @@ def main() -> None:
         unknown = sorted(set(dictionaries[locale]) - set(english))
         if unknown:
             errors.append(f"{locale}: keys absent from English canonical: {', '.join(unknown)}")
-        missing = sorted(site_keys - set(dictionaries[locale]))
+        missing = sorted(set(english) - set(dictionaries[locale]))
         if missing:
-            errors.append(f"{locale}: missing current translations: {', '.join(missing)}")
+            errors.append(f"{locale}: missing canonical translations: {', '.join(missing)}")
         for key in site_keys & set(dictionaries[locale]) & set(english):
             if HTML_TOKEN_RE.findall(dictionaries[locale][key]) != HTML_TOKEN_RE.findall(english[key]):
                 errors.append(f"{locale}: {key} does not preserve canonical HTML tokens")
+            missing_numbers = sorted((
+                numeric_literals(english[key]) - numeric_literals(dictionaries[locale][key])
+            ).elements())
+            if missing_numbers:
+                errors.append(f"{locale}: {key} drops numeric literals: {', '.join(missing_numbers)}")
         for key, locale_tokens in CARDINALITY_TOKENS.items():
             value = dictionaries[locale].get(key, "").casefold()
             if not any(token.casefold() in value for token in locale_tokens[locale]):
@@ -317,6 +415,17 @@ def main() -> None:
             value = dictionaries[locale].get(key, "").casefold()
             if not all(token.casefold() in value for token in locale_tokens[locale]):
                 errors.append(f"{locale}: {key} changes a required numeric bound")
+
+    for page, parser in parsed_pages.items():
+        for key, fallbacks in parser.fallbacks.items():
+            canonical = english.get(key)
+            if canonical is None:
+                continue
+            for fallback in fallbacks:
+                if normalized_markup(fallback) != normalized_markup(canonical):
+                    errors.append(
+                        f"{page.name}: embedded English for {key} differs from the canonical dictionary"
+                    )
 
     for locale in LOCALES:
         for key in PROOF_KEYS:
@@ -344,6 +453,10 @@ def main() -> None:
     for contract in ("translationIsCurrent", "localStorage.setItem", "assets/i18n/", "Escape"):
         if contract not in runtime:
             errors.append(f"i18n runtime missing contract marker {contract!r}")
+    langs_match = re.search(r"var LANGS\s*=\s*\[(.*?)\];", runtime, re.DOTALL)
+    runtime_locales = tuple(re.findall(r'\[\s*"([a-z-]+)"\s*,', langs_match.group(1))) if langs_match else ()
+    if runtime_locales != LOCALES:
+        errors.append("i18n runtime locale selector differs from the canonical locale order")
 
     hero = ROOT / "assets" / "jikji-hero.png"
     if not hero.is_file() or hero.stat().st_size < 100_000:
