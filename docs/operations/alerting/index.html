@@ -9,12 +9,14 @@
 <meta property="og:description" content="Operator runbooks for the Prometheus alerts shipped with Jikji.">
 <meta property="og:url" content="https://jikji-labs.com/docs/operations/alerting">
 <link rel="canonical" href="https://jikji-labs.com/docs/operations/alerting">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../assets/jikji.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to main content</a>
 
 <header>
   <div class="wrap nav">
@@ -92,7 +94,7 @@
   </div>
 </section>
 
-<main class="wrap runbooks" data-cardinality="16" data-cardinality-class="runbook-entry">
+<main class="wrap runbooks" id="main-content" data-cardinality="16" data-cardinality-class="runbook-entry">
   <article class="runbook-entry" id="jikjitargetdown">
     <div><span class="runbook-severity">availability</span><h2>JikjiTargetDown</h2></div>
     <div><p>Confirm the external <code>/health</code> check and Kubernetes liveness state. Inspect the termination reason, restart count, OOM state, node pressure, and previous log.</p><p>If <code>/health</code> works but scraping fails, inspect the Service, NetworkPolicy, Prometheus selector, and TLS or proxy path before restarting the workload.</p></div>

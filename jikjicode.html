@@ -8,12 +8,14 @@
 <meta property="og:title" content="jikjicode — Jikji">
 <meta property="og:url" content="https://jikji-labs.com/jikjicode.html">
 <link rel="canonical" href="https://jikji-labs.com/jikjicode.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/jikji.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to main content</a>
 
 <header>
   <div class="wrap nav">
@@ -22,7 +24,7 @@
       <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
       <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
-      <a href="jikjicode.html" class="active" data-i18n="nav.code">jikjicode</a>
+      <a href="jikjicode.html" class="active" aria-current="page" data-i18n="nav.code">jikjicode</a>
       <a href="tools.html" data-i18n="nav.tools">Tools</a>
       <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
       <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
@@ -36,13 +38,14 @@
     </div>
   </div>
 </header>
+<main id="main-content">
 
 <div class="hero compact">
   <div class="wrap">
     <div class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> · <span data-i18n="nav.code">jikjicode</span></div>
     <span class="kicker" data-i18n="jc.kicker">jikjicode — the coding agent</span>
     <h1 data-i18n="jc.title">A coding agent that <span class="accent">edits like a compiler</span></h1>
-    <p class="sub" data-i18n="jc.sub">jikjicode is a standalone coding-agent CLI built on Jikji's deterministic loop. It makes precision, hash-anchored edits, understands your code through the compiler and real language servers — not string matching — and runs your builds and tests, locally on your machine or delegated to a Jikji server.</p>
+    <p class="sub" data-i18n="jc.sub">jikjicode is a standalone coding-agent CLI built on Jikji's deterministic loop. It combines provider-native tool calls, precision edits, compiler and language-server intelligence, durable sessions, and guarded execution — locally on your machine or delegated to a Jikji server.</p>
   </div>
 </div>
 
@@ -67,19 +70,49 @@
     <div class="sec-head">
       <span class="tag" data-i18n="jc.cmd.tag">One Binary, Every Workflow</span>
       <h2 data-i18n="jc.cmd.h2">Runs where you do</h2>
-      <p data-i18n="jc.cmd.p">A single <span class="mono">jikjicode</span> binary. Point it at any OpenAI-compatible model and it runs the agent loop in-process on your workspace, or hand the whole run to a Jikji server and let its RBAC and sandbox bound it. Interactive on a terminal, scriptable everywhere else.</p>
+      <p data-i18n="jc.cmd.p">A single <span class="mono">jikjicode</span> binary. Run the loop in-process against a configured provider, or hand the run to a Jikji server and its policy plane. Static builds target Linux, macOS, and Windows on amd64 and arm64; host isolation and terminal capabilities vary by operating system.</p>
     </div>
     <table class="spec">
       <tr><th data-i18n="jc.cmd.1.k">Local</th><td data-i18n="jc.cmd.1.v">The default — the <code>forme</code> loop runs in-process against your model, with the coding toolset on your workspace.</td></tr>
       <tr><th data-i18n="jc.cmd.2.k">Remote</th><td data-i18n="jc.cmd.2.v">Delegate the whole run to a Jikji server over <code>/v1/runs</code>; the server's scopes and sandbox bound it.</td></tr>
-      <tr><th data-i18n="jc.cmd.3.k">Interactive &amp; one-shot</th><td data-i18n="jc.cmd.3.v">A full-screen TUI on a terminal, a line REPL off it, and <code>jikjicode exec</code> for a single task — with <code>--json</code> JSONL events for automation.</td></tr>
+      <tr><th data-i18n="jc.cmd.3.k">Interactive &amp; one-shot</th><td data-i18n="jc.cmd.3.v">A full-screen TUI on a terminal, a line REPL off it, and <code>jikjicode exec</code> for one task. <code>/resume</code> restores a session, <code>/ps</code> inspects background terminals, Ctrl+O redraws the durable transcript in verbose form, and structured output modes support automation.</td></tr>
       <tr><th data-i18n="jc.cmd.4.k">Setup</th><td data-i18n="jc.cmd.4.v"><code>jikjicode init</code> scaffolds a config; <code>jikjicode doctor</code> checks your model and environment before you start.</td></tr>
     </table>
   </div>
 </section>
 
-<!-- PRECISION EDITS -->
+<!-- DURABLE AGENT CONTRACT -->
 <section class="alt tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="jc.state.tag">Durable Agent Contract</span>
+      <h2 data-i18n="jc.state.h2">Stop, resume, and keep the model on the work</h2>
+      <p data-i18n="jc.state.p">The coding loop keeps execution authority, conversation state, planning state, and context capacity as separate contracts. That makes long work recoverable without turning model prose into control flow.</p>
+    </div>
+    <div class="grid cols2" data-cardinality="4" data-cardinality-class="card">
+      <div class="card">
+        <h3 data-i18n="jc.state.1.h">Native tools, typed authority</h3>
+        <p data-i18n="jc.state.1.p">Local jikjicode enables provider-native typed tool calls by default. Only a typed call may execute; JSON-looking assistant text remains answer text, and malformed typed arguments return a correlated error without running the tool.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="jc.state.2.h">A real resume, not a pasted summary</h3>
+        <p data-i18n="jc.state.2.p"><code>/resume</code> atomically restores the matching workspace, transcript, agent mode, active plan, transport identity, and validated context checkpoint. Imported sessions do not inherit trusted checkpoint authority.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="jc.state.3.h">Bounded context continuation</h3>
+        <p data-i18n="jc.state.3.p">When a provider window is known, preflight compaction protects capacity before the call; overflow recovery provides the reactive path. A versioned, checksummed, bounded handoff preserves current work, evidence, and unresolved next steps.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="jc.state.4.h">Plan, backlog, and task graph stay distinct</h3>
+        <p data-i18n="jc.state.4.p">Plan mode blocks mutation, commands, network access, and delegation while <code>plan.write</code> builds the execution artifact; leaving it requires explicit approval. TODO remains the user's backlog, while the task graph carries dependencies for an accepted plan.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:24px" data-i18n="jc.state.note"><b>Recovery boundary:</b> completed calls with matching durable evidence are replay-guarded. External side effects still require downstream idempotency or operator reconciliation across an ambiguous crash boundary; Jikji does not market a universal exactly-once guarantee.</div>
+  </div>
+</section>
+
+<!-- PRECISION EDITS -->
+<section class="tight">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag" data-i18n="jc.edit.tag">Precision Edits</span>
@@ -108,7 +141,7 @@
 </section>
 
 <!-- CODE INTELLIGENCE -->
-<section class="tight">
+<section class="alt tight">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag" data-i18n="jc.ci.tag">Code Intelligence</span>
@@ -127,7 +160,7 @@
 </section>
 
 <!-- EXECUTION / SANDBOX -->
-<section class="alt tight">
+<section class="tight">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag" data-i18n="jc.run.tag">Build, Test, Ship</span>
@@ -137,11 +170,11 @@
     <div class="grid cols2" data-cardinality="4" data-cardinality-class="card">
       <div class="card">
         <h3 data-i18n="jc.run.1.h">Portable shell</h3>
-        <p data-i18n="jc.run.1.p"><code>shell.run</code> runs your build/test commands cross-platform — on Unix in their own process group so a timeout kills the whole tree, with head-and-tail output truncation so a noisy log never floods the context.</p>
+        <p data-i18n="jc.run.1.p"><code>shell.run</code> uses a POSIX shell on Linux and macOS and <code>cmd.exe /C</code> on Windows. Unix process groups and Windows Job Objects terminate the command tree on timeout or cancellation; bounded head-and-tail output keeps noisy logs out of the context window.</p>
       </div>
       <div class="card">
         <h3 data-i18n="jc.run.2.h">Risk-based sandbox</h3>
-        <p data-i18n="jc.run.2.p">A configurable policy — <code>read-only</code>, <code>workspace-write</code>, or <code>danger-full-access</code> — bounds which tool risks are allowed. Local defaults to workspace-only writes; host commands, language servers, and network access require explicit opt-in. Remote runs are bounded by server policy.</p>
+        <p data-i18n="jc.run.2.p">A configurable policy — <code>read-only</code>, <code>workspace-write</code>, or <code>danger-full-access</code> — bounds tool risk on every host. Deep process isolation (namespaces, private procfs, Landlock, optional seccomp and cgroups) is Linux-only; a requested OS sandbox fails closed on macOS and Windows rather than running unconfined.</p>
       </div>
       <div class="card">
         <h3 data-i18n="jc.run.3.h">Ask before it acts</h3>
@@ -165,6 +198,7 @@
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap">
     <div class="foot">

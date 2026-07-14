@@ -44,8 +44,10 @@
     });
   }
 
-  function translationIsCurrent(node, canonicalEnglish) {
+  function translationIsCurrent(node, canonicalEnglish, lang) {
     if (!canonicalEnglish || canonicalEnglish[node.key] === undefined) return false;
+    if (!window.JIKJI_I18N_SOURCE ||
+        window.JIKJI_I18N_SOURCE[lang] !== window.JIKJI_I18N_REVISION) return false;
     return normalise(canonicalEnglish[node.key]) === normalise(node.english);
   }
 
@@ -56,7 +58,7 @@
 
     nodes.forEach(function (node) {
       if (translations && translations[node.key] !== undefined &&
-          translationIsCurrent(node, canonicalEnglish)) {
+          translationIsCurrent(node, canonicalEnglish, lang)) {
         if (node.attribute) node.element.setAttribute(node.attribute, translations[node.key]);
         else node.element.innerHTML = translations[node.key];
       } else {
@@ -68,7 +70,18 @@
     document.documentElement.lang = lang;
     document.documentElement.dir = "ltr";
     var selector = document.getElementById("langSel");
-    if (selector) selector.value = lang;
+    var messages = lang === "en" ? canonicalEnglish : (translations || canonicalEnglish);
+    if (selector) {
+      selector.value = lang;
+      selector.setAttribute("aria-label", messages["a11y.language"] || canonicalEnglish["a11y.language"] || "Language");
+    }
+    var languageLabel = document.querySelector(".lang-label .sr-only");
+    if (languageLabel) languageLabel.textContent = messages["a11y.language"] || canonicalEnglish["a11y.language"] || "Language";
+    var toggle = document.querySelector(".nav-toggle");
+    if (toggle) {
+      var toggleKey = toggle.getAttribute("aria-expanded") === "true" ? "a11y.nav.close" : "a11y.nav.open";
+      toggle.setAttribute("aria-label", messages[toggleKey] || canonicalEnglish[toggleKey] || "Navigation");
+    }
     document.querySelectorAll("[data-english-notice]").forEach(function (notice) {
       notice.hidden = lang === "en";
     });
@@ -76,19 +89,19 @@
   }
 
   function load(lang, done) {
-    if (lang === "en" || loaded[lang]) { done(); return; }
+    if (lang === "en" || loaded[lang]) { done(true); return; }
     var script = document.createElement("script");
     script.src = localeBase + lang + ".js";
-    script.onload = function () { loaded[lang] = true; done(); };
-    script.onerror = done;
+    script.onload = function () { loaded[lang] = true; done(true); };
+    script.onerror = function () { done(false); };
     document.head.appendChild(script);
   }
 
   function setLanguage(lang) {
     if (supported.indexOf(lang) === -1) lang = "en";
     var request = ++requestSerial;
-    load(lang, function () {
-      if (request === requestSerial) apply(lang);
+    load(lang, function (available) {
+      if (request === requestSerial) apply(available ? lang : "en");
     });
   }
 
@@ -120,22 +133,26 @@
     var toggle = document.querySelector(".nav-toggle");
     var links = document.querySelector(".nav-links");
     if (!toggle || !links) return;
-    toggle.addEventListener("click", function () {
-      var open = toggle.getAttribute("aria-expanded") !== "true";
+    function setOpen(open, restoreFocus) {
       toggle.setAttribute("aria-expanded", String(open));
       links.classList.toggle("is-open", open);
+      var lang = document.documentElement.lang || "en";
+      var messages = window.JIKJI_I18N[lang] || window.JIKJI_I18N.en || {};
+      var key = open ? "a11y.nav.close" : "a11y.nav.open";
+      toggle.setAttribute("aria-label", messages[key] || (open ? "Close navigation" : "Open navigation"));
+      if (restoreFocus) toggle.focus();
+    }
+    toggle.addEventListener("click", function () {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true", false);
     });
     links.addEventListener("click", function (event) {
       if (event.target.closest("a")) {
-        toggle.setAttribute("aria-expanded", "false");
-        links.classList.remove("is-open");
+        setOpen(false, false);
       }
     });
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        toggle.setAttribute("aria-expanded", "false");
-        links.classList.remove("is-open");
-        toggle.focus();
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        setOpen(false, true);
       }
     });
   }

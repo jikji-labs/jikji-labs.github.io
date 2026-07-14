@@ -8,12 +8,14 @@
 <meta property="og:title" content="Agent Loop &amp; Tools — Jikji">
 <meta property="og:url" content="https://jikji-labs.com/agent-loop.html">
 <link rel="canonical" href="https://jikji-labs.com/agent-loop.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/jikji.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to main content</a>
 
 <header>
   <div class="wrap nav">
@@ -21,7 +23,7 @@
     <nav class="nav-links" id="site-nav">
       <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
       <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
-      <a href="agent-loop.html" class="active" data-i18n="nav.loop">Agent Loop</a>
+      <a href="agent-loop.html" class="active" aria-current="page" data-i18n="nav.loop">Agent Loop</a>
       <a href="jikjicode.html" data-i18n="nav.code">jikjicode</a>
       <a href="tools.html" data-i18n="nav.tools">Tools</a>
       <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
@@ -36,6 +38,7 @@
     </div>
   </div>
 </header>
+<main id="main-content">
 
 <div class="hero compact">
   <div class="wrap">
@@ -99,9 +102,9 @@
     </div>
 
     <div class="frow">
-      <div class="flabel" data-i18n="loop.ckpt.label">Checkpoint &amp; resume<span class="mono">exactly-once</span></div>
+      <div class="flabel" data-i18n="loop.ckpt.label">Checkpoint &amp; resume<span class="mono">evidence-checked</span></div>
       <div class="fbody">
-        <p data-i18n="loop.ckpt.p">A checkpoint is persisted after every step — tenant, step index, the last tool-call id, and any wait state. On resume, completed steps are restored into the trace and <b>tools are never re-executed</b> (deduplicated by call id); the loop continues at the next step.</p>
+        <p data-i18n="loop.ckpt.p">A checkpoint records tenant, step frontier, the last tool-call id, and any wait state. Resume validates those correlations before restoring completed steps; a completed call with matching durable evidence is not replayed, while invalid or mismatched evidence fails closed.</p>
         <ul>
           <li data-i18n="loop.ckpt.1">park on <code>wait</code>, then wake on a child completion or a timeout</li>
           <li data-i18n="loop.ckpt.2">crash-safe: a run survives process restarts and picks up where it left off</li>
@@ -230,8 +233,8 @@
     </div>
     <div class="grid cols2">
       <div class="card">
-        <h3 data-i18n="loop.lh.1.h">State that survives anything</h3>
-        <p data-i18n="loop.lh.1.p">Per-step checkpoints persist to durable storage, so a run outlives process restarts, crashes, and redeploys — and resumes exactly where it stopped, with no tool re-run.</p>
+        <h3 data-i18n="loop.lh.1.h">State that survives a restart</h3>
+        <p data-i18n="loop.lh.1.p">Durable checkpoints let a validated run resume after a restart or redeploy. Replay guards cover completed calls with matching evidence; external side effects still need downstream idempotency across an ambiguous crash boundary.</p>
       </div>
       <div class="card">
         <h3 data-i18n="loop.lh.2.h">Park now, continue later</h3>
@@ -266,6 +269,7 @@
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap">
     <div class="foot">

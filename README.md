@@ -13,9 +13,10 @@ This repository publishes the English-canonical, internationalized product docum
 - English is embedded in every page and remains the canonical source. The site
   includes 13 locales with automatic browser detection and a persistent manual
   selector. Missing keys fall back to English.
-- A translation is applied only while its recorded English source still matches
-  the current page. Changed copy therefore falls back to current English instead
-  of silently publishing an obsolete translation.
+- Every locale records the SHA-256 revision of the complete canonical English
+  dictionary it was reviewed against. The verifier recomputes that revision,
+  and the browser applies a locale only when its revision matches; otherwise the
+  page falls back to current English instead of publishing stale translated copy.
 - Product, example, navigation, caption, and image-alt keys must exist in all 13
   locale dictionaries. Legal, contact, and incident-runbook bodies remain
   authoritative in English and display an explicit notice for other locales.
@@ -33,12 +34,13 @@ Run the static-site gate before every commit:
 python3 scripts/verify_site.py
 ```
 
-The gate checks local links and fragments, canonical URLs, metadata, locale
-assets and dimensions, 100% current translation-key coverage, preserved HTML
-tokens, declared DOM cardinalities, numeric claims, fallback runtime contracts,
-required release/legal references, and known stale claims. This repository keeps
-the gate local so publication does not depend on paid CI runners or remote
-credentials.
+The gate checks contained local links and fragments, canonical URLs, metadata,
+navigation parity, main landmarks and skip links, locale source revisions, 100%
+current translation-key coverage, English fallbacks, preserved HTML and numeric
+tokens, detail-image placement and dimensions, declared DOM cardinalities,
+runtime contracts, required release/legal references, and known stale claims.
+This repository keeps the gate local so publication does not depend on paid CI
+runners or remote credentials.
 
 For local browser review, serve the repository root rather than opening files
 directly so lazy-loaded locale assets use normal HTTP semantics:

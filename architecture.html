@@ -8,19 +8,21 @@
 <meta property="og:title" content="Architecture — Jikji">
 <meta property="og:url" content="https://jikji-labs.com/architecture.html">
 <link rel="canonical" href="https://jikji-labs.com/architecture.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/jikji.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to main content</a>
 
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
     <nav class="nav-links" id="site-nav">
       <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
-      <a href="architecture.html" class="active" data-i18n="nav.arch">Architecture</a>
+      <a href="architecture.html" class="active" aria-current="page" data-i18n="nav.arch">Architecture</a>
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
       <a href="jikjicode.html" data-i18n="nav.code">jikjicode</a>
       <a href="tools.html" data-i18n="nav.tools">Tools</a>
@@ -36,6 +38,7 @@
     </div>
   </div>
 </header>
+<main id="main-content">
 
 <div class="hero compact">
   <div class="wrap">
@@ -110,7 +113,7 @@
       </div>
       <div class="card">
         <h3 data-i18n="arch.prov.3.h">Smart routing</h3>
-        <p data-i18n="arch.prov.3.p">Model aliases, model groups with <code>round_robin</code> / <code>first_available</code> / <code>failover</code> strategies, multi-key rotation, and cache-aware sticky routing — routing is configuration, not code.</p>
+        <p data-i18n="arch.prov.3.p">Model aliases, ordered provider candidates with failover, multi-key rotation, and cache-aware sticky routing keep provider selection in configuration. Role-specific model-group routing remains outside the advertised runtime contract until its production dispatch path is fully wired.</p>
       </div>
       <div class="card">
         <h3 data-i18n="arch.prov.4.h">Provider-aware runtime</h3>
@@ -123,7 +126,7 @@
   <span class="k">model_aliases</span>: <span class="p">{</span> fast: deepseek-v4-flash:cloud, smart: glm-5.2 <span class="p">}</span>
   <span class="k">providers</span>:
     - <span class="p">{</span> name: ollama-cloud, kind: ollama-cloud, model: deepseek-v4-flash:cloud <span class="p">}</span>
-    - <span class="p">{</span> name: zai,  kind: zai,        model: glm-5.1 <span class="p">}</span>
+    - <span class="p">{</span> name: zai,  kind: zai,        model: glm-5.2 <span class="p">}</span>
     - <span class="p">{</span> name: grok, kind: grok-oauth, model: grok-4.3, api_key: oauth:grok <span class="p">}</span>
     - <span class="p">{</span> name: openai, kind: openai-compatible, base_url: https://api.openai.com/v1, api_key_env: OPENAI_API_KEY <span class="p">}</span></pre>
   </div>
@@ -164,20 +167,19 @@
   <span class="k">backend</span>: postgresql      <span class="c"># sqlite · postgresql · mysql (shared DB for HA)</span>
   <span class="k">dsn_env</span>: GALLEY_POSTGRES_DSN
 <span class="k">typebackbone</span>:
-  <span class="k">model_groups</span>:
-    <span class="k">balanced</span>:
-      <span class="k">providers</span>: [ollama-cloud, glm-5.1]
-      <span class="k">strategy</span>: round_robin   <span class="c"># round_robin · first_available · failover</span></pre>
+  <span class="k">model_aliases</span>:
+    <span class="k">balanced</span>: glm-5.2
+  <span class="k">default_provider</span>: ollama-cloud</pre>
     <div class="callout" style="margin-top:26px">
       <b data-i18n="arch.dep.free.h">Free along every axis.</b>
       <ul class="freelist">
         <li><b data-i18n="arch.dep.free.scale.l">Scale-free</b> — <span data-i18n="arch.dep.free.scale.d">laptop to data center.</span></li>
         <li><b data-i18n="arch.dep.free.loc.l">Location-free</b> — <span data-i18n="arch.dep.free.loc.d">local execution out to remote nodes.</span></li>
         <li><b data-i18n="arch.dep.free.net.l">Network-free</b> — <span data-i18n="arch.dep.free.net.d">a TLS relay tunnel reaches nodes across networks, behind NAT or a firewall, on-prem or in any cloud — so environments that couldn't otherwise see each other join one fabric.</span></li>
-        <li><b data-i18n="arch.dep.free.os.l">Region- &amp; OS-free</b> — <span data-i18n="arch.dep.free.os.d">tools run wherever the node lives, on Linux, macOS, or Windows.</span></li>
+        <li><b data-i18n="arch.dep.free.os.l">Six static build targets</b> — <span data-i18n="arch.dep.free.os.d">Linux, macOS, and Windows builds ship for amd64 and arm64. Linux amd64 is release-qualified; the other targets require operator qualification, and Linux-only sandbox controls do not transfer to macOS or Windows.</span></li>
         <li><b data-i18n="arch.dep.free.inst.l">Instance-free</b> — <span data-i18n="arch.dep.free.inst.d">one process or many behind a shared database, with HA leader election.</span></li>
       </ul>
-      <p style="margin-top:10px;color:var(--ink-faint)" data-i18n="arch.dep.free.foot">Same binary, same agents; only the configuration changes.</p>
+      <p style="margin-top:10px;color:var(--ink-faint)" data-i18n="arch.dep.free.foot">The same release family and agent contracts span the matrix; configuration and target-host qualification determine the available capabilities.</p>
     </div>
   </div>
 </section>
@@ -197,7 +199,7 @@
       <tr><th data-i18n="arch.bin.2.k">jikjictl</th><td data-i18n="arch.bin.2.v">The operator CLI — health, models, credentials and vault, RBAC, policy, filters, provider OAuth, usage, audit, and marketplace.</td></tr>
       <tr><th data-i18n="arch.bin.3.k">jikjicode</th><td data-i18n="arch.bin.3.v">A standalone coding CLI that drives local sandboxed tools against a remote OpenAI-compatible model server.</td></tr>
       <tr><th data-i18n="arch.bin.4.k">jikji-relay</th><td data-i18n="arch.bin.4.v">A TLS tunneling proxy (TLS 1.3) that connects a controller to remote tool nodes across networks.</td></tr>
-      <tr><th data-i18n="arch.bin.5.k">jikji-tool-node</th><td data-i18n="arch.bin.5.v">A remote tool executor — registers with the controller, runs tools under the sandbox, and heartbeats its health.</td></tr>
+      <tr><th data-i18n="arch.bin.5.k">jikji-tool-node</th><td data-i18n="arch.bin.5.v">A remote tool executor that registers with the controller, runs tools through governed runners, and heartbeats its health. OS-level isolation follows the target-host support matrix.</td></tr>
     </table>
   </div>
 </section>
@@ -231,12 +233,12 @@
     <div class="sec-head">
       <span class="tag" data-i18n="arch.perf.tag">Performance &amp; Efficiency</span>
       <h2 data-i18n="arch.perf.h2">Many sessions, frugal footprint</h2>
-      <p data-i18n="arch.perf.p">A compiled Go core, not an interpreter — so it never pays the heavy memory and latency tax that script-based stacks (Python or Node.js) carry. A single node serves many concurrent sessions while staying light on memory and fast to respond. Efficiency is scale-free: the same runtime sips power on a laptop and packs more work per core on a server.</p>
+      <p data-i18n="arch.perf.p">A compiled Go core avoids a per-session language runtime, while bounded queues, caches, and in-process composition reduce coordination overhead. Measure the exact release with your models, tools, and concurrency profile: provider latency and workload shape dominate end-to-end performance.</p>
     </div>
     <div class="grid cols3">
       <div class="card">
         <h3 data-i18n="arch.perf.1.h">Concurrency without weight</h3>
-        <p data-i18n="arch.perf.1.p">Go goroutines handle dozens of concurrent sessions in one process — often at a fraction of a percent of a single CPU core — with no per-session interpreter or runtime to spin up. Work runs in-process first, so coordination is a function call, not a network hop.</p>
+        <p data-i18n="arch.perf.1.p">Go goroutines multiplex bounded concurrent sessions without a per-session interpreter. In-process composition keeps local coordination on function-call boundaries; remote planes remain explicit network hops.</p>
       </div>
       <div class="card">
         <h3 data-i18n="arch.perf.2.h">Fast by construction</h3>
@@ -244,10 +246,10 @@
       </div>
       <div class="card">
         <h3 data-i18n="arch.perf.3.h">Frugal footprint</h3>
-        <p data-i18n="arch.perf.3.p">One static binary with embedded SQLite and hot-path memo caching keeps the resident footprint around 50&nbsp;MB without the ontology engine loaded — minimal memory and CPU per session, from a laptop to a dense multi-tenant node.</p>
+        <p data-i18n="arch.perf.3.p">Static binaries, embedded SQLite, and bounded caches keep the base deployment compact. Capacity must still be qualified from real context sizes, enabled modules, provider concurrency, and the target operating system.</p>
       </div>
     </div>
-    <div class="callout" style="margin-top:24px" data-i18n="arch.perf.note"><b>Scale-free efficiency.</b> On a laptop it runs cool and draws little power, leaving the battery and the fans alone. On a server the very same binary answers faster and fits more concurrent sessions per core — so you spend less hardware for the same load. One runtime, tuned by where it runs.</div>
+    <div class="callout" style="margin-top:24px" data-i18n="arch.perf.note"><b>Evidence before adjectives.</b> Retain the release verification report and repeat load, recovery, sandbox, and database drills on the exact OS and topology you plan to operate.</div>
   </div>
 </section>
 
@@ -260,6 +262,7 @@
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap">
     <div class="foot">

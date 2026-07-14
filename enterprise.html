@@ -8,12 +8,14 @@
 <meta property="og:title" content="Enterprise &amp; Security — Jikji">
 <meta property="og:url" content="https://jikji-labs.com/enterprise.html">
 <link rel="canonical" href="https://jikji-labs.com/enterprise.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/jikji.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to main content</a>
 
 <header>
   <div class="wrap nav">
@@ -27,7 +29,7 @@
       <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
       <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
       <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
-      <a href="enterprise.html" class="active" data-i18n="nav.enterprise">Enterprise</a>
+      <a href="enterprise.html" class="active" aria-current="page" data-i18n="nav.enterprise">Enterprise</a>
     </nav>
     <div class="nav-actions">
       <label class="lang-label" for="langSel"><span aria-hidden="true">文</span><span class="sr-only">Language</span></label>
@@ -36,6 +38,7 @@
     </div>
   </div>
 </header>
+<main id="main-content">
 
 <div class="hero compact">
   <div class="wrap">
@@ -236,7 +239,7 @@
     <div class="grid cols3">
       <div class="card">
         <h3 data-i18n="ent.rob.1.h">Recovery &amp; durability</h3>
-        <p data-i18n="ent.rob.1.p">Per-step checkpoints and exactly-once resume, SQLITE_BUSY retry, and distributed lease managers that fail loudly rather than fabricating success.</p>
+        <p data-i18n="ent.rob.1.p">Validated per-step checkpoints with correlated replay guards, SQLITE_BUSY retry, and distributed lease managers that fail loudly rather than fabricating success.</p>
       </div>
       <div class="card">
         <h3 data-i18n="ent.rob.2.h">Failure isolation</h3>
@@ -303,6 +306,7 @@ jikjictl provider oauth reset codex   <span class="c"># clear a quarantined OAut
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap">
     <div class="foot">

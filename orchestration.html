@@ -8,12 +8,14 @@
 <meta property="og:title" content="Orchestration — Jikji">
 <meta property="og:url" content="https://jikji-labs.com/orchestration.html">
 <link rel="canonical" href="https://jikji-labs.com/orchestration.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/jikji.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to main content</a>
 
 <header>
   <div class="wrap nav">
@@ -24,7 +26,7 @@
       <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
       <a href="jikjicode.html" data-i18n="nav.code">jikjicode</a>
       <a href="tools.html" data-i18n="nav.tools">Tools</a>
-      <a href="orchestration.html" class="active" data-i18n="nav.orch">Orchestration</a>
+      <a href="orchestration.html" class="active" aria-current="page" data-i18n="nav.orch">Orchestration</a>
       <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
       <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
       <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
@@ -36,6 +38,7 @@
     </div>
   </div>
 </header>
+<main id="main-content">
 
 <div class="hero compact">
   <div class="wrap">
@@ -234,7 +237,7 @@
       <h2 data-i18n="orch.xr.h2">Tools without borders</h2>
       <p data-i18n="orch.xr.p">A tool call doesn't have to run where the agent is thinking. Tools execute on remote nodes chosen by capability and placement, reachable over relay tunnels — so a single run can reach across machines, clouds, regions, and operating systems, with a durable shared catalog, per-node circuit breakers, and failover.</p>
     </div>
-    <div class="callout" data-i18n="orch.xr.eg"><b>One run, three regions, three operating systems.</b> Read the logs on a Linux node in Seattle, scale a container from a macOS node in Tokyo, then check the response from a Windows node in Seoul — each tool routed to the node that can run it, all within one deterministic, checkpointed agent run.</div>
+    <div class="callout" data-i18n="orch.xr.eg"><b>One run, three regions, three operating systems.</b> Route registered work to Linux, macOS, and Windows nodes by capability and placement labels. Each target remains operator-qualified, and every runner keeps the isolation boundary of its host rather than inheriting Linux sandbox guarantees.</div>
   </div>
 </section>
 
@@ -247,6 +250,7 @@
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap">
     <div class="foot">

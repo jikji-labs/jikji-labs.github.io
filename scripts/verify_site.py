@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 import struct
 from collections import Counter, defaultdict
@@ -18,9 +19,13 @@ LOCALES = ("en", "ko", "ja", "zh", "zh-tw", "fr", "de", "es", "pt", "it", "ru", 
 STALE = (
     "coming soon", "source is not yet public", "source code is not yet public", "1.8m+",
     "nothing leaks to a third party", "raw pii and secrets never reach",
+    "exactly-once resume", "tools are never re-executed", "region- & os-free",
+    "no separate api bill", "gpt-5.5",
 )
 KEY_RE = re.compile(r'^\s*"([^"]+)"\s*:', re.MULTILINE)
 ENTRY_RE = re.compile(r'^\s*("(?:\\.|[^"])*")\s*:\s*("(?:\\.|[^"])*")\s*,?$', re.MULTILINE)
+REVISION_RE = re.compile(r'window\.JIKJI_I18N_REVISION\s*=\s*"(sha256:[0-9a-f]{64})"')
+SOURCE_REVISION_RE = re.compile(r'window\.JIKJI_I18N_SOURCE\["([^"]+)"\]\s*=\s*"(sha256:[0-9a-f]{64})"')
 HTML_TOKEN_RE = re.compile(r'</?[^>]+>')
 NUMBER_RE = re.compile(r'(?<![A-Za-z0-9_.])\d+(?:[.,]\d+)*(?![A-Za-z0-9_.])')
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
@@ -67,13 +72,6 @@ NUMBER_TOKEN_GROUPS = {
         "ru": ("четыр", "шест", "одн", "дв"), "vi": ("bốn", "sáu", "một", "hai"),
         "id": ("empat", "enam", "satu", "dua"),
     },
-    "onto.foresight.3p": {
-        "en": ("three", "one"), "ko": ("3", "단일"), "ja": ("3", "1"),
-        "zh": ("三", "一个"), "zh-tw": ("三", "單一"), "fr": ("trois", "un"),
-        "de": ("drei", "ein"), "es": ("tres", "un"), "pt": ("três", "um"),
-        "it": ("tre", "un"), "ru": ("тремя", "одного"), "vi": ("ba", "một"),
-        "id": ("tiga", "satu"),
-    },
 }
 PROOF_KEYS = ("ent.pii.p", "ent.pii.flow", "ent.pii.1.p")
 PROOF_CONDITIONAL_TOKENS = {
@@ -86,6 +84,20 @@ PROOF_CONDITIONAL_TOKENS = {
     "id": ("tidak", "jalur"),
 }
 PRIVATE_EXAMPLE_PREFIX = "https://github.com/jikji-labs/jikji/tree/main/examples/"
+EXAMPLE_EVIDENCE = {
+    "agent-cli-backbone": "examples/agent-cli-backbone/README.md",
+    "trinity-council": "examples/trinity-council/README.md",
+    "taskgraph-orchestration": "examples/taskgraph-orchestration/artifacts/worked_run.md",
+    "dispatch-queue-worker": "examples/dispatch-queue-worker/artifacts/worked_run.md",
+    "production-hardening": "examples/production-hardening/README.md",
+    "ha-multi-node": "examples/ha-multi-node/README.md",
+    "coding-debugging": "examples/coding-debugging/artifacts/worked_run.md",
+    "observability-tracing": "examples/observability-tracing/README.md",
+    "approval-gates": "examples/approval-gates/README.md",
+    "backup-restore": "examples/backup-restore/README.md",
+    "audit-tamper-evidence": "examples/audit-tamper-evidence/README.md",
+    "relay-secure-cluster": "examples/relay-secure-cluster/README.md",
+}
 ALERT_CONTRACTS = {
     "jikjitargetdown": ("JikjiTargetDown", "/health"),
     "jikjihttperrorbudgetburn": ("JikjiHTTPErrorBudgetBurn", "jikji_http_route_responses_total"),
@@ -138,6 +150,7 @@ class PageParser(HTMLParser):
         self.english_notice_count = 0
         self.title_count = 0
         self.description_count = 0
+        self.main_count = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         self._position += 1
@@ -190,6 +203,8 @@ class PageParser(HTMLParser):
             self.title_count += 1
         if tag == "meta" and values.get("name") == "description" and values.get("content"):
             self.description_count += 1
+        if tag == "main":
+            self.main_count += 1
         if values.get("data-cardinality"):
             self._cardinality_stack.append({
                 "tag": tag, "depth": self._depth, "expected": int(values["data-cardinality"] or "0"),
@@ -312,6 +327,10 @@ def main() -> None:
             errors.append(f"{page.name}: duplicate ids {', '.join(duplicate_ids)}")
         if parser.title_count != 1 or parser.description_count != 1:
             errors.append(f"{page.name}: requires exactly one title and description")
+        if parser.main_count != 1 or parser.ids.count("main-content") != 1:
+            errors.append(f"{page.name}: requires one <main id='main-content'> landmark")
+        if not any(attr == "href" and ref == "#main-content" for attr, ref in parser.refs):
+            errors.append(f"{page.name}: requires a skip link to #main-content")
         if parser.canonicals != [expected_canonical(page)]:
             errors.append(f"{page.name}: canonical must be {expected_canonical(page)!r}")
         expected_scripts = expected_i18n_scripts(page)
@@ -396,6 +415,19 @@ def main() -> None:
 
     dictionaries = {locale: dictionary(locale, errors) for locale in LOCALES}
     english = dictionaries["en"]
+    canonical_payload = json.dumps(
+        english, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")
+    expected_revision = "sha256:" + hashlib.sha256(canonical_payload).hexdigest()
+    english_text = (ROOT / "assets" / "i18n" / "en.js").read_text(encoding="utf-8")
+    revision_match = REVISION_RE.search(english_text)
+    if revision_match is None or revision_match.group(1) != expected_revision:
+        errors.append("en.js: JIKJI_I18N_REVISION does not match the canonical English dictionary")
+    for locale in LOCALES[1:]:
+        locale_text = (ROOT / "assets" / "i18n" / f"{locale}.js").read_text(encoding="utf-8")
+        source_matches = SOURCE_REVISION_RE.findall(locale_text)
+        if source_matches != [(locale, expected_revision)]:
+            errors.append(f"{locale}: source revision does not match canonical English")
     missing_english = sorted(site_keys - set(english))
     if missing_english:
         errors.append("English canonical dictionary misses: " + ", ".join(missing_english))
@@ -451,6 +483,12 @@ def main() -> None:
     for relative in ("use-cases.html", "memory.html"):
         if PRIVATE_EXAMPLE_PREFIX in (ROOT / relative).read_text(encoding="utf-8"):
             errors.append(f"{relative}: private GitHub example links are not public evidence")
+
+    use_cases = (ROOT / "use-cases.html").read_text(encoding="utf-8")
+    for slug, evidence_path in EXAMPLE_EVIDENCE.items():
+        expected = f'https://github.com/jikji-labs/jikji/blob/main/{evidence_path}'
+        if use_cases.count(f'href="{expected}"') != 1:
+            errors.append(f"use-cases.html: {slug} must link exactly once to {evidence_path}")
 
     architecture = (ROOT / "architecture.html").read_text(encoding="utf-8")
     if architecture.count('<div class="name">typebackbone ') != 1:
