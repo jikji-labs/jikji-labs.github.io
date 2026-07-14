@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jikji — The Agent Platform, Set in Metal Type</title>
-<meta name="description" content="Jikji is a modular agent platform in a single Go binary — deterministic agent loops, durable state, adaptive multi-model orchestration, learning memory, and built-in governance, from your laptop to enterprise clusters.">
+<meta name="description" content="Jikji is a modular Go agent platform with deterministic agent loops, durable state, adaptive multi-model orchestration, learning memory, and built-in governance, from your laptop to enterprise clusters.">
 <meta property="og:title" content="Jikji — The Agent Platform, Set in Metal Type">
-<meta property="og:description" content="A modular agent platform in a single Go binary. Deterministic, durable, governed.">
+<meta property="og:description" content="A modular Go agent platform. Deterministic, durable, governed.">
 <meta property="og:url" content="https://jikji-labs.com">
 <link rel="canonical" href="https://jikji-labs.com/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -44,10 +44,10 @@
 <!-- HERO -->
 <div class="hero home-hero">
   <div class="wrap">
-    <span class="kicker" data-i18n="hero.kicker.current">Enterprise agent runtime · Static Go release · GPL default</span>
+    <span class="kicker" data-i18n="hero.kicker.current">Enterprise agent runtime · CGO-disabled Go release · GPL default</span>
     <h1>Jikji</h1>
     <p class="hero-offer" data-i18n="hero.offer.current">The enterprise agent platform, set in metal type.</p>
-    <p class="sub" data-i18n="hero.sub">Jikji is a modular agent framework that runs as one static Go binary — a deterministic agent loop, durable orchestration state, adaptive multi-model coordination, and built-in governance. Built for long-horizon agentic workflows, from a laptop to enterprise clusters.</p>
+    <p class="sub" data-i18n="hero.sub">Jikji is a modular agent framework built in Go — a deterministic agent loop, durable orchestration state, adaptive multi-model coordination, and built-in governance. Release artifacts are built with CGO disabled; Linux amd64 is the currently native-qualified target.</p>
     <div class="cta">
       <a class="btn btn-primary" href="#start" data-i18n="cta.start">Get Started</a>
       <a class="btn btn-ghost" href="https://github.com/jikji-labs">Jikji Labs on GitHub</a>
@@ -118,8 +118,8 @@
     <div class="grid cols3">
       <div class="card">
         <span class="num">01</span>
-        <h3 data-i18n="c1.h">One static binary, zero dependency hell</h3>
-        <p data-i18n="c1.p">Written in Go and shipped as a single static binary. No Python or Node.js toolchains, no dependency conflicts. The same binary runs on your laptop, as split services, or in a multi-node cluster.</p>
+        <h3 data-i18n="c1.h">CGO-disabled Go releases, explicit host boundaries</h3>
+        <p data-i18n="c1.p">The base release has no Python or Node.js runtime dependency. We cross-build six OS and architecture artifacts; native release qualification currently covers Linux amd64. Optional tools and host isolation retain platform-specific requirements.</p>
         <a class="more" href="architecture.html" data-i18n="c1.more">See the architecture →</a>
       </div>
       <div class="card">
@@ -208,7 +208,7 @@
 <section class="tight">
   <div class="wrap">
     <div class="stats" data-cardinality="6" data-cardinality-class="stat">
-      <div class="stat"><div class="n">1</div><div class="l" data-i18n="st.1">static Go binary</div></div>
+      <div class="stat"><div class="n">6</div><div class="l" data-i18n="st.1">CGO-disabled build targets</div></div>
       <div class="stat"><div class="n">1</div><div class="l">primary server binary</div></div>
       <div class="stat"><div class="n">4</div><div class="l" data-i18n="st.3">open protocol surfaces</div></div>
       <div class="stat"><div class="n">3</div><div class="l">SQL backends</div></div>

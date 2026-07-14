@@ -138,13 +138,13 @@
     <div class="sec-head">
       <span class="tag" data-i18n="arch.dep.tag">Deployment Shapes</span>
       <h2 data-i18n="arch.dep.h2">Scale-free — laptop to data center, local to remote, one to many</h2>
-      <p data-i18n="arch.dep.p">The same binary changes shape by configuration — across scale, location, and instance count. Start everything in one process, split the planes into services, push tool execution onto remote nodes, then run many instances behind a shared database — all without changing your agents.</p>
+      <p data-i18n="arch.dep.p">Deployment shape changes by configuration — across scale, location, and instance count. Start the qualified runtime in one process, split planes into services, push tool execution onto remote nodes, then run many instances behind a shared database — all without changing your agents.</p>
     </div>
     <div class="grid cols3">
       <div class="card">
         <span class="num">DESKTOP</span>
         <h3 data-i18n="arch.dep.1.h">One process, local-first</h3>
-        <p data-i18n="arch.dep.1.p">A single binary with embedded SQLite for durable state. No external services required — the whole platform boots from one config file on a laptop or an edge box.</p>
+        <p data-i18n="arch.dep.1.p">A compact deployment embeds SQLite for durable state. The base Linux runtime boots from one config file on a laptop or edge box; distributed profiles add only the services their topology requires.</p>
       </div>
       <div class="card">
         <span class="num">SERVICES</span>
@@ -158,7 +158,7 @@
       </div>
     </div>
     <div class="callout" style="margin-top:24px" data-i18n="arch.dep.note"><b>Profiles</b> — bootstrap presets (<span class="mono">desktop</span>, <span class="mono">edge</span>, <span class="mono">controller</span>, <span class="mono">all</span>) select which planes a node runs, so the same image fills any role in the cluster.</div>
-    <p class="code-cap" style="margin-top:30px" data-i18n="arch.dep.cap">Multi-node HA is a configuration change, not a rewrite — point the same binary at a shared database:</p>
+    <p class="code-cap" style="margin-top:30px" data-i18n="arch.dep.cap">Multi-node HA is a configuration change, not a rewrite — connect qualified service artifacts to a shared database:</p>
 <pre class="code-block"><span class="k">runtime</span>:
   <span class="k">mode</span>: production
   <span class="k">ha</span>:
@@ -176,7 +176,7 @@
         <li><b data-i18n="arch.dep.free.scale.l">Scale-free</b> — <span data-i18n="arch.dep.free.scale.d">laptop to data center.</span></li>
         <li><b data-i18n="arch.dep.free.loc.l">Location-free</b> — <span data-i18n="arch.dep.free.loc.d">local execution out to remote nodes.</span></li>
         <li><b data-i18n="arch.dep.free.net.l">Network-free</b> — <span data-i18n="arch.dep.free.net.d">a TLS relay tunnel reaches nodes across networks, behind NAT or a firewall, on-prem or in any cloud — so environments that couldn't otherwise see each other join one fabric.</span></li>
-        <li><b data-i18n="arch.dep.free.os.l">Six static build targets</b> — <span data-i18n="arch.dep.free.os.d">Linux, macOS, and Windows builds ship for amd64 and arm64. Linux amd64 is release-qualified; the other targets require operator qualification, and Linux-only sandbox controls do not transfer to macOS or Windows.</span></li>
+        <li><b data-i18n="arch.dep.free.os.l">Six CGO-disabled build targets</b> — <span data-i18n="arch.dep.free.os.d">The release gate cross-compiles Linux, macOS, and Windows artifacts for amd64 and arm64 with CGO disabled. Linux amd64 is native release-qualified; the other five targets are compile-validated only and require operator testing. Linux sandbox controls do not transfer, and BSD is not a supported build or test target.</span></li>
         <li><b data-i18n="arch.dep.free.inst.l">Instance-free</b> — <span data-i18n="arch.dep.free.inst.d">one process or many behind a shared database, with HA leader election.</span></li>
       </ul>
       <p style="margin-top:10px;color:var(--ink-faint)" data-i18n="arch.dep.free.foot">The same release family and agent contracts span the matrix; configuration and target-host qualification determine the available capabilities.</p>
@@ -246,7 +246,7 @@
       </div>
       <div class="card">
         <h3 data-i18n="arch.perf.3.h">Frugal footprint</h3>
-        <p data-i18n="arch.perf.3.p">Static binaries, embedded SQLite, and bounded caches keep the base deployment compact. Capacity must still be qualified from real context sizes, enabled modules, provider concurrency, and the target operating system.</p>
+        <p data-i18n="arch.perf.3.p">CGO-disabled release artifacts, embedded SQLite, and bounded caches keep the base deployment compact. Capacity and host behavior must still be qualified from real context sizes, enabled modules, provider concurrency, and the target operating system.</p>
       </div>
     </div>
     <div class="callout" style="margin-top:24px" data-i18n="arch.perf.note"><b>Evidence before adjectives.</b> Retain the release verification report and repeat load, recovery, sandbox, and database drills on the exact OS and topology you plan to operate.</div>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>jikjicode — Jikji</title>
-<meta name="description" content="jikjicode is Jikji's standalone coding-agent CLI: hash-anchored precision edits, atomic multi-file patches, AST-native code intelligence for Go plus real multi-language LSP (symbols and call graph for Rust, Python, TypeScript, C/C++, and more), and build/test through a portable shell — local or against a remote server.">
+<meta name="description" content="jikjicode is Jikji's standalone coding-agent CLI: hash-anchored precision edits, atomic multi-file patches, AST-native code intelligence for Go plus multi-language LSP, and build/test through host-specific command adapters — local or against a remote server.">
 <meta property="og:title" content="jikjicode — Jikji">
 <meta property="og:url" content="https://jikji-labs.com/jikjicode.html">
 <link rel="canonical" href="https://jikji-labs.com/jikjicode.html">
@@ -58,7 +58,7 @@
   <div class="process-flow" data-cardinality="4" data-cardinality-class="process-step">
     <div class="process-step"><b data-i18n="plate.code.s1h">Understand</b><span data-i18n="plate.code.s1p">Type-check, symbols, and a call graph read the code through the compiler and language servers.</span></div>
     <div class="process-step"><b data-i18n="plate.code.s2h">Edit</b><span data-i18n="plate.code.s2p">Hash-anchored edits and atomic multi-file patches refuse to work on a stale file.</span></div>
-    <div class="process-step"><b data-i18n="plate.code.s3h">Verify</b><span data-i18n="plate.code.s3p">Each mutating edit is re-checked, and builds and tests run through a portable shell.</span></div>
+    <div class="process-step"><b data-i18n="plate.code.s3h">Verify</b><span data-i18n="plate.code.s3p">Each mutating edit is re-checked, and builds and tests run through a host-specific command adapter whose target must be qualified.</span></div>
     <div class="process-step"><b data-i18n="plate.code.s4h">Bound</b><span data-i18n="plate.code.s4p">A risk-based sandbox with optional approval gates what the agent may run.</span></div>
   </div>
   <p class="plate-caption" data-i18n="plate.code.cap">The same deterministic forme loop, given a coding-focused toolset — every edit anchored, every command bounded.</p>
@@ -68,14 +68,14 @@
 <section class="tight">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag" data-i18n="jc.cmd.tag">One Binary, Every Workflow</span>
+      <span class="tag" data-i18n="jc.cmd.tag">One CLI, Explicit Platform Contracts</span>
       <h2 data-i18n="jc.cmd.h2">Runs where you do</h2>
-      <p data-i18n="jc.cmd.p">A single <span class="mono">jikjicode</span> binary. Run the loop in-process against a configured provider, or hand the run to a Jikji server and its policy plane. Static builds target Linux, macOS, and Windows on amd64 and arm64; host isolation and terminal capabilities vary by operating system.</p>
+      <p data-i18n="jc.cmd.p">Run <span class="mono">jikjicode</span> in-process against a configured provider, or hand the run to a Jikji server and its policy plane. CGO-disabled artifacts are cross-built for Linux, macOS, and Windows on amd64 and arm64. Linux amd64 is native-qualified; the other targets are compile-validated only and require operator testing. BSD is unsupported.</p>
     </div>
     <table class="spec">
       <tr><th data-i18n="jc.cmd.1.k">Local</th><td data-i18n="jc.cmd.1.v">The default — the <code>forme</code> loop runs in-process against your model, with the coding toolset on your workspace.</td></tr>
       <tr><th data-i18n="jc.cmd.2.k">Remote</th><td data-i18n="jc.cmd.2.v">Delegate the whole run to a Jikji server over <code>/v1/runs</code>; the server's scopes and sandbox bound it.</td></tr>
-      <tr><th data-i18n="jc.cmd.3.k">Interactive &amp; one-shot</th><td data-i18n="jc.cmd.3.v">A full-screen TUI on a terminal, a line REPL off it, and <code>jikjicode exec</code> for one task. <code>/resume</code> restores a session, <code>/ps</code> inspects background terminals, Ctrl+O redraws the durable transcript in verbose form, and structured output modes support automation.</td></tr>
+      <tr><th data-i18n="jc.cmd.3.k">Interactive &amp; one-shot</th><td data-i18n="jc.cmd.3.v">On qualified Linux, use the full-screen TUI, line REPL, or <code>jikjicode exec</code>. <code>/resume</code>, durable transcripts, and structured output support portable automation; <code>/ps</code> inspects Unix PTY-backed terminals. Windows ConPTY is not supported.</td></tr>
       <tr><th data-i18n="jc.cmd.4.k">Setup</th><td data-i18n="jc.cmd.4.v"><code>jikjicode init</code> scaffolds a config; <code>jikjicode doctor</code> checks your model and environment before you start.</td></tr>
     </table>
   </div>
@@ -169,12 +169,12 @@
     </div>
     <div class="grid cols2" data-cardinality="4" data-cardinality-class="card">
       <div class="card">
-        <h3 data-i18n="jc.run.1.h">Portable shell</h3>
-        <p data-i18n="jc.run.1.p"><code>shell.run</code> uses a POSIX shell on Linux and macOS and <code>cmd.exe /C</code> on Windows. Unix process groups and Windows Job Objects terminate the command tree on timeout or cancellation; bounded head-and-tail output keeps noisy logs out of the context window.</p>
+        <h3 data-i18n="jc.run.1.h">Host-aware command runner</h3>
+        <p data-i18n="jc.run.1.p"><code>shell.run</code> uses a POSIX shell adapter on Linux and macOS and a <code>cmd.exe /C</code> adapter with Job Object cancellation on Windows. Linux behavior is native-tested; macOS and Windows are cross-compile validated only, and Windows ConPTY sessions are not supported. Bounded head-and-tail output keeps noisy logs out of the context window.</p>
       </div>
       <div class="card">
         <h3 data-i18n="jc.run.2.h">Risk-based sandbox</h3>
-        <p data-i18n="jc.run.2.p">A configurable policy — <code>read-only</code>, <code>workspace-write</code>, or <code>danger-full-access</code> — bounds tool risk on every host. Deep process isolation (namespaces, private procfs, Landlock, optional seccomp and cgroups) is Linux-only; a requested OS sandbox fails closed on macOS and Windows rather than running unconfined.</p>
+        <p data-i18n="jc.run.2.p">A configurable policy — <code>read-only</code>, <code>workspace-write</code>, or <code>danger-full-access</code> — bounds tool risk. Deep process isolation (namespaces, private procfs, Landlock, optional seccomp and cgroups) is Linux-only. macOS Seatbelt and a Windows OS sandbox are not implemented; requests that require an OS sandbox fail closed.</p>
       </div>
       <div class="card">
         <h3 data-i18n="jc.run.3.h">Ask before it acts</h3>

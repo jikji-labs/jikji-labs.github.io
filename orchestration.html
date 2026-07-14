@@ -237,7 +237,7 @@
       <h2 data-i18n="orch.xr.h2">Tools without borders</h2>
       <p data-i18n="orch.xr.p">A tool call doesn't have to run where the agent is thinking. Tools execute on remote nodes chosen by capability and placement, reachable over relay tunnels — so a single run can reach across machines, clouds, regions, and operating systems, with a durable shared catalog, per-node circuit breakers, and failover.</p>
     </div>
-    <div class="callout" data-i18n="orch.xr.eg"><b>One run, three regions, three operating systems.</b> Route registered work to Linux, macOS, and Windows nodes by capability and placement labels. Each target remains operator-qualified, and every runner keeps the isolation boundary of its host rather than inheriting Linux sandbox guarantees.</div>
+    <div class="callout" data-i18n="orch.xr.eg"><b>One run, capability-routed hosts.</b> Route registered work by capability and placement labels. Linux amd64 is the native-qualified target; macOS and Windows artifacts are cross-compile validated and must be operator-qualified before use. Every runner keeps its host isolation boundary, and BSD is unsupported.</div>
   </div>
 </section>
 

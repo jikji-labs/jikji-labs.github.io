@@ -8,6 +8,9 @@ This repository publishes the English-canonical, internationalized product docum
 
 - Product and architecture claims must match implemented Jikji behavior.
 - Pre-1.0 or unverified behavior must be labeled explicitly.
+- Platform claims must distinguish CGO-disabled cross-build validation from native
+  runtime qualification, name capability gaps such as sandboxing and PTY support,
+  and state the BSD support boundary explicitly.
 - Release, security, and licensing statements must link to their controlling
   repository documents.
 - English is embedded in every page and remains the canonical source. The site

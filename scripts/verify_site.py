@@ -20,7 +20,8 @@ STALE = (
     "coming soon", "source is not yet public", "source code is not yet public", "1.8m+",
     "nothing leaks to a third party", "raw pii and secrets never reach",
     "exactly-once resume", "tools are never re-executed", "region- & os-free",
-    "no separate api bill", "gpt-5.5",
+    "no separate api bill", "gpt-5.5", "one static binary", "single static go binary",
+    "portable shell",
 )
 KEY_RE = re.compile(r'^\s*"([^"]+)"\s*:', re.MULTILINE)
 ENTRY_RE = re.compile(r'^\s*("(?:\\.|[^"])*")\s*:\s*("(?:\\.|[^"])*")\s*,?$', re.MULTILINE)
@@ -74,6 +75,15 @@ NUMBER_TOKEN_GROUPS = {
     },
 }
 PROOF_KEYS = ("ent.pii.p", "ent.pii.flow", "ent.pii.1.p")
+PLATFORM_CONTRACT_TOKENS = {
+    "arch.dep.free.os.d": ("CGO", "Linux", "macOS", "Windows", "amd64", "arm64", "BSD"),
+    "orch.xr.eg": ("Linux", "macOS", "Windows", "BSD"),
+    "jc.cmd.p": ("CGO", "Linux", "macOS", "Windows", "amd64", "arm64", "BSD"),
+    "jc.cmd.3.v": ("Linux", "Windows", "ConPTY"),
+    "jc.run.1.p": ("Linux", "macOS", "Windows", "POSIX", "Job", "ConPTY"),
+    "jc.run.2.p": ("Linux", "macOS", "Windows", "Seatbelt"),
+    "ent.obs.4.p": ("Unix", "Windows", "ConPTY", "JSONL", "pprof"),
+}
 PROOF_CONDITIONAL_TOKENS = {
     "en": ("unmatched", "path"), "ko": ("일치하지", "경로"),
     "ja": ("一致しない", "経路"), "zh": ("未匹配", "路径"),
@@ -467,6 +477,13 @@ def main() -> None:
                     )
 
     for locale in LOCALES:
+        for key, required_tokens in PLATFORM_CONTRACT_TOKENS.items():
+            value = dictionaries[locale].get(key, "")
+            missing = [token for token in required_tokens if token.casefold() not in value.casefold()]
+            if missing:
+                errors.append(
+                    f"{locale}: {key} drops platform contract tokens: {', '.join(missing)}"
+                )
         for key in PROOF_KEYS:
             value = dictionaries[locale].get(key, "")
             folded = value.casefold()
