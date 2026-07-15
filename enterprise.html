@@ -76,12 +76,12 @@
       <div class="card">
         <span class="num">imprimatur</span>
         <h3 data-i18n="ent.perm.1.h">Tenancy &amp; RBAC</h3>
-        <p data-i18n="ent.perm.1.p">Multi-tenant principals from scoped API keys, with <code>resource:action</code> scopes and hierarchical wildcards — plus IAM-style resource/action policies (allow/deny, down to a single tool) you can attach to a key and override at runtime with no restart. A policy simulator lets you validate and test a change before it goes live. Auth fails closed: anonymous principals never receive full access, and new keys require explicit scopes.</p>
+        <p data-i18n="ent.perm.1.p">Multi-tenant principals from scoped API keys, with <code>resource:action</code> scopes and hierarchical wildcards — plus IAM-style resource/action policies (allow/deny, down to a single tool) you can attach to a key and override at runtime with no restart. A policy simulator lets you validate and test a change before it goes live. Auth fails closed: anonymous principals never receive full access. In production mode the runtime refuses to start unless identity is enforced, keys carry explicit scopes, and a tenant principal is required at the request boundary.</p>
       </div>
       <div class="card">
         <span class="num">rubric</span>
         <h3 data-i18n="ent.perm.2.h">Decision plane</h3>
-        <p data-i18n="ent.perm.2.p">A dedicated authorization plane evaluates tenant, principal, action, and tool context into <code>allow</code>, <code>deny</code>, or <code>ask</code> — and records every decision, with a reason on both allow and deny, to a structured audit trail.</p>
+        <p data-i18n="ent.perm.2.p">A dedicated authorization plane evaluates tenant, principal, action, and tool context into <code>allow</code>, <code>deny</code>, or <code>ask</code>, each carrying a recorded reason. Tool executions land in a structured audit trail; full decision auditing — denials and asks, or every decision — is a configurable mode, and the trail can be HMAC hash-chained so tampering is detectable.</p>
       </div>
       <div class="card">
         <span class="num">screen</span>
@@ -260,6 +260,10 @@
       <div class="card">
         <h3 data-i18n="ent.rob.6.h">Operator tooling</h3>
         <p data-i18n="ent.rob.6.p"><code>jikjictl</code> for credentials, RBAC, policy, filters, audit, tracing, usage, and marketplace — plus a web dashboard that never stores keys server-side: a playground with snapshots, rollback, and in-place inquiry approval; filter views with circuit-breaker badges; IAM policies with the simulator; service-plane surfaces; usage panels; and vault management.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="ent.rob.7.h">Backup &amp; disaster recovery</h3>
+        <p data-i18n="ent.rob.7.p">Encrypted, integrity-checked backups of the datastore, with a restore-verify path that proves an artifact by restoring it into a throwaway store and checking the restored content matches the source at its own schema version. Run on demand with <code>jikjictl galley backup</code> and <code>restore</code>, or schedule recurring backups (leader-gated in HA, encryption required by default). Opt-in via <code>backup.enabled</code>; off by default.</p>
       </div>
     </div>
     <p class="code-cap" style="margin-top:30px" data-i18n="ent.cli.cap">Drive it all from the operator CLI:</p>

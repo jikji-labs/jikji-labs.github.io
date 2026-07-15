@@ -45,7 +45,7 @@
     <div class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> · <span data-i18n="nav.code">jikjicode</span></div>
     <span class="kicker" data-i18n="jc.kicker">jikjicode — the coding agent</span>
     <h1 data-i18n="jc.title">A coding agent that <span class="accent">edits like a compiler</span></h1>
-    <p class="sub" data-i18n="jc.sub">jikjicode is a standalone coding-agent CLI built on Jikji's deterministic loop. It combines provider-native tool calls, precision edits, compiler and language-server intelligence, durable sessions, and guarded execution — locally on your machine or delegated to a Jikji server.</p>
+    <p class="sub" data-i18n="jc.sub">jikjicode is a standalone coding-agent CLI built on Jikji's deterministic loop. It combines provider-native tool calls, precision edits, compiler and language-server intelligence, durable sessions, and guarded execution — across GLM, Codex, Grok, Ollama, Claude, or any OpenAI-compatible endpoint, locally on your machine or delegated to a Jikji server.</p>
   </div>
 </div>
 
@@ -75,8 +75,9 @@
     <table class="spec">
       <tr><th data-i18n="jc.cmd.1.k">Local</th><td data-i18n="jc.cmd.1.v">The default — the <code>forme</code> loop runs in-process against your model, with the coding toolset on your workspace.</td></tr>
       <tr><th data-i18n="jc.cmd.2.k">Remote</th><td data-i18n="jc.cmd.2.v">Delegate the whole run to a Jikji server over <code>/v1/runs</code>; the server's scopes and sandbox bound it.</td></tr>
-      <tr><th data-i18n="jc.cmd.3.k">Interactive &amp; one-shot</th><td data-i18n="jc.cmd.3.v">On qualified Linux, use the full-screen TUI, line REPL, or <code>jikjicode exec</code>. <code>/resume</code>, durable transcripts, and structured output support portable automation; <code>/ps</code> inspects Unix PTY-backed terminals. Windows ConPTY is not supported.</td></tr>
+      <tr><th data-i18n="jc.cmd.3.k">Interactive &amp; one-shot</th><td data-i18n="jc.cmd.3.v">On qualified Linux, use the full-screen TUI, line REPL, or <code>jikjicode exec</code>. The TUI streams output token by token and carries a <code>/</code>-command palette, a live task panel, <code>@</code>-file mentions, a sub-agent view, and input queuing while the agent works. <code>/resume</code>, durable transcripts, and structured output support portable automation; <code>/ps</code> inspects Unix PTY-backed terminals. Windows ConPTY is not supported.</td></tr>
       <tr><th data-i18n="jc.cmd.4.k">Setup</th><td data-i18n="jc.cmd.4.v"><code>jikjicode init</code> scaffolds a config; <code>jikjicode doctor</code> checks your model and environment before you start.</td></tr>
+      <tr><th data-i18n="jc.cmd.5.k">Providers</th><td data-i18n="jc.cmd.5.v">Configure several providers at once — GLM/Z.AI, Codex, Grok/xAI, Ollama, Claude, or any OpenAI-compatible endpoint — and switch across them mid-session with <code>/model</code>; each backend keeps its own kind, endpoint, and key.</td></tr>
     </table>
   </div>
 </section>
@@ -167,7 +168,7 @@
       <h2 data-i18n="jc.run.h2">It runs your project, under a gate you set</h2>
       <p data-i18n="jc.run.p">A coding agent that can't run the tests is guessing. jikjicode executes real build and test commands, with a risk gate and optional human approval you control.</p>
     </div>
-    <div class="grid cols2" data-cardinality="4" data-cardinality-class="card">
+    <div class="grid cols2" data-cardinality="5" data-cardinality-class="card">
       <div class="card">
         <h3 data-i18n="jc.run.1.h">Host-aware command runner</h3>
         <p data-i18n="jc.run.1.p"><code>shell.run</code> uses a POSIX shell adapter on Linux and macOS and a <code>cmd.exe /C</code> adapter with Job Object cancellation on Windows. Linux behavior is native-tested; macOS and Windows are cross-compile validated only, and Windows ConPTY sessions are not supported. Bounded head-and-tail output keeps noisy logs out of the context window.</p>
@@ -183,6 +184,10 @@
       <div class="card">
         <h3 data-i18n="jc.run.4.h">Docs &amp; tasks in reach</h3>
         <p data-i18n="jc.run.4.p"><code>web.fetch</code> pulls in documentation under the sandbox, and a <code>todo</code> tracker keeps a multi-step change organized across turns.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="jc.run.5.h">Rides out rate limits</h3>
+        <p data-i18n="jc.run.5.p">On a provider <code>429</code> or <code>529</code>, jikjicode waits out the window — honoring <code>Retry-After</code> — and retries the turn instead of failing. On by default in local mode; disable it with <code>--no-wait-on-rate-limit</code>. Remote runs defer to the server's resume policy.</p>
       </div>
     </div>
     <div class="callout" style="margin-top:24px" data-i18n="jc.run.note">Same loop, richer surface — jikjicode is the coding-focused face of the <a href="agent-loop.html">forme</a> loop, and it composes with the <a href="use-cases.html">orchestrator-executor and coding examples</a>.</div>
