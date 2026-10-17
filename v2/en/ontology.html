@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jikji v2 · Ontology native · Jikji</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="brand" href="index.html">
+<span class="seal" aria-hidden="true">直</span>
+<b>Jikji</b>
+</a>
+<div class="edition">v2 · Design notebook<br>
+<a href="../ontology.html" lang="ko">한국어 정본</a>
+</div>
+</div>
+</header>
+<div class="wrap layout">
+<nav aria-label="Design topics">
+<a href="index.html">Overview</a>
+<a href="architecture.html">Architecture</a>
+<a href="society.html">Agent society</a>
+<a href="ontology.html" aria-current="page">Ontology native</a>
+<a href="models.html">Models & scheduling</a>
+<a href="security.html">Security & privacy</a>
+<a href="operations.html">Operations</a>
+<a href="roadmap.html">Roadmap & log</a>
+</nav>
+<main id="main">
+<span class="badge">Design stage — before implementation</span>
+<h1>Connected state, from execution to research evidence</h1>
+<p class="lead">State, memory, tool results, experiments and claims are designed as entities with graph identities and provenance from the beginning.</p>
+<section>
+<h2>Canonical SQL, authorized knowledge views</h2>
+<p>Typed SQL rows and quads are canonical. State, events, graph assertions and the outbox share a transaction; the knowledge engine reads authorized projections. A lagging projection must not decide current permissions.</p>
+</section>
+<section>
+<h2>The lifecycle of a scientific claim</h2>
+<p>Hypotheses connect to experiments and protocols, datasets and artifacts, verification and independent review, and supported, refuted or contested outcomes. Memory carries evidence, validity periods and verification state. Model suggestions begin unverified.</p>
+</section>
+<section>
+<h2>Schema validity and scientific validity</h2>
+<p>SHACL, provenance and bounded queries require technical validation. A valid schema does not establish scientific truth; experimental oracles and review remain necessary. Knowledge-engine APIs and resource costs still require spikes.</p>
+</section>
+<aside class="note">All figures are provisional targets, not measurements. Korean is authoritative. Source: design documents 01–10, R1–R20; editorial snapshot 2026-10-18.</aside>
+</main>
+</div>
+<footer>
+<div class="wrap">Jikji · A design in progress. Updates follow verified evidence.</div>
+</footer>
+</body>
+</html>

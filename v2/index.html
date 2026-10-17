@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jikji v2 · 개요 · Jikji</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="brand" href="index.html">
+<span class="seal" aria-hidden="true">直</span>
+<b>Jikji</b>
+</a>
+<div class="edition">v2 · Design notebook<br>
+<a href="en/index.html" lang="en">English</a>
+</div>
+</div>
+</header>
+<div class="wrap layout">
+<nav aria-label="설계 주제">
+<a href="index.html" aria-current="page">개요</a>
+<a href="architecture.html">아키텍처</a>
+<a href="society.html">에이전트 사회</a>
+<a href="ontology.html">온톨로지 네이티브</a>
+<a href="models.html">다중 모델·스케줄링</a>
+<a href="security.html">보안·PII·권한</a>
+<a href="operations.html">운영</a>
+<a href="roadmap.html">로드맵·진행 로그</a>
+</nav>
+<main id="main">
+<span class="badge">설계 단계 — 구현 전</span>
+<h1>AI scientist nation을 위한 백본 엔진</h1>
+<p class="lead">에이전트가 연구하고, 협업하고, 근거를 축적할 수 있는 공통 실행·지식·통치 기반을 설계합니다. 에이전트가 1차 사용자이고, 사람은 정책과 최종 결정을 맡습니다.</p>
+<section>
+<h2>작은 코어, 명확한 경계</h2>
+<p>Rust 코어는 실행·권한·예산·상태 전이의 불변식을 맡고, Lua 내장 확장과 격리된 Python 플러그인이 통합을 담당하는 구상입니다. 원본 보존·출처와 GPL 라이선스 의무를 유지하는 계약 재구현을 계획합니다. 단일 바이너리를 목표로 하되 보조 프로세스의 비용도 별도로 계산합니다.</p>
+</section>
+<section>
+<h2>근거가 먼저</h2>
+<p>모델의 완료 선언이나 평판만으로 연구 결과를 확정하지 않습니다. 실험·검증자·데이터 버전·영수증을 연결하고 상충하는 주장을 함께 보존합니다.</p>
+</section>
+<section>
+<h2>점진적 이전</h2>
+<p>기존 시스템과 읽기 전용 비교로 시작해 선택적 도입과 롤백 훈련을 거칩니다. 한 번에 전체 시스템을 교체하지 않으며, 현재 페이지는 제품 출시나 운영 지원을 뜻하지 않습니다.</p>
+</section>
+<aside class="note">모든 수치는 잠정 목표이며 실측값이 아닙니다. 한국어가 정본입니다. 근거: 설계 문서 01~10, R1~R20 · 편집 기준 2026-10-18.</aside>
+</main>
+</div>
+<footer>
+<div class="wrap">Jikji · 진행 중인 설계. 갱신은 검증된 근거를 따릅니다.</div>
+</footer>
+</body>
+</html>

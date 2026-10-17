@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jikji v2 · Security &amp; privacy · Jikji</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="brand" href="index.html">
+<span class="seal" aria-hidden="true">直</span>
+<b>Jikji</b>
+</a>
+<div class="edition">v2 · Design notebook<br>
+<a href="../security.html" lang="ko">한국어 정본</a>
+</div>
+</div>
+</header>
+<div class="wrap layout">
+<nav aria-label="Design topics">
+<a href="index.html">Overview</a>
+<a href="architecture.html">Architecture</a>
+<a href="society.html">Agent society</a>
+<a href="ontology.html">Ontology native</a>
+<a href="models.html">Models & scheduling</a>
+<a href="security.html" aria-current="page">Security & privacy</a>
+<a href="operations.html">Operations</a>
+<a href="roadmap.html">Roadmap & log</a>
+</nav>
+<main id="main">
+<span class="badge">Design stage — before implementation</span>
+<h1>Enforce policy at execution boundaries</h1>
+<p class="lead">The design follows default deny, least privilege, subset scopes for delegation, and classification and inspection at input, tool and output boundaries.</p>
+<section>
+<h2>Models and tools are outside the trust boundary</h2>
+<p>Model output is a request, not permission or approval. Validation proceeds through schema, authorization, budget, OS isolation, execution, output inspection and audit. Unsupported sandboxing must not silently become unrestricted execution.</p>
+</section>
+<section>
+<h2>PII and secrets</h2>
+<p>Classification and denied paths provide the first defense, followed by PII tokenization, minimal context and safe receipts. Raw prompts, tool outputs and secrets must not be retained indirectly in logs, knowledge or messages. Perfect detection of natural-language PII is not guaranteed.</p>
+</section>
+<section>
+<h2>Cancellation, failure and revocation</h2>
+<p>Policy-generation changes, expired leases, duplicate delivery and uncertain external writes need distinct handling. Detector and authorization failures deny execution; audit-write failures block new effects. Isolation, cross-tenant access, leakage and cancellation races still require implementation tests.</p>
+</section>
+<aside class="note">All figures are provisional targets, not measurements. Korean is authoritative. Source: design documents 01–10, R1–R20; editorial snapshot 2026-10-18.</aside>
+</main>
+</div>
+<footer>
+<div class="wrap">Jikji · A design in progress. Updates follow verified evidence.</div>
+</footer>
+</body>
+</html>

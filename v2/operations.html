@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jikji v2 · 운영 · Jikji</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="brand" href="index.html">
+<span class="seal" aria-hidden="true">直</span>
+<b>Jikji</b>
+</a>
+<div class="edition">v2 · Design notebook<br>
+<a href="en/operations.html" lang="en">English</a>
+</div>
+</div>
+</header>
+<div class="wrap layout">
+<nav aria-label="설계 주제">
+<a href="index.html">개요</a>
+<a href="architecture.html">아키텍처</a>
+<a href="society.html">에이전트 사회</a>
+<a href="ontology.html">온톨로지 네이티브</a>
+<a href="models.html">다중 모델·스케줄링</a>
+<a href="security.html">보안·PII·권한</a>
+<a href="operations.html" aria-current="page">운영</a>
+<a href="roadmap.html">로드맵·진행 로그</a>
+</nav>
+<main id="main">
+<span class="badge">설계 단계 — 구현 전</span>
+<h1>같은 상태를 보는 사람과 에이전트</h1>
+<p class="lead">한국어 대시보드와 에이전트 API가 같은 정책·상태·세대를 보며 실시간 관측과 근거 있는 결재를 지원하도록 설계합니다.</p>
+<section>
+<h2>대시보드·요약·관측</h2>
+<p>실행·위임 트리·작업 검토·예약 일정·잔량의 갱신 시각·예산·메시지 지연·projection 지연을 권한 안에서 보여주는 구상입니다. Prometheus·OpenTelemetry 연계와 기존 모니터링 adapter는 계획이며 비공개 인증을 기본으로 합니다. 요약은 기간·기준 시각·결측을 표시합니다.</p>
+</section>
+<section>
+<h2>상신·승인·실행 연결</h2>
+<p>승인은 인증된 결정자와 정확한 계획 digest·대상 버전·권한·예산·만료에 묶습니다. 계획 변경이나 재사용은 기존 승인을 무효화합니다. 모델 자기 승인이나 외부 댓글만으로 실행 권한을 만들지 않습니다. UI 버튼 숨김은 보안 경계가 아닙니다.</p>
+</section>
+<section>
+<h2>예약 작업과 안전한 변경</h2>
+<p>cron·interval·one-shot·event·webhook 등록에는 소유자·권한·예산·버전을 둡니다. 발생 건 중복 제거와 누락 실행 정책을 명시합니다. 기존 결재 기록은 이력으로만 가져오고 실행 grant로 바꾸지 않으며, 기능별 shadow 비교 후 점진적으로 이전합니다.</p>
+</section>
+<aside class="note">모든 수치는 잠정 목표이며 실측값이 아닙니다. 한국어가 정본입니다. 근거: 설계 문서 01~10, R1~R20 · 편집 기준 2026-10-18.</aside>
+</main>
+</div>
+<footer>
+<div class="wrap">Jikji · 진행 중인 설계. 갱신은 검증된 근거를 따릅니다.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jikji v2 · 보안·PII·권한 · Jikji</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="brand" href="index.html">
+<span class="seal" aria-hidden="true">直</span>
+<b>Jikji</b>
+</a>
+<div class="edition">v2 · Design notebook<br>
+<a href="en/security.html" lang="en">English</a>
+</div>
+</div>
+</header>
+<div class="wrap layout">
+<nav aria-label="설계 주제">
+<a href="index.html">개요</a>
+<a href="architecture.html">아키텍처</a>
+<a href="society.html">에이전트 사회</a>
+<a href="ontology.html">온톨로지 네이티브</a>
+<a href="models.html">다중 모델·스케줄링</a>
+<a href="security.html" aria-current="page">보안·PII·권한</a>
+<a href="operations.html">운영</a>
+<a href="roadmap.html">로드맵·진행 로그</a>
+</nav>
+<main id="main">
+<span class="badge">설계 단계 — 구현 전</span>
+<h1>정책은 실행 경계에서 강제</h1>
+<p class="lead">기본 거부, 최소 권한, 하위 위임의 권한 부분집합, 입력·도구·출력의 분류와 검사를 설계 원칙으로 삼습니다.</p>
+<section>
+<h2>모델과 도구는 신뢰 경계 밖</h2>
+<p>모델 출력은 실행 요청일 뿐 권한이나 승인이 아닙니다. schema → 권한 → 예산 → OS 격리 → 실행 → 출력 검사 → 감사 순으로 검증하며, 지원하지 않는 sandbox를 조용히 비격리 실행으로 바꾸지 않습니다.</p>
+</section>
+<section>
+<h2>PII와 비밀값</h2>
+<p>정보 분류와 금지 경로를 1차 방어로 두고 PII tokenization·최소 문맥·안전한 영수증을 설계합니다. 원문 프롬프트·도구 출력·비밀값은 로그·지식·메시지로 우회 보관하지 않습니다. 자연어 PII의 완벽한 탐지는 보장하지 않습니다.</p>
+</section>
+<section>
+<h2>취소·실패·권한 철회</h2>
+<p>정책 세대 변경, 임대 만료, 중복 전달과 불확실한 외부 쓰기를 별도로 처리합니다. 탐지기나 권한 검사 실패는 거부하고 감사 기록 실패는 새 효과를 막는 설계입니다. 실제 격리·교차 tenant·누출·취소 경쟁 시험은 구현 후 검증 대상입니다.</p>
+</section>
+<aside class="note">모든 수치는 잠정 목표이며 실측값이 아닙니다. 한국어가 정본입니다. 근거: 설계 문서 01~10, R1~R20 · 편집 기준 2026-10-18.</aside>
+</main>
+</div>
+<footer>
+<div class="wrap">Jikji · 진행 중인 설계. 갱신은 검증된 근거를 따릅니다.</div>
+</footer>
+</body>
+</html>

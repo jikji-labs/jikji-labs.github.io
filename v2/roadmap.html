@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jikji v2 · 로드맵·진행 로그 · Jikji</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="brand" href="index.html">
+<span class="seal" aria-hidden="true">直</span>
+<b>Jikji</b>
+</a>
+<div class="edition">v2 · Design notebook<br>
+<a href="en/roadmap.html" lang="en">English</a>
+</div>
+</div>
+</header>
+<div class="wrap layout">
+<nav aria-label="설계 주제">
+<a href="index.html">개요</a>
+<a href="architecture.html">아키텍처</a>
+<a href="society.html">에이전트 사회</a>
+<a href="ontology.html">온톨로지 네이티브</a>
+<a href="models.html">다중 모델·스케줄링</a>
+<a href="security.html">보안·PII·권한</a>
+<a href="operations.html">운영</a>
+<a href="roadmap.html" aria-current="page">로드맵·진행 로그</a>
+</nav>
+<main id="main">
+<span class="badge">설계 단계 — 구현 전</span>
+<h1>설계에서 검증으로, 단계별로</h1>
+<p class="lead">현재는 G0 설계 검토 단계입니다. 아래 단계는 계획이며 구현 완료·성능 달성·배포 완료를 뜻하지 않습니다.</p>
+<section>
+<h2>G0 → G2 · 설계와 로컬 기반</h2>
+<p>G0: 원본·라이선스 조사, R1~R20 요구와 ADR·위협 모델·설계 검토. G1: 모델 이벤트 계약·지식 엔진·DB·OS sandbox 기술 실험과 자원 기준 측정. G2: 로컬 루프·도구·영수증·그래프와 두 DB의 계약 검증. 구현 시작 전 설계 검토와 승인 절차가 남아 있습니다.</p>
+</section>
+<section>
+<h2>G3 → G6 · 분산 검증과 점진 도입</h2>
+<p>G3: 서버·워커·API·위임·대시보드와 장애·취소·권한 시험. G4: 실제 모델 paired benchmark와 독립 품질 판정. G5: 선택적 도입·복구 훈련. G6: 근거와 관측을 바탕으로 소비자별 기본값 전환. 각 단계는 검증 결과와 별도 전환 판단이 필요합니다.</p>
+</section>
+<section>
+<h2>진행 로그 · 2026-10-18</h2>
+<p>설계 문서 01~10과 R1~R20을 바탕으로 공개 가능한 설계 요약을 작성했습니다. 전체 설계 검토는 진행 중이며 성능 실측이나 production build 통과는 주장하지 않습니다. 다음 갱신은 검토 결론·기술 실험·구현 시험의 실제 근거가 생긴 뒤 기록합니다.</p>
+</section>
+<aside class="note">모든 수치는 잠정 목표이며 실측값이 아닙니다. 한국어가 정본입니다. 근거: 설계 문서 01~10, R1~R20 · 편집 기준 2026-10-18.</aside>
+</main>
+</div>
+<footer>
+<div class="wrap">Jikji · 진행 중인 설계. 갱신은 검증된 근거를 따릅니다.</div>
+</footer>
+</body>
+</html>

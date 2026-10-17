@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jikji v2 · Operations · Jikji</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="brand" href="index.html">
+<span class="seal" aria-hidden="true">直</span>
+<b>Jikji</b>
+</a>
+<div class="edition">v2 · Design notebook<br>
+<a href="../operations.html" lang="ko">한국어 정본</a>
+</div>
+</div>
+</header>
+<div class="wrap layout">
+<nav aria-label="Design topics">
+<a href="index.html">Overview</a>
+<a href="architecture.html">Architecture</a>
+<a href="society.html">Agent society</a>
+<a href="ontology.html">Ontology native</a>
+<a href="models.html">Models & scheduling</a>
+<a href="security.html">Security & privacy</a>
+<a href="operations.html" aria-current="page">Operations</a>
+<a href="roadmap.html">Roadmap & log</a>
+</nav>
+<main id="main">
+<span class="badge">Design stage — before implementation</span>
+<h1>One state for people and agents</h1>
+<p class="lead">A Korean-first dashboard and agent APIs are designed to share policy, state and generations, with real-time observation and evidence-bound approvals.</p>
+<section>
+<h2>Dashboard, summaries and telemetry</h2>
+<p>Proposed views cover runs, delegation trees, reviews, schedules, quota age, budgets, message lag and projection lag within authorized scopes. Prometheus, OpenTelemetry and monitoring adapters are planned and private by default. Summaries identify periods, watermarks and missing data.</p>
+</section>
+<section>
+<h2>Bind proposals, approvals and execution</h2>
+<p>Approval binds an authenticated decision maker to an exact plan digest, target revision, scope, budget and expiry. Plan changes and replay invalidate grants. Model self-approval and external comments alone cannot create execution authority. Hiding a UI button is not authorization.</p>
+</section>
+<section>
+<h2>Scheduled work and safe changes</h2>
+<p>Cron, interval, one-shot, event and webhook jobs carry owners, scopes, budgets and revisions. Occurrence deduplication and misfire policies are explicit. Imported approvals remain historical records, not live grants. Adoption follows per-feature shadow comparisons.</p>
+</section>
+<aside class="note">All figures are provisional targets, not measurements. Korean is authoritative. Source: design documents 01–10, R1–R20; editorial snapshot 2026-10-18.</aside>
+</main>
+</div>
+<footer>
+<div class="wrap">Jikji · A design in progress. Updates follow verified evidence.</div>
+</footer>
+</body>
+</html>

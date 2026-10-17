@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jikji v2 · Models &amp; scheduling · Jikji</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="brand" href="index.html">
+<span class="seal" aria-hidden="true">直</span>
+<b>Jikji</b>
+</a>
+<div class="edition">v2 · Design notebook<br>
+<a href="../models.html" lang="ko">한국어 정본</a>
+</div>
+</div>
+</header>
+<div class="wrap layout">
+<nav aria-label="Design topics">
+<a href="index.html">Overview</a>
+<a href="architecture.html">Architecture</a>
+<a href="society.html">Agent society</a>
+<a href="ontology.html">Ontology native</a>
+<a href="models.html" aria-current="page">Models & scheduling</a>
+<a href="security.html">Security & privacy</a>
+<a href="operations.html">Operations</a>
+<a href="roadmap.html">Roadmap & log</a>
+</nav>
+<main id="main">
+<span class="badge">Design stage — before implementation</span>
+<h1>Route models within quality, policy and budget</h1>
+<p class="lead">Models are selected for roles and task requirements after checking data classification, authorization, tool capabilities and available quota.</p>
+<section>
+<h2>Role profiles and independent review</h2>
+<p>The plan compares GLM, Qwen, GPT and DeepSeek families on real tasks. Reviewers should preferably use an independent model family. Substitution requires capability and availability checks; lower cost alone cannot justify an unvalidated quality downgrade.</p>
+</section>
+<section>
+<h2>Reservations and fairness</h2>
+<p>Quota snapshots retain time, units and source. Root and child reservations must remain within budget. Weighted fair queues with aging are proposed; stale metering defers new expensive calls. Cancellation does not erase charges, so final usage must settle reservations.</p>
+</section>
+<section>
+<h2>Measurement boundaries</h2>
+<p>Existing bridge completion mode must be distinguished from a native v2 loop. Native streaming and tool-event contracts remain unresolved. Paired benchmarks must include latency, quality, tokens, memory and failed attempts; unavailable measurements remain missing.</p>
+</section>
+<aside class="note">All figures are provisional targets, not measurements. Korean is authoritative. Source: design documents 01–10, R1–R20; editorial snapshot 2026-10-18.</aside>
+</main>
+</div>
+<footer>
+<div class="wrap">Jikji · A design in progress. Updates follow verified evidence.</div>
+</footer>
+</body>
+</html>

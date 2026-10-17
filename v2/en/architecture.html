@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jikji v2 · Architecture · Jikji</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="brand" href="index.html">
+<span class="seal" aria-hidden="true">直</span>
+<b>Jikji</b>
+</a>
+<div class="edition">v2 · Design notebook<br>
+<a href="../architecture.html" lang="ko">한국어 정본</a>
+</div>
+</div>
+</header>
+<div class="wrap layout">
+<nav aria-label="Design topics">
+<a href="index.html">Overview</a>
+<a href="architecture.html" aria-current="page">Architecture</a>
+<a href="society.html">Agent society</a>
+<a href="ontology.html">Ontology native</a>
+<a href="models.html">Models & scheduling</a>
+<a href="security.html">Security & privacy</a>
+<a href="operations.html">Operations</a>
+<a href="roadmap.html">Roadmap & log</a>
+</nav>
+<main id="main">
+<span class="badge">Design stage — before implementation</span>
+<h1>One control plane, distributed execution</h1>
+<p class="lead">The initial design assigns authoritative policy, sessions, scheduling and storage to one server. Workers pull bounded work assignments.</p>
+<div class="flow" aria-label="Proposed execution flow">
+<span>CLI / HTTP / MCP</span> → <span>Policy · Budget</span> → <span>Workers</span> → <span>Evidence</span>
+</div>
+<section>
+<h2>Execution path</h2>
+<p>CLI, HTTP and MCP requests pass through authentication, policy and budget checks, planning, local or remote execution, and safe observations, checkpoints and receipts. File reading, editing, search, isolated shell execution and an action-observation loop form the proposed tool contract. Local execution in the same binary is designed to preserve these policy boundaries.</p>
+</section>
+<section>
+<h2>Storage and failure boundary</h2>
+<p>SQLite and PostgreSQL target the same logical schema and contract tests. Remote workers do not access the server database directly. The design uses mTLS, leases and fencing epochs to reject stale results. The initial single server remains an availability boundary; high availability is not promised.</p>
+</section>
+<section>
+<h2>Provisional resource targets · unmeasured</h2>
+<p>Initial proposed targets are CLI startup p95 ≤25 ms, idle core RSS ≤32 MiB and a default stripped binary ≤15 MiB. Model, network and database initialization need separate measurement boundaries. Total cost must include the bridge, knowledge engine and tool processes.</p>
+</section>
+<aside class="note">All figures are provisional targets, not measurements. Korean is authoritative. Source: design documents 01–10, R1–R20; editorial snapshot 2026-10-18.</aside>
+</main>
+</div>
+<footer>
+<div class="wrap">Jikji · A design in progress. Updates follow verified evidence.</div>
+</footer>
+</body>
+</html>

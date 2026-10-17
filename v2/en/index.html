@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jikji v2 · Overview · Jikji</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="brand" href="index.html">
+<span class="seal" aria-hidden="true">直</span>
+<b>Jikji</b>
+</a>
+<div class="edition">v2 · Design notebook<br>
+<a href="../index.html" lang="ko">한국어 정본</a>
+</div>
+</div>
+</header>
+<div class="wrap layout">
+<nav aria-label="Design topics">
+<a href="index.html" aria-current="page">Overview</a>
+<a href="architecture.html">Architecture</a>
+<a href="society.html">Agent society</a>
+<a href="ontology.html">Ontology native</a>
+<a href="models.html">Models & scheduling</a>
+<a href="security.html">Security & privacy</a>
+<a href="operations.html">Operations</a>
+<a href="roadmap.html">Roadmap & log</a>
+</nav>
+<main id="main">
+<span class="badge">Design stage — before implementation</span>
+<h1>A backbone engine for an AI scientist nation</h1>
+<p class="lead">A shared execution, knowledge and governance foundation for agents to research, collaborate and accumulate evidence. Agents are the primary users; people define policy and retain decision authority.</p>
+<section>
+<h2>A small core with explicit boundaries</h2>
+<p>The proposed Rust core owns execution, authorization, budgets and state invariants. Embedded Lua extensions and isolated Python plugins provide integration. Contract reimplementation is planned with original source preservation, attribution and GPL obligations. A single binary is a goal; auxiliary process costs must also be counted.</p>
+</section>
+<section>
+<h2>Evidence before claims</h2>
+<p>A model’s completion report or reputation does not establish a result. Experiments, verifiers, dataset versions and receipts connect claims to evidence; conflicting claims retain their provenance.</p>
+</section>
+<section>
+<h2>Incremental adoption</h2>
+<p>Start with read-only comparisons, then opt-in adoption and rollback drills. Migration is incremental. These pages describe a design, not a product release or operational support commitment.</p>
+</section>
+<aside class="note">All figures are provisional targets, not measurements. Korean is authoritative. Source: design documents 01–10, R1–R20; editorial snapshot 2026-10-18.</aside>
+</main>
+</div>
+<footer>
+<div class="wrap">Jikji · A design in progress. Updates follow verified evidence.</div>
+</footer>
+</body>
+</html>
