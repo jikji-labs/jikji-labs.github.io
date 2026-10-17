@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jikji — The Agent Platform, Set in Metal Type</title>
+<meta name="description" content="Jikji is a modular Go agent platform with deterministic agent loops, durable state, adaptive multi-model orchestration, learning memory, and built-in governance, from your laptop to enterprise clusters.">
+<meta property="og:title" content="Jikji — The Agent Platform, Set in Metal Type">
+<meta property="og:description" content="A modular Go agent platform. Deterministic, durable, governed.">
+<meta property="og:url" content="https://jikji-labs.com/v1">
+<link rel="canonical" href="https://jikji-labs.com/v1/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/jikji.css">
+</head>
+<body>
+<aside style="padding:12px 24px;background:#e8ebe7;border-bottom:1px solid #cbd0cb;text-align:center">v1 아카이브 · Historical archive — 이전 버전의 기록입니다. / Previous version. <a href="/">현재 안내 / Current notice</a></aside>
+<a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to main content</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="seal">直</span><b>Jikji</b></a>
+    <nav class="nav-links" id="site-nav">
+      <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
+      <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
+      <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
+      <a href="jikjicode.html" data-i18n="nav.code">jikjicode</a>
+      <a href="tools.html" data-i18n="nav.tools">Tools</a>
+      <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
+      <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+      <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
+      <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
+    </nav>
+    <div class="nav-actions">
+      <label class="lang-label" for="langSel"><span aria-hidden="true">文</span><span class="sr-only">Language</span></label>
+      <select class="lang-sel" id="langSel" aria-label="Language"></select>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<main id="main-content">
+
+<!-- HERO -->
+<div class="hero home-hero">
+  <div class="wrap">
+    <span class="kicker" data-i18n="hero.kicker.current">Enterprise agent runtime · CGO-disabled Go release · GPL default</span>
+    <h1>Jikji</h1>
+    <p class="hero-offer" data-i18n="hero.offer.current">The enterprise agent platform, set in metal type.</p>
+    <p class="sub" data-i18n="hero.sub">Jikji is a modular agent framework built in Go — a deterministic agent loop, durable orchestration state, adaptive multi-model coordination, and built-in governance. Release artifacts are built with CGO disabled; Linux amd64 is the currently native-qualified target.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#start" data-i18n="cta.start">Get Started</a>
+      <a class="btn btn-ghost" href="https://github.com/jikji-labs">Jikji Labs on GitHub</a>
+      <a class="btn btn-ghost" href="licensing.html">Licensing</a>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="alt" id="story">
+  <div class="wrap story">
+    <div>
+      <div class="sec-head" style="margin-bottom:24px">
+        <span class="tag" data-i18n="story.tag">The Name</span>
+        <h2 data-i18n="story.h2">Named after the world's first movable metal type book</h2>
+      </div>
+      <p data-i18n="story.p1"><b>Jikji</b> (직지심체요절) was printed in Korea in 1377 — the oldest surviving book printed with movable metal type, decades before Gutenberg. Movable type changed publishing the same way Jikji aims to change agents: <b>composable pieces, set precisely, producing reliable output at scale.</b></p>
+      <p data-i18n="story.p2">Every module carries a letterpress name — the <b>foundry</b> casts the runtime, <b>typebackbone</b> faces the models, <b>sorts</b> are the tools, the <b>compositor</b> sets sessions, the <b>forme</b> locks the agent loop, and the <b>press</b> serves it to the world. Even the default port is <span class="mono">1377</span>.</p>
+    </div>
+    <div class="story-plate">
+      <div class="big">直指</div>
+      <div class="year">EST. 1377</div>
+      <div class="cap" data-i18n="story.cap">Jikjisimcheyojeol — the oldest extant book printed with movable metal type. UNESCO Memory of the World.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE -->
+<section class="rule" id="evidence">
+  <div class="wrap">
+    <div class="proof-grid">
+      <div class="proof-lead">
+        <span class="tag" data-i18n="proof.tag">Proof, not a product slide</span>
+        <h3 data-i18n="proof.h">The examples are executable contracts for how Jikji behaves.</h3>
+        <p data-i18n="proof.p">The repository ships runnable scenarios, production configuration, worked artifacts, and guarded live-provider checks. They document the path from a local echo run to a five-vendor council, a durable worker, or a hardened multi-tenant deployment. Claims that depend on a provider or environment are labelled as such.</p>
+        <a class="btn btn-ghost proof-cta" href="use-cases.html" data-i18n="proof.cta">Open the example ledger</a>
+      </div>
+      <div class="evidence-list" role="list" aria-label="Selected verified examples">
+        <div class="evidence-item" role="listitem">
+          <span class="status" data-i18n="proof.live">Live evidence</span>
+          <div><h4>agent-cli-backbone</h4><p data-i18n="proof.cli">A documented qualification path connects a coding CLI to a cross-vendor council over HTTP MCP, then records candidate and verifier stages for inspection.</p></div>
+        </div>
+        <div class="evidence-item" role="listitem">
+          <span class="status" data-i18n="proof.worked">Worked artifact</span>
+          <div><h4>trinity-council</h4><p data-i18n="proof.trinity">Independent answers, synthesis, and an adversarial ACCEPT/REVISE panel with the result preserved for inspection.</p></div>
+        </div>
+        <div class="evidence-item" role="listitem">
+          <span class="status" data-i18n="proof.deterministic">Deterministic</span>
+          <div><h4>dispatch-queue-worker</h4><p data-i18n="proof.queue">Durable claim, lease, completion, and restart behavior demonstrated without relying on a model's opinion.</p></div>
+        </div>
+        <div class="evidence-item" role="listitem">
+          <span class="status" data-i18n="proof.operator">Operator path</span>
+          <div><h4>production-hardening</h4><p data-i18n="proof.ops">Auth, TLS, policy, audit, redaction, backups, readiness, and observability assembled as a fail-closed deployment checklist.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="nav.why">Why Jikji</span>
+      <h2 data-i18n="why.h2">What makes it different from other agent frameworks</h2>
+      <p data-i18n="why.p">Most agent frameworks are Python or Node.js/TypeScript libraries glued to a vector DB, with opaque loops and governance bolted on later. Jikji is built like infrastructure from day one.</p>
+    </div>
+    <div class="grid cols3">
+      <div class="card">
+        <span class="num">01</span>
+        <h3 data-i18n="c1.h">CGO-disabled Go releases, explicit host boundaries</h3>
+        <p data-i18n="c1.p">The base release has no Python or Node.js runtime dependency. We cross-build six OS and architecture artifacts; native release qualification currently covers Linux amd64. Optional tools and host isolation retain platform-specific requirements.</p>
+        <a class="more" href="architecture.html" data-i18n="c1.more">See the architecture →</a>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3 data-i18n="c2.h">A deterministic, recoverable agent loop</h3>
+        <p data-i18n="c2.p">The <code>forme</code> loop models every step as explicit actions and observations — with checkpointing and recovery built into the engine. Agent runs are replayable and auditable, not opaque chains that vanish on crash.</p>
+        <a class="more" href="agent-loop.html" data-i18n="c2.more">Inside the loop →</a>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3 data-i18n="c3.h">Adaptive multi-model orchestration</h3>
+        <p data-i18n="c3.p">Run a swarm of models that debate and revise, gate the synthesis behind a verifier panel, and let the <code>trinity</code> coordinator learn which model to route each turn to — an evolved policy, not a fixed schedule.</p>
+        <a class="more" href="orchestration.html" data-i18n="c3.more">How orchestration works →</a>
+      </div>
+      <div class="card">
+        <span class="num">04</span>
+        <h3 data-i18n="c4.h">Memory that learns, context that fits</h3>
+        <p data-i18n="c4.p">The <code>plate</code> memory plane extracts facts, consolidates them in background "dreaming" passes, and serves hybrid recall. Context compaction and a model-promotion ladder keep long runs inside the window.</p>
+        <a class="more" href="memory.html" data-i18n="c4.more">Memory &amp; data →</a>
+      </div>
+      <div class="card">
+        <span class="num">05</span>
+        <h3 data-i18n="c5.h">Governance built in, not bolted on</h3>
+        <p data-i18n="c5.p">Multi-tenancy, scoped API keys, RBAC, a dynamic policy filter chain with approval gates, structured audit, and PII/secret redaction — all in the core, with a vault for credentials and OAuth provider wiring.</p>
+        <a class="more" href="enterprise.html" data-i18n="c5.more">Enterprise &amp; security →</a>
+      </div>
+      <div class="card">
+        <span class="num">06</span>
+        <h3 data-i18n="c6.h">Open protocols, no lock-in</h3>
+        <p data-i18n="c6.p">Serves an OpenAI-compatible API and speaks MCP (server and client), ACP, and A2A for agent-to-agent collaboration. Works with OpenAI-, Anthropic-, Ollama-, and GLM/Z.AI-compatible backends.</p>
+        <a class="more" href="architecture.html#protocols" data-i18n="c6.more">Protocols &amp; surfaces →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE -->
+<section class="alt" id="explore">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="exp.tag">Explore the platform</span>
+      <h2 data-i18n="exp.h2" data-cardinality-word="7">Seven planes, one press</h2>
+      <p data-i18n="exp.p">Each plane owns one concern behind a strict boundary. Follow any of them into the detail.</p>
+    </div>
+    <div class="grid cols3" data-cardinality="7" data-cardinality-class="card">
+      <div class="card">
+        <h3 data-i18n="exp.arch.h">Architecture</h3>
+        <p data-i18n="exp.arch.p">A print shop of composable modules, deployment shapes from one process to a grid, galley-backed storage, and the binaries that run it.</p>
+        <a class="more" href="architecture.html" data-i18n="exp.more">Read more →</a>
+      </div>
+      <div class="card">
+        <h3 data-i18n="exp.loop.h">Agent loop</h3>
+        <p data-i18n="exp.loop.p">The deterministic <code>forme</code> loop — checkpoints and resume, Lua hooks, verify-revise synthesis, goal-driven runs, and a self-improving harness.</p>
+        <a class="more" href="agent-loop.html" data-i18n="exp.more2">Read more →</a>
+      </div>
+      <div class="card">
+        <h3 data-i18n="exp.tools.h">Tools</h3>
+        <p data-i18n="exp.tools.p">A broad built-in catalog — files, shell, a DOM-extracting browser, SQL, ontology — run under a sandbox, over MCP, or on remote nodes, plus Lua/Python functions as tools.</p>
+        <a class="more" href="tools.html" data-i18n="exp.more7">Read more →</a>
+      </div>
+      <div class="card">
+        <h3 data-i18n="exp.orch.h">Orchestration</h3>
+        <p data-i18n="exp.orch.p">Multi-model swarms, the evolved <code>trinity</code> coordinator, delegation to sub-agents, and A2A federation across peers.</p>
+        <a class="more" href="orchestration.html" data-i18n="exp.more3">Read more →</a>
+      </div>
+      <div class="card">
+        <h3 data-i18n="exp.mem.h">Memory &amp; data</h3>
+        <p data-i18n="exp.mem.p">Cognitive memory with dreaming, hybrid recall, context and token optimization, and SQLite/PostgreSQL/MySQL backends.</p>
+        <a class="more" href="memory.html" data-i18n="exp.more4">Read more →</a>
+      </div>
+      <div class="card">
+        <h3 data-i18n="exp.onto.h">Ontology engine</h3>
+        <p data-i18n="exp.onto.p">A native engine that builds knowledge graphs from a corpus and serves them with in-process SPARQL — an ontology over your data, with no external triple store.</p>
+        <a class="more" href="ontology.html" data-i18n="exp.more6">Read more →</a>
+      </div>
+      <div class="card">
+        <h3 data-i18n="exp.ent.h">Enterprise &amp; security</h3>
+        <p data-i18n="exp.ent.p">Tenancy, RBAC and the policy plane, vault and OAuth, OpenTelemetry tracing, usage limits, redaction, injection defense, and robustness.</p>
+        <a class="more" href="enterprise.html" data-i18n="exp.more5">Read more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="tight">
+  <div class="wrap">
+    <div class="stats" data-cardinality="6" data-cardinality-class="stat">
+      <div class="stat"><div class="n">6</div><div class="l" data-i18n="st.1">CGO-disabled build targets</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">primary server binary</div></div>
+      <div class="stat"><div class="n">4</div><div class="l" data-i18n="st.3">open protocol surfaces</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">SQL backends</div></div>
+      <div class="stat"><div class="n">13</div><div class="l">site locales with English fallback</div></div>
+      <div class="stat"><div class="n mono" style="font-size:30px">1377</div><div class="l" data-i18n="st.4">the default port, and the year</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOCOLS -->
+<section id="protocols">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="proto.tag">Interoperability</span>
+      <h2 data-i18n="proto.h2">Speaks every protocol that matters</h2>
+    </div>
+    <div class="protos" data-cardinality="4" data-cardinality-class="proto">
+      <div class="proto"><div class="p-name">OpenAI-compatible API</div><p data-i18n="proto.openai">Drop-in <span class="mono">/v1/chat/completions</span>, models, embeddings, runs, and sessions — point existing clients at Jikji.</p></div>
+      <div class="proto"><div class="p-name">MCP</div><p data-i18n="proto.mcp">Model Context Protocol server and client over stdio — consume MCP tools or expose Jikji as one.</p></div>
+      <div class="proto"><div class="p-name">ACP</div><p data-i18n="proto.acp">Agent Communication Protocol over stdio for local process-based agent peers.</p></div>
+      <div class="proto"><div class="p-name">A2A</div><p data-i18n="proto.a2a">Agent-to-agent collaboration — task dispatch, delegation, and result harvesting between agents.</p></div>
+    </div>
+
+    <div class="grid cols3" style="margin-top:44px">
+      <div class="card">
+        <h3 data-i18n="ops.h">Operator tooling</h3>
+        <p data-i18n="ops.p"><span class="mono">jikjictl</span> covers credentials and vault, RBAC, policy, audit queries, tracing, usage, and a marketplace — plus a separate web dashboard that never stores keys server-side.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="term.h">Terminal-native</h3>
+        <p data-i18n="term.p">Interactive TUI chat, single-prompt mode, JSONL event streams for automation, and an MCP-shaped JSON-RPC mode — agents you can pipe.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="test.h">Tested like infrastructure</h3>
+        <p data-i18n="test.p">A deterministic <span class="mono">make verify</span> gate plus guarded live smoke tests against real providers. Benchmark, fuzz, property, and concurrency tests throughout the codebase.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<section class="alt" id="start">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag" data-i18n="nav.start">Get Started</span>
+      <h2 data-i18n="start.h2">Running in under a minute</h2>
+    </div>
+    <div class="code-block">
+<div class="c"># <span data-i18n="cm1">start the server (default port 1377 — yes, that 1377)</span></div>
+<div class="cmd">go run ./cmd/jikji serve --config config.example.yaml</div>
+<br>
+<div class="c"># <span data-i18n="cm2">check your local environment</span></div>
+<div class="cmd">go run ./cmd/jikji doctor</div>
+<br>
+<div class="c"># <span data-i18n="cm3">open the interactive chat TUI</span></div>
+<div class="cmd">go run ./cmd/jikjictl chat --mode tui</div>
+<br>
+<div class="c"># <span data-i18n="cm4">or call the OpenAI-compatible API</span></div>
+<div class="cmd">curl -X POST http://127.0.0.1:1377/v1/chat/completions \</div>
+<div style="padding-left:2ch">-H 'Content-Type: application/json' \</div>
+<div style="padding-left:2ch">-d '{"model":"jikji-echo","messages":[{"role":"user","content":"hello"}]}'</div>
+    </div>
+
+    <div class="dev-note">Jikji is under active pre-1.0 development. APIs and module boundaries may change. Review the repository's release evidence, security policy, and known limitations before production use.</div>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="seal">直</span><b>Jikji Labs</b></div>
+        <div class="small" data-i18n="foot.tagline">Movable type for the age of agents.</div>
+        <div class="small" style="margin-top:6px" data-i18n="foot.author">Built by Jioh L. Jung.</div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4 data-i18n="foot.explore">Explore</h4>
+          <a href="use-cases.html" data-i18n="nav.usecases">Use Cases</a>
+          <a href="architecture.html" data-i18n="nav.arch">Architecture</a>
+          <a href="agent-loop.html" data-i18n="nav.loop">Agent Loop</a>
+          <a href="jikjicode.html" data-i18n="nav.code">jikjicode</a>
+          <a href="tools.html" data-i18n="nav.tools">Tools</a>
+          <a href="orchestration.html" data-i18n="nav.orch">Orchestration</a>
+          <a href="memory.html" data-i18n="nav.memory">Memory &amp; Data</a>
+          <a href="ontology.html" data-i18n="nav.ontology">Ontology</a>
+          <a href="enterprise.html" data-i18n="nav.enterprise">Enterprise</a>
+        </div>
+        <div class="foot-col">
+          <h4 data-i18n="foot.project">Project</h4>
+          <a href="https://github.com/jikji-labs">GitHub</a>
+          <a href="licensing.html">Licensing</a>
+          <a href="docs/operations/alerting">Operations</a>
+          <a href="#why" data-i18n="nav.why">Why Jikji</a>
+          <a href="#start" data-i18n="nav.start">Get Started</a>
+          <a href="contact.html" data-i18n="nav.about">About &amp; Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/i18n/en.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+</body>
+</html>
